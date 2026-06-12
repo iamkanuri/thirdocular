@@ -20,30 +20,26 @@ npm run preview   # serve the production build locally
 
 ## Deploy
 
-The build output in `dist/` is fully static — any static host works.
+Live path: **GitHub Pages**. Every push to `main` builds and deploys via
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml) — no manual steps.
+The site serves at <https://iamkanuri.github.io/thirdocular/> until the custom
+domain is attached.
 
-### Vercel
+> GitHub Pages requires the repo to be public on the Free plan.
 
-```sh
-npx vercel --prod
-```
+### Attaching thirdocular.com
 
-Framework preset: **Vite**. Build command `npm run build`, output directory `dist`.
+1. Repo → Settings → Pages → Custom domain → `thirdocular.com`, save,
+   and tick **Enforce HTTPS** once the certificate is issued.
+2. At your DNS provider:
+   - Apex `thirdocular.com`: four A records →
+     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `www`: CNAME → `iamkanuri.github.io`
+3. `lens.thirdocular.com` is the AisleLens app — a separate deployment with its
+   own CNAME. Nothing in this repo touches it.
 
-### Netlify
-
-Build command `npm run build`, publish directory `dist`.
-
-### Cloudflare Pages
-
-Build command `npm run build`, output directory `dist`.
-
-### DNS
-
-- Point `thirdocular.com` (apex) and `www` at the host per its instructions
-  (Vercel: A `76.76.21.21` for apex, CNAME `cname.vercel-dns.com` for www).
-- `lens.thirdocular.com` is the AisleLens app — a separate deployment with its own
-  CNAME. Nothing in this repo touches it.
+The build output in `dist/` is fully static, so Vercel, Netlify, or Cloudflare
+Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
 
 ## Assets
 
