@@ -43,4 +43,27 @@ if (prefersReduced) {
       { passive: true }
     );
   }
+
+  /* Perception field: clarity resolves noise wherever the cursor looks. */
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const root = document.documentElement;
+    let lx = 0;
+    let ly = 0;
+    let lensTicking = false;
+    window.addEventListener(
+      'pointermove',
+      (e) => {
+        lx = e.clientX;
+        ly = e.clientY;
+        if (lensTicking) return;
+        lensTicking = true;
+        requestAnimationFrame(() => {
+          root.style.setProperty('--lens-x', `${lx}px`);
+          root.style.setProperty('--lens-y', `${ly}px`);
+          lensTicking = false;
+        });
+      },
+      { passive: true }
+    );
+  }
 }

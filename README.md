@@ -66,6 +66,9 @@ Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
   short declaratives, no hype words, no exclamation points.
 - New products go in the Signals section as numbered nodes (`002`, `003`…).
   Keep one line of description. Resist adding more.
-- Motion is atmosphere, not decoration: the rotating arcs, the orbiting point of
-  light, and the scroll reveals are the entire animation budget. `prefers-reduced-motion`
-  disables all of it.
+- Motion is atmosphere, not decoration. The full budget: the rotating arcs and
+  orbiting point of light in the iris; the wordmark's focus-pull on load; the
+  scroll reveals; the "LIVE" pulse on Signal 001; and the perception field — a
+  faint clarity (and thinning of the film grain) that follows the cursor on fine
+  pointers, defaulting to the iris otherwise. `prefers-reduced-motion` disables
+  all of it; the cursor effect also no-ops on touch.
