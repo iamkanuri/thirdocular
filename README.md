@@ -6,8 +6,11 @@ One page. Near-black. Quiet.
 ## Stack
 
 - [Vite](https://vitejs.dev) + vanilla HTML/CSS/JS — no framework, nothing to hydrate.
-- Fonts: Geist, Geist Mono, Instrument Serif via Google Fonts.
-- Ships ~6 KB gzipped (HTML + CSS + JS) plus fonts. No runtime dependencies.
+- Fonts: Geist, Geist Mono, Instrument Serif — self-hosted woff2 subsets in
+  `public/fonts` (no third-party requests). The latin faces are `<link rel="preload">`ed
+  and declared in an inline `@font-face` block in [index.html](index.html).
+- Ships ~6 KB gzipped (HTML + CSS + JS); the three above-the-fold latin fonts add ~75 KB.
+  No runtime dependencies.
 
 ## Develop
 
@@ -44,6 +47,9 @@ Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
 ## Assets
 
 - `public/favicon.svg` — the iris mark.
+- `public/icon-512.png`, `icon-192.png`, `apple-touch-icon.png` — app/touch icons,
+  rendered from `scripts/icon.html` (512 via headless Chrome, smaller sizes downscaled
+  from it). Referenced by `public/site.webmanifest`.
 - `public/og.png` — 1200×630 Open Graph card, rendered from `scripts/og.html`.
   Regenerate after a copy change:
 
@@ -51,6 +57,8 @@ Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
   chrome --headless=new --window-size=1200,630 --hide-scrollbars \
          --virtual-time-budget=8000 --screenshot=public/og.png scripts/og.html
   ```
+- `public/404.html` — standalone branded not-found page (inline styles, no build deps).
+- `public/sitemap.xml`, `robots.txt`, `site.webmanifest` — SEO and PWA metadata.
 
 ## Notes for editing
 

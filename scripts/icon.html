@@ -1,0 +1,46 @@
+<!doctype html>
+<!--
+  App/touch icon source. Regenerate the PNGs with:
+    chrome --headless=new --hide-scrollbars --window-size=512,512 \
+           --screenshot=public/icon-512.png scripts/icon.html
+    chrome --headless=new --hide-scrollbars --window-size=192,192 \
+           --screenshot=public/icon-192.png scripts/icon.html
+    chrome --headless=new --hide-scrollbars --window-size=180,180 \
+           --screenshot=public/apple-touch-icon.png scripts/icon.html
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background: #06070a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        width: 60%;
+        height: 60%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="25" fill="none" stroke="#ded9cc" stroke-opacity="0.9" stroke-width="2.4" />
+      <circle cx="32" cy="32" r="13" fill="none" stroke="#ded9cc" stroke-opacity="0.35" stroke-width="1.4" stroke-dasharray="0.4 4" />
+      <circle cx="32" cy="32" r="4" fill="#ded9cc" />
+      <circle cx="49" cy="15" r="3" fill="#ded9cc" />
+    </svg>
+  </body>
+</html>
