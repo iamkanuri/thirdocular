@@ -1,7 +1,7 @@
 {
   "name": "ThirdOcular",
   "short_name": "ThirdOcular",
-  "description": "An independent lab building instruments for hidden decision layers.",
+  "description": "Practical AI tools for understanding how businesses are recommended, ranked, and discovered.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#06070a",

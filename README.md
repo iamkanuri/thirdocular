@@ -1,7 +1,7 @@
 # ThirdOcular — thirdocular.com
 
-The umbrella site for ThirdOcular, an independent lab for applied machine perception.
-One page. Near-black. Quiet.
+The umbrella site for ThirdOcular — a product studio building practical software for
+decisions shaped by AI. One page. Near-black. Quiet.
 
 ## Stack
 
@@ -62,10 +62,10 @@ Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
 
 ## Notes for editing
 
-- All copy lives in `index.html`. The voice is a research lab, not a marketer:
-  short declaratives, no hype words, no exclamation points.
-- New products go in the Signals section as numbered nodes (`002`, `003`…).
-  Keep one line of description. Resist adding more.
+- All copy lives in `index.html`. The voice is a focused product studio, not a
+  marketer: short declaratives, concrete, no hype words, no exclamation points.
+- New products go in the Products section as numbered nodes (`002`, `003`…).
+  Keep the description to a couple of concise lines plus one capability line.
 - Motion is atmosphere, not decoration. The full budget: the rotating arcs and
   orbiting point of light in the iris; the wordmark's focus-pull on load; the
   scroll reveals; the "LIVE" pulse on Signal 001; and the perception field — a

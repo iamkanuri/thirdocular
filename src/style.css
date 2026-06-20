@@ -477,9 +477,22 @@ section {
 .signal-desc {
   display: block;
   font-size: 1rem;
+  line-height: 1.5;
   color: var(--text-dim);
   margin-top: 1.1rem;
-  max-width: 26rem;
+  max-width: 30rem;
+}
+
+.signal-capability {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  color: var(--text-faint);
+  margin-top: 1.3rem;
+  max-width: 30rem;
 }
 
 .signal-cta {
@@ -596,11 +609,6 @@ section {
   font-size: 0.66rem;
   letter-spacing: 0.14em;
   color: var(--text-faint);
-}
-
-.foot-motto {
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
 }
 
 /* ============ reveal on scroll ============ */

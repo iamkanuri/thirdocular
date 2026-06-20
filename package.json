@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "ThirdOcular — an independent lab for applied machine perception.",
+  "description": "ThirdOcular — practical tools for decisions shaped by AI.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
