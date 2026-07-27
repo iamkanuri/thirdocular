@@ -1,18 +1,35 @@
 /* ============================================================
    ThirdOcular — thirdocular.com
-   Near-black, instrument-grade, quiet.
+   Deep navy, instrument-grade, quiet.
    ============================================================ */
 
+/* ── shared company palette ──────────────────────────────────
+   navy        #1B2131  base / ink
+   slate       #4F6890  structure, borders, accent
+   slate-light #7B9BC7  brightest accent on dark
+   ice         #CBD8E4  body text on dark
+
+   The remaining two company hues — tan and crimson — belong to
+   the requires-store-access and not-proven result states. There
+   are no result states on this site, so neither hue appears
+   here, not even as a literal in a comment. Do not introduce
+   them: crimson means something failed, and nothing on this
+   page can fail.
+   ─────────────────────────────────────────────────────────── */
+
 :root {
-  --bg: #06070a;
-  --bg-raise: #0a0c11;
-  --line: rgba(235, 236, 240, 0.08);
-  --line-strong: rgba(235, 236, 240, 0.18);
-  --text: #e9eaee;
-  --text-dim: #a3a5ae;
-  --text-faint: #7c7f8a;
-  --warm: #ded9cc;
-  --warm-dim: #aaa699;
+  --navy: #1b2131;
+  --slate: #4f6890;
+  --slate-light: #7b9bc7;
+  --ice: #cbd8e4;
+
+  --bg: var(--navy);
+  --line: rgba(79, 104, 144, 0.3);
+  --line-strong: rgba(79, 104, 144, 0.65);
+  --text: var(--ice);
+  --text-dim: #a3b1c4;
+  --text-faint: #8a97ab;
+  --accent: var(--slate-light);
   --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, 'Cascadia Mono', monospace;
   --font-serif: 'Instrument Serif', Georgia, serif;
@@ -35,7 +52,7 @@ html {
 
 body {
   background-color: var(--bg);
-  background-image: radial-gradient(1100px 640px at 50% -12%, #0b0d13, transparent 65%);
+  background-image: radial-gradient(1100px 640px at 50% -12%, #232b3d, transparent 65%);
   background-repeat: no-repeat;
   color: var(--text);
   font-family: var(--font-sans);
@@ -43,7 +60,6 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -66,8 +82,8 @@ body::after {
 }
 
 ::selection {
-  background: var(--warm);
-  color: var(--bg);
+  background: var(--ice);
+  color: var(--navy);
 }
 
 a {
@@ -76,7 +92,7 @@ a {
 }
 
 :focus-visible {
-  outline: 1px solid rgba(235, 236, 240, 0.55);
+  outline: 1px solid rgba(203, 216, 228, 0.6);
   outline-offset: 4px;
 }
 
@@ -89,7 +105,7 @@ a {
   opacity: 0;
   background: radial-gradient(
     240px circle at var(--lens-x) var(--lens-y),
-    rgba(206, 214, 234, 0.05),
+    rgba(203, 216, 228, 0.06),
     transparent 68%
   );
   mix-blend-mode: screen;
@@ -160,7 +176,7 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(235, 236, 240, 0.55) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(203, 216, 228, 0.55) 1px, transparent 1px);
   background-size: 30px 30px;
   opacity: 0.06;
   -webkit-mask-image: radial-gradient(ellipse 58% 52% at 50% 40%, black, transparent 72%);
@@ -190,8 +206,8 @@ a {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(235, 236, 240, 0.07) 22%,
-    rgba(235, 236, 240, 0.07) 78%,
+    rgba(123, 155, 199, 0.14) 22%,
+    rgba(123, 155, 199, 0.14) 78%,
     transparent 100%
   );
   pointer-events: none;
@@ -204,7 +220,7 @@ a {
   width: 560px;
   height: 560px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(closest-side, rgba(195, 202, 220, 0.07), transparent 72%);
+  background: radial-gradient(closest-side, rgba(123, 155, 199, 0.12), transparent 72%);
   pointer-events: none;
 }
 
@@ -236,7 +252,7 @@ a {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(1.3rem, 3vw, 1.85rem);
-  color: var(--warm-dim);
+  color: var(--accent);
   margin-top: 1.4rem;
 }
 
@@ -246,7 +262,7 @@ a {
   left: 50%;
   width: 1px;
   height: 64px;
-  background: linear-gradient(to bottom, transparent, rgba(235, 236, 240, 0.3));
+  background: linear-gradient(to bottom, transparent, rgba(123, 155, 199, 0.45));
   overflow: hidden;
 }
 
@@ -257,7 +273,7 @@ a {
   top: -40%;
   width: 100%;
   height: 40%;
-  background: linear-gradient(to bottom, transparent, var(--warm));
+  background: linear-gradient(to bottom, transparent, var(--accent));
   animation: cue 3.2s ease-in-out infinite;
 }
 
@@ -446,20 +462,20 @@ section {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--warm);
-  box-shadow: 0 0 0 0 rgba(222, 217, 204, 0.5);
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(123, 155, 199, 0.5);
   animation: live-pulse 2.6s ease-out infinite;
 }
 
 @keyframes live-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(222, 217, 204, 0.45);
+    box-shadow: 0 0 0 0 rgba(123, 155, 199, 0.45);
   }
   70% {
-    box-shadow: 0 0 0 7px rgba(222, 217, 204, 0);
+    box-shadow: 0 0 0 7px rgba(123, 155, 199, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(222, 217, 204, 0);
+    box-shadow: 0 0 0 0 rgba(123, 155, 199, 0);
   }
 }
 
@@ -501,7 +517,7 @@ section {
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--warm-dim);
+  color: var(--accent);
   white-space: nowrap;
   transition: color 0.4s ease;
 }
@@ -512,7 +528,7 @@ section {
 }
 
 .signal:hover .signal-cta {
-  color: var(--warm);
+  color: var(--text);
 }
 
 .signal:hover .arrow {
@@ -549,8 +565,8 @@ section {
 }
 
 .closing-contact:hover {
-  color: var(--warm);
-  border-color: var(--warm-dim);
+  color: var(--text);
+  border-color: var(--accent);
 }
 
 /* ============ footer ============ */

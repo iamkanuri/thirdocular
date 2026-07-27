@@ -1,7 +1,31 @@
 # ThirdOcular — thirdocular.com
 
 The umbrella site for ThirdOcular — a product studio building practical software for
-decisions shaped by AI. One page. Near-black. Quiet.
+decisions shaped by AI. One page. Deep navy. Quiet.
+
+## Palette
+
+Shared with the product sites so the two read as one company. Tokens live in
+`:root` at the top of [src/style.css](src/style.css).
+
+| token         | hex       | role                                   |
+| ------------- | --------- | -------------------------------------- |
+| `navy`        | `#1B2131` | base / ink                             |
+| `slate`       | `#4F6890` | structure, borders, accent             |
+| `slate-light` | `#7B9BC7` | brightest accent on dark               |
+| `ice`         | `#CBD8E4` | body text on dark                      |
+
+Two further company hues — **tan** (requires-store-access) and **crimson**
+(not-proven) — are reserved for result states. **Crimson appears only where
+something failed**: never a button, link, logo, heading, or hover state. This site
+has no result states, so neither hue appears here at all, not even as a literal in
+a comment. Do not introduce them.
+
+`slate` is 2.84:1 on `navy` — structure only, never text. The text ramp is `ice`
+(11.07:1), `--text-dim` `#A3B1C4` (7.37:1), `--text-faint` `#8A97AB` (5.42:1);
+`slate-light` as accent text is 5.62:1. All clear 4.5:1, including over the
+lightest point of the body gradient (`#232B3D`), where the ratios fall to 9.76,
+6.50, 4.78 and 4.96 respectively.
 
 ## Stack
 
@@ -33,7 +57,7 @@ domain is attached.
 ### Attaching thirdocular.com
 
 1. Repo → Settings → Pages → Custom domain → `thirdocular.com`, save,
-   and tick **Enforce HTTPS** once the certificate is issued.
+   and tick **Enforce HTTPS** once GitHub has provisioned TLS for the domain.
 2. At your DNS provider:
    - Apex `thirdocular.com`: four A records →
      `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
@@ -60,10 +84,30 @@ Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
 - `public/404.html` — standalone branded not-found page (inline styles, no build deps).
 - `public/sitemap.xml`, `robots.txt`, `site.webmanifest` — SEO and PWA metadata.
 
+> ⚠️ **The rasterised assets are one palette behind.** `scripts/og.html` and
+> `scripts/icon.html` are on the navy palette, but `public/og.png`, `icon-512.png`,
+> `icon-192.png` and `apple-touch-icon.png` are still the rendered near-black
+> versions — regenerating them needs headless Chrome, and `og.html` additionally
+> pulls Geist and Instrument Serif from Google Fonts at render time. Re-run both
+> commands above before the next deploy. `favicon.svg` is served as source, so it
+> is already correct.
+
 ## Notes for editing
 
 - All copy lives in `index.html`. The voice is a focused product studio, not a
   marketer: short declaratives, concrete, no hype words, no exclamation points.
+  Write in the present tense about what exists today — no "coming", no "will".
+- **Vocabulary that must not appear in any rendered string.** <!-- vocab-rule: this
+  bullet is the ONLY place these words may appear in the repo; exclude README.md
+  from any automated ban sweep, and scope the sweep to dist/, index.html and
+  public/404.html. --> Banned until true:
+  certification, certified, standards body, accredited, trusted by, guaranteed,
+  any user count, any revenue figure, any claim about what an AI system will do.
+  Banned permanently: score, ranking, visibility, share of voice, GEO,
+  optimise/optimize, boost — and "recommend" in the sense of predicting an
+  assistant's behaviour. AisleLens measured that once; it does not any more.
+  (The `Georgia` serif fallback in `--font-serif` contains the substring `geo`.
+  It is a font stack, not copy — match `GEO` on a word boundary.)
 - New products go in the Products section as numbered nodes (`002`, `003`…).
   Keep the description to a couple of concise lines plus one capability line.
 - Motion is atmosphere, not decoration. The full budget: the rotating arcs and

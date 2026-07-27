@@ -1,11 +1,11 @@
 {
   "name": "ThirdOcular",
   "short_name": "ThirdOcular",
-  "description": "Practical AI tools for understanding how businesses are recommended, ranked, and discovered.",
+  "description": "Practical tools for decisions shaped by AI.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#06070a",
-  "theme_color": "#06070a",
+  "background_color": "#1B2131",
+  "theme_color": "#1B2131",
   "icons": [
     { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" },
     { "src": "icon-192.png", "type": "image/png", "sizes": "192x192" },
