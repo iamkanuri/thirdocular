@@ -40,10 +40,45 @@ lightest point of the body gradient (`#232B3D`), where the ratios fall to 9.76,
 
 ```sh
 npm install
-npm run dev       # http://localhost:5173
-npm run build     # outputs to dist/
-npm run preview   # serve the production build locally
+npm run dev        # http://localhost:5173
+npm run check:copy # the shared-copy gate (see below); build runs it first
+npm run build      # check:copy && vite build -> dist/
+npm run preview    # serve the production build locally
 ```
+
+### The shared-copy gate
+
+`npm run build` runs [scripts/check-copy.mjs](scripts/check-copy.mjs) **before** Vite and
+refuses to build on a mismatch. It asserts that the rendered text of `.signal-kind`,
+`.signal-desc` and `.signal-capability` in `index.html` is EQUAL — after HTML-entity
+decoding and whitespace collapsing — to `kind` / `description` / `capabilities` served by
+<https://lens.thirdocular.com/api/brand.json>, which come from the constants `PRODUCT_KIND`,
+`PRODUCT_DESCRIPTION` and `PRODUCT_CAPABILITIES` in the AisleLens repo's `viewer/src/copy.ts`.
+
+It exists because this page and the product **drifted by one word** and nothing noticed:
+this site said a requirement is reported as "pass, not proven, or requires store access";
+the product says "proven". Both sites had been audited and both had passed, because every
+check that ran was an *absence* sweep — banned vocabulary, retired palette. An absence
+check can only see words that are gone; it cannot see a paragraph that sells the wrong
+product. This one is a *presence* check over shared content, which is the only kind that can.
+
+Three things about it are deliberate:
+
+- **A check that could not run is not a passing check.** A network failure, a 404, a
+  non-JSON body, a missing field, or a missing span exits `1` with an `INCOMPLETE` banner —
+  never `0`. `/api/brand.json` is not deployed yet, so today the gate legitimately reports
+  `INCOMPLETE — HTTP 404`. That is the correct behaviour, and the build is meant to stop.
+- **A two-sided liveness canary runs first.** The comparator is exercised on a pair that
+  must match and a pair that must differ (and the entity pipeline on a curly vs ASCII
+  apostrophe) before any real comparison. A comparator normalised into one that can never
+  report a mismatch would otherwise pass every deploy while the sites drift.
+- **The bypass is loud and named.** `SKIP_COPY_CHECK=1` skips the gate and prints a banner
+  saying nothing was verified. `COPY_CHECK_FIXTURE=<file.json>` compares against a local
+  file instead of the API for development, prints a banner, and is **refused under CI**.
+
+If the two ever disagree, fix whichever side is wrong — do not relax the comparator. In
+particular the apostrophes in that block are ASCII `'`, not the typographic `’` used
+elsewhere on the page, because the served constants are.
 
 ## Deploy
 
@@ -94,7 +129,10 @@ Pages also work (build `npm run build`, output `dist`) if hosting ever moves.
 
 ## Notes for editing
 
-- All copy lives in `index.html`. The voice is a focused product studio, not a
+- All copy lives in `index.html` — **except** the three spans in the AisleLens product
+  block, which are shared content owned by the product and enforced by the copy gate
+  above. Edit those on the AisleLens side (`viewer/src/copy.ts`), deploy it, then copy the
+  served string here verbatim. The voice is a focused product studio, not a
   marketer: short declaratives, concrete, no hype words, no exclamation points.
   Write in the present tense about what exists today — no "coming", no "will".
 - **Vocabulary that must not appear in any rendered string.** <!-- vocab-rule: this

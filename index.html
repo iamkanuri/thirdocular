@@ -227,6 +227,22 @@
           <div class="signals-body">
             <p class="signals-intro reveal">Our first product is live.</p>
 
+            <!--
+              ⚠️ The rendered text of .signal-kind, .signal-desc and .signal-capability is
+              SHARED CONTENT, not local copy. It must decode + whitespace-collapse to exactly
+              PRODUCT_KIND / PRODUCT_DESCRIPTION / PRODUCT_CAPABILITIES, which lens.thirdocular.com
+              serves at GET /api/brand.json. `npm run build` runs scripts/check-copy.mjs and
+              refuses to deploy on a mismatch.
+
+              This block already drifted once, by ONE WORD ("pass" where the product says
+              "proven"), and v3.2 audited both sites and passed them — every check it ran was an
+              ABSENCE sweep, and an absence check cannot see a paragraph that sells the wrong
+              product. It can only see words that are gone.
+
+              The apostrophes here are ASCII U+0027, not the typographic ’ used elsewhere on this
+              page, because the served constants are. Do not "fix" them: the comparison is on
+              decoded characters, so a curly quote fails the build.
+            -->
             <a class="signal reveal" href="https://lens.thirdocular.com">
               <span class="signal-no">001</span>
               <span class="signal-main">
@@ -237,11 +253,11 @@
                 <span class="signal-desc"
                   >A buying standard is the set of questions a competent buyer asks in a category,
                   written down, versioned, and executable. AisleLens publishes them, then runs them
-                  against a store’s real product pages — reporting every requirement as pass, not
+                  against a store's real product pages — reporting every requirement as proven, not
                   proven, or requires store access, with the evidence that decided it.</span
                 >
                 <span class="signal-capability"
-                  >Versioned standards, published in full&nbsp;· Run against a store’s public
+                  >Versioned standards, published in full&nbsp;· Run against a store's public
                   product pages&nbsp;· Per-requirement results with the evidence</span
                 >
               </span>
