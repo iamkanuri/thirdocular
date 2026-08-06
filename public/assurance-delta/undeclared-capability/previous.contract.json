@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.1",
+  "identity": {
+    "agent_id": "acme-records-assistant",
+    "display_name": "Records Assistant",
+    "agent_version": "2.2.0",
+    "owner": {
+      "team": "Records Platform",
+      "accountable_role": "Records Platform Engineering Lead",
+      "contact_ref": "team-directory://records-platform"
+    },
+    "business_purpose": "Answers questions about the records register by reading it. Declared read-only: it holds no write scope, takes no action that changes a record, and has no way to transmit anything outside the platform.",
+    "criticality": "high",
+    "lifecycle_state": "production",
+    "repository": {
+      "reference": "fixtures/ts-agent",
+      "revision": "v2.2.0"
+    },
+    "declaration_state": "owner_declared"
+  },
+  "skills": [
+    {
+      "skill_id": "records-question-answering",
+      "purpose": "Read register records and answer questions about them for the calling user.",
+      "data_classes": [
+        "personal_data",
+        "internal"
+      ],
+      "side_effects": [],
+      "required_permissions": [
+        "accounts.read",
+        "records.read"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "model_id": "primary",
+      "role": "records-qa",
+      "identifier": "claude-sonnet-4-5-20250929",
+      "version": "20250929",
+      "version_policy": "pinned",
+      "auto_upgrade_allowed": false
+    }
+  ],
+  "prompts": [],
+  "tools": [
+    {
+      "tool_id": "lookup-account",
+      "display_name": "lookup_account",
+      "aliases": [],
+      "side_effect": "read",
+      "input_schema_ref": "src/tools/schemas.ts#AccountLookupSchema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "accounts.read"
+      ],
+      "approval": {
+        "policy": "auto_allow",
+        "approval_class": null,
+        "condition": null
+      },
+      "idempotent": true,
+      "timeout_ms": 30000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    },
+    {
+      "tool_id": "search-records",
+      "display_name": "search_records",
+      "aliases": [],
+      "side_effect": "read",
+      "input_schema_ref": "src/tools/schemas.ts#RecordSearchSchema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "records.read"
+      ],
+      "approval": {
+        "policy": "auto_allow",
+        "approval_class": null,
+        "condition": null
+      },
+      "idempotent": true,
+      "timeout_ms": 30000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    }
+  ],
+  "data_sinks": [
+    {
+      "sink_id": "records-register",
+      "direction": "bidirectional",
+      "data_classifications": [
+        "personal_data",
+        "internal"
+      ],
+      "external": false,
+      "permitted_destinations": [
+        "register.internal.acme.example"
+      ]
+    }
+  ],
+  "autonomy": {
+    "autonomy_level": "human_in_the_loop",
+    "trigger_modes": [
+      "human_initiated"
+    ],
+    "destructive_action_inventory": [],
+    "approval_classes": [],
+    "maximum_plausible_blast_radius": {
+      "scope": "single_customer",
+      "monetary_ceiling_usd": 0,
+      "description": "One customer's records per run, read and returned to the caller who asked. No declared tool writes, sends or spends, so a single bad run discloses at most what the caller could already see."
+    }
+  },
+  "containment": {
+    "session_budget": {
+      "max_tokens": 40000,
+      "max_cost_usd": 1,
+      "max_wall_clock_ms": 60000
+    },
+    "user_budget": {
+      "max_runs_per_hour": 60,
+      "max_cost_usd_per_day": 20
+    },
+    "retry_ceiling": 3,
+    "loop_ceiling": 6,
+    "default_timeout_ms": 30000
+  }
+}

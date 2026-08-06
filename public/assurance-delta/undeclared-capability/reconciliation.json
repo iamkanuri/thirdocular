@@ -1,0 +1,647 @@
+{
+  "artifact": "reconciliation",
+  "artifact_version": "0.1",
+  "contract_ref": {
+    "agent_id": "acme-records-assistant",
+    "agent_version": "2.3.0",
+    "declaration_state": "owner_declared",
+    "canonical_hash": "a6ee1c007f083b540ba1db30f260f855cc853fe67090b8e07b400cfdcbd0d1e0"
+  },
+  "observation_ref": {
+    "subject": "records-assistant",
+    "completeness": "complete",
+    "canonical_hash": "ad7e31b027d7666ba21838cb2f4a8d3b2756f815975fdf905b7fa17403cbd2b5",
+    "adapters": [
+      {
+        "adapter_id": "json-manifest",
+        "version": "0.1.0",
+        "status": "ok"
+      },
+      {
+        "adapter_id": "typescript-source",
+        "version": "0.1.0",
+        "status": "ok"
+      }
+    ]
+  },
+  "completeness": "complete",
+  "counts": {
+    "match": 9,
+    "observed_not_declared": 3,
+    "not_observable": 5,
+    "declared_not_observed": 9
+  },
+  "items": [
+    {
+      "item_id": "approval:lookup-account",
+      "domain": "approval",
+      "subject": "lookup-account",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": "auto_allow",
+        "path": "tools/*/approval/policy"
+      },
+      "observed": [
+        {
+          "value": "auto_allow",
+          "confidence": "medium",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 28,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "inferred",
+            "basis": "read from a boolean flag on the definition, which is a configuration value beside the tool rather than an enforcement point in front of it"
+          }
+        }
+      ],
+      "pairing_basis": "tool_pairing",
+      "note": "the declared approval policy is the one the inventory states. Note that an inventory states a policy; it does not enforce one."
+    },
+    {
+      "item_id": "approval:post-to-partner-webhook",
+      "domain": "approval",
+      "subject": "post-to-partner-webhook",
+      "attribute": null,
+      "state": "observed_not_declared",
+      "declared": null,
+      "observed": [
+        {
+          "value": "auto_allow",
+          "confidence": "medium",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 69,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "inferred",
+            "basis": "read from a boolean flag on the definition, which is a configuration value beside the tool rather than an enforcement point in front of it"
+          }
+        }
+      ],
+      "pairing_basis": null,
+      "note": "an approval policy was read for an action that no declared tool corresponds to. Either the inventory names something the contract does not, or the contract names it under an id nothing links to."
+    },
+    {
+      "item_id": "approval:search-records",
+      "domain": "approval",
+      "subject": "search-records",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": "auto_allow",
+        "path": "tools/*/approval/policy"
+      },
+      "observed": [
+        {
+          "value": "auto_allow",
+          "confidence": "medium",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 39,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "inferred",
+            "basis": "read from a boolean flag on the definition, which is a configuration value beside the tool rather than an enforcement point in front of it"
+          }
+        }
+      ],
+      "pairing_basis": "tool_pairing",
+      "note": "the declared approval policy is the one the inventory states. Note that an inventory states a policy; it does not enforce one."
+    },
+    {
+      "item_id": "containment:default_timeout_ms",
+      "domain": "containment",
+      "subject": "default_timeout_ms",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 30000,
+        "path": "containment/default_timeout_ms"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:loop_ceiling",
+      "domain": "containment",
+      "subject": "loop_ceiling",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 6,
+        "path": "containment/loop_ceiling"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:retry_ceiling",
+      "domain": "containment",
+      "subject": "retry_ceiling",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 3,
+        "path": "containment/retry_ceiling"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:session_budget.max_cost_usd",
+      "domain": "containment",
+      "subject": "session_budget.max_cost_usd",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 1,
+        "path": "containment/session_budget/max_cost_usd"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:session_budget.max_tokens",
+      "domain": "containment",
+      "subject": "session_budget.max_tokens",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 40000,
+        "path": "containment/session_budget/max_tokens"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:session_budget.max_wall_clock_ms",
+      "domain": "containment",
+      "subject": "session_budget.max_wall_clock_ms",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 60000,
+        "path": "containment/session_budget/max_wall_clock_ms"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:user_budget.max_cost_usd_per_day",
+      "domain": "containment",
+      "subject": "user_budget.max_cost_usd_per_day",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 20,
+        "path": "containment/user_budget/max_cost_usd_per_day"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "containment:user_budget.max_runs_per_hour",
+      "domain": "containment",
+      "subject": "user_budget.max_runs_per_hour",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": 60,
+        "path": "containment/user_budget/max_runs_per_hour"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "declared in the contract and not found in configuration in the scanned tree"
+    },
+    {
+      "item_id": "external_destination:register.internal.acme.example",
+      "domain": "external_destination",
+      "subject": "register.internal.acme.example",
+      "attribute": null,
+      "state": "declared_not_observed",
+      "declared": {
+        "value": "register.internal.acme.example",
+        "path": "data_sinks/0/permitted_destinations",
+        "sinks": [
+          "records-register"
+        ]
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "permitted by a declared sink and not reached anywhere in the scanned tree. Endpoints configured outside the repository are invisible here."
+    },
+    {
+      "item_id": "model:primary",
+      "domain": "model",
+      "subject": "primary",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": {
+          "identifier": "claude-sonnet-4-5-20250929",
+          "version": "20250929",
+          "version_policy": "pinned"
+        },
+        "path": "models/0"
+      },
+      "observed": [
+        {
+          "value": {
+            "identifier": "claude-sonnet-4-5-20250929"
+          },
+          "confidence": "high",
+          "adapter_id": "json-manifest",
+          "provenance": {
+            "file": "src/agent.ts",
+            "line": 6,
+            "collection_method": "source_literal",
+            "collector": {
+              "adapter": "json-manifest",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": "identifier",
+      "note": "the declared model identifier is the one the implementation names"
+    },
+    {
+      "item_id": "principal:effective_principal",
+      "domain": "principal",
+      "subject": "effective_principal",
+      "attribute": null,
+      "state": "not_observable",
+      "declared": {
+        "value": [
+          "end_user"
+        ],
+        "path": "tools/*/effective_principal"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "identity propagation is a runtime property: Which principal a downstream call actually carries is a runtime property. A shared service account named in configuration is reported; identity propagation working correctly is not observable from a repository."
+    },
+    {
+      "item_id": "scope:accounts.read",
+      "domain": "scope",
+      "subject": "accounts.read",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": "accounts.read",
+        "path": "tools/0/required_scopes",
+        "held_by": [
+          "lookup-account"
+        ]
+      },
+      "observed": [
+        {
+          "value": "accounts.read",
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 36,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": null,
+      "note": "declared by at least one tool and found in configuration"
+    },
+    {
+      "item_id": "scope:records.read",
+      "domain": "scope",
+      "subject": "records.read",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": "records.read",
+        "path": "tools/1/required_scopes",
+        "held_by": [
+          "search-records"
+        ]
+      },
+      "observed": [
+        {
+          "value": "records.read",
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 47,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": null,
+      "note": "declared by at least one tool and found in configuration"
+    },
+    {
+      "item_id": "scope:webhook.post",
+      "domain": "scope",
+      "subject": "webhook.post",
+      "attribute": null,
+      "state": "observed_not_declared",
+      "declared": null,
+      "observed": [
+        {
+          "value": "webhook.post",
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 77,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": null,
+      "note": "granted in configuration and required by no declared tool. A scope nothing needs is a scope that survives to the next incident."
+    },
+    {
+      "item_id": "tool:lookup-account",
+      "domain": "tool",
+      "subject": "lookup-account",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": "lookup-account",
+        "path": "tools/0"
+      },
+      "observed": [
+        {
+          "value": {
+            "display_name": "lookup_account",
+            "description": "Look up one account record by its account number.",
+            "definition_pattern": "object_literal",
+            "wrapper": null,
+            "registered_in": "TOOLS",
+            "input_schema_ref": "AccountLookupSchema",
+            "timeout_ms": 30000,
+            "max_retries": 3,
+            "destructive": null
+          },
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 28,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": "stable_id",
+      "note": "declared and observed, paired on the stable id"
+    },
+    {
+      "item_id": "tool:post-to-partner-webhook",
+      "domain": "tool",
+      "subject": "post-to-partner-webhook",
+      "attribute": null,
+      "state": "observed_not_declared",
+      "declared": null,
+      "observed": [
+        {
+          "value": {
+            "display_name": "post_to_partner_webhook",
+            "description": "Send the record payload to the partner integration endpoint.",
+            "definition_pattern": "wrapper_call",
+            "wrapper": "defineTool",
+            "registered_in": "TOOLS",
+            "input_schema_ref": "WebhookPayloadSchema",
+            "timeout_ms": 15000,
+            "max_retries": 5,
+            "destructive": null
+          },
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 69,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": null,
+      "note": "found in the implementation and named by no declaration. This is drift, not a failure: a legitimately added tool looks exactly like this until somebody declares it. If it is a rename of a declared tool, the contract must say so through an alias — a rename is never inferred."
+    },
+    {
+      "item_id": "tool:search-records",
+      "domain": "tool",
+      "subject": "search-records",
+      "attribute": null,
+      "state": "match",
+      "declared": {
+        "value": "search-records",
+        "path": "tools/1"
+      },
+      "observed": [
+        {
+          "value": {
+            "display_name": "search_records",
+            "description": "Search the records index and return matching rows.",
+            "definition_pattern": "object_literal",
+            "wrapper": null,
+            "registered_in": "TOOLS",
+            "input_schema_ref": "RecordSearchSchema",
+            "timeout_ms": 30000,
+            "max_retries": 3,
+            "destructive": null
+          },
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 39,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": "stable_id",
+      "note": "declared and observed, paired on the stable id"
+    },
+    {
+      "item_id": "tool_attribute:lookup-account:dynamic_loading_allowed",
+      "domain": "tool_attribute",
+      "subject": "lookup-account",
+      "attribute": "dynamic_loading_allowed",
+      "state": "not_observable",
+      "declared": {
+        "value": false,
+        "path": "tools/*/dynamic_loading_allowed"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "Whether a dispatcher resolves a tool name computed at run time is a property of the dispatcher, not of the manifest. Reported only where an execution sink over model-shaped input is visible in configuration. This is reported as not observable rather than as agreement: absence of evidence is not evidence in either direction."
+    },
+    {
+      "item_id": "tool_attribute:lookup-account:outbound_transmission",
+      "domain": "tool_attribute",
+      "subject": "lookup-account",
+      "attribute": "outbound_transmission",
+      "state": "not_observable",
+      "declared": {
+        "value": false,
+        "path": "tools/*/outbound_transmission"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "A JSON manifest does not say whether a tool can carry content out of the trust boundary. This adapter reports the capability only where a name or description asserts it, and never reports its absence. This is reported as not observable rather than as agreement: absence of evidence is not evidence in either direction."
+    },
+    {
+      "item_id": "tool_attribute:lookup-account:side_effect",
+      "domain": "tool_attribute",
+      "subject": "lookup-account",
+      "attribute": "side_effect",
+      "state": "match",
+      "declared": {
+        "value": "read",
+        "path": "tools/*/side_effect"
+      },
+      "observed": [
+        {
+          "value": "read",
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 28,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": "tool_pairing",
+      "note": "the declared side-effect classification is what the implementation shows"
+    },
+    {
+      "item_id": "tool_attribute:search-records:dynamic_loading_allowed",
+      "domain": "tool_attribute",
+      "subject": "search-records",
+      "attribute": "dynamic_loading_allowed",
+      "state": "not_observable",
+      "declared": {
+        "value": false,
+        "path": "tools/*/dynamic_loading_allowed"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "Whether a dispatcher resolves a tool name computed at run time is a property of the dispatcher, not of the manifest. Reported only where an execution sink over model-shaped input is visible in configuration. This is reported as not observable rather than as agreement: absence of evidence is not evidence in either direction."
+    },
+    {
+      "item_id": "tool_attribute:search-records:outbound_transmission",
+      "domain": "tool_attribute",
+      "subject": "search-records",
+      "attribute": "outbound_transmission",
+      "state": "not_observable",
+      "declared": {
+        "value": false,
+        "path": "tools/*/outbound_transmission"
+      },
+      "observed": [],
+      "pairing_basis": null,
+      "note": "A JSON manifest does not say whether a tool can carry content out of the trust boundary. This adapter reports the capability only where a name or description asserts it, and never reports its absence. This is reported as not observable rather than as agreement: absence of evidence is not evidence in either direction."
+    },
+    {
+      "item_id": "tool_attribute:search-records:side_effect",
+      "domain": "tool_attribute",
+      "subject": "search-records",
+      "attribute": "side_effect",
+      "state": "match",
+      "declared": {
+        "value": "read",
+        "path": "tools/*/side_effect"
+      },
+      "observed": [
+        {
+          "value": "read",
+          "confidence": "high",
+          "adapter_id": "typescript-source",
+          "provenance": {
+            "file": "src/tools/registry.ts",
+            "line": 39,
+            "collection_method": "source_ast",
+            "collector": {
+              "adapter": "typescript-source",
+              "version": "0.1.0"
+            },
+            "derivation": "direct",
+            "basis": null
+          }
+        }
+      ],
+      "pairing_basis": "tool_pairing",
+      "note": "the declared side-effect classification is what the implementation shows"
+    }
+  ],
+  "notes": [],
+  "volatile": {
+    "reconciled_at": "2026-08-06T14:08:37.210Z"
+  },
+  "canonical_hash": "810b92580de245cc151043f4e45de6b1d66296517cba72e2bcb802023e67d57a"
+}

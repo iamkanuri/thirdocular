@@ -1,0 +1,1510 @@
+{
+  "artifact": "ars-delta",
+  "artifact_version": "0.1",
+  "subject": {
+    "agent_id": "acme-records-assistant",
+    "previous_version": "2.2.0",
+    "current_version": "2.3.0"
+  },
+  "previous_ref": {
+    "contract_hash": "d32d776b7ed6407a86e73e40a2fbc4f2960564bde515fa795b452a508417ef66",
+    "agent_version": "2.2.0",
+    "declaration_state": "owner_declared",
+    "observation_hash": null,
+    "observation_completeness": null,
+    "reconciliation_hash": null,
+    "reconciliation_completeness": null
+  },
+  "current_ref": {
+    "contract_hash": "a6ee1c007f083b540ba1db30f260f855cc853fe67090b8e07b400cfdcbd0d1e0",
+    "agent_version": "2.3.0",
+    "declaration_state": "owner_declared",
+    "observation_hash": "ad7e31b027d7666ba21838cb2f4a8d3b2756f815975fdf905b7fa17403cbd2b5",
+    "observation_completeness": "complete",
+    "reconciliation_hash": "810b92580de245cc151043f4e45de6b1d66296517cba72e2bcb802023e67d57a",
+    "reconciliation_completeness": "complete"
+  },
+  "methodology_ref": {
+    "methodology_version": "0.1",
+    "standard": {
+      "standard_id": "ARS",
+      "version": "1.0",
+      "hash": "12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c"
+    }
+  },
+  "basis": "declarations_and_observations",
+  "completeness": "complete",
+  "changes": [
+    {
+      "change_id": "destructive_action_added:post-to-partner-webhook",
+      "category": "destructive_action_added",
+      "domain": "tools",
+      "subject": "post-to-partner-webhook",
+      "severity": "critical",
+      "authority_expanding": true,
+      "before": null,
+      "after": {
+        "path": "tool:post-to-partner-webhook",
+        "value": "send"
+      },
+      "explanation": "the agent can now create, modify, delete, send or spend where it previously could not. post-to-partner-webhook is observed as send, so the running agent can transmit to recipients and the declaration does not say so. Nothing in the contract inventories it, which means no approval gate stands in front of it and no evaluation case points at it.",
+      "claims": [],
+      "observed_support": [
+        {
+          "source": "reconciliation",
+          "state": "observed_not_declared",
+          "adapter_id": "typescript-source",
+          "file": "src/tools/registry.ts",
+          "line": 69,
+          "derivation": "direct",
+          "confidence": "high"
+        }
+      ],
+      "affected_controls": [
+        "ARS-37",
+        "ARS-41"
+      ],
+      "affected_control_detail": [
+        {
+          "control_id": "ARS-37",
+          "citation_id": "ARS-1.0-37",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-41",
+          "citation_id": "ARS-1.0-41",
+          "applicability": true
+        }
+      ],
+      "evidence_invalidated": [
+        "ev-incident-taxonomy",
+        "ev-review-board-package"
+      ],
+      "evidence_retained": [
+        "ev-approval-gate-enforced",
+        "ev-approval-volume-measured",
+        "ev-audit-identity-separated",
+        "ev-audit-plane-immutable",
+        "ev-budget-ceilings",
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-cross-tool-flow-policy",
+        "ev-destructive-inventory-complete",
+        "ev-eval-covers-destructive",
+        "ev-eval-suite-versioned",
+        "ev-exfiltration-channels-enumerated",
+        "ev-feedback-loop-instrumented",
+        "ev-idempotency-keys",
+        "ev-identity-propagation-trace",
+        "ev-injection-suite-run",
+        "ev-no-secrets-in-prompts",
+        "ev-prompt-config-versioned",
+        "ev-retention-covers-artifacts",
+        "ev-retry-and-loop-bounds",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-supply-chain-pinned",
+        "ev-timeout-discipline",
+        "ev-trace-retention-acl",
+        "ev-untrusted-segregation"
+      ],
+      "new_evidence_required": [
+        {
+          "control_id": "ARS-37",
+          "accepted_kinds": [
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": true
+        },
+        {
+          "control_id": "ARS-41",
+          "accepted_kinds": [
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": false
+        }
+      ],
+      "tests_required": [
+        {
+          "test_id": "tool-behaviour:post-to-partner-webhook",
+          "change_id": "destructive_action_added:post-to-partner-webhook",
+          "what": "Exercise post-to-partner-webhook against its declared input schema, including the boundary and rejection cases."
+        },
+        {
+          "test_id": "injection-reaches-tool:post-to-partner-webhook",
+          "change_id": "destructive_action_added:post-to-partner-webhook",
+          "what": "Attempt to reach post-to-partner-webhook through content the agent did not author, and confirm it is refused where the declaration says it should be."
+        }
+      ],
+      "reviews_required": [
+        {
+          "review_id": "destructive-action-review:post-to-partner-webhook",
+          "change_id": "destructive_action_added:post-to-partner-webhook",
+          "role": "Records Platform Engineering Lead",
+          "what": "Approve the addition of an action that transmit to recipients, and record its compensating action."
+        }
+      ],
+      "deployment_blocking": false
+    },
+    {
+      "change_id": "outbound_transmission_added:post-to-partner-webhook",
+      "category": "outbound_transmission_added",
+      "domain": "tools",
+      "subject": "post-to-partner-webhook",
+      "severity": "critical",
+      "authority_expanding": true,
+      "before": null,
+      "after": {
+        "path": "tool:post-to-partner-webhook",
+        "value": true
+      },
+      "explanation": "a tool can now carry content out of the trust boundary — a path by which data leaves. post-to-partner-webhook is observed to carry content out of the trust boundary. This is a path by which data leaves, and it exists in the implementation only.",
+      "claims": [],
+      "observed_support": [
+        {
+          "source": "reconciliation",
+          "state": "observed_not_declared",
+          "adapter_id": "typescript-source",
+          "file": "src/tools/registry.ts",
+          "line": 69,
+          "derivation": "direct",
+          "confidence": "high"
+        }
+      ],
+      "affected_controls": [
+        "ARS-37"
+      ],
+      "affected_control_detail": [
+        {
+          "control_id": "ARS-37",
+          "citation_id": "ARS-1.0-37",
+          "applicability": true
+        }
+      ],
+      "evidence_invalidated": [
+        "ev-incident-taxonomy"
+      ],
+      "evidence_retained": [
+        "ev-approval-gate-enforced",
+        "ev-approval-volume-measured",
+        "ev-audit-identity-separated",
+        "ev-audit-plane-immutable",
+        "ev-budget-ceilings",
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-cross-tool-flow-policy",
+        "ev-destructive-inventory-complete",
+        "ev-eval-covers-destructive",
+        "ev-eval-suite-versioned",
+        "ev-exfiltration-channels-enumerated",
+        "ev-feedback-loop-instrumented",
+        "ev-idempotency-keys",
+        "ev-identity-propagation-trace",
+        "ev-injection-suite-run",
+        "ev-no-secrets-in-prompts",
+        "ev-prompt-config-versioned",
+        "ev-retention-covers-artifacts",
+        "ev-retry-and-loop-bounds",
+        "ev-review-board-package",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-supply-chain-pinned",
+        "ev-timeout-discipline",
+        "ev-trace-retention-acl",
+        "ev-untrusted-segregation"
+      ],
+      "new_evidence_required": [
+        {
+          "control_id": "ARS-37",
+          "accepted_kinds": [
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": true
+        }
+      ],
+      "tests_required": [
+        {
+          "test_id": "exfiltration-path:post-to-partner-webhook",
+          "change_id": "outbound_transmission_added:post-to-partner-webhook",
+          "what": "Attempt to move data to post-to-partner-webhook through injected content, and confirm the path is constrained as declared."
+        },
+        {
+          "test_id": "destination-allowlist:post-to-partner-webhook",
+          "change_id": "outbound_transmission_added:post-to-partner-webhook",
+          "what": "Confirm the destination allowlist is enforced at the call site rather than only declared."
+        }
+      ],
+      "reviews_required": [
+        {
+          "review_id": "data-flow-review:post-to-partner-webhook",
+          "change_id": "outbound_transmission_added:post-to-partner-webhook",
+          "role": "Data protection reviewer",
+          "what": "Approve the path by which data may now reach post-to-partner-webhook, and record what may travel it."
+        }
+      ],
+      "deployment_blocking": false
+    },
+    {
+      "change_id": "tool_added:post-to-partner-webhook",
+      "category": "tool_added",
+      "domain": "tools",
+      "subject": "post-to-partner-webhook",
+      "severity": "high",
+      "authority_expanding": true,
+      "before": null,
+      "after": {
+        "path": "tool:post-to-partner-webhook",
+        "value": {
+          "display_name": "post_to_partner_webhook",
+          "description": "Send the record payload to the partner integration endpoint.",
+          "definition_pattern": "wrapper_call",
+          "wrapper": "defineTool",
+          "registered_in": "TOOLS",
+          "input_schema_ref": "WebhookPayloadSchema",
+          "timeout_ms": 15000,
+          "max_retries": 5,
+          "destructive": null
+        }
+      },
+      "explanation": "the agent can take an action it previously could not. post-to-partner-webhook exists in the implementation at src/tools/registry.ts:69 and no declaration accounts for it. The two contracts may say nothing about this at all — that is what makes it worth reporting: the declaration did not change and the agent did.",
+      "claims": [],
+      "observed_support": [
+        {
+          "source": "reconciliation",
+          "state": "observed_not_declared",
+          "adapter_id": "typescript-source",
+          "file": "src/tools/registry.ts",
+          "line": 69,
+          "derivation": "direct",
+          "confidence": "high"
+        }
+      ],
+      "affected_controls": [
+        "ARS-01",
+        "ARS-02",
+        "ARS-04",
+        "ARS-06",
+        "ARS-07",
+        "ARS-11",
+        "ARS-14",
+        "ARS-16",
+        "ARS-21",
+        "ARS-23",
+        "ARS-31",
+        "ARS-33",
+        "ARS-35",
+        "ARS-38"
+      ],
+      "affected_control_detail": [
+        {
+          "control_id": "ARS-01",
+          "citation_id": "ARS-1.0-01",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-02",
+          "citation_id": "ARS-1.0-02",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-04",
+          "citation_id": "ARS-1.0-04",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-06",
+          "citation_id": "ARS-1.0-06",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-07",
+          "citation_id": "ARS-1.0-07",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-11",
+          "citation_id": "ARS-1.0-11",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-14",
+          "citation_id": "ARS-1.0-14",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-16",
+          "citation_id": "ARS-1.0-16",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-21",
+          "citation_id": "ARS-1.0-21",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-23",
+          "citation_id": "ARS-1.0-23",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-31",
+          "citation_id": "ARS-1.0-31",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-33",
+          "citation_id": "ARS-1.0-33",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-35",
+          "citation_id": "ARS-1.0-35",
+          "applicability": true
+        },
+        {
+          "control_id": "ARS-38",
+          "citation_id": "ARS-1.0-38",
+          "applicability": true
+        }
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "evidence_retained": [
+        "ev-approval-gate-enforced",
+        "ev-approval-volume-measured",
+        "ev-audit-identity-separated",
+        "ev-audit-plane-immutable",
+        "ev-budget-ceilings",
+        "ev-cross-tool-flow-policy",
+        "ev-destructive-inventory-complete",
+        "ev-eval-covers-destructive",
+        "ev-exfiltration-channels-enumerated",
+        "ev-feedback-loop-instrumented",
+        "ev-idempotency-keys",
+        "ev-incident-taxonomy",
+        "ev-injection-suite-run",
+        "ev-no-secrets-in-prompts",
+        "ev-prompt-config-versioned",
+        "ev-retention-covers-artifacts",
+        "ev-retry-and-loop-bounds",
+        "ev-review-board-package",
+        "ev-supply-chain-pinned",
+        "ev-trace-retention-acl",
+        "ev-untrusted-segregation"
+      ],
+      "new_evidence_required": [
+        {
+          "control_id": "ARS-01",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-02",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-04",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-06",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-07",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-11",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-14",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-16",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-21",
+          "accepted_kinds": [
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-23",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-31",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-33",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-35",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": false
+        },
+        {
+          "control_id": "ARS-38",
+          "accepted_kinds": [
+            "automatically_verified",
+            "manually_verified",
+            "attested"
+          ],
+          "attestation_alone_sufficient": false
+        }
+      ],
+      "tests_required": [
+        {
+          "test_id": "tool-behaviour:post-to-partner-webhook",
+          "change_id": "tool_added:post-to-partner-webhook",
+          "what": "Exercise post-to-partner-webhook against its declared input schema, including the boundary and rejection cases."
+        },
+        {
+          "test_id": "injection-reaches-tool:post-to-partner-webhook",
+          "change_id": "tool_added:post-to-partner-webhook",
+          "what": "Attempt to reach post-to-partner-webhook through content the agent did not author, and confirm it is refused where the declaration says it should be."
+        }
+      ],
+      "reviews_required": [],
+      "deployment_blocking": false
+    }
+  ],
+  "structural_diff": {
+    "note": "A faithful record of every path that changed. It is retained BECAUSE it is faithful — it is what the semantic layer above is checked against — and it is not the answer to any question a release board asks.",
+    "changed_paths": 2,
+    "entries": [
+      {
+        "path": "identity/agent_version",
+        "kind": "modified",
+        "before": "2.2.0",
+        "after": "2.3.0"
+      },
+      {
+        "path": "identity/repository/revision",
+        "kind": "modified",
+        "before": "v2.2.0",
+        "after": "v2.3.0"
+      }
+    ],
+    "cosmetic": [
+      {
+        "path": "identity/agent_version",
+        "why": "the version label itself — the changes it labels are what this artifact is about"
+      },
+      {
+        "path": "identity/repository/revision",
+        "why": "where the code lives"
+      }
+    ],
+    "cosmetic_allowlist": [
+      {
+        "pattern": "/^identity\\/display_name$/",
+        "why": "a human-readable name; identity is by agent_id"
+      },
+      {
+        "pattern": "/^identity\\/business_purpose$/",
+        "why": "prose describing what the agent is for"
+      },
+      {
+        "pattern": "/^identity\\/owner\\//",
+        "why": "who to contact; changes accountability records, not what the agent may do"
+      },
+      {
+        "pattern": "/^identity\\/repository\\//",
+        "why": "where the code lives"
+      },
+      {
+        "pattern": "/^identity\\/agent_version$/",
+        "why": "the version label itself — the changes it labels are what this artifact is about"
+      },
+      {
+        "pattern": "/^skills\\[[^\\]]*\\]\\/purpose$/",
+        "why": "prose describing a skill"
+      },
+      {
+        "pattern": "/^prompts\\[[^\\]]*\\]\\/purpose$/",
+        "why": "prose describing a prompt"
+      },
+      {
+        "pattern": "/^prompts\\[[^\\]]*\\]\\/source_location$/",
+        "why": "where a prompt file lives; the content hash is what says whether it changed"
+      },
+      {
+        "pattern": "/^tools\\[[^\\]]*\\]\\/display_name$/",
+        "why": "a human-readable tool name; identity is by tool_id"
+      },
+      {
+        "pattern": "/^models\\[[^\\]]*\\]\\/role$/",
+        "why": "the logical name for what a model does"
+      },
+      {
+        "pattern": "/^autonomy\\/approval_classes\\[[^\\]]*\\]\\/description$/",
+        "why": "prose describing an approval class"
+      },
+      {
+        "pattern": "/^autonomy\\/maximum_plausible_blast_radius\\/description$/",
+        "why": "prose describing a blast radius; the scope and ceiling are the claim"
+      }
+    ],
+    "unclaimed_paths": []
+  },
+  "evidence": {
+    "ledger_present": true,
+    "ledger_size": 29,
+    "invalidated": [
+      "ev-correlation-ids",
+      "ev-cost-attribution",
+      "ev-eval-suite-versioned",
+      "ev-identity-propagation-trace",
+      "ev-incident-taxonomy",
+      "ev-review-board-package",
+      "ev-scope-minimality-review",
+      "ev-scope-static-scan",
+      "ev-server-side-authz-probe",
+      "ev-timeout-discipline"
+    ],
+    "retained": [
+      "ev-approval-gate-enforced",
+      "ev-approval-volume-measured",
+      "ev-audit-identity-separated",
+      "ev-audit-plane-immutable",
+      "ev-budget-ceilings",
+      "ev-cross-tool-flow-policy",
+      "ev-destructive-inventory-complete",
+      "ev-eval-covers-destructive",
+      "ev-exfiltration-channels-enumerated",
+      "ev-feedback-loop-instrumented",
+      "ev-idempotency-keys",
+      "ev-injection-suite-run",
+      "ev-no-secrets-in-prompts",
+      "ev-prompt-config-versioned",
+      "ev-retention-covers-artifacts",
+      "ev-retry-and-loop-bounds",
+      "ev-supply-chain-pinned",
+      "ev-trace-retention-acl",
+      "ev-untrusted-segregation"
+    ],
+    "retention_note": "Retained evidence survives BY IDENTITY. An item is retained exactly when its stable id is in the prior ledger and in no invalidation set. It is never re-derived and never re-checked here: a second pass that concluded an item \"still looks fine\" would let a bug in the invalidation mapping quietly restore evidence it had just invalidated."
+  },
+  "required_tests": [
+    {
+      "test_id": "destination-allowlist:post-to-partner-webhook",
+      "change_id": "outbound_transmission_added:post-to-partner-webhook",
+      "what": "Confirm the destination allowlist is enforced at the call site rather than only declared."
+    },
+    {
+      "test_id": "exfiltration-path:post-to-partner-webhook",
+      "change_id": "outbound_transmission_added:post-to-partner-webhook",
+      "what": "Attempt to move data to post-to-partner-webhook through injected content, and confirm the path is constrained as declared."
+    },
+    {
+      "test_id": "injection-reaches-tool:post-to-partner-webhook",
+      "change_id": "destructive_action_added:post-to-partner-webhook",
+      "what": "Attempt to reach post-to-partner-webhook through content the agent did not author, and confirm it is refused where the declaration says it should be."
+    },
+    {
+      "test_id": "tool-behaviour:post-to-partner-webhook",
+      "change_id": "destructive_action_added:post-to-partner-webhook",
+      "what": "Exercise post-to-partner-webhook against its declared input schema, including the boundary and rejection cases."
+    }
+  ],
+  "required_reviews": [
+    {
+      "review_id": "data-flow-review:post-to-partner-webhook",
+      "change_id": "outbound_transmission_added:post-to-partner-webhook",
+      "role": "Data protection reviewer",
+      "what": "Approve the path by which data may now reach post-to-partner-webhook, and record what may travel it."
+    },
+    {
+      "review_id": "destructive-action-review:post-to-partner-webhook",
+      "change_id": "destructive_action_added:post-to-partner-webhook",
+      "role": "Records Platform Engineering Lead",
+      "what": "Approve the addition of an action that transmit to recipients, and record its compensating action."
+    }
+  ],
+  "volatile": {
+    "computed_at": "2026-08-06T14:08:37.213Z"
+  },
+  "canonical_hash": "dd52ce272a97c66e5959b94063581cea02a3c0069556caac142e9c9b24a3551c",
+  "risk_profile": [
+    {
+      "dimension_id": "authority_surface",
+      "question": "What can this agent do to the world, at the widest point of its declared tool set?",
+      "level": "read_only",
+      "explain": "No declared tool creates, modifies, deletes, sends or spends. The floor, and the only level that needs no condition.",
+      "because": [
+        {
+          "path": "",
+          "value": "unconditional"
+        }
+      ],
+      "evaluated": true
+    },
+    {
+      "dimension_id": "transmission_reach",
+      "question": "How far outside the trust boundary can content this agent handles travel?",
+      "level": "internal_only",
+      "explain": "Data moves, and every declared destination is inside the platform.",
+      "because": [
+        {
+          "path": "data_sinks/0",
+          "value": "records-register: bidirectional, internal, carries [personal_data, internal], permits [register.internal.acme.example]"
+        }
+      ],
+      "evaluated": true
+    },
+    {
+      "dimension_id": "data_sensitivity",
+      "question": "What is the most sensitive class of data the declaration says this agent handles?",
+      "level": "confidential_or_personal",
+      "explain": "Personal, financial or confidential material is in scope, so a disclosure has a subject who can be harmed by it and usually a regulator who has an opinion about it.",
+      "because": [
+        {
+          "path": "data_sinks/0/data_classifications",
+          "value": "records-register carries personal_data"
+        },
+        {
+          "path": "skills/0/data_classes",
+          "value": "records-question-answering handles personal_data"
+        }
+      ],
+      "evaluated": true
+    },
+    {
+      "dimension_id": "delegated_authority",
+      "question": "Whose authority do the downstream calls actually carry?",
+      "level": "end_user",
+      "explain": "Every declared tool acts as the calling user, so downstream authorisation is evaluated against the person who asked.",
+      "because": [
+        {
+          "path": "",
+          "value": "unconditional"
+        }
+      ],
+      "evaluated": true
+    },
+    {
+      "dimension_id": "autonomous_triggering",
+      "question": "Can this agent act without a person asking it to, and how much of the loop is a person in?",
+      "level": "human_initiated",
+      "explain": "A person starts every run and every control that assumes a human is present at the start holds.",
+      "because": [
+        {
+          "path": "",
+          "value": "unconditional"
+        }
+      ],
+      "evaluated": true
+    },
+    {
+      "dimension_id": "blast_radius",
+      "question": "How far does the worst plausible outcome of one bad run reach?",
+      "level": "single_customer",
+      "explain": "One customer's data or money is reachable in one run.",
+      "because": [
+        {
+          "path": "autonomy/maximum_plausible_blast_radius/scope",
+          "value": "single_customer"
+        }
+      ],
+      "evaluated": true
+    },
+    {
+      "dimension_id": "containment_declared",
+      "question": "How much of what stops a runaway run is written down rather than left to the runtime?",
+      "level": "fully_bounded",
+      "explain": "Every containment field carries a declared value. The floor here is the GOOD state, deliberately: this dimension measures what is missing.",
+      "because": [
+        {
+          "path": "",
+          "value": "unconditional"
+        }
+      ],
+      "evaluated": true
+    }
+  ],
+  "applicable_controls": {
+    "applicable": [
+      "ARS-01",
+      "ARS-02",
+      "ARS-03",
+      "ARS-04",
+      "ARS-05",
+      "ARS-06",
+      "ARS-07",
+      "ARS-11",
+      "ARS-13",
+      "ARS-14",
+      "ARS-15",
+      "ARS-16",
+      "ARS-17",
+      "ARS-20",
+      "ARS-21",
+      "ARS-23",
+      "ARS-28",
+      "ARS-30",
+      "ARS-31",
+      "ARS-33",
+      "ARS-35",
+      "ARS-36",
+      "ARS-37",
+      "ARS-38",
+      "ARS-40",
+      "ARS-41"
+    ],
+    "not_applicable": [
+      "ARS-08",
+      "ARS-09",
+      "ARS-10",
+      "ARS-12",
+      "ARS-18",
+      "ARS-19",
+      "ARS-22",
+      "ARS-24",
+      "ARS-25",
+      "ARS-26",
+      "ARS-27",
+      "ARS-29",
+      "ARS-32",
+      "ARS-34",
+      "ARS-39"
+    ],
+    "not_evaluated": [],
+    "note": "not_applicable is excluded from both the numerator and the denominator. not_evaluated stays visible: a predicate that could not run has established nothing, and establishing nothing must not shrink the applicable set."
+  },
+  "newly_applicable_controls": [],
+  "affected_controls": [
+    {
+      "control_id": "ARS-01",
+      "citation_id": "ARS-1.0-01",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools/0",
+          "value": "lookup-account authenticates by workload_identity_federation"
+        },
+        {
+          "path": "tools/1",
+          "value": "search-records authenticates by workload_identity_federation"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Identity propagation is proven over the set of downstream call paths, so the set growing invalidates it and the set shrinking does not: tool_added is listed and tool_removed is not. permission_expanded is listed because the criterion covers the authorization decision as well as the identity carried into it, and environment_expanded because a path evidenced in staging is commonly a different principal in production."
+    },
+    {
+      "control_id": "ARS-02",
+      "citation_id": "ARS-1.0-02",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools/0",
+          "value": "lookup-account authenticates by workload_identity_federation"
+        },
+        {
+          "path": "tools/1",
+          "value": "search-records authenticates by workload_identity_federation"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Scope evidence is invalidated by anything that adds authority or adds a holder of it: a widened scope, a new tool or skill declaring its own permissions, a shift to a shared principal whose scope becomes the union of every user's need, and a tool admitted to production on scopes reviewed for staging. permission_reduced is deliberately absent — a smaller grant cannot be more than the minimum, so the finding that no wildcard was present survives it intact."
+    },
+    {
+      "control_id": "ARS-04",
+      "citation_id": "ARS-1.0-04",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools/0",
+          "value": "lookup-account authenticates by workload_identity_federation"
+        },
+        {
+          "path": "tools/1",
+          "value": "search-records authenticates by workload_identity_federation"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Lifetime evidence is about a specific credential and the session holding it. A new tool brings a new credential; a shift to a shared principal changes both who holds the token and what its theft costs; an agent that can start its own runs holds sessions nobody closes; and a withdrawn containment ceiling includes session_budget.max_wall_clock_ms, which was one of the bounds. Scope changes are absent — a wider grant is ARS-02's subject and does not change when the token dies."
+    },
+    {
+      "control_id": "ARS-06",
+      "citation_id": "ARS-1.0-06",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools",
+          "value": "2 tools declared"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Two things reopen a closed registry: permission for a tool name to be computed at run time, and a tool arriving in the set. tool_removed and tool_renamed are deliberately absent — a tool leaving does not reopen the registry, and a rename declared through aliases is one continuous capability, so the evidence about the dispatcher's behaviour survives both."
+    },
+    {
+      "control_id": "ARS-07",
+      "citation_id": "ARS-1.0-07",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools",
+          "value": "2 tools declared"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "This is the one control whose subject is the schema text itself, so any change to that text makes the previous read stale — a narrowing as well as a broadening, because the document that was read is not the document that runs. tool_schema_narrowed is listed here and nowhere else for that reason. A declared rename is not listed at all: an alias carries the same schema."
+    },
+    {
+      "control_id": "ARS-11",
+      "citation_id": "ARS-1.0-11",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools",
+          "value": "2 tools declared"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "A server-side policy is a list, so evidence about it dies when the list changes: a tool added, a scope widened, a principal weakened so the pairing loses its user half, a tool admitted to an environment the policy was not written for. dynamic_loading_enabled is listed because a gateway allowlist cannot cover a tool name computed at run time — the enforced set stops being the reviewed set."
+    },
+    {
+      "control_id": "ARS-14",
+      "citation_id": "ARS-1.0-14",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "",
+          "value": "unconditional"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "The chain breaks at new call sites and new endpoints. A tool added is a call site that may log without the identifier; an external destination added is a record the identifier may not reach; dynamic loading means the call sites are not enumerable at all. trigger_changed_human_to_autonomous is listed because the chain's root is the user request, and a run nobody asked for needs a root the earlier evidence never covered."
+    },
+    {
+      "control_id": "ARS-16",
+      "citation_id": "ARS-1.0-16",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        },
+        {
+          "path": "identity/criticality",
+          "value": "high"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Everything the criterion names as part of a run record is listed: the model, the model's version policy, the prompt, and the tool set in both directions. tool_removed appears here and almost nowhere else — a run that invoked a tool the system no longer has cannot be replayed, and the evidence that replay works was gathered against the old set. Dynamic loading is listed because a tool resolved by a computed name cannot be pinned in a run record at all."
+    },
+    {
+      "control_id": "ARS-21",
+      "citation_id": "ARS-1.0-21",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        },
+        {
+          "path": "identity/criticality",
+          "value": "high"
+        },
+        {
+          "path": "autonomy/maximum_plausible_blast_radius/scope",
+          "value": "single_customer"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "A fallback is written against a named set of dependencies. Adding a skill or a tool creates a path nobody has rehearsed a fallback for; removing one voids the drill that exercised it; changing the model changes the dependency the 'the model is down' plan was written against. Reclassifying criticality changes which functions owe a fallback at all, and promotion toward production turns an advisory plan into a binding one. Prompt edits and budget changes are excluded: they alter what the agent does, not what it depends on."
+    },
+    {
+      "control_id": "ARS-23",
+      "citation_id": "ARS-1.0-23",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "",
+          "value": "unconditional"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Deliberately short. A timeout that was removed, or a default ceiling that was removed, directly contradicts the evidence. A new tool is a new boundary that nothing has been read for. Dynamic loading defeats the evidence in a different way: if a tool can be resolved by a name computed at run time, the set of boundaries is no longer the set that was checked. Retry and loop increases are excluded — more attempts inside a bound is still bounded — and a model swap is excluded, because changing an identifier does not remove a timeout from a call site."
+    },
+    {
+      "control_id": "ARS-31",
+      "citation_id": "ARS-1.0-31",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        },
+        {
+          "path": "identity/criticality",
+          "value": "high"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "The evidence is an attribution scheme plus the figure it produced. A new skill is a new task type with no attribution key; a new tool is a new line of spend; a model change makes the recorded cost per completed unit of work wrong even where the scheme still holds. The two sharp ones are the identity categories: a weakened effective principal collapses per-user attribution into one shared identity, and a trigger that no longer requires a person means there is no user for per-user spend to attribute to. Budget and containment changes are excluded — they cap spend, they do not attribute it."
+    },
+    {
+      "control_id": "ARS-33",
+      "citation_id": "ARS-1.0-33",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Four categories, and the exclusions are the point. A prompt change or a model change does not invalidate this evidence — those are the events the gate is supposed to fire on, so they exercise the control rather than expire it. What does invalidate it is a capability the suite does not cover, which is a new skill or tool, or a removed tool whose cases now prove nothing. Model_version_policy_loosened is here for a specific reason: with a floating model the version can change with no release at all, so a gate that runs on every model change has no event left to hang on. Two categories were added after the fact, on the first author's own recommendation: a declared rename and a removed skill both leave eval cases referencing an action by a name that no longer resolves, so the suite still runs and covers less than it claims to. A rename is continuous for the capability and discontinuous for anything that names it."
+    },
+    {
+      "control_id": "ARS-35",
+      "citation_id": "ARS-1.0-35",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "The evidence here is not only that monitoring exists but that baselines were measured, and a baseline is measured against a configuration. A model change, a loosened version policy and a prompt change all move the behaviour the baselines describe — the loosened policy worst of all, because the model can then move without a release and the baseline ages with nothing to mark it. A new tool or skill is a series with no baseline. The two approval categories are here because approval rejection rate is one of the four named series, and a gate that is weakened or gone takes its baseline with it."
+    },
+    {
+      "control_id": "ARS-37",
+      "citation_id": "ARS-1.0-37",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        },
+        {
+          "path": "autonomy/maximum_plausible_blast_radius/scope",
+          "value": "single_customer"
+        },
+        {
+          "path": "data_sinks/0/data_classifications",
+          "value": "records-register carries personal_data"
+        },
+        {
+          "path": "skills/0/data_classes",
+          "value": "records-question-answering handles personal_data"
+        }
+      ],
+      "via_changes": [
+        "destructive_action_added:post-to-partner-webhook",
+        "outbound_transmission_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-incident-taxonomy",
+        "ev-review-board-package"
+      ],
+      "accepted_evidence_kinds": [
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": true,
+      "invalidation_note": "A severity taxonomy is a mapping from what can go wrong to how badly, so it expires when either side moves. A new destructive action is a new 'wrong action taken' class; a new outbound path or external destination is a new data-exposure route; a widened data classification changes how bad an exposure is. A widened blast radius, a changed criticality and a promotion into production all re-rate severities that were assigned against a smaller worst case. Tool renames, prompt edits and budget changes are excluded: they do not add an incident class or change what one costs."
+    },
+    {
+      "control_id": "ARS-38",
+      "citation_id": "ARS-1.0-38",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "tools/0",
+          "value": "lookup-account = read"
+        },
+        {
+          "path": "tools/1",
+          "value": "search-records = read"
+        },
+        {
+          "path": "data_sinks/0/data_classifications",
+          "value": "records-register carries personal_data, internal"
+        },
+        {
+          "path": "skills/0/data_classes",
+          "value": "records-question-answering handles personal_data, internal"
+        }
+      ],
+      "via_changes": [
+        "tool_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-correlation-ids",
+        "ev-cost-attribution",
+        "ev-eval-suite-versioned",
+        "ev-identity-propagation-trace",
+        "ev-scope-minimality-review",
+        "ev-scope-static-scan",
+        "ev-server-side-authz-probe",
+        "ev-timeout-discipline"
+      ],
+      "accepted_evidence_kinds": [
+        "automatically_verified",
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "Enforcement evidence is about which identity the retrieval runs as and what that identity may see. A weakened effective principal removes the identity the ACL is evaluated against; an expanded permission widens what it reaches; a widened classification means the store now holds a class the enforcement was never reviewed for. A new tool or skill is a new retrieval path. Model and prompt changes are excluded: an access-control bypass at the retrieval layer is not fixed or caused by what the model was told."
+    },
+    {
+      "control_id": "ARS-41",
+      "citation_id": "ARS-1.0-41",
+      "applicable": true,
+      "applicability_because": [
+        {
+          "path": "identity/lifecycle_state",
+          "value": "production"
+        },
+        {
+          "path": "identity/criticality",
+          "value": "high"
+        },
+        {
+          "path": "data_sinks/0/data_classifications",
+          "value": "records-register carries personal_data"
+        },
+        {
+          "path": "skills/0/data_classes",
+          "value": "records-question-answering handles personal_data"
+        }
+      ],
+      "via_changes": [
+        "destructive_action_added:post-to-partner-webhook"
+      ],
+      "evidence_invalidated": [
+        "ev-incident-taxonomy",
+        "ev-review-board-package"
+      ],
+      "accepted_evidence_kinds": [
+        "manually_verified",
+        "attested"
+      ],
+      "attestation_alone_sufficient": false,
+      "invalidation_note": "This list is deliberately drawn at the profile level rather than the mechanism level. Every change to every implementing mechanism arguably dates the package, but a control that fires on tool renames and prompt edits produces noise, and a review board turns noise off. What is listed instead is the set of changes that alter which controls apply to this agent at all — criticality, lifecycle, blast radius, autonomy, a new destructive action class, a widened data classification — because those change the shape of the document rather than one row of it. A client who wants the stricter reading should say so; this is the trade being made."
+    }
+  ],
+  "verdict": {
+    "verdict": "BLOCK",
+    "rules_fired": [
+      {
+        "rule_id": "critical-authority-expansion",
+        "level": "BLOCK",
+        "says": "A change of critical severity widens what the agent may do.",
+        "clears_when": "the expansion is withdrawn, or its severity is reduced by narrowing what it grants",
+        "why": "destructive_action_added:post-to-partner-webhook: the agent can now create, modify, delete, send or spend where it previously could not. post-to-partner-webhook is observed as send, so the running agent can transmit to recipients and the declaration does not say so. Nothing in the contract inventories it, which means no approval gate stands in front of it and no evaluation case points at it.",
+        "change_id": "destructive_action_added:post-to-partner-webhook",
+        "category": "destructive_action_added",
+        "severity": "critical"
+      },
+      {
+        "rule_id": "critical-authority-expansion",
+        "level": "BLOCK",
+        "says": "A change of critical severity widens what the agent may do.",
+        "clears_when": "the expansion is withdrawn, or its severity is reduced by narrowing what it grants",
+        "why": "outbound_transmission_added:post-to-partner-webhook: a tool can now carry content out of the trust boundary — a path by which data leaves. post-to-partner-webhook is observed to carry content out of the trust boundary. This is a path by which data leaves, and it exists in the implementation only.",
+        "change_id": "outbound_transmission_added:post-to-partner-webhook",
+        "category": "outbound_transmission_added",
+        "severity": "critical"
+      },
+      {
+        "rule_id": "high-severity-change",
+        "level": "REVIEW",
+        "says": "A change of high severity is present.",
+        "clears_when": "a human accepts it, or it is withdrawn",
+        "why": "1 change(s) of high severity: tool_added:post-to-partner-webhook",
+        "change_ids": [
+          "tool_added:post-to-partner-webhook"
+        ]
+      },
+      {
+        "rule_id": "authority-expanding-change",
+        "level": "REVIEW",
+        "says": "A change widens what the agent may do, below critical severity.",
+        "clears_when": "a human accepts it, or it is withdrawn",
+        "why": "1 change(s) widen what the agent may do: tool_added:post-to-partner-webhook",
+        "change_ids": [
+          "tool_added:post-to-partner-webhook"
+        ]
+      },
+      {
+        "rule_id": "evidence-invalidated",
+        "level": "REVIEW",
+        "says": "Prior evidence no longer describes the current system.",
+        "clears_when": "the invalidated evidence is re-established by a kind the methodology accepts for that control",
+        "why": "10 evidence item(s) no longer describe the current system",
+        "evidence_ids": [
+          "ev-correlation-ids",
+          "ev-cost-attribution",
+          "ev-eval-suite-versioned",
+          "ev-identity-propagation-trace",
+          "ev-incident-taxonomy",
+          "ev-review-board-package",
+          "ev-scope-minimality-review",
+          "ev-scope-static-scan",
+          "ev-server-side-authz-probe",
+          "ev-timeout-discipline"
+        ]
+      },
+      {
+        "rule_id": "undeclared-capability",
+        "level": "BLOCK",
+        "says": "The implementation carries a tool or an external destination that no declaration accounts for.",
+        "clears_when": "the contract declares the observed capability, or the implementation stops carrying it",
+        "why": "tool:post-to-partner-webhook: found in the implementation and named by no declaration. This is drift, not a failure: a legitimately added tool looks exactly like this until somebody declares it. If it is a rename of a declared tool, the contract must say so through an alias — a rename is never inferred.",
+        "item_id": "tool:post-to-partner-webhook",
+        "domain": "tool"
+      },
+      {
+        "rule_id": "drift-observed",
+        "level": "REVIEW",
+        "says": "The implementation carries something the declaration does not, below the level of a tool or a destination.",
+        "clears_when": "the contract declares it, or the implementation stops carrying it",
+        "why": "2 observed item(s) the contract does not declare: approval:post-to-partner-webhook, scope:webhook.post",
+        "item_ids": [
+          "approval:post-to-partner-webhook",
+          "scope:webhook.post"
+        ]
+      }
+    ],
+    "rules_available": [
+      "delta-incomplete",
+      "methodology-hard-blocker",
+      "hard-blocker-unevaluated",
+      "critical-authority-expansion",
+      "undeclared-capability",
+      "declaration-conflict",
+      "high-severity-change",
+      "authority-expanding-change",
+      "uncategorised-change",
+      "evidence-invalidated",
+      "drift-observed"
+    ],
+    "blocking_changes": [
+      "destructive_action_added:post-to-partner-webhook",
+      "outbound_transmission_added:post-to-partner-webhook",
+      "tool:post-to-partner-webhook"
+    ],
+    "promotion_conditions": [
+      {
+        "to_reach": "REVIEW",
+        "rule_id": "critical-authority-expansion",
+        "condition": "the expansion is withdrawn, or its severity is reduced by narrowing what it grants",
+        "currently": "destructive_action_added:post-to-partner-webhook: the agent can now create, modify, delete, send or spend where it previously could not. post-to-partner-webhook is observed as send, so the running agent can transmit to recipients and the declaration does not say so. Nothing in the contract inventories it, which means no approval gate stands in front of it and no evaluation case points at it."
+      },
+      {
+        "to_reach": "REVIEW",
+        "rule_id": "critical-authority-expansion",
+        "condition": "the expansion is withdrawn, or its severity is reduced by narrowing what it grants",
+        "currently": "outbound_transmission_added:post-to-partner-webhook: a tool can now carry content out of the trust boundary — a path by which data leaves. post-to-partner-webhook is observed to carry content out of the trust boundary. This is a path by which data leaves, and it exists in the implementation only."
+      },
+      {
+        "to_reach": "REVIEW",
+        "rule_id": "undeclared-capability",
+        "condition": "the contract declares the observed capability, or the implementation stops carrying it",
+        "currently": "tool:post-to-partner-webhook: found in the implementation and named by no declaration. This is drift, not a failure: a legitimately added tool looks exactly like this until somebody declares it. If it is a rename of a declared tool, the contract must say so through an alias — a rename is never inferred."
+      }
+    ],
+    "standing_conditions": [],
+    "standing_conditions_note": "No hard blocker was already true of the previous version.",
+    "note": "BLOCK is not a score. Every condition above must stop being true; no number of clean rules outvotes one that fired."
+  }
+}

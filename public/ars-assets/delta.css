@@ -1,0 +1,425 @@
+/* ===========================================================================
+   ARS assurance delta.
+
+   Layers on ars.css, and reuses report.css's reserved result hues with their
+   published meanings unchanged:
+
+     --pass            #596C8E  slate    retained, promote
+     --requires-access #826738  sand     review, ambiguous
+     --not-proven      #BF3A4F  crimson  invalidated, block
+
+   ⚠️ RETAINED AND INVALIDATED MUST BE VISUALLY DISTINCT AT A GLANCE, and not
+   only by colour. Colour alone fails for a reader with a colour vision
+   deficiency and fails again in a black-and-white print of the page — and this
+   page WILL be printed and taken into a release meeting. So the two states
+   differ by a left border weight, a background, a prefix glyph and a label, and
+   the reserved hue is the fourth signal rather than the only one.
+
+   ⚠️ NO NEW HUE IS INVENTED HERE. The lens palette reserves three result
+   colours and a fourth would mean nothing to anyone who has read the other
+   pages.
+   =========================================================================== */
+
+/* ============ the verdict ============ */
+
+.ad-verdict {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  margin: 0 0 26px;
+}
+.ad-band {
+  font-family: var(--font-ui);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.ad-band-block { color: var(--not-proven); }
+.ad-band-review { color: var(--requires-access); }
+.ad-band-promote { color: var(--pass); }
+.ad-verdict-sub {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.ad-verdict-sub b { color: var(--ink); }
+
+/* ============ the banner ============
+   The sentence that stops the page being read as a certificate. Above the
+   verdict, not beneath it, for the same reason the report's is. */
+
+.ad-banner {
+  border: 1px solid var(--requires-access);
+  border-left: 4px solid var(--requires-access);
+  background: var(--requires-access-soft);
+  border-radius: var(--radius-sm);
+  padding: 15px 18px;
+  margin: 0 0 26px;
+}
+.ad-banner-k {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--requires-access);
+  margin-bottom: 5px;
+}
+.ad-banner p { margin: 0 0 8px; color: var(--ink-2); font-size: 15px; }
+.ad-banner p:last-child { margin-bottom: 0; }
+
+/* ============ the two contracts, side by side ============ */
+
+.ad-versions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 0 0 26px;
+}
+.ad-version {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 14px 16px;
+}
+.ad-version-k {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+.ad-version-v { font-size: 19px; font-weight: 600; color: var(--ink); }
+.ad-version dl { margin: 10px 0 0; font-family: var(--font-ui); font-size: 12px; }
+.ad-version dt { color: var(--ink-3); margin-top: 6px; }
+.ad-version dd { margin: 1px 0 0; color: var(--ink-2); word-break: break-all; }
+
+/* ============ a semantic change ============ */
+
+.ad-change {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 15px 17px;
+  margin: 0 0 14px;
+}
+.ad-change-critical { border-left: 4px solid var(--not-proven); }
+.ad-change-high { border-left: 4px solid var(--not-proven); }
+.ad-change-moderate { border-left: 4px solid var(--requires-access); }
+.ad-change-low { border-left: 4px solid var(--border-ui); }
+.ad-change-informational { border-left: 4px dashed var(--border-ui); }
+
+.ad-change-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 8px;
+}
+.ad-sev {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+.ad-sev-critical, .ad-sev-high {
+  color: var(--not-proven);
+  border-color: var(--not-proven);
+  background: var(--not-proven-soft);
+}
+.ad-sev-moderate {
+  color: var(--requires-access);
+  border-color: var(--requires-access);
+  background: var(--requires-access-soft);
+}
+.ad-sev-low, .ad-sev-informational { color: var(--ink-3); border-color: var(--border-ui); }
+
+.ad-cat {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.ad-subject { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); }
+.ad-expanding {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--not-proven);
+}
+.ad-change p { margin: 0 0 8px; font-size: 15px; color: var(--ink-2); }
+
+.ad-ba {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.ad-ba > div {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: var(--surface-2);
+  overflow-x: auto;
+}
+.ad-ba-k {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  margin-bottom: 3px;
+}
+
+/* ============ evidence: retained vs invalidated ============
+   Four signals per state, not one. See the header. */
+
+.ad-ev-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 0 0 26px;
+}
+.ad-ev-col { min-width: 0; }
+.ad-ev-col h3 {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+}
+.ad-ev-col-retained h3 { color: var(--pass); }
+.ad-ev-col-invalidated h3 { color: var(--not-proven); }
+
+.ad-ev { list-style: none; margin: 0; padding: 0; }
+.ad-ev li {
+  font-size: 14px;
+  padding: 8px 10px 8px 12px;
+  margin: 0 0 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.ad-ev-retained {
+  border-left: 4px solid var(--pass) !important;
+  background: var(--pass-soft);
+}
+.ad-ev-invalidated {
+  border-left: 4px solid var(--not-proven) !important;
+  background: var(--not-proven-soft);
+  /* The strike is the signal that survives a monochrome print. */
+  text-decoration-line: line-through;
+  text-decoration-color: var(--not-proven);
+  text-decoration-thickness: 1px;
+}
+.ad-ev-id {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+}
+.ad-ev-state {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 6px;
+}
+.ad-ev-retained .ad-ev-state { color: var(--pass); }
+.ad-ev-invalidated .ad-ev-state { color: var(--not-proven); }
+.ad-ev li p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+/* ============ rules, tests, reviews ============ */
+
+.ad-rule {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border-ui);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.ad-rule-block { border-left-color: var(--not-proven); }
+.ad-rule-review { border-left-color: var(--requires-access); }
+.ad-rule-id {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.ad-rule-level {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-left: 8px;
+}
+.ad-rule-block .ad-rule-level { color: var(--not-proven); }
+.ad-rule-review .ad-rule-level { color: var(--requires-access); }
+.ad-rule p { margin: 5px 0 0; color: var(--ink-2); font-size: 13px; }
+
+.ad-work { list-style: none; margin: 0 0 18px; padding: 0; }
+.ad-work li {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 9px 11px;
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.ad-work-k {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  display: block;
+}
+
+/* ============ risk profile ============ */
+
+.ad-risk {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 0 0 26px;
+}
+.ad-risk-dim {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  background: var(--surface);
+}
+.ad-risk-q { font-size: 13px; color: var(--ink-3); margin: 0 0 6px; }
+.ad-risk-level {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.ad-risk-because {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.ad-risk-because li { margin: 2px 0; word-break: break-word; }
+
+/* ============ provenance ============
+   Every displayed conclusion names the artifact id it came from. */
+
+.ad-prov {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 8px;
+  word-break: break-all;
+}
+.ad-prov a { color: var(--ink-3); }
+
+/* ============ print ============
+   ⚠️ `details::details-content { content-visibility: visible }` is the only
+   rule that makes a collapsed <details> print its body. Measured in the lens
+   repo at 29.9% of a document lost without it; five folklore fixes were
+   measured inert. Carried verbatim, for the same reason report.css carries it. */
+
+@media print {
+  .ad-change, .ad-rule, .ad-work li, .ad-risk-dim, .ad-version, .ad-ev li {
+    break-inside: avoid;
+  }
+  details[open] > summary,
+  details > summary { list-style: none; }
+  summary::after { content: ''; }
+  details::details-content { content-visibility: visible; }
+  .ad-ev-invalidated { text-decoration-line: line-through; }
+}
+
+/* ============ provenance: where a conclusion came from ============
+   ⚠️ THREE ORIGINS, RENDERED DIFFERENTLY ON PURPOSE. A declaration is a
+   statement of intent by the party accountable for the agent. An observation is
+   something an adapter read, with a location. An inference is something an
+   adapter concluded — the weakest of the three, and the one that must never
+   render as either of the others.
+
+   As with retained/invalidated, the distinction does not rest on colour: the
+   three differ by border style (solid, solid, dashed), by weight, and by the
+   words they carry. A dashed edge on the weakest claim is the signal that
+   survives a monochrome print. */
+
+.ad-origin {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.ad-origin-declaration {
+  color: var(--ink);
+  border-color: var(--ink);
+  border-style: solid;
+  background: var(--surface-2);
+}
+.ad-origin-observation {
+  color: var(--pass);
+  border-color: var(--pass);
+  border-style: solid;
+  background: var(--pass-soft);
+}
+.ad-origin-inference {
+  color: var(--requires-access);
+  border-color: var(--requires-access);
+  /* dashed = weakest claim, and it prints */
+  border-style: dashed;
+  background: var(--requires-access-soft);
+}
+
+.ad-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.ad-support {
+  border: 1px solid var(--border);
+  border-left: 3px dashed var(--border-ui);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 10px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-2);
+  overflow-x: auto;
+}
+.ad-support div { margin: 2px 0; }
+
+@media print {
+  .ad-origin-inference { border-style: dashed; }
+  .ad-support { break-inside: avoid; }
+}

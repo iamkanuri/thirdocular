@@ -1,0 +1,1895 @@
+{
+  "artifact": "evidence-lineage",
+  "artifact_version": "0.1",
+  "subject": {
+    "agent_id": "acme-records-assistant",
+    "previous_version": "2.2.0",
+    "current_version": "2.3.0"
+  },
+  "derived_from": {
+    "delta_hash": "dd52ce272a97c66e5959b94063581cea02a3c0069556caac142e9c9b24a3551c",
+    "ledger_present": true,
+    "reconciliation_hash": "810b92580de245cc151043f4e45de6b1d66296517cba72e2bcb802023e67d57a",
+    "observation_hash": "ad7e31b027d7666ba21838cb2f4a8d3b2756f815975fdf905b7fa17403cbd2b5",
+    "contract_hash": "a6ee1c007f083b540ba1db30f260f855cc853fe67090b8e07b400cfdcbd0d1e0"
+  },
+  "note": "Derived entirely from the artifacts named above and computing nothing of its own. If this and the delta disagreed, the delta would be right — so this is built to make disagreement impossible rather than detectable. It is not a graph database, and one is deferred until a second engagement makes cross-engagement queries exist.",
+  "completeness": "complete",
+  "counts": {
+    "nodes": 137,
+    "edges": 107,
+    "by_type": {
+      "control": 35,
+      "evidence": 29,
+      "change": 3,
+      "required_test": 4,
+      "required_review": 2,
+      "reconciliation_item": 26,
+      "declaration": 19,
+      "observation": 12,
+      "insufficient_evidence": 7
+    }
+  },
+  "integrity": {
+    "orphan_nodes": [],
+    "dangling_edges": [],
+    "unresolved_evidence_references": [],
+    "note": "An orphan node is a fact nothing connects to a conclusion, and a dangling edge is a conclusion resting on a fact that is not here. Both lists must be empty and a test asserts it. unresolved_evidence_references is different in kind: it is NOT a defect in this artifact but a fact ABOUT its inputs -- a change named an evidence item the ledger does not carry, or no ledger was supplied at all. Those references are kept as nodes so they are visible rather than dangling, and a non-empty list here means a retained set must not be read as complete."
+  },
+  "nodes": [
+    {
+      "node_id": "change:destructive_action_added_post-to-partner-webhook",
+      "type": "change",
+      "ref": "destructive_action_added:post-to-partner-webhook",
+      "label": "destructive_action_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "post-to-partner-webhook"
+    },
+    {
+      "node_id": "change:outbound_transmission_added_post-to-partner-webhook",
+      "type": "change",
+      "ref": "outbound_transmission_added:post-to-partner-webhook",
+      "label": "outbound_transmission_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "post-to-partner-webhook"
+    },
+    {
+      "node_id": "change:tool_added_post-to-partner-webhook",
+      "type": "change",
+      "ref": "tool_added:post-to-partner-webhook",
+      "label": "tool_added",
+      "severity": "high",
+      "authority_expanding": true,
+      "subject": "post-to-partner-webhook"
+    },
+    {
+      "node_id": "control:ARS-01",
+      "type": "control",
+      "ref": "ARS-01",
+      "label": "ARS-01",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-02",
+      "type": "control",
+      "ref": "ARS-02",
+      "label": "ARS-02",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-03",
+      "type": "control",
+      "ref": "ARS-03",
+      "label": "ARS-03",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-04",
+      "type": "control",
+      "ref": "ARS-04",
+      "label": "ARS-04",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-05",
+      "type": "control",
+      "ref": "ARS-05",
+      "label": "ARS-05",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-06",
+      "type": "control",
+      "ref": "ARS-06",
+      "label": "ARS-06",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-07",
+      "type": "control",
+      "ref": "ARS-07",
+      "label": "ARS-07",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-08",
+      "type": "control",
+      "ref": "ARS-08",
+      "label": "ARS-08",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-09",
+      "type": "control",
+      "ref": "ARS-09",
+      "label": "ARS-09",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-10",
+      "type": "control",
+      "ref": "ARS-10",
+      "label": "ARS-10",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-11",
+      "type": "control",
+      "ref": "ARS-11",
+      "label": "ARS-11",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-12",
+      "type": "control",
+      "ref": "ARS-12",
+      "label": "ARS-12",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-13",
+      "type": "control",
+      "ref": "ARS-13",
+      "label": "ARS-13",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-14",
+      "type": "control",
+      "ref": "ARS-14",
+      "label": "ARS-14",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-15",
+      "type": "control",
+      "ref": "ARS-15",
+      "label": "ARS-15",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-16",
+      "type": "control",
+      "ref": "ARS-16",
+      "label": "ARS-16",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-17",
+      "type": "control",
+      "ref": "ARS-17",
+      "label": "ARS-17",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-19",
+      "type": "control",
+      "ref": "ARS-19",
+      "label": "ARS-19",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-20",
+      "type": "control",
+      "ref": "ARS-20",
+      "label": "ARS-20",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-21",
+      "type": "control",
+      "ref": "ARS-21",
+      "label": "ARS-21",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-23",
+      "type": "control",
+      "ref": "ARS-23",
+      "label": "ARS-23",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-24",
+      "type": "control",
+      "ref": "ARS-24",
+      "label": "ARS-24",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-25",
+      "type": "control",
+      "ref": "ARS-25",
+      "label": "ARS-25",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-27",
+      "type": "control",
+      "ref": "ARS-27",
+      "label": "ARS-27",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-28",
+      "type": "control",
+      "ref": "ARS-28",
+      "label": "ARS-28",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-30",
+      "type": "control",
+      "ref": "ARS-30",
+      "label": "ARS-30",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-31",
+      "type": "control",
+      "ref": "ARS-31",
+      "label": "ARS-31",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-33",
+      "type": "control",
+      "ref": "ARS-33",
+      "label": "ARS-33",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-34",
+      "type": "control",
+      "ref": "ARS-34",
+      "label": "ARS-34",
+      "applicable": false
+    },
+    {
+      "node_id": "control:ARS-35",
+      "type": "control",
+      "ref": "ARS-35",
+      "label": "ARS-35",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-36",
+      "type": "control",
+      "ref": "ARS-36",
+      "label": "ARS-36",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-37",
+      "type": "control",
+      "ref": "ARS-37",
+      "label": "ARS-37",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-38",
+      "type": "control",
+      "ref": "ARS-38",
+      "label": "ARS-38",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-40",
+      "type": "control",
+      "ref": "ARS-40",
+      "label": "ARS-40",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-41",
+      "type": "control",
+      "ref": "ARS-41",
+      "label": "ARS-41",
+      "applicable": true
+    },
+    {
+      "node_id": "declaration:containment/default_timeout_ms",
+      "type": "declaration",
+      "ref": "containment/default_timeout_ms",
+      "label": "containment/default_timeout_ms"
+    },
+    {
+      "node_id": "declaration:containment/loop_ceiling",
+      "type": "declaration",
+      "ref": "containment/loop_ceiling",
+      "label": "containment/loop_ceiling"
+    },
+    {
+      "node_id": "declaration:containment/retry_ceiling",
+      "type": "declaration",
+      "ref": "containment/retry_ceiling",
+      "label": "containment/retry_ceiling"
+    },
+    {
+      "node_id": "declaration:containment/session_budget/max_cost_usd",
+      "type": "declaration",
+      "ref": "containment/session_budget/max_cost_usd",
+      "label": "containment/session_budget/max_cost_usd"
+    },
+    {
+      "node_id": "declaration:containment/session_budget/max_tokens",
+      "type": "declaration",
+      "ref": "containment/session_budget/max_tokens",
+      "label": "containment/session_budget/max_tokens"
+    },
+    {
+      "node_id": "declaration:containment/session_budget/max_wall_clock_ms",
+      "type": "declaration",
+      "ref": "containment/session_budget/max_wall_clock_ms",
+      "label": "containment/session_budget/max_wall_clock_ms"
+    },
+    {
+      "node_id": "declaration:containment/user_budget/max_cost_usd_per_day",
+      "type": "declaration",
+      "ref": "containment/user_budget/max_cost_usd_per_day",
+      "label": "containment/user_budget/max_cost_usd_per_day"
+    },
+    {
+      "node_id": "declaration:containment/user_budget/max_runs_per_hour",
+      "type": "declaration",
+      "ref": "containment/user_budget/max_runs_per_hour",
+      "label": "containment/user_budget/max_runs_per_hour"
+    },
+    {
+      "node_id": "declaration:data_sinks/0/permitted_destinations",
+      "type": "declaration",
+      "ref": "data_sinks/0/permitted_destinations",
+      "label": "data_sinks/0/permitted_destinations"
+    },
+    {
+      "node_id": "declaration:models/0",
+      "type": "declaration",
+      "ref": "models/0",
+      "label": "models/0"
+    },
+    {
+      "node_id": "declaration:tools/*/approval/policy",
+      "type": "declaration",
+      "ref": "tools/*/approval/policy",
+      "label": "tools/*/approval/policy"
+    },
+    {
+      "node_id": "declaration:tools/*/dynamic_loading_allowed",
+      "type": "declaration",
+      "ref": "tools/*/dynamic_loading_allowed",
+      "label": "tools/*/dynamic_loading_allowed"
+    },
+    {
+      "node_id": "declaration:tools/*/effective_principal",
+      "type": "declaration",
+      "ref": "tools/*/effective_principal",
+      "label": "tools/*/effective_principal"
+    },
+    {
+      "node_id": "declaration:tools/*/outbound_transmission",
+      "type": "declaration",
+      "ref": "tools/*/outbound_transmission",
+      "label": "tools/*/outbound_transmission"
+    },
+    {
+      "node_id": "declaration:tools/*/side_effect",
+      "type": "declaration",
+      "ref": "tools/*/side_effect",
+      "label": "tools/*/side_effect"
+    },
+    {
+      "node_id": "declaration:tools/0",
+      "type": "declaration",
+      "ref": "tools/0",
+      "label": "tools/0"
+    },
+    {
+      "node_id": "declaration:tools/0/required_scopes",
+      "type": "declaration",
+      "ref": "tools/0/required_scopes",
+      "label": "tools/0/required_scopes"
+    },
+    {
+      "node_id": "declaration:tools/1",
+      "type": "declaration",
+      "ref": "tools/1",
+      "label": "tools/1"
+    },
+    {
+      "node_id": "declaration:tools/1/required_scopes",
+      "type": "declaration",
+      "ref": "tools/1/required_scopes",
+      "label": "tools/1/required_scopes"
+    },
+    {
+      "node_id": "evidence:ev-approval-gate-enforced",
+      "type": "evidence",
+      "ref": "ev-approval-gate-enforced",
+      "label": "The approval gate on issue-refund and draft-reply was exercised by attempting each action without an approval record; both were refused at the enforcement point",
+      "control_id": "ARS-09",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-approval-volume-measured",
+      "type": "evidence",
+      "ref": "ev-approval-volume-measured",
+      "label": "The owner reports approval volume at roughly 30 to 40 per reviewer per week, reviewed in the weekly ops meeting, with a documented threshold at which the classi",
+      "control_id": "ARS-10",
+      "kind": "attested",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-audit-identity-separated",
+      "type": "evidence",
+      "ref": "ev-audit-identity-separated",
+      "label": "Audit records carry both the acting user and the agent principal in separate fields, so a record written by the agent on behalf of a person is distinguishable f",
+      "control_id": "ARS-05",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-audit-plane-immutable",
+      "type": "evidence",
+      "ref": "ev-audit-plane-immutable",
+      "label": "The audit store is append-only, written by a principal that cannot delete, and retention is set beyond the incident window.",
+      "control_id": "ARS-13",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-budget-ceilings",
+      "type": "evidence",
+      "ref": "ev-budget-ceilings",
+      "label": "Session token and cost ceilings are enforced and were exercised; a run that reached the ceiling stopped rather than degrading silently.",
+      "control_id": "ARS-30",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-correlation-ids",
+      "type": "evidence",
+      "ref": "ev-correlation-ids",
+      "label": "Every log line in a sampled run carries the same correlation id, and it propagates to downstream service logs.",
+      "control_id": "ARS-14",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-cost-attribution",
+      "type": "evidence",
+      "ref": "ev-cost-attribution",
+      "label": "The owner reports that spend is attributed per ticket and reported monthly against the support cost centre.",
+      "control_id": "ARS-31",
+      "kind": "attested",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-cross-tool-flow-policy",
+      "type": "evidence",
+      "ref": "ev-cross-tool-flow-policy",
+      "label": "The permitted flows between tools were enumerated: customer records reach the ticket writer and the refund tool, and nothing reaches a tool that leaves the plat",
+      "control_id": "ARS-12",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-destructive-inventory-complete",
+      "type": "evidence",
+      "ref": "ev-destructive-inventory-complete",
+      "label": "The destructive-action inventory was compared against the tool registry: every tool that creates, modifies, deletes, sends or spends appears in it, classified, ",
+      "control_id": "ARS-08",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-eval-covers-destructive",
+      "type": "evidence",
+      "ref": "ev-eval-covers-destructive",
+      "label": "Every action in the destructive-action inventory has at least one execution case and one refusal case in the evaluation suite.",
+      "control_id": "ARS-34",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-eval-suite-versioned",
+      "type": "evidence",
+      "ref": "ev-eval-suite-versioned",
+      "label": "A versioned evaluation suite of 3 case classes runs in CI and gates deployment; the pipeline fails the build when the suite fails.",
+      "control_id": "ARS-33",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-exfiltration-channels-enumerated",
+      "type": "evidence",
+      "ref": "ev-exfiltration-channels-enumerated",
+      "label": "Every channel by which data could leave was enumerated. In this version the agent holds no tool that can transmit outside the platform, so the enumerated set is",
+      "control_id": "ARS-27",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-feedback-loop-instrumented",
+      "type": "evidence",
+      "ref": "ev-feedback-loop-instrumented",
+      "label": "The owner reports an in-flow thumbs-down control on every agent reply, routed to the triage queue, with volume reviewed weekly.",
+      "control_id": "ARS-36",
+      "kind": "attested",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-idempotency-keys",
+      "type": "evidence",
+      "ref": "ev-idempotency-keys",
+      "label": "Side-effecting calls carry an idempotency key derived from the ticket and the action; a replayed call produced no second effect.",
+      "control_id": "ARS-19",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-identity-propagation-trace",
+      "type": "evidence",
+      "ref": "ev-identity-propagation-trace",
+      "label": "Ten sampled runs were traced end to end; every downstream call carried the originating user's identity rather than a service principal.",
+      "control_id": "ARS-01",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-incident-taxonomy",
+      "type": "evidence",
+      "ref": "ev-incident-taxonomy",
+      "label": "A severity taxonomy for agent failures exists with named owners per severity and a documented escalation path.",
+      "control_id": "ARS-37",
+      "kind": "attested",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-injection-suite-run",
+      "type": "evidence",
+      "ref": "ev-injection-suite-run",
+      "label": "The adversarial injection suite of 42 cases was run against the pinned prompt and model; no case produced a tool call outside the declared set.",
+      "control_id": "ARS-25",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-no-secrets-in-prompts",
+      "type": "evidence",
+      "ref": "ev-no-secrets-in-prompts",
+      "label": "The prompt files, configuration and a sampled week of logs were scanned for credential shapes and for long literals assigned to secret-named keys. Nothing was f",
+      "control_id": "ARS-03",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-prompt-config-versioned",
+      "type": "evidence",
+      "ref": "ev-prompt-config-versioned",
+      "label": "The prompt carries a version stamp, the tool registry carries a registry version, and both appear in every run record, so a run can be tied to the exact text an",
+      "control_id": "ARS-17",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-retention-covers-artifacts",
+      "type": "evidence",
+      "ref": "ev-retention-covers-artifacts",
+      "label": "Retention and deletion procedures were reviewed and cover prompts, traces and tool-call records, not only the primary database.",
+      "control_id": "ARS-40",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-retry-and-loop-bounds",
+      "type": "evidence",
+      "ref": "ev-retry-and-loop-bounds",
+      "label": "The retry ceiling of 3 and the loop ceiling of 8 are enforced in code and were driven to their limits in test.",
+      "control_id": "ARS-20",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-review-board-package",
+      "type": "evidence",
+      "ref": "ev-review-board-package",
+      "label": "The traceability package assembled for the review board maps each control to its evidence and names the accountable role for each.",
+      "control_id": "ARS-41",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-scope-minimality-review",
+      "type": "evidence",
+      "ref": "ev-scope-minimality-review",
+      "label": "Each declared scope was walked against the tool that holds it and confirmed to be exercised by its function. No wildcard or administrative grant is present in a",
+      "control_id": "ARS-02",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-scope-static-scan",
+      "type": "evidence",
+      "ref": "ev-scope-static-scan",
+      "label": "ars-check found no wildcard scope, no administrative role bound to an agent principal, and no shared credential across tools with different functions.",
+      "control_id": "ARS-02",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-server-side-authz-probe",
+      "type": "evidence",
+      "ref": "ev-server-side-authz-probe",
+      "label": "A tool call was replayed with the authorization header stripped and with a second user's token; both were refused at the service, not at the agent.",
+      "control_id": "ARS-11",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-supply-chain-pinned",
+      "type": "evidence",
+      "ref": "ev-supply-chain-pinned",
+      "label": "The model identifier is pinned to an exact dated version with auto-upgrade declared false, and a lockfile pins every dependency.",
+      "control_id": "ARS-28",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-timeout-discipline",
+      "type": "evidence",
+      "ref": "ev-timeout-discipline",
+      "label": "Every tool declares a timeout and the agent declares a run deadline; a hung downstream call was simulated and the run terminated at the declared bound.",
+      "control_id": "ARS-23",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-trace-retention-acl",
+      "type": "evidence",
+      "ref": "ev-trace-retention-acl",
+      "label": "Reasoning traces are retained for 30 days behind an access-control list naming two roles, and access is itself logged.",
+      "control_id": "ARS-15",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-untrusted-segregation",
+      "type": "evidence",
+      "ref": "ev-untrusted-segregation",
+      "label": "Ticket content and scraped help-centre text are wrapped in a labelled delimiter by the context assembly path and never concatenated into the system prompt.",
+      "control_id": "ARS-24",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-04",
+      "type": "insufficient_evidence",
+      "ref": "ARS-04",
+      "label": "No evidence item in the ledger supports ARS-04.",
+      "control_id": "ARS-04",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-06",
+      "type": "insufficient_evidence",
+      "ref": "ARS-06",
+      "label": "No evidence item in the ledger supports ARS-06.",
+      "control_id": "ARS-06",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-07",
+      "type": "insufficient_evidence",
+      "ref": "ARS-07",
+      "label": "No evidence item in the ledger supports ARS-07.",
+      "control_id": "ARS-07",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-16",
+      "type": "insufficient_evidence",
+      "ref": "ARS-16",
+      "label": "No evidence item in the ledger supports ARS-16.",
+      "control_id": "ARS-16",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-21",
+      "type": "insufficient_evidence",
+      "ref": "ARS-21",
+      "label": "No evidence item in the ledger supports ARS-21.",
+      "control_id": "ARS-21",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-35",
+      "type": "insufficient_evidence",
+      "ref": "ARS-35",
+      "label": "No evidence item in the ledger supports ARS-35.",
+      "control_id": "ARS-35",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-38",
+      "type": "insufficient_evidence",
+      "ref": "ARS-38",
+      "label": "No evidence item in the ledger supports ARS-38.",
+      "control_id": "ARS-38",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "observation:approval_lookup-account@src/tools/registry.ts_28#typescript-source",
+      "type": "observation",
+      "ref": "approval:lookup-account@src/tools/registry.ts:28#typescript-source",
+      "label": "src/tools/registry.ts:28",
+      "adapter_id": "typescript-source",
+      "derivation": "inferred",
+      "confidence": "medium"
+    },
+    {
+      "node_id": "observation:approval_post-to-partner-webhook@src/tools/registry.ts_69#typescript-source",
+      "type": "observation",
+      "ref": "approval:post-to-partner-webhook@src/tools/registry.ts:69#typescript-source",
+      "label": "src/tools/registry.ts:69",
+      "adapter_id": "typescript-source",
+      "derivation": "inferred",
+      "confidence": "medium"
+    },
+    {
+      "node_id": "observation:approval_search-records@src/tools/registry.ts_39#typescript-source",
+      "type": "observation",
+      "ref": "approval:search-records@src/tools/registry.ts:39#typescript-source",
+      "label": "src/tools/registry.ts:39",
+      "adapter_id": "typescript-source",
+      "derivation": "inferred",
+      "confidence": "medium"
+    },
+    {
+      "node_id": "observation:model_primary@src/agent.ts_6#json-manifest",
+      "type": "observation",
+      "ref": "model:primary@src/agent.ts:6#json-manifest",
+      "label": "src/agent.ts:6",
+      "adapter_id": "json-manifest",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:scope_accounts.read@src/tools/registry.ts_36#typescript-source",
+      "type": "observation",
+      "ref": "scope:accounts.read@src/tools/registry.ts:36#typescript-source",
+      "label": "src/tools/registry.ts:36",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:scope_records.read@src/tools/registry.ts_47#typescript-source",
+      "type": "observation",
+      "ref": "scope:records.read@src/tools/registry.ts:47#typescript-source",
+      "label": "src/tools/registry.ts:47",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:scope_webhook.post@src/tools/registry.ts_77#typescript-source",
+      "type": "observation",
+      "ref": "scope:webhook.post@src/tools/registry.ts:77#typescript-source",
+      "label": "src/tools/registry.ts:77",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:tool_attribute_lookup-account_side_effect@src/tools/registry.ts_28#typescript-source",
+      "type": "observation",
+      "ref": "tool_attribute:lookup-account:side_effect@src/tools/registry.ts:28#typescript-source",
+      "label": "src/tools/registry.ts:28",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:tool_attribute_search-records_side_effect@src/tools/registry.ts_39#typescript-source",
+      "type": "observation",
+      "ref": "tool_attribute:search-records:side_effect@src/tools/registry.ts:39#typescript-source",
+      "label": "src/tools/registry.ts:39",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:tool_lookup-account@src/tools/registry.ts_28#typescript-source",
+      "type": "observation",
+      "ref": "tool:lookup-account@src/tools/registry.ts:28#typescript-source",
+      "label": "src/tools/registry.ts:28",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:tool_post-to-partner-webhook@src/tools/registry.ts_69#typescript-source",
+      "type": "observation",
+      "ref": "tool:post-to-partner-webhook@src/tools/registry.ts:69#typescript-source",
+      "label": "src/tools/registry.ts:69",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "observation:tool_search-records@src/tools/registry.ts_39#typescript-source",
+      "type": "observation",
+      "ref": "tool:search-records@src/tools/registry.ts:39#typescript-source",
+      "label": "src/tools/registry.ts:39",
+      "adapter_id": "typescript-source",
+      "derivation": "direct",
+      "confidence": "high"
+    },
+    {
+      "node_id": "reconciliation_item:approval_lookup-account",
+      "type": "reconciliation_item",
+      "ref": "approval:lookup-account",
+      "label": "match",
+      "state": "match",
+      "domain": "approval",
+      "pairing_basis": "tool_pairing"
+    },
+    {
+      "node_id": "reconciliation_item:approval_post-to-partner-webhook",
+      "type": "reconciliation_item",
+      "ref": "approval:post-to-partner-webhook",
+      "label": "observed_not_declared",
+      "state": "observed_not_declared",
+      "domain": "approval",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:approval_search-records",
+      "type": "reconciliation_item",
+      "ref": "approval:search-records",
+      "label": "match",
+      "state": "match",
+      "domain": "approval",
+      "pairing_basis": "tool_pairing"
+    },
+    {
+      "node_id": "reconciliation_item:containment_default_timeout_ms",
+      "type": "reconciliation_item",
+      "ref": "containment:default_timeout_ms",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_loop_ceiling",
+      "type": "reconciliation_item",
+      "ref": "containment:loop_ceiling",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_retry_ceiling",
+      "type": "reconciliation_item",
+      "ref": "containment:retry_ceiling",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_session_budget.max_cost_usd",
+      "type": "reconciliation_item",
+      "ref": "containment:session_budget.max_cost_usd",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_session_budget.max_tokens",
+      "type": "reconciliation_item",
+      "ref": "containment:session_budget.max_tokens",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_session_budget.max_wall_clock_ms",
+      "type": "reconciliation_item",
+      "ref": "containment:session_budget.max_wall_clock_ms",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_user_budget.max_cost_usd_per_day",
+      "type": "reconciliation_item",
+      "ref": "containment:user_budget.max_cost_usd_per_day",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:containment_user_budget.max_runs_per_hour",
+      "type": "reconciliation_item",
+      "ref": "containment:user_budget.max_runs_per_hour",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "containment",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:external_destination_register.internal.acme.example",
+      "type": "reconciliation_item",
+      "ref": "external_destination:register.internal.acme.example",
+      "label": "declared_not_observed",
+      "state": "declared_not_observed",
+      "domain": "external_destination",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:model_primary",
+      "type": "reconciliation_item",
+      "ref": "model:primary",
+      "label": "match",
+      "state": "match",
+      "domain": "model",
+      "pairing_basis": "identifier"
+    },
+    {
+      "node_id": "reconciliation_item:principal_effective_principal",
+      "type": "reconciliation_item",
+      "ref": "principal:effective_principal",
+      "label": "not_observable",
+      "state": "not_observable",
+      "domain": "principal",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:scope_accounts.read",
+      "type": "reconciliation_item",
+      "ref": "scope:accounts.read",
+      "label": "match",
+      "state": "match",
+      "domain": "scope",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:scope_records.read",
+      "type": "reconciliation_item",
+      "ref": "scope:records.read",
+      "label": "match",
+      "state": "match",
+      "domain": "scope",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:scope_webhook.post",
+      "type": "reconciliation_item",
+      "ref": "scope:webhook.post",
+      "label": "observed_not_declared",
+      "state": "observed_not_declared",
+      "domain": "scope",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:tool_attribute_lookup-account_dynamic_loading_allowed",
+      "type": "reconciliation_item",
+      "ref": "tool_attribute:lookup-account:dynamic_loading_allowed",
+      "label": "not_observable",
+      "state": "not_observable",
+      "domain": "tool_attribute",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:tool_attribute_lookup-account_outbound_transmission",
+      "type": "reconciliation_item",
+      "ref": "tool_attribute:lookup-account:outbound_transmission",
+      "label": "not_observable",
+      "state": "not_observable",
+      "domain": "tool_attribute",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:tool_attribute_lookup-account_side_effect",
+      "type": "reconciliation_item",
+      "ref": "tool_attribute:lookup-account:side_effect",
+      "label": "match",
+      "state": "match",
+      "domain": "tool_attribute",
+      "pairing_basis": "tool_pairing"
+    },
+    {
+      "node_id": "reconciliation_item:tool_attribute_search-records_dynamic_loading_allowed",
+      "type": "reconciliation_item",
+      "ref": "tool_attribute:search-records:dynamic_loading_allowed",
+      "label": "not_observable",
+      "state": "not_observable",
+      "domain": "tool_attribute",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:tool_attribute_search-records_outbound_transmission",
+      "type": "reconciliation_item",
+      "ref": "tool_attribute:search-records:outbound_transmission",
+      "label": "not_observable",
+      "state": "not_observable",
+      "domain": "tool_attribute",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:tool_attribute_search-records_side_effect",
+      "type": "reconciliation_item",
+      "ref": "tool_attribute:search-records:side_effect",
+      "label": "match",
+      "state": "match",
+      "domain": "tool_attribute",
+      "pairing_basis": "tool_pairing"
+    },
+    {
+      "node_id": "reconciliation_item:tool_lookup-account",
+      "type": "reconciliation_item",
+      "ref": "tool:lookup-account",
+      "label": "match",
+      "state": "match",
+      "domain": "tool",
+      "pairing_basis": "stable_id"
+    },
+    {
+      "node_id": "reconciliation_item:tool_post-to-partner-webhook",
+      "type": "reconciliation_item",
+      "ref": "tool:post-to-partner-webhook",
+      "label": "observed_not_declared",
+      "state": "observed_not_declared",
+      "domain": "tool",
+      "pairing_basis": null
+    },
+    {
+      "node_id": "reconciliation_item:tool_search-records",
+      "type": "reconciliation_item",
+      "ref": "tool:search-records",
+      "label": "match",
+      "state": "match",
+      "domain": "tool",
+      "pairing_basis": "stable_id"
+    },
+    {
+      "node_id": "required_review:data-flow-review_post-to-partner-webhook",
+      "type": "required_review",
+      "ref": "data-flow-review:post-to-partner-webhook",
+      "label": "Approve the path by which data may now reach post-to-partner-webhook, and record what may travel it.",
+      "role": "Data protection reviewer"
+    },
+    {
+      "node_id": "required_review:destructive-action-review_post-to-partner-webhook",
+      "type": "required_review",
+      "ref": "destructive-action-review:post-to-partner-webhook",
+      "label": "Approve the addition of an action that transmit to recipients, and record its compensating action.",
+      "role": "Records Platform Engineering Lead"
+    },
+    {
+      "node_id": "required_test:destination-allowlist_post-to-partner-webhook",
+      "type": "required_test",
+      "ref": "destination-allowlist:post-to-partner-webhook",
+      "label": "Confirm the destination allowlist is enforced at the call site rather than only declared."
+    },
+    {
+      "node_id": "required_test:exfiltration-path_post-to-partner-webhook",
+      "type": "required_test",
+      "ref": "exfiltration-path:post-to-partner-webhook",
+      "label": "Attempt to move data to post-to-partner-webhook through injected content, and confirm the path is constrained as declared."
+    },
+    {
+      "node_id": "required_test:injection-reaches-tool_post-to-partner-webhook",
+      "type": "required_test",
+      "ref": "injection-reaches-tool:post-to-partner-webhook",
+      "label": "Attempt to reach post-to-partner-webhook through content the agent did not author, and confirm it is refused where the declaration says it should be."
+    },
+    {
+      "node_id": "required_test:tool-behaviour_post-to-partner-webhook",
+      "type": "required_test",
+      "ref": "tool-behaviour:post-to-partner-webhook",
+      "label": "Exercise post-to-partner-webhook against its declared input schema, including the boundary and rejection cases."
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:affects:control_ARS-37",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:affects:control_ARS-41",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-41"
+    },
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:invalidates:evidence_ev-review-board-package",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-review-board-package"
+    },
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:requires_review:required_review_destructive-action-review_post-to-partner-webhook",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "requires_review",
+      "to": "required_review:destructive-action-review_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:requires_test:required_test_injection-reaches-tool_post-to-partner-webhook",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "requires_test",
+      "to": "required_test:injection-reaches-tool_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_destructive_action_added_post-to-partner-webhook:requires_test:required_test_tool-behaviour_post-to-partner-webhook",
+      "from": "change:destructive_action_added_post-to-partner-webhook",
+      "relation": "requires_test",
+      "to": "required_test:tool-behaviour_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_post-to-partner-webhook:affects:control_ARS-37",
+      "from": "change:outbound_transmission_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_post-to-partner-webhook:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:outbound_transmission_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_post-to-partner-webhook:requires_review:required_review_data-flow-review_post-to-partner-webhook",
+      "from": "change:outbound_transmission_added_post-to-partner-webhook",
+      "relation": "requires_review",
+      "to": "required_review:data-flow-review_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_post-to-partner-webhook:requires_test:required_test_destination-allowlist_post-to-partner-webhook",
+      "from": "change:outbound_transmission_added_post-to-partner-webhook",
+      "relation": "requires_test",
+      "to": "required_test:destination-allowlist_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_post-to-partner-webhook:requires_test:required_test_exfiltration-path_post-to-partner-webhook",
+      "from": "change:outbound_transmission_added_post-to-partner-webhook",
+      "relation": "requires_test",
+      "to": "required_test:exfiltration-path_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-01",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-01"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-02",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-04",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-04"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-06",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-06"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-07",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-07"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-11",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-11"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-14",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-14"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-16",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-16"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-21",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-21"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-23",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-23"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-31",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-31"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-33",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-33"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-35",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-35"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:affects:control_ARS-38",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "affects",
+      "to": "control:ARS-38"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-correlation-ids",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-correlation-ids"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-cost-attribution",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-cost-attribution"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-eval-suite-versioned",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-suite-versioned"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-identity-propagation-trace",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-identity-propagation-trace"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-scope-minimality-review",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-minimality-review"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-scope-static-scan",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-static-scan"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-server-side-authz-probe",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-server-side-authz-probe"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:invalidates:evidence_ev-timeout-discipline",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "invalidates",
+      "to": "evidence:ev-timeout-discipline"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:requires_test:required_test_injection-reaches-tool_post-to-partner-webhook",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "requires_test",
+      "to": "required_test:injection-reaches-tool_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "change_tool_added_post-to-partner-webhook:requires_test:required_test_tool-behaviour_post-to-partner-webhook",
+      "from": "change:tool_added_post-to-partner-webhook",
+      "relation": "requires_test",
+      "to": "required_test:tool-behaviour_post-to-partner-webhook"
+    },
+    {
+      "edge_id": "control_ARS-04:lacks_evidence:insufficient_evidence_ARS-04",
+      "from": "control:ARS-04",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-04"
+    },
+    {
+      "edge_id": "control_ARS-06:lacks_evidence:insufficient_evidence_ARS-06",
+      "from": "control:ARS-06",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-06"
+    },
+    {
+      "edge_id": "control_ARS-07:lacks_evidence:insufficient_evidence_ARS-07",
+      "from": "control:ARS-07",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-07"
+    },
+    {
+      "edge_id": "control_ARS-16:lacks_evidence:insufficient_evidence_ARS-16",
+      "from": "control:ARS-16",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-16"
+    },
+    {
+      "edge_id": "control_ARS-21:lacks_evidence:insufficient_evidence_ARS-21",
+      "from": "control:ARS-21",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-21"
+    },
+    {
+      "edge_id": "control_ARS-35:lacks_evidence:insufficient_evidence_ARS-35",
+      "from": "control:ARS-35",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-35"
+    },
+    {
+      "edge_id": "control_ARS-38:lacks_evidence:insufficient_evidence_ARS-38",
+      "from": "control:ARS-38",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-38"
+    },
+    {
+      "edge_id": "evidence_ev-approval-gate-enforced:supports:control_ARS-09",
+      "from": "evidence:ev-approval-gate-enforced",
+      "relation": "supports",
+      "to": "control:ARS-09"
+    },
+    {
+      "edge_id": "evidence_ev-approval-volume-measured:supports:control_ARS-10",
+      "from": "evidence:ev-approval-volume-measured",
+      "relation": "supports",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "evidence_ev-audit-identity-separated:supports:control_ARS-05",
+      "from": "evidence:ev-audit-identity-separated",
+      "relation": "supports",
+      "to": "control:ARS-05"
+    },
+    {
+      "edge_id": "evidence_ev-audit-plane-immutable:supports:control_ARS-13",
+      "from": "evidence:ev-audit-plane-immutable",
+      "relation": "supports",
+      "to": "control:ARS-13"
+    },
+    {
+      "edge_id": "evidence_ev-budget-ceilings:supports:control_ARS-30",
+      "from": "evidence:ev-budget-ceilings",
+      "relation": "supports",
+      "to": "control:ARS-30"
+    },
+    {
+      "edge_id": "evidence_ev-correlation-ids:supports:control_ARS-14",
+      "from": "evidence:ev-correlation-ids",
+      "relation": "supports",
+      "to": "control:ARS-14"
+    },
+    {
+      "edge_id": "evidence_ev-cost-attribution:supports:control_ARS-31",
+      "from": "evidence:ev-cost-attribution",
+      "relation": "supports",
+      "to": "control:ARS-31"
+    },
+    {
+      "edge_id": "evidence_ev-cross-tool-flow-policy:supports:control_ARS-12",
+      "from": "evidence:ev-cross-tool-flow-policy",
+      "relation": "supports",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "evidence_ev-destructive-inventory-complete:supports:control_ARS-08",
+      "from": "evidence:ev-destructive-inventory-complete",
+      "relation": "supports",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "evidence_ev-eval-covers-destructive:supports:control_ARS-34",
+      "from": "evidence:ev-eval-covers-destructive",
+      "relation": "supports",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "evidence_ev-eval-suite-versioned:supports:control_ARS-33",
+      "from": "evidence:ev-eval-suite-versioned",
+      "relation": "supports",
+      "to": "control:ARS-33"
+    },
+    {
+      "edge_id": "evidence_ev-exfiltration-channels-enumerated:supports:control_ARS-27",
+      "from": "evidence:ev-exfiltration-channels-enumerated",
+      "relation": "supports",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "evidence_ev-feedback-loop-instrumented:supports:control_ARS-36",
+      "from": "evidence:ev-feedback-loop-instrumented",
+      "relation": "supports",
+      "to": "control:ARS-36"
+    },
+    {
+      "edge_id": "evidence_ev-idempotency-keys:supports:control_ARS-19",
+      "from": "evidence:ev-idempotency-keys",
+      "relation": "supports",
+      "to": "control:ARS-19"
+    },
+    {
+      "edge_id": "evidence_ev-identity-propagation-trace:supports:control_ARS-01",
+      "from": "evidence:ev-identity-propagation-trace",
+      "relation": "supports",
+      "to": "control:ARS-01"
+    },
+    {
+      "edge_id": "evidence_ev-incident-taxonomy:supports:control_ARS-37",
+      "from": "evidence:ev-incident-taxonomy",
+      "relation": "supports",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "evidence_ev-injection-suite-run:supports:control_ARS-25",
+      "from": "evidence:ev-injection-suite-run",
+      "relation": "supports",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "evidence_ev-no-secrets-in-prompts:supports:control_ARS-03",
+      "from": "evidence:ev-no-secrets-in-prompts",
+      "relation": "supports",
+      "to": "control:ARS-03"
+    },
+    {
+      "edge_id": "evidence_ev-prompt-config-versioned:supports:control_ARS-17",
+      "from": "evidence:ev-prompt-config-versioned",
+      "relation": "supports",
+      "to": "control:ARS-17"
+    },
+    {
+      "edge_id": "evidence_ev-retention-covers-artifacts:supports:control_ARS-40",
+      "from": "evidence:ev-retention-covers-artifacts",
+      "relation": "supports",
+      "to": "control:ARS-40"
+    },
+    {
+      "edge_id": "evidence_ev-retry-and-loop-bounds:supports:control_ARS-20",
+      "from": "evidence:ev-retry-and-loop-bounds",
+      "relation": "supports",
+      "to": "control:ARS-20"
+    },
+    {
+      "edge_id": "evidence_ev-review-board-package:supports:control_ARS-41",
+      "from": "evidence:ev-review-board-package",
+      "relation": "supports",
+      "to": "control:ARS-41"
+    },
+    {
+      "edge_id": "evidence_ev-scope-minimality-review:supports:control_ARS-02",
+      "from": "evidence:ev-scope-minimality-review",
+      "relation": "supports",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "evidence_ev-scope-static-scan:supports:control_ARS-02",
+      "from": "evidence:ev-scope-static-scan",
+      "relation": "supports",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "evidence_ev-server-side-authz-probe:supports:control_ARS-11",
+      "from": "evidence:ev-server-side-authz-probe",
+      "relation": "supports",
+      "to": "control:ARS-11"
+    },
+    {
+      "edge_id": "evidence_ev-supply-chain-pinned:supports:control_ARS-28",
+      "from": "evidence:ev-supply-chain-pinned",
+      "relation": "supports",
+      "to": "control:ARS-28"
+    },
+    {
+      "edge_id": "evidence_ev-timeout-discipline:supports:control_ARS-23",
+      "from": "evidence:ev-timeout-discipline",
+      "relation": "supports",
+      "to": "control:ARS-23"
+    },
+    {
+      "edge_id": "evidence_ev-trace-retention-acl:supports:control_ARS-15",
+      "from": "evidence:ev-trace-retention-acl",
+      "relation": "supports",
+      "to": "control:ARS-15"
+    },
+    {
+      "edge_id": "evidence_ev-untrusted-segregation:supports:control_ARS-24",
+      "from": "evidence:ev-untrusted-segregation",
+      "relation": "supports",
+      "to": "control:ARS-24"
+    },
+    {
+      "edge_id": "reconciliation_item_approval_lookup-account:reconciles_declaration:declaration_tools/*/approval/policy",
+      "from": "reconciliation_item:approval_lookup-account",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/approval/policy"
+    },
+    {
+      "edge_id": "reconciliation_item_approval_lookup-account:reconciles_observation:observation_approval_lookup-account@src/tools/registry.ts_28#typescript-source",
+      "from": "reconciliation_item:approval_lookup-account",
+      "relation": "reconciles_observation",
+      "to": "observation:approval_lookup-account@src/tools/registry.ts_28#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_approval_post-to-partner-webhook:reconciles_observation:observation_approval_post-to-partner-webhook@src/tools/registry.ts_69#typescript-source",
+      "from": "reconciliation_item:approval_post-to-partner-webhook",
+      "relation": "reconciles_observation",
+      "to": "observation:approval_post-to-partner-webhook@src/tools/registry.ts_69#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_approval_search-records:reconciles_declaration:declaration_tools/*/approval/policy",
+      "from": "reconciliation_item:approval_search-records",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/approval/policy"
+    },
+    {
+      "edge_id": "reconciliation_item_approval_search-records:reconciles_observation:observation_approval_search-records@src/tools/registry.ts_39#typescript-source",
+      "from": "reconciliation_item:approval_search-records",
+      "relation": "reconciles_observation",
+      "to": "observation:approval_search-records@src/tools/registry.ts_39#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_default_timeout_ms:reconciles_declaration:declaration_containment/default_timeout_ms",
+      "from": "reconciliation_item:containment_default_timeout_ms",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/default_timeout_ms"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_loop_ceiling:reconciles_declaration:declaration_containment/loop_ceiling",
+      "from": "reconciliation_item:containment_loop_ceiling",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/loop_ceiling"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_retry_ceiling:reconciles_declaration:declaration_containment/retry_ceiling",
+      "from": "reconciliation_item:containment_retry_ceiling",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/retry_ceiling"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_session_budget.max_cost_usd:reconciles_declaration:declaration_containment/session_budget/max_cost_usd",
+      "from": "reconciliation_item:containment_session_budget.max_cost_usd",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/session_budget/max_cost_usd"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_session_budget.max_tokens:reconciles_declaration:declaration_containment/session_budget/max_tokens",
+      "from": "reconciliation_item:containment_session_budget.max_tokens",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/session_budget/max_tokens"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_session_budget.max_wall_clock_ms:reconciles_declaration:declaration_containment/session_budget/max_wall_clock_ms",
+      "from": "reconciliation_item:containment_session_budget.max_wall_clock_ms",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/session_budget/max_wall_clock_ms"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_user_budget.max_cost_usd_per_day:reconciles_declaration:declaration_containment/user_budget/max_cost_usd_per_day",
+      "from": "reconciliation_item:containment_user_budget.max_cost_usd_per_day",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/user_budget/max_cost_usd_per_day"
+    },
+    {
+      "edge_id": "reconciliation_item_containment_user_budget.max_runs_per_hour:reconciles_declaration:declaration_containment/user_budget/max_runs_per_hour",
+      "from": "reconciliation_item:containment_user_budget.max_runs_per_hour",
+      "relation": "reconciles_declaration",
+      "to": "declaration:containment/user_budget/max_runs_per_hour"
+    },
+    {
+      "edge_id": "reconciliation_item_external_destination_register.internal.acme.example:reconciles_declaration:declaration_data_sinks/0/permitted_destinations",
+      "from": "reconciliation_item:external_destination_register.internal.acme.example",
+      "relation": "reconciles_declaration",
+      "to": "declaration:data_sinks/0/permitted_destinations"
+    },
+    {
+      "edge_id": "reconciliation_item_model_primary:reconciles_declaration:declaration_models/0",
+      "from": "reconciliation_item:model_primary",
+      "relation": "reconciles_declaration",
+      "to": "declaration:models/0"
+    },
+    {
+      "edge_id": "reconciliation_item_model_primary:reconciles_observation:observation_model_primary@src/agent.ts_6#json-manifest",
+      "from": "reconciliation_item:model_primary",
+      "relation": "reconciles_observation",
+      "to": "observation:model_primary@src/agent.ts_6#json-manifest"
+    },
+    {
+      "edge_id": "reconciliation_item_principal_effective_principal:reconciles_declaration:declaration_tools/*/effective_principal",
+      "from": "reconciliation_item:principal_effective_principal",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/effective_principal"
+    },
+    {
+      "edge_id": "reconciliation_item_scope_accounts.read:reconciles_declaration:declaration_tools/0/required_scopes",
+      "from": "reconciliation_item:scope_accounts.read",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/0/required_scopes"
+    },
+    {
+      "edge_id": "reconciliation_item_scope_accounts.read:reconciles_observation:observation_scope_accounts.read@src/tools/registry.ts_36#typescript-source",
+      "from": "reconciliation_item:scope_accounts.read",
+      "relation": "reconciles_observation",
+      "to": "observation:scope_accounts.read@src/tools/registry.ts_36#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_scope_records.read:reconciles_declaration:declaration_tools/1/required_scopes",
+      "from": "reconciliation_item:scope_records.read",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/1/required_scopes"
+    },
+    {
+      "edge_id": "reconciliation_item_scope_records.read:reconciles_observation:observation_scope_records.read@src/tools/registry.ts_47#typescript-source",
+      "from": "reconciliation_item:scope_records.read",
+      "relation": "reconciles_observation",
+      "to": "observation:scope_records.read@src/tools/registry.ts_47#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_scope_webhook.post:reconciles_observation:observation_scope_webhook.post@src/tools/registry.ts_77#typescript-source",
+      "from": "reconciliation_item:scope_webhook.post",
+      "relation": "reconciles_observation",
+      "to": "observation:scope_webhook.post@src/tools/registry.ts_77#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_lookup-account_dynamic_loading_allowed:reconciles_declaration:declaration_tools/*/dynamic_loading_allowed",
+      "from": "reconciliation_item:tool_attribute_lookup-account_dynamic_loading_allowed",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/dynamic_loading_allowed"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_lookup-account_outbound_transmission:reconciles_declaration:declaration_tools/*/outbound_transmission",
+      "from": "reconciliation_item:tool_attribute_lookup-account_outbound_transmission",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/outbound_transmission"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_lookup-account_side_effect:reconciles_declaration:declaration_tools/*/side_effect",
+      "from": "reconciliation_item:tool_attribute_lookup-account_side_effect",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/side_effect"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_lookup-account_side_effect:reconciles_observation:observation_tool_attribute_lookup-account_side_effect@src/tools/registry.ts_28#typescript-source",
+      "from": "reconciliation_item:tool_attribute_lookup-account_side_effect",
+      "relation": "reconciles_observation",
+      "to": "observation:tool_attribute_lookup-account_side_effect@src/tools/registry.ts_28#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_search-records_dynamic_loading_allowed:reconciles_declaration:declaration_tools/*/dynamic_loading_allowed",
+      "from": "reconciliation_item:tool_attribute_search-records_dynamic_loading_allowed",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/dynamic_loading_allowed"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_search-records_outbound_transmission:reconciles_declaration:declaration_tools/*/outbound_transmission",
+      "from": "reconciliation_item:tool_attribute_search-records_outbound_transmission",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/outbound_transmission"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_search-records_side_effect:reconciles_declaration:declaration_tools/*/side_effect",
+      "from": "reconciliation_item:tool_attribute_search-records_side_effect",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/*/side_effect"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_attribute_search-records_side_effect:reconciles_observation:observation_tool_attribute_search-records_side_effect@src/tools/registry.ts_39#typescript-source",
+      "from": "reconciliation_item:tool_attribute_search-records_side_effect",
+      "relation": "reconciles_observation",
+      "to": "observation:tool_attribute_search-records_side_effect@src/tools/registry.ts_39#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_lookup-account:reconciles_declaration:declaration_tools/0",
+      "from": "reconciliation_item:tool_lookup-account",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/0"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_lookup-account:reconciles_observation:observation_tool_lookup-account@src/tools/registry.ts_28#typescript-source",
+      "from": "reconciliation_item:tool_lookup-account",
+      "relation": "reconciles_observation",
+      "to": "observation:tool_lookup-account@src/tools/registry.ts_28#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_post-to-partner-webhook:reconciles_observation:observation_tool_post-to-partner-webhook@src/tools/registry.ts_69#typescript-source",
+      "from": "reconciliation_item:tool_post-to-partner-webhook",
+      "relation": "reconciles_observation",
+      "to": "observation:tool_post-to-partner-webhook@src/tools/registry.ts_69#typescript-source"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_search-records:reconciles_declaration:declaration_tools/1",
+      "from": "reconciliation_item:tool_search-records",
+      "relation": "reconciles_declaration",
+      "to": "declaration:tools/1"
+    },
+    {
+      "edge_id": "reconciliation_item_tool_search-records:reconciles_observation:observation_tool_search-records@src/tools/registry.ts_39#typescript-source",
+      "from": "reconciliation_item:tool_search-records",
+      "relation": "reconciles_observation",
+      "to": "observation:tool_search-records@src/tools/registry.ts_39#typescript-source"
+    }
+  ],
+  "volatile": {
+    "built_at": "2026-08-06T14:08:37.218Z"
+  },
+  "canonical_hash": "9e88e024c7cd43d1e6b2babaf627b8da5e45cbb083e46912579196848ebcdb24"
+}

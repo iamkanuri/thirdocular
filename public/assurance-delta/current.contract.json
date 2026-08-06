@@ -1,0 +1,423 @@
+{
+  "schema_version": "0.1",
+  "identity": {
+    "agent_id": "acme-ticket-triage",
+    "display_name": "Ticket Triage Agent",
+    "agent_version": "1.5.0",
+    "owner": {
+      "team": "Customer Operations Platform",
+      "accountable_role": "Head of Customer Operations Engineering",
+      "contact_ref": "team-directory://customer-operations-platform"
+    },
+    "business_purpose": "Triages inbound support tickets, looks up the customer record, drafts a reply into the ticket for a human to send, and issues small refunds where the billing rules allow it. Handles tier-1 volume so that human agents see only escalations.",
+    "criticality": "high",
+    "lifecycle_state": "production",
+    "repository": {
+      "reference": "acme/ticket-triage",
+      "revision": "v1.5.0"
+    },
+    "declaration_state": "owner_declared"
+  },
+  "skills": [
+    {
+      "skill_id": "customer-lookup",
+      "purpose": "Resolve one customer record from an account number so the rest of the run has a subject.",
+      "data_classes": [
+        "personal_data",
+        "confidential"
+      ],
+      "side_effects": [],
+      "required_permissions": [
+        "customers.read"
+      ]
+    },
+    {
+      "skill_id": "ticket-triage",
+      "purpose": "Classify a ticket, set its status and priority, and decide whether it can be resolved without a human.",
+      "data_classes": [
+        "internal",
+        "personal_data"
+      ],
+      "side_effects": [
+        "write"
+      ],
+      "required_permissions": [
+        "tickets.read",
+        "tickets.update"
+      ]
+    },
+    {
+      "skill_id": "reply-drafting",
+      "purpose": "Draft a reply into the ticket for a person to review and send. The agent does not send anything itself.",
+      "data_classes": [
+        "personal_data"
+      ],
+      "side_effects": [
+        "write"
+      ],
+      "required_permissions": [
+        "tickets.update"
+      ]
+    },
+    {
+      "skill_id": "goodwill-refund",
+      "purpose": "Issue a bounded refund against a ticket where the billing rules and the amount ceiling both allow it.",
+      "data_classes": [
+        "financial",
+        "personal_data"
+      ],
+      "side_effects": [
+        "spend"
+      ],
+      "required_permissions": [
+        "refunds.create",
+        "refunds.read"
+      ]
+    },
+    {
+      "skill_id": "customer-correspondence",
+      "purpose": "Send a reply to the customer directly, rather than drafting it into the ticket for a person to send.",
+      "data_classes": [
+        "personal_data"
+      ],
+      "side_effects": [
+        "send"
+      ],
+      "required_permissions": [
+        "email.send"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "model_id": "primary-reasoner",
+      "role": "triage-and-response",
+      "identifier": "claude-sonnet-4-6-20260401",
+      "version": "20260401",
+      "version_policy": "pinned",
+      "auto_upgrade_allowed": false
+    }
+  ],
+  "prompts": [
+    {
+      "prompt_id": "system-triage",
+      "purpose": "The system prompt: role, refusal rules, and the contract for handling untrusted ticket content.",
+      "source_location": "prompts/system.txt",
+      "content_hash": "dc78066e1868a10694d878add46a9b36a952f2f706a346ad45f0db1f4d3833dd",
+      "trust_level": "assembled_untrusted",
+      "interpolates_user_content": true,
+      "interpolates_external_content": true
+    }
+  ],
+  "tools": [
+    {
+      "tool_id": "lookup-customer",
+      "display_name": "lookup_customer",
+      "aliases": [],
+      "side_effect": "read",
+      "input_schema_ref": "tools.json#/tools/0/input_schema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "customers.read",
+        "customers.pii.read",
+        "customers.read.all"
+      ],
+      "approval": {
+        "policy": "auto_allow",
+        "approval_class": null,
+        "condition": null
+      },
+      "idempotent": true,
+      "timeout_ms": 120000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    },
+    {
+      "tool_id": "search-tickets",
+      "display_name": "search_tickets",
+      "aliases": [],
+      "side_effect": "read",
+      "input_schema_ref": "tools.json#/tools/1/input_schema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "tickets.read"
+      ],
+      "approval": {
+        "policy": "auto_allow",
+        "approval_class": null,
+        "condition": null
+      },
+      "idempotent": true,
+      "timeout_ms": 120000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    },
+    {
+      "tool_id": "update-ticket",
+      "display_name": "update_ticket",
+      "aliases": [],
+      "side_effect": "write",
+      "input_schema_ref": "tools.json#/tools/2/input_schema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "tickets.update"
+      ],
+      "approval": {
+        "policy": "auto_allow",
+        "approval_class": null,
+        "condition": null
+      },
+      "idempotent": true,
+      "timeout_ms": 120000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    },
+    {
+      "tool_id": "draft-reply",
+      "display_name": "draft_reply",
+      "aliases": [],
+      "side_effect": "write",
+      "input_schema_ref": "tools.json#/tools/3/input_schema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "tickets.update"
+      ],
+      "approval": {
+        "policy": "human_approval_conditional",
+        "approval_class": "customer-facing-send",
+        "condition": "Required only when the draft quotes content the agent did not author."
+      },
+      "idempotent": true,
+      "timeout_ms": 120000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    },
+    {
+      "tool_id": "issue-refund",
+      "display_name": "issue_refund",
+      "aliases": [],
+      "side_effect": "spend",
+      "input_schema_ref": "tools.json#/tools/4/input_schema",
+      "outbound_transmission": false,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "refunds.create",
+        "refunds.read"
+      ],
+      "approval": {
+        "policy": "human_approval",
+        "approval_class": "money-movement",
+        "condition": null
+      },
+      "idempotent": true,
+      "timeout_ms": 120000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    },
+    {
+      "tool_id": "send-email",
+      "display_name": "send_email",
+      "aliases": [],
+      "side_effect": "send",
+      "input_schema_ref": "tools.json#/tools/5/input_schema",
+      "outbound_transmission": true,
+      "auth_mechanism": "workload_identity_federation",
+      "effective_principal": "end_user",
+      "required_scopes": [
+        "email.send"
+      ],
+      "approval": {
+        "policy": "human_approval_conditional",
+        "approval_class": "customer-facing-send",
+        "condition": "Required only when the recipient address is not the customer of record on the ticket."
+      },
+      "idempotent": true,
+      "timeout_ms": 120000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff": "exponential"
+      },
+      "environments_allowed": [
+        "development",
+        "staging",
+        "production"
+      ],
+      "dynamic_loading_allowed": false
+    }
+  ],
+  "data_sinks": [
+    {
+      "sink_id": "support-database",
+      "direction": "bidirectional",
+      "data_classifications": [
+        "personal_data",
+        "internal"
+      ],
+      "external": false,
+      "permitted_destinations": [
+        "support-db.internal.acme.example"
+      ]
+    },
+    {
+      "sink_id": "billing-service",
+      "direction": "outbound",
+      "data_classifications": [
+        "financial",
+        "personal_data"
+      ],
+      "external": false,
+      "permitted_destinations": [
+        "billing.internal.acme.example/refunds"
+      ]
+    },
+    {
+      "sink_id": "inbound-ticket-content",
+      "direction": "inbound",
+      "data_classifications": [
+        "personal_data",
+        "internal"
+      ],
+      "external": true,
+      "permitted_destinations": [
+        "helpdesk.acme.example/tickets"
+      ]
+    },
+    {
+      "sink_id": "customer-mailbox",
+      "direction": "outbound",
+      "data_classifications": [
+        "personal_data"
+      ],
+      "external": true,
+      "permitted_destinations": [
+        "mail-relay.internal.acme.example/transactional",
+        "notifications.vendor.example/dispatch"
+      ]
+    }
+  ],
+  "autonomy": {
+    "autonomy_level": "human_in_the_loop",
+    "trigger_modes": [
+      "human_initiated",
+      "event_driven"
+    ],
+    "destructive_action_inventory": [
+      {
+        "action_id": "modify-ticket-state",
+        "tool_id": "update-ticket",
+        "classification": "reversible",
+        "gate": "auto_allow"
+      },
+      {
+        "action_id": "draft-customer-reply",
+        "tool_id": "draft-reply",
+        "classification": "reversible_with_effort",
+        "gate": "human_approval"
+      },
+      {
+        "action_id": "issue-customer-refund",
+        "tool_id": "issue-refund",
+        "classification": "irreversible",
+        "gate": "human_approval"
+      },
+      {
+        "action_id": "send-customer-email",
+        "tool_id": "send-email",
+        "classification": "irreversible",
+        "gate": "human_approval"
+      }
+    ],
+    "approval_classes": [
+      {
+        "class_id": "customer-facing-send",
+        "description": "Anything a customer will read. A draft is approved before a person sends it, so nothing reaches a customer unread.",
+        "approver_roles": [
+          "Support Team Lead",
+          "Customer Operations Duty Manager"
+        ],
+        "applies_to": [
+          "draft-reply",
+          "send-email"
+        ]
+      },
+      {
+        "class_id": "money-movement",
+        "description": "Anything that moves money. Approved by a role that carries financial authority, not by the support rota.",
+        "approver_roles": [
+          "Billing Operations Approver"
+        ],
+        "applies_to": [
+          "issue-refund"
+        ]
+      }
+    ],
+    "maximum_plausible_blast_radius": {
+      "scope": "single_customer",
+      "monetary_ceiling_usd": 500,
+      "description": "One customer's tickets and one customer's refunds per run. The refund tool caps a single refund at 500 dollars, and no tool this agent holds can transmit anything outside the platform."
+    }
+  },
+  "containment": {
+    "session_budget": {
+      "max_tokens": 60000,
+      "max_cost_usd": 1.5,
+      "max_wall_clock_ms": 120000
+    },
+    "user_budget": {
+      "max_runs_per_hour": 40,
+      "max_cost_usd_per_day": 25
+    },
+    "retry_ceiling": 3,
+    "loop_ceiling": 8,
+    "default_timeout_ms": 120000
+  }
+}

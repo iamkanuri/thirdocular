@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assurance delta — acme-records-assistant 2.2.0 to 2.3.0</title>
+<meta name="description" content="An agent whose tools exist only in TypeScript source. One of them posts record payloads to a partner endpoint, and the contract still describes a read-only tool set. Found by parsing the source, not by reading a manifest: the tool is declared nowhere as data. 16 controls affected, 2 human reviews required.">
+<link rel="canonical" href="https://thirdocular.com/assurance-delta/undeclared-capability/">
+<meta property="og:title" content="The contract said read-only. The TypeScript could send. Verdict: BLOCK.">
+<meta property="og:description" content="An agent whose tools exist only in TypeScript source. One of them posts record payloads to a partner endpoint, and the contract still describes a read-only tool set. Found by parsing the source, not by reading a manifest: the tool is declared nowhere as data. 16 controls affected, 2 human reviews required.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ThirdOcular">
+<meta property="og:url" content="https://thirdocular.com/assurance-delta/undeclared-capability/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thirdocular.com/og.png">
+<meta property="og:image:alt" content="ThirdOcular">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The contract said read-only. The TypeScript could send. Verdict: BLOCK.">
+<meta name="twitter:description" content="An agent whose tools exist only in TypeScript source. One of them posts record payloads to a partner endpoint, and the contract still describes a read-only tool set. Found by parsing the source, not by reading a manifest: the tool is declared nowhere as data. 16 controls affected, 2 human reviews required.">
+<meta name="twitter:image" content="https://thirdocular.com/og.png">
+<link rel="stylesheet" href="../../ars-assets/ars.css">
+</head>
+<body class="ars-delta">
+<link rel="stylesheet" href="../../ars-assets/report.css">
+<link rel="stylesheet" href="../../ars-assets/delta.css">
+<main class="std-page">
+<header class="std-crumb no-print"><a href="../../ars/">ARS v1.0</a> &rsaquo; Assurance delta</header>
+<div class="std-doc">
+<h1>acme-records-assistant: 2.2.0 &rarr; 2.3.0</h1>
+<p class="std-subtitle">This agent changed. Here is which evidence, which tests and which approvals that change
+invalidated, and whether it can ship.</p>
+<section class="ad-banner">
+  <div class="ad-banner-k">What this is, and what it is not</div>
+  <p>
+    This compares two <b>declarations</b> of what one agent is permitted and expected to do, and reports what
+    changed in operational terms. It is not an assessment of the agent, it is not a test result, and nothing here
+    certifies anything.
+  </p>
+  <p>
+    The comparison was computed from <b>declarations and observations</b>. A delta of two declarations
+    answers <i>did the declared intent change</i>. It does not answer <i>does the implementation match the
+    declaration</i> — that is what reconciliation is for, and it is a separate artifact.
+  </p>
+  <p>
+    This is a SIDECAR to ARS v1.0, not part of it. ARS v1.0 is content-hashed and published and is not modified by this document. What this adds is the three things an assessment needs and the standard deliberately does not carry: when each control applies to a given agent, what kind of evidence can settle it, and which categories of change invalidate evidence already gathered for it. Every applicability decision is made from named contract facts and states which ones. Nothing here certifies anything, and a control marked applicable is a control somebody still has to assess.
+  </p>
+</section>
+<section class="ad-banner">
+  <div class="ad-banner-k">A second worked example</div>
+  <p>This page compares an unchanged declaration against an implementation that moved. The companion example is the ordinary case: two versions of a declaration, five named changes, and the evidence each one costs.</p>
+  <p><a href="./../">Read the two-declaration example &rarr;</a></p>
+</section>
+<div class="ad-versions">
+  <div class="ad-version">
+    <div class="ad-version-k">Previous</div>
+    <div class="ad-version-v">2.2.0</div>
+    <dl>
+      <dt>contract hash</dt><dd>d32d776b7ed6407a86e73e40a2fbc4f2960564bde515fa795b452a508417ef66</dd>
+      <dt>observation</dt><dd>not supplied</dd>
+    </dl>
+  </div>
+  <div class="ad-version">
+    <div class="ad-version-k">Current</div>
+    <div class="ad-version-v">2.3.0</div>
+    <dl>
+      <dt>contract hash</dt><dd>a6ee1c007f083b540ba1db30f260f855cc853fe67090b8e07b400cfdcbd0d1e0</dd>
+      <dt>observation</dt><dd>complete</dd>
+    </dl>
+  </div>
+</div>
+<section class="ad-verdict">
+  <span class="ad-band ad-band-block">BLOCK</span>
+  <span class="ad-verdict-sub"><b>3</b> semantic change(s)</span>
+  <span class="ad-verdict-sub"><b>10</b> evidence item(s) invalidated,
+    <b>19</b> retained</span>
+  <span class="ad-verdict-sub"><b>4</b> test(s) and
+    <b>2</b> human review(s) required</span>
+  <span class="ad-verdict-sub">reading: <b>complete</b></span>
+</section>
+<p>BLOCK is not a score. Every condition above must stop being true; no number of clean rules outvotes one that fired.</p>
+<h2 id="promotion">What has to change to reach REVIEW</h2>
+<p>Every one of these must stop being true. There is no aggregate score in this path, so no number of clean rules
+outvotes one that fired.</p>
+<div class="ad-rule ad-rule-block">
+  <span class="ad-rule-id">critical-authority-expansion</span>
+  <p><b>Now:</b> destructive_action_added:post-to-partner-webhook: the agent can now create, modify, delete, send or spend where it previously could not. post-to-partner-webhook is observed as send, so the running agent can transmit to recipients and the declaration does not say so. Nothing in the contract inventories it, which means no approval gate stands in front of it and no evaluation case points at it.</p>
+  <p><b>Clears when:</b> the expansion is withdrawn, or its severity is reduced by narrowing what it grants</p>
+</div>
+<div class="ad-rule ad-rule-block">
+  <span class="ad-rule-id">critical-authority-expansion</span>
+  <p><b>Now:</b> outbound_transmission_added:post-to-partner-webhook: a tool can now carry content out of the trust boundary — a path by which data leaves. post-to-partner-webhook is observed to carry content out of the trust boundary. This is a path by which data leaves, and it exists in the implementation only.</p>
+  <p><b>Clears when:</b> the expansion is withdrawn, or its severity is reduced by narrowing what it grants</p>
+</div>
+<div class="ad-rule ad-rule-block">
+  <span class="ad-rule-id">undeclared-capability</span>
+  <p><b>Now:</b> tool:post-to-partner-webhook: found in the implementation and named by no declaration. This is drift, not a failure: a legitimately added tool looks exactly like this until somebody declares it. If it is a rename of a declared tool, the contract must say so through an alias — a rename is never inferred.</p>
+  <p><b>Clears when:</b> the contract declares the observed capability, or the implementation stops carrying it</p>
+</div>
+<h2 id="changes">Semantic changes — 3</h2>
+<h3>critical — 2</h3>
+<article class="ad-change ad-change-critical" id="destructive_action_added:post-to-partner-webhook">
+  <div class="ad-change-head">
+    <span class="ad-sev ad-sev-critical">critical</span>
+    <span class="ad-cat">destructive_action_added</span>
+    <span class="ad-subject">post-to-partner-webhook</span>
+    <span class="ad-origin ad-origin-observation">observed in the implementation</span>
+    <span class="ad-expanding">widens what the agent may do</span>
+  </div>
+  <p>the agent can now create, modify, delete, send or spend where it previously could not. post-to-partner-webhook is observed as send, so the running agent can transmit to recipients and the declaration does not say so. Nothing in the contract inventories it, which means no approval gate stands in front of it and no evaluation case points at it.</p>
+  <div class="ad-ba">
+    <div>
+  <div class="ad-ba-k">before</div>
+  <em>not declared</em>
+  
+</div>
+    <div>
+  <div class="ad-ba-k">after</div>
+  &quot;send&quot;
+  <div class="ad-prov">tool:post-to-partner-webhook</div>
+</div>
+  </div>
+  <p><b>Controls this touches:</b> <a href="https://thirdocular.com/ars#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="https://thirdocular.com/ars#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
+  <p><b>Evidence it invalidates:</b> <code>ev-incident-taxonomy</code>, <code>ev-review-board-package</code></p>
+  <div class="ad-support">
+    <div class="ad-ba-k">observed support</div>
+    <div><code>src/tools/registry.ts:69</code> — typescript-source, direct, reconciled as <b>observed_not_declared</b></div>
+  </div>
+  <div class="ad-prov">change_id <code>destructive_action_added:post-to-partner-webhook</code> · claims nothing declared — see observed support above</div>
+</article>
+<article class="ad-change ad-change-critical" id="outbound_transmission_added:post-to-partner-webhook">
+  <div class="ad-change-head">
+    <span class="ad-sev ad-sev-critical">critical</span>
+    <span class="ad-cat">outbound_transmission_added</span>
+    <span class="ad-subject">post-to-partner-webhook</span>
+    <span class="ad-origin ad-origin-observation">observed in the implementation</span>
+    <span class="ad-expanding">widens what the agent may do</span>
+  </div>
+  <p>a tool can now carry content out of the trust boundary — a path by which data leaves. post-to-partner-webhook is observed to carry content out of the trust boundary. This is a path by which data leaves, and it exists in the implementation only.</p>
+  <div class="ad-ba">
+    <div>
+  <div class="ad-ba-k">before</div>
+  <em>not declared</em>
+  
+</div>
+    <div>
+  <div class="ad-ba-k">after</div>
+  true
+  <div class="ad-prov">tool:post-to-partner-webhook</div>
+</div>
+  </div>
+  <p><b>Controls this touches:</b> <a href="https://thirdocular.com/ars#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures</p>
+  <p><b>Evidence it invalidates:</b> <code>ev-incident-taxonomy</code></p>
+  <div class="ad-support">
+    <div class="ad-ba-k">observed support</div>
+    <div><code>src/tools/registry.ts:69</code> — typescript-source, direct, reconciled as <b>observed_not_declared</b></div>
+  </div>
+  <div class="ad-prov">change_id <code>outbound_transmission_added:post-to-partner-webhook</code> · claims nothing declared — see observed support above</div>
+</article>
+<h3>high — 1</h3>
+<article class="ad-change ad-change-high" id="tool_added:post-to-partner-webhook">
+  <div class="ad-change-head">
+    <span class="ad-sev ad-sev-high">high</span>
+    <span class="ad-cat">tool_added</span>
+    <span class="ad-subject">post-to-partner-webhook</span>
+    <span class="ad-origin ad-origin-observation">observed in the implementation</span>
+    <span class="ad-expanding">widens what the agent may do</span>
+  </div>
+  <p>the agent can take an action it previously could not. post-to-partner-webhook exists in the implementation at src/tools/registry.ts:69 and no declaration accounts for it. The two contracts may say nothing about this at all — that is what makes it worth reporting: the declaration did not change and the agent did.</p>
+  <div class="ad-ba">
+    <div>
+  <div class="ad-ba-k">before</div>
+  <em>not declared</em>
+  
+</div>
+    <div>
+  <div class="ad-ba-k">after</div>
+  {&quot;display_name&quot;:&quot;post_to_partner_webhook&quot;,&quot;description&quot;:&quot;Send the record payload to the partner integration endpoint.&quot;,&quot;definition_pattern&quot;:&quot;wrapper_call&quot;,&quot;wrapper&quot;:&quot;defineTool&quot;,&quot;registered_in&quot;:&quot;TOOLS&quot;,&quot;input_schema_ref&quot;:&quot;WebhookPayloadSchema&quot;,&quot;timeout_ms&quot;:15000,&quot;max_retries&quot;:5,&quot;destructive&quot;:null}
+  <div class="ad-prov">tool:post-to-partner-webhook</div>
+</div>
+  </div>
+  <p><b>Controls this touches:</b> <a href="https://thirdocular.com/ars#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="https://thirdocular.com/ars#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="https://thirdocular.com/ars#ARS-04">ARS-04</a> Session and credential lifetime bounds · <a href="https://thirdocular.com/ars#ARS-06">ARS-06</a> Closed tool registry · <a href="https://thirdocular.com/ars#ARS-07">ARS-07</a> Tool schemas are maximally constrained · <a href="https://thirdocular.com/ars#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="https://thirdocular.com/ars#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="https://thirdocular.com/ars#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="https://thirdocular.com/ars#ARS-21">ARS-21</a> Graceful degradation path · <a href="https://thirdocular.com/ars#ARS-23">ARS-23</a> Timeout discipline at every boundary · <a href="https://thirdocular.com/ars#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="https://thirdocular.com/ars#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="https://thirdocular.com/ars#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="https://thirdocular.com/ars#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer</p>
+  <p><b>Evidence it invalidates:</b> <code>ev-correlation-ids</code>, <code>ev-cost-attribution</code>, <code>ev-eval-suite-versioned</code>, <code>ev-identity-propagation-trace</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-server-side-authz-probe</code>, <code>ev-timeout-discipline</code></p>
+  <div class="ad-support">
+    <div class="ad-ba-k">observed support</div>
+    <div><code>src/tools/registry.ts:69</code> — typescript-source, direct, reconciled as <b>observed_not_declared</b></div>
+  </div>
+  <div class="ad-prov">change_id <code>tool_added:post-to-partner-webhook</code> · claims nothing declared — see observed support above</div>
+</article>
+<h2 id="evidence">Evidence retained and invalidated</h2>
+<div class="ad-ev-cols">
+  <section class="ad-ev-col ad-ev-col-retained">
+    <h3>Retained — 19 of 29</h3>
+    <p class="ad-risk-q">Retained evidence survives BY IDENTITY. An item is retained exactly when its stable id is in the prior ledger and in no invalidation set. It is never re-derived and never re-checked here: a second pass that concluded an item &quot;still looks fine&quot; would let a bug in the invalidation mapping quietly restore evidence it had just invalidated.</p>
+    <ul class="ad-ev">
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-approval-gate-enforced</span>
+    <p>ARS-09 · automatically verified — The approval gate on issue-refund and draft-reply was exercised by attempting each action without an approval record; both were refused at the enforcement point rather than in the client.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-approval-volume-measured</span>
+    <p>ARS-10 · attested — The owner reports approval volume at roughly 30 to 40 per reviewer per week, reviewed in the weekly ops meeting, with a documented threshold at which the classification is revisited.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-audit-identity-separated</span>
+    <p>ARS-05 · manually verified — Audit records carry both the acting user and the agent principal in separate fields, so a record written by the agent on behalf of a person is distinguishable from one the person wrote.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-audit-plane-immutable</span>
+    <p>ARS-13 · manually verified — The audit store is append-only, written by a principal that cannot delete, and retention is set beyond the incident window.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-budget-ceilings</span>
+    <p>ARS-30 · automatically verified — Session token and cost ceilings are enforced and were exercised; a run that reached the ceiling stopped rather than degrading silently.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-cross-tool-flow-policy</span>
+    <p>ARS-12 · manually verified — The permitted flows between tools were enumerated: customer records reach the ticket writer and the refund tool, and nothing reaches a tool that leaves the platform, because no such tool exists in this version.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-destructive-inventory-complete</span>
+    <p>ARS-08 · manually verified — The destructive-action inventory was compared against the tool registry: every tool that creates, modifies, deletes, sends or spends appears in it, classified, with a gating policy attached.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-eval-covers-destructive</span>
+    <p>ARS-34 · automatically verified — Every action in the destructive-action inventory has at least one execution case and one refusal case in the evaluation suite.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-exfiltration-channels-enumerated</span>
+    <p>ARS-27 · manually verified — Every channel by which data could leave was enumerated. In this version the agent holds no tool that can transmit outside the platform, so the enumerated set is empty and the control passes on that basis.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-feedback-loop-instrumented</span>
+    <p>ARS-36 · attested — The owner reports an in-flow thumbs-down control on every agent reply, routed to the triage queue, with volume reviewed weekly.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-idempotency-keys</span>
+    <p>ARS-19 · automatically verified — Side-effecting calls carry an idempotency key derived from the ticket and the action; a replayed call produced no second effect.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-injection-suite-run</span>
+    <p>ARS-25 · automatically verified — The adversarial injection suite of 42 cases was run against the pinned prompt and model; no case produced a tool call outside the declared set.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-no-secrets-in-prompts</span>
+    <p>ARS-03 · automatically verified — The prompt files, configuration and a sampled week of logs were scanned for credential shapes and for long literals assigned to secret-named keys. Nothing was found; every credential is injected from the environment at run time.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-prompt-config-versioned</span>
+    <p>ARS-17 · automatically verified — The prompt carries a version stamp, the tool registry carries a registry version, and both appear in every run record, so a run can be tied to the exact text and configuration it used.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-retention-covers-artifacts</span>
+    <p>ARS-40 · manually verified — Retention and deletion procedures were reviewed and cover prompts, traces and tool-call records, not only the primary database.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-retry-and-loop-bounds</span>
+    <p>ARS-20 · automatically verified — The retry ceiling of 3 and the loop ceiling of 8 are enforced in code and were driven to their limits in test.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-supply-chain-pinned</span>
+    <p>ARS-28 · automatically verified — The model identifier is pinned to an exact dated version with auto-upgrade declared false, and a lockfile pins every dependency.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-trace-retention-acl</span>
+    <p>ARS-15 · manually verified — Reasoning traces are retained for 30 days behind an access-control list naming two roles, and access is itself logged.</p>
+  </li>
+<li class="ad-ev-retained">
+    <span class="ad-ev-state">retained</span>
+    <span class="ad-ev-id">ev-untrusted-segregation</span>
+    <p>ARS-24 · automatically verified — Ticket content and scraped help-centre text are wrapped in a labelled delimiter by the context assembly path and never concatenated into the system prompt.</p>
+  </li>
+    </ul>
+  </section>
+  <section class="ad-ev-col ad-ev-col-invalidated">
+    <h3>Invalidated — 10 of 29</h3>
+    <p class="ad-risk-q">Each of these was gathered against a system that no longer exists in the respect the
+    control cares about. Re-establishing one means the work named further down, not a second look at the old result.</p>
+    <ul class="ad-ev">
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-correlation-ids</span>
+    <p>ARS-14 · automatically verified — Every log line in a sampled run carries the same correlation id, and it propagates to downstream service logs.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-cost-attribution</span>
+    <p>ARS-31 · attested — The owner reports that spend is attributed per ticket and reported monthly against the support cost centre.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-eval-suite-versioned</span>
+    <p>ARS-33 · automatically verified — A versioned evaluation suite of 3 case classes runs in CI and gates deployment; the pipeline fails the build when the suite fails.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-identity-propagation-trace</span>
+    <p>ARS-01 · automatically verified — Ten sampled runs were traced end to end; every downstream call carried the originating user&#39;s identity rather than a service principal.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-incident-taxonomy</span>
+    <p>ARS-37 · attested — A severity taxonomy for agent failures exists with named owners per severity and a documented escalation path.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-review-board-package</span>
+    <p>ARS-41 · manually verified — The traceability package assembled for the review board maps each control to its evidence and names the accountable role for each.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-scope-minimality-review</span>
+    <p>ARS-02 · manually verified — Each declared scope was walked against the tool that holds it and confirmed to be exercised by its function. No wildcard or administrative grant is present in any connector configuration.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-scope-static-scan</span>
+    <p>ARS-02 · automatically verified — ars-check found no wildcard scope, no administrative role bound to an agent principal, and no shared credential across tools with different functions.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-server-side-authz-probe</span>
+    <p>ARS-11 · automatically verified — A tool call was replayed with the authorization header stripped and with a second user&#39;s token; both were refused at the service, not at the agent.</p>
+  </li>
+<li class="ad-ev-invalidated">
+    <span class="ad-ev-state">invalidated</span>
+    <span class="ad-ev-id">ev-timeout-discipline</span>
+    <p>ARS-23 · automatically verified — Every tool declares a timeout and the agent declares a run deadline; a hung downstream call was simulated and the run terminated at the declared bound.</p>
+  </li>
+    </ul>
+  </section>
+</div>
+<h2 id="controls">Controls this change touches</h2>
+<p>not_applicable is excluded from both the numerator and the denominator. not_evaluated stays visible: a predicate that could not run has established nothing, and establishing nothing must not shrink the applicable set.</p>
+<div class="std-table-wrap"><table>
+<thead><tr><th>Control</th><th>Title</th><th>Via</th><th>Evidence invalidated</th><th>Accepted evidence</th></tr></thead>
+<tbody>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-01">ARS-1.0-01</a></td>
+  <td>End-user identity propagates to every downstream call</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-02">ARS-1.0-02</a></td>
+  <td>Least-privilege tool credentials</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-04">ARS-1.0-04</a></td>
+  <td>Session and credential lifetime bounds</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-06">ARS-1.0-06</a></td>
+  <td>Closed tool registry</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-07">ARS-1.0-07</a></td>
+  <td>Tool schemas are maximally constrained</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-11">ARS-1.0-11</a></td>
+  <td>Tool-call authorization is enforced server-side</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-14">ARS-1.0-14</a></td>
+  <td>End-to-end correlation IDs</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-16">ARS-1.0-16</a></td>
+  <td>Full replayability of any agent run</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-21">ARS-1.0-21</a></td>
+  <td>Graceful degradation path</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>manually verified, attested (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-23">ARS-1.0-23</a></td>
+  <td>Timeout discipline at every boundary</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-31">ARS-1.0-31</a></td>
+  <td>Cost attribution to business unit of work</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-33">ARS-1.0-33</a></td>
+  <td>A versioned eval suite exists and gates deployment</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-35">ARS-1.0-35</a></td>
+  <td>Production behavior monitoring with drift detection</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-37">ARS-1.0-37</a></td>
+  <td>Defined severity taxonomy and incident process for agent failures</td>
+  <td>2 change(s)</td>
+  <td>ev-incident-taxonomy, ev-review-board-package</td>
+  <td>manually verified, attested</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-38">ARS-1.0-38</a></td>
+  <td>Data classification enforced at the retrieval layer</td>
+  <td>1 change(s)</td>
+  <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
+  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+</tr>
+<tr>
+  <td><a href="https://thirdocular.com/ars#ARS-41">ARS-1.0-41</a></td>
+  <td>Regulatory and review-board traceability package</td>
+  <td>1 change(s)</td>
+  <td>ev-incident-taxonomy, ev-review-board-package</td>
+  <td>manually verified, attested (attestation alone cannot settle it)</td>
+</tr>
+</tbody></table></div>
+
+<h2 id="lineage">Where each conclusion came from</h2>
+<p>Derived entirely from the artifacts named above and computing nothing of its own. If this and the delta disagreed, the delta would be right — so this is built to make disagreement impossible rather than detectable. It is not a graph database, and one is deferred until a second engagement makes cross-engagement queries exist.</p>
+
+<div class="ad-legend">
+  <span class="ad-origin ad-origin-declaration">declared in the contract</span>
+  <span class="ad-origin ad-origin-observation">observed in the implementation</span>
+  <span class="ad-origin ad-origin-inference">inferred from the implementation</span>
+</div>
+<p class="ad-risk-q">Three origins, rendered differently on purpose. A declaration is a statement of intent by
+the party accountable for the agent. An observation is something an adapter read, with a location. An inference is
+something an adapter concluded — the weakest of the three, and the one that must never render as either of the
+others.</p>
+
+<div class="ad-versions">
+  <div class="ad-version">
+    <div class="ad-version-k">Lineage</div>
+    <div class="ad-version-v">137 nodes, 107 edges</div>
+    <dl>
+      <dt>orphan nodes</dt><dd>0</dd>
+      <dt>dangling edges</dt><dd>0</dd>
+      <dt>derived from</dt><dd>dd52ce272a97c66e5959b94063581cea02a3c0069556caac142e9c9b24a3551c</dd>
+    </dl>
+  </div>
+  <div class="ad-version">
+    <div class="ad-version-k">Coverage</div>
+    <div class="ad-version-v">19 of 26 applicable controls have an evidence path</div>
+    <dl>
+      <dt>with no evidence at all</dt><dd>7</dd>
+    </dl>
+  </div>
+</div>
+
+<h3>Applicable controls with no evidence — 7</h3>
+<p>Recorded explicitly rather than left as an absence. A control with silence beside it reads as a control that
+passed, which is the difference between an assessment that is short and one that looks complete.</p>
+<ul class="ad-work">
+  <li><span class="ad-work-k">ARS-04</span>No evidence item in the ledger supports ARS-04.</li>
+  <li><span class="ad-work-k">ARS-06</span>No evidence item in the ledger supports ARS-06.</li>
+  <li><span class="ad-work-k">ARS-07</span>No evidence item in the ledger supports ARS-07.</li>
+  <li><span class="ad-work-k">ARS-16</span>No evidence item in the ledger supports ARS-16.</li>
+  <li><span class="ad-work-k">ARS-21</span>No evidence item in the ledger supports ARS-21.</li>
+  <li><span class="ad-work-k">ARS-35</span>No evidence item in the ledger supports ARS-35.</li>
+  <li><span class="ad-work-k">ARS-38</span>No evidence item in the ledger supports ARS-38.</li>
+
+</ul>
+
+<details>
+  <summary>Every evidence item, and the control it supports</summary>
+  <div class="std-table-wrap"><table>
+  <thead><tr><th>Evidence</th><th>Supports</th><th>Kind</th><th>State</th></tr></thead>
+  <tbody>
+  <tr><td><code>ev-approval-gate-enforced</code></td><td>ARS-09</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-approval-volume-measured</code></td><td>ARS-10</td><td>attested</td><td>retained</td></tr>
+  <tr><td><code>ev-audit-identity-separated</code></td><td>ARS-05</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-audit-plane-immutable</code></td><td>ARS-13</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-budget-ceilings</code></td><td>ARS-30</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-correlation-ids</code></td><td>ARS-14</td><td>automatically verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-cost-attribution</code></td><td>ARS-31</td><td>attested</td><td>invalidated</td></tr>
+  <tr><td><code>ev-cross-tool-flow-policy</code></td><td>ARS-12</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-destructive-inventory-complete</code></td><td>ARS-08</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-eval-covers-destructive</code></td><td>ARS-34</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-eval-suite-versioned</code></td><td>ARS-33</td><td>automatically verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-exfiltration-channels-enumerated</code></td><td>ARS-27</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-feedback-loop-instrumented</code></td><td>ARS-36</td><td>attested</td><td>retained</td></tr>
+  <tr><td><code>ev-idempotency-keys</code></td><td>ARS-19</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-identity-propagation-trace</code></td><td>ARS-01</td><td>automatically verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-incident-taxonomy</code></td><td>ARS-37</td><td>attested</td><td>invalidated</td></tr>
+  <tr><td><code>ev-injection-suite-run</code></td><td>ARS-25</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-no-secrets-in-prompts</code></td><td>ARS-03</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-prompt-config-versioned</code></td><td>ARS-17</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-retention-covers-artifacts</code></td><td>ARS-40</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-retry-and-loop-bounds</code></td><td>ARS-20</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-review-board-package</code></td><td>ARS-41</td><td>manually verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-scope-minimality-review</code></td><td>ARS-02</td><td>manually verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-scope-static-scan</code></td><td>ARS-02</td><td>automatically verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-server-side-authz-probe</code></td><td>ARS-11</td><td>automatically verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-supply-chain-pinned</code></td><td>ARS-28</td><td>automatically verified</td><td>retained</td></tr>
+  <tr><td><code>ev-timeout-discipline</code></td><td>ARS-23</td><td>automatically verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-trace-retention-acl</code></td><td>ARS-15</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-untrusted-segregation</code></td><td>ARS-24</td><td>automatically verified</td><td>retained</td></tr>
+  </tbody></table></div>
+</details>
+
+<details>
+  <summary>Every change, and the declared paths or observations it rests on</summary>
+  <div class="std-table-wrap"><table>
+  <thead><tr><th>Change</th><th>Rests on</th><th>Invalidates</th></tr></thead>
+  <tbody>
+  <tr><td><code>destructive_action_added:post-to-partner-webhook</code></td><td><em>an observation, not a declared path</em></td><td>2 evidence item(s)</td></tr>
+  <tr><td><code>outbound_transmission_added:post-to-partner-webhook</code></td><td><em>an observation, not a declared path</em></td><td>1 evidence item(s)</td></tr>
+  <tr><td><code>tool_added:post-to-partner-webhook</code></td><td><em>an observation, not a declared path</em></td><td>8 evidence item(s)</td></tr>
+  </tbody></table></div>
+</details>
+<p class="ad-prov">Lineage artifact <code>9e88e024c7cd43d1e6b2babaf627b8da5e45cbb083e46912579196848ebcdb24</code>, shipping beside this page as
+<a href="./evidence-lineage.json">evidence-lineage.json</a>. Unused here but present in the artifact:
+1 reverse edge(s) from the first gap.</p>
+<h2 id="work">What has to be done</h2>
+<h3>Tests — 4</h3>
+<ul class="ad-work">
+  <li><span class="ad-work-k">destination-allowlist:post-to-partner-webhook</span>Confirm the destination allowlist is enforced at the call site rather than only declared.</li>
+  <li><span class="ad-work-k">exfiltration-path:post-to-partner-webhook</span>Attempt to move data to post-to-partner-webhook through injected content, and confirm the path is constrained as declared.</li>
+  <li><span class="ad-work-k">injection-reaches-tool:post-to-partner-webhook</span>Attempt to reach post-to-partner-webhook through content the agent did not author, and confirm it is refused where the declaration says it should be.</li>
+  <li><span class="ad-work-k">tool-behaviour:post-to-partner-webhook</span>Exercise post-to-partner-webhook against its declared input schema, including the boundary and rejection cases.</li>
+</ul>
+<h3>Human reviews — 2</h3>
+<ul class="ad-work">
+  <li><span class="ad-work-k">Data protection reviewer</span>Approve the path by which data may now reach post-to-partner-webhook, and record what may travel it.</li>
+  <li><span class="ad-work-k">Records Platform Engineering Lead</span>Approve the addition of an action that transmit to recipients, and record its compensating action.</li>
+</ul>
+<h2 id="rules">The rules that fired</h2>
+<p>Every rule in the policy is named and printed, whether it fired or not. The verdict is the worst floor any
+firing rule imposes.</p>
+<div class="ad-rule ad-rule-block">
+  <span class="ad-rule-id">critical-authority-expansion</span><span class="ad-rule-level">BLOCK</span>
+  <p>A change of critical severity widens what the agent may do.</p>
+  <p><b>Why here:</b> destructive_action_added:post-to-partner-webhook: the agent can now create, modify, delete, send or spend where it previously could not. post-to-partner-webhook is observed as send, so the running agent can transmit to recipients and the declaration does not say so. Nothing in the contract inventories it, which means no approval gate stands in front of it and no evaluation case points at it.</p>
+  <p><b>Clears when:</b> the expansion is withdrawn, or its severity is reduced by narrowing what it grants</p>
+</div>
+<div class="ad-rule ad-rule-block">
+  <span class="ad-rule-id">critical-authority-expansion</span><span class="ad-rule-level">BLOCK</span>
+  <p>A change of critical severity widens what the agent may do.</p>
+  <p><b>Why here:</b> outbound_transmission_added:post-to-partner-webhook: a tool can now carry content out of the trust boundary — a path by which data leaves. post-to-partner-webhook is observed to carry content out of the trust boundary. This is a path by which data leaves, and it exists in the implementation only.</p>
+  <p><b>Clears when:</b> the expansion is withdrawn, or its severity is reduced by narrowing what it grants</p>
+</div>
+<div class="ad-rule ad-rule-review">
+  <span class="ad-rule-id">high-severity-change</span><span class="ad-rule-level">REVIEW</span>
+  <p>A change of high severity is present.</p>
+  <p><b>Why here:</b> 1 change(s) of high severity: tool_added:post-to-partner-webhook</p>
+  <p><b>Clears when:</b> a human accepts it, or it is withdrawn</p>
+</div>
+<div class="ad-rule ad-rule-review">
+  <span class="ad-rule-id">authority-expanding-change</span><span class="ad-rule-level">REVIEW</span>
+  <p>A change widens what the agent may do, below critical severity.</p>
+  <p><b>Why here:</b> 1 change(s) widen what the agent may do: tool_added:post-to-partner-webhook</p>
+  <p><b>Clears when:</b> a human accepts it, or it is withdrawn</p>
+</div>
+<div class="ad-rule ad-rule-review">
+  <span class="ad-rule-id">evidence-invalidated</span><span class="ad-rule-level">REVIEW</span>
+  <p>Prior evidence no longer describes the current system.</p>
+  <p><b>Why here:</b> 10 evidence item(s) no longer describe the current system</p>
+  <p><b>Clears when:</b> the invalidated evidence is re-established by a kind the methodology accepts for that control</p>
+</div>
+<div class="ad-rule ad-rule-block">
+  <span class="ad-rule-id">undeclared-capability</span><span class="ad-rule-level">BLOCK</span>
+  <p>The implementation carries a tool or an external destination that no declaration accounts for.</p>
+  <p><b>Why here:</b> tool:post-to-partner-webhook: found in the implementation and named by no declaration. This is drift, not a failure: a legitimately added tool looks exactly like this until somebody declares it. If it is a rename of a declared tool, the contract must say so through an alias — a rename is never inferred.</p>
+  <p><b>Clears when:</b> the contract declares the observed capability, or the implementation stops carrying it</p>
+</div>
+<div class="ad-rule ad-rule-review">
+  <span class="ad-rule-id">drift-observed</span><span class="ad-rule-level">REVIEW</span>
+  <p>The implementation carries something the declaration does not, below the level of a tool or a destination.</p>
+  <p><b>Why here:</b> 2 observed item(s) the contract does not declare: approval:post-to-partner-webhook, scope:webhook.post</p>
+  <p><b>Clears when:</b> the contract declares it, or the implementation stops carrying it</p>
+</div>
+<p class="ad-prov">Rules available: delta-incomplete, methodology-hard-blocker, hard-blocker-unevaluated, critical-authority-expansion, undeclared-capability, declaration-conflict, high-severity-change, authority-expanding-change, uncategorised-change, evidence-invalidated, drift-observed</p>
+
+<h2 id="risk">The risk profile this was judged against</h2>
+<p>One level per dimension, each derived from named contract facts. There is no aggregate number and there will
+not be: a number is arguable and a named fact is not.</p>
+<div class="ad-risk">
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">What can this agent do to the world, at the widest point of its declared tool set?</p>
+    <div class="ad-risk-level">read_only</div>
+    <ul class="ad-risk-because">
+      <li> — unconditional</li>
+    </ul>
+  </div>
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">How far outside the trust boundary can content this agent handles travel?</p>
+    <div class="ad-risk-level">internal_only</div>
+    <ul class="ad-risk-because">
+      <li>data_sinks/0 — records-register: bidirectional, internal, carries [personal_data, internal], permits [register.internal.acme.example]</li>
+    </ul>
+  </div>
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">What is the most sensitive class of data the declaration says this agent handles?</p>
+    <div class="ad-risk-level">confidential_or_personal</div>
+    <ul class="ad-risk-because">
+      <li>data_sinks/0/data_classifications — records-register carries personal_data</li>
+      <li>skills/0/data_classes — records-question-answering handles personal_data</li>
+    </ul>
+  </div>
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">Whose authority do the downstream calls actually carry?</p>
+    <div class="ad-risk-level">end_user</div>
+    <ul class="ad-risk-because">
+      <li> — unconditional</li>
+    </ul>
+  </div>
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">Can this agent act without a person asking it to, and how much of the loop is a person in?</p>
+    <div class="ad-risk-level">human_initiated</div>
+    <ul class="ad-risk-because">
+      <li> — unconditional</li>
+    </ul>
+  </div>
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">How far does the worst plausible outcome of one bad run reach?</p>
+    <div class="ad-risk-level">single_customer</div>
+    <ul class="ad-risk-because">
+      <li>autonomy/maximum_plausible_blast_radius/scope — single_customer</li>
+    </ul>
+  </div>
+  <div class="ad-risk-dim">
+    <p class="ad-risk-q">How much of what stops a runaway run is written down rather than left to the runtime?</p>
+    <div class="ad-risk-level">fully_bounded</div>
+    <ul class="ad-risk-because">
+      <li> — unconditional</li>
+    </ul>
+  </div>
+</div>
+<h2 id="structural">The structural diff</h2>
+<p>A faithful record of every path that changed. It is retained BECAUSE it is faithful — it is what the semantic layer above is checked against — and it is not the answer to any question a release board asks.</p>
+<p><b>2</b> path(s) changed.
+<b>2</b> were treated as cosmetic.
+<b>0</b> were claimed by no named category and became
+<code>uncategorised_change</code>.</p>
+<details>
+  <summary>Paths treated as cosmetic, and why</summary>
+  <div class="std-table-wrap"><table>
+  <thead><tr><th>Path</th><th>Why it is cosmetic</th></tr></thead>
+  <tbody>
+  <tr><td><code>identity/agent_version</code></td><td>the version label itself — the changes it labels are what this artifact is about</td></tr>
+  <tr><td><code>identity/repository/revision</code></td><td>where the code lives</td></tr>
+  </tbody></table></div>
+</details>
+<details>
+  <summary>Every path that changed</summary>
+  <div class="std-table-wrap"><table>
+  <thead><tr><th>Path</th><th>Kind</th></tr></thead>
+  <tbody>
+  <tr><td><code>identity/agent_version</code></td><td>modified</td></tr>
+  <tr><td><code>identity/repository/revision</code></td><td>modified</td></tr>
+  </tbody></table></div>
+</details>
+<footer class="std-foot">
+  <p>Artifact <code>ars-delta</code> v0.1, canonical hash
+  <code>dd52ce272a97c66e5959b94063581cea02a3c0069556caac142e9c9b24a3551c</code>. The hash excludes the volatile block, so re-running over identical
+  inputs produces an identical hash and a diff of two of these artifacts is a diff of substance.</p>
+  <p>Judged against ARS ARS v1.0, content hash
+  <code>12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</code>, with applicability methodology
+  v0.1.</p>
+  <p>The machine-readable artifact ships beside this page as <a href="./ars-delta.json">ars-delta.json</a>, with the
+  two contracts and the evidence ledger it was computed from. Every conclusion above names the id it carries there.
+  Nothing on this page certifies anything.</p>
+  <p class="no-print"><a href="../../ars/">ARS v1.0</a> &middot; <a href="../../consulting/">Assessment</a> &middot; <a href="./../">Read the two-declaration example</a> &middot;
+  <a href="https://lens.thirdocular.com">AisleLens</a></p>
+</footer>
+</div>
+</main>
+</body>
+</html>

@@ -286,8 +286,18 @@
           </svg>
           <span>ThirdOcular</span>
         </div>
+        <!--
+          /ars and /consulting are static pages built in the ARS repository and
+          copied into public/ by `npm run emit` there. They are linked from here
+          because a page nothing links to is published in name only. This nav is
+          the ONLY part of this file that knows about them: the emit script
+          refuses to touch index.html, src/ or config, so nothing outside these
+          two lines can be changed by a copy from another repository.
+        -->
         <nav class="foot-nav" aria-label="Footer">
           <a href="https://lens.thirdocular.com">AisleLens</a>
+          <a href="/ars">Agent Readiness Standard</a>
+          <a href="/consulting">Assessment</a>
           <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
         </nav>
       </div>

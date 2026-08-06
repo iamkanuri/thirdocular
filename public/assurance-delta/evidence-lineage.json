@@ -1,0 +1,2781 @@
+{
+  "artifact": "evidence-lineage",
+  "artifact_version": "0.1",
+  "subject": {
+    "agent_id": "acme-ticket-triage",
+    "previous_version": "1.4.2",
+    "current_version": "1.5.0"
+  },
+  "derived_from": {
+    "delta_hash": "5da7de95baf97971d9a917beb0b2eaeb17091fd57e0a69836fabc7495f2af23b",
+    "ledger_present": true,
+    "reconciliation_hash": null,
+    "observation_hash": null,
+    "contract_hash": "e92ea6d90dd76e5be2ae36396e5fc3ca91cfde40492ba42ff8d54f468dba90ec"
+  },
+  "note": "Derived entirely from the artifacts named above and computing nothing of its own. If this and the delta disagreed, the delta would be right — so this is built to make disagreement impossible rather than detectable. It is not a graph database, and one is deferred until a second engagement makes cross-engagement queries exist.",
+  "completeness": "complete",
+  "counts": {
+    "nodes": 130,
+    "edges": 272,
+    "by_type": {
+      "control": 41,
+      "evidence": 29,
+      "change": 11,
+      "declaration": 13,
+      "required_test": 15,
+      "required_review": 8,
+      "insufficient_evidence": 13
+    }
+  },
+  "integrity": {
+    "orphan_nodes": [],
+    "dangling_edges": [],
+    "unresolved_evidence_references": [],
+    "note": "An orphan node is a fact nothing connects to a conclusion, and a dangling edge is a conclusion resting on a fact that is not here. Both lists must be empty and a test asserts it. unresolved_evidence_references is different in kind: it is NOT a defect in this artifact but a fact ABOUT its inputs -- a change named an evidence item the ledger does not carry, or no ledger was supplied at all. Those references are kept as nodes so they are visible rather than dangling, and a non-empty list here means a retained set must not be read as complete."
+  },
+  "nodes": [
+    {
+      "node_id": "change:approval_strengthened_class_customer-facing-send",
+      "type": "change",
+      "ref": "approval_strengthened:class_customer-facing-send",
+      "label": "approval_strengthened",
+      "severity": "informational",
+      "authority_expanding": false,
+      "subject": "class:customer-facing-send"
+    },
+    {
+      "node_id": "change:approval_weakened_draft-reply",
+      "type": "change",
+      "ref": "approval_weakened:draft-reply",
+      "label": "approval_weakened",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "draft-reply"
+    },
+    {
+      "node_id": "change:destructive_action_added_send-customer-email",
+      "type": "change",
+      "ref": "destructive_action_added:send-customer-email",
+      "label": "destructive_action_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "send-customer-email"
+    },
+    {
+      "node_id": "change:destructive_action_added_send-email",
+      "type": "change",
+      "ref": "destructive_action_added:send-email",
+      "label": "destructive_action_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "send-email"
+    },
+    {
+      "node_id": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "type": "change",
+      "ref": "external_destination_added:mail-relay.internal.acme.example/transactional",
+      "label": "external_destination_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "mail-relay.internal.acme.example/transactional"
+    },
+    {
+      "node_id": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "type": "change",
+      "ref": "external_destination_added:notifications.vendor.example/dispatch",
+      "label": "external_destination_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "notifications.vendor.example/dispatch"
+    },
+    {
+      "node_id": "change:model_changed_primary-reasoner",
+      "type": "change",
+      "ref": "model_changed:primary-reasoner",
+      "label": "model_changed",
+      "severity": "moderate",
+      "authority_expanding": false,
+      "subject": "primary-reasoner"
+    },
+    {
+      "node_id": "change:outbound_transmission_added_send-email",
+      "type": "change",
+      "ref": "outbound_transmission_added:send-email",
+      "label": "outbound_transmission_added",
+      "severity": "critical",
+      "authority_expanding": true,
+      "subject": "send-email"
+    },
+    {
+      "node_id": "change:permission_expanded_lookup-customer",
+      "type": "change",
+      "ref": "permission_expanded:lookup-customer",
+      "label": "permission_expanded",
+      "severity": "high",
+      "authority_expanding": true,
+      "subject": "lookup-customer"
+    },
+    {
+      "node_id": "change:skill_added_customer-correspondence",
+      "type": "change",
+      "ref": "skill_added:customer-correspondence",
+      "label": "skill_added",
+      "severity": "high",
+      "authority_expanding": true,
+      "subject": "customer-correspondence"
+    },
+    {
+      "node_id": "change:tool_added_send-email",
+      "type": "change",
+      "ref": "tool_added:send-email",
+      "label": "tool_added",
+      "severity": "high",
+      "authority_expanding": true,
+      "subject": "send-email"
+    },
+    {
+      "node_id": "control:ARS-01",
+      "type": "control",
+      "ref": "ARS-01",
+      "label": "ARS-01",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-02",
+      "type": "control",
+      "ref": "ARS-02",
+      "label": "ARS-02",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-03",
+      "type": "control",
+      "ref": "ARS-03",
+      "label": "ARS-03",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-04",
+      "type": "control",
+      "ref": "ARS-04",
+      "label": "ARS-04",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-05",
+      "type": "control",
+      "ref": "ARS-05",
+      "label": "ARS-05",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-06",
+      "type": "control",
+      "ref": "ARS-06",
+      "label": "ARS-06",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-07",
+      "type": "control",
+      "ref": "ARS-07",
+      "label": "ARS-07",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-08",
+      "type": "control",
+      "ref": "ARS-08",
+      "label": "ARS-08",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-09",
+      "type": "control",
+      "ref": "ARS-09",
+      "label": "ARS-09",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-10",
+      "type": "control",
+      "ref": "ARS-10",
+      "label": "ARS-10",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-11",
+      "type": "control",
+      "ref": "ARS-11",
+      "label": "ARS-11",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-12",
+      "type": "control",
+      "ref": "ARS-12",
+      "label": "ARS-12",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-13",
+      "type": "control",
+      "ref": "ARS-13",
+      "label": "ARS-13",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-14",
+      "type": "control",
+      "ref": "ARS-14",
+      "label": "ARS-14",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-15",
+      "type": "control",
+      "ref": "ARS-15",
+      "label": "ARS-15",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-16",
+      "type": "control",
+      "ref": "ARS-16",
+      "label": "ARS-16",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-17",
+      "type": "control",
+      "ref": "ARS-17",
+      "label": "ARS-17",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-18",
+      "type": "control",
+      "ref": "ARS-18",
+      "label": "ARS-18",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-19",
+      "type": "control",
+      "ref": "ARS-19",
+      "label": "ARS-19",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-20",
+      "type": "control",
+      "ref": "ARS-20",
+      "label": "ARS-20",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-21",
+      "type": "control",
+      "ref": "ARS-21",
+      "label": "ARS-21",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-22",
+      "type": "control",
+      "ref": "ARS-22",
+      "label": "ARS-22",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-23",
+      "type": "control",
+      "ref": "ARS-23",
+      "label": "ARS-23",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-24",
+      "type": "control",
+      "ref": "ARS-24",
+      "label": "ARS-24",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-25",
+      "type": "control",
+      "ref": "ARS-25",
+      "label": "ARS-25",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-26",
+      "type": "control",
+      "ref": "ARS-26",
+      "label": "ARS-26",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-27",
+      "type": "control",
+      "ref": "ARS-27",
+      "label": "ARS-27",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-28",
+      "type": "control",
+      "ref": "ARS-28",
+      "label": "ARS-28",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-29",
+      "type": "control",
+      "ref": "ARS-29",
+      "label": "ARS-29",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-30",
+      "type": "control",
+      "ref": "ARS-30",
+      "label": "ARS-30",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-31",
+      "type": "control",
+      "ref": "ARS-31",
+      "label": "ARS-31",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-32",
+      "type": "control",
+      "ref": "ARS-32",
+      "label": "ARS-32",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-33",
+      "type": "control",
+      "ref": "ARS-33",
+      "label": "ARS-33",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-34",
+      "type": "control",
+      "ref": "ARS-34",
+      "label": "ARS-34",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-35",
+      "type": "control",
+      "ref": "ARS-35",
+      "label": "ARS-35",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-36",
+      "type": "control",
+      "ref": "ARS-36",
+      "label": "ARS-36",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-37",
+      "type": "control",
+      "ref": "ARS-37",
+      "label": "ARS-37",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-38",
+      "type": "control",
+      "ref": "ARS-38",
+      "label": "ARS-38",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-39",
+      "type": "control",
+      "ref": "ARS-39",
+      "label": "ARS-39",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-40",
+      "type": "control",
+      "ref": "ARS-40",
+      "label": "ARS-40",
+      "applicable": true
+    },
+    {
+      "node_id": "control:ARS-41",
+      "type": "control",
+      "ref": "ARS-41",
+      "label": "ARS-41",
+      "applicable": true
+    },
+    {
+      "node_id": "declaration:autonomy/approval_classes[customer-facing-send]/applies_to",
+      "type": "declaration",
+      "ref": "autonomy/approval_classes[customer-facing-send]/applies_to",
+      "label": "autonomy/approval_classes[customer-facing-send]/applies_to"
+    },
+    {
+      "node_id": "declaration:autonomy/destructive_action_inventory[send-customer-email]",
+      "type": "declaration",
+      "ref": "autonomy/destructive_action_inventory[send-customer-email]",
+      "label": "autonomy/destructive_action_inventory[send-customer-email]"
+    },
+    {
+      "node_id": "declaration:data_sinks[customer-mailbox]",
+      "type": "declaration",
+      "ref": "data_sinks[customer-mailbox]",
+      "label": "data_sinks[customer-mailbox]"
+    },
+    {
+      "node_id": "declaration:models[primary-reasoner]/identifier",
+      "type": "declaration",
+      "ref": "models[primary-reasoner]/identifier",
+      "label": "models[primary-reasoner]/identifier"
+    },
+    {
+      "node_id": "declaration:models[primary-reasoner]/version",
+      "type": "declaration",
+      "ref": "models[primary-reasoner]/version",
+      "label": "models[primary-reasoner]/version"
+    },
+    {
+      "node_id": "declaration:skills[customer-correspondence]",
+      "type": "declaration",
+      "ref": "skills[customer-correspondence]",
+      "label": "skills[customer-correspondence]"
+    },
+    {
+      "node_id": "declaration:tools[draft-reply]/approval/approval_class",
+      "type": "declaration",
+      "ref": "tools[draft-reply]/approval/approval_class",
+      "label": "tools[draft-reply]/approval/approval_class"
+    },
+    {
+      "node_id": "declaration:tools[draft-reply]/approval/condition",
+      "type": "declaration",
+      "ref": "tools[draft-reply]/approval/condition",
+      "label": "tools[draft-reply]/approval/condition"
+    },
+    {
+      "node_id": "declaration:tools[draft-reply]/approval/policy",
+      "type": "declaration",
+      "ref": "tools[draft-reply]/approval/policy",
+      "label": "tools[draft-reply]/approval/policy"
+    },
+    {
+      "node_id": "declaration:tools[lookup-customer]/required_scopes",
+      "type": "declaration",
+      "ref": "tools[lookup-customer]/required_scopes",
+      "label": "tools[lookup-customer]/required_scopes"
+    },
+    {
+      "node_id": "declaration:tools[send-email]",
+      "type": "declaration",
+      "ref": "tools[send-email]",
+      "label": "tools[send-email]"
+    },
+    {
+      "node_id": "declaration:tools[send-email]/outbound_transmission",
+      "type": "declaration",
+      "ref": "tools[send-email]/outbound_transmission",
+      "label": "tools[send-email]/outbound_transmission"
+    },
+    {
+      "node_id": "declaration:tools[send-email]/side_effect",
+      "type": "declaration",
+      "ref": "tools[send-email]/side_effect",
+      "label": "tools[send-email]/side_effect"
+    },
+    {
+      "node_id": "evidence:ev-approval-gate-enforced",
+      "type": "evidence",
+      "ref": "ev-approval-gate-enforced",
+      "label": "The approval gate on issue-refund and draft-reply was exercised by attempting each action without an approval record; both were refused at the enforcement point",
+      "control_id": "ARS-09",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-approval-volume-measured",
+      "type": "evidence",
+      "ref": "ev-approval-volume-measured",
+      "label": "The owner reports approval volume at roughly 30 to 40 per reviewer per week, reviewed in the weekly ops meeting, with a documented threshold at which the classi",
+      "control_id": "ARS-10",
+      "kind": "attested",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-audit-identity-separated",
+      "type": "evidence",
+      "ref": "ev-audit-identity-separated",
+      "label": "Audit records carry both the acting user and the agent principal in separate fields, so a record written by the agent on behalf of a person is distinguishable f",
+      "control_id": "ARS-05",
+      "kind": "manually_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-audit-plane-immutable",
+      "type": "evidence",
+      "ref": "ev-audit-plane-immutable",
+      "label": "The audit store is append-only, written by a principal that cannot delete, and retention is set beyond the incident window.",
+      "control_id": "ARS-13",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-budget-ceilings",
+      "type": "evidence",
+      "ref": "ev-budget-ceilings",
+      "label": "Session token and cost ceilings are enforced and were exercised; a run that reached the ceiling stopped rather than degrading silently.",
+      "control_id": "ARS-30",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-correlation-ids",
+      "type": "evidence",
+      "ref": "ev-correlation-ids",
+      "label": "Every log line in a sampled run carries the same correlation id, and it propagates to downstream service logs.",
+      "control_id": "ARS-14",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-cost-attribution",
+      "type": "evidence",
+      "ref": "ev-cost-attribution",
+      "label": "The owner reports that spend is attributed per ticket and reported monthly against the support cost centre.",
+      "control_id": "ARS-31",
+      "kind": "attested",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-cross-tool-flow-policy",
+      "type": "evidence",
+      "ref": "ev-cross-tool-flow-policy",
+      "label": "The permitted flows between tools were enumerated: customer records reach the ticket writer and the refund tool, and nothing reaches a tool that leaves the plat",
+      "control_id": "ARS-12",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-destructive-inventory-complete",
+      "type": "evidence",
+      "ref": "ev-destructive-inventory-complete",
+      "label": "The destructive-action inventory was compared against the tool registry: every tool that creates, modifies, deletes, sends or spends appears in it, classified, ",
+      "control_id": "ARS-08",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-eval-covers-destructive",
+      "type": "evidence",
+      "ref": "ev-eval-covers-destructive",
+      "label": "Every action in the destructive-action inventory has at least one execution case and one refusal case in the evaluation suite.",
+      "control_id": "ARS-34",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-eval-suite-versioned",
+      "type": "evidence",
+      "ref": "ev-eval-suite-versioned",
+      "label": "A versioned evaluation suite of 3 case classes runs in CI and gates deployment; the pipeline fails the build when the suite fails.",
+      "control_id": "ARS-33",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-exfiltration-channels-enumerated",
+      "type": "evidence",
+      "ref": "ev-exfiltration-channels-enumerated",
+      "label": "Every channel by which data could leave was enumerated. In this version the agent holds no tool that can transmit outside the platform, so the enumerated set is",
+      "control_id": "ARS-27",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-feedback-loop-instrumented",
+      "type": "evidence",
+      "ref": "ev-feedback-loop-instrumented",
+      "label": "The owner reports an in-flow thumbs-down control on every agent reply, routed to the triage queue, with volume reviewed weekly.",
+      "control_id": "ARS-36",
+      "kind": "attested",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-idempotency-keys",
+      "type": "evidence",
+      "ref": "ev-idempotency-keys",
+      "label": "Side-effecting calls carry an idempotency key derived from the ticket and the action; a replayed call produced no second effect.",
+      "control_id": "ARS-19",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-identity-propagation-trace",
+      "type": "evidence",
+      "ref": "ev-identity-propagation-trace",
+      "label": "Ten sampled runs were traced end to end; every downstream call carried the originating user's identity rather than a service principal.",
+      "control_id": "ARS-01",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-incident-taxonomy",
+      "type": "evidence",
+      "ref": "ev-incident-taxonomy",
+      "label": "A severity taxonomy for agent failures exists with named owners per severity and a documented escalation path.",
+      "control_id": "ARS-37",
+      "kind": "attested",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-injection-suite-run",
+      "type": "evidence",
+      "ref": "ev-injection-suite-run",
+      "label": "The adversarial injection suite of 42 cases was run against the pinned prompt and model; no case produced a tool call outside the declared set.",
+      "control_id": "ARS-25",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-no-secrets-in-prompts",
+      "type": "evidence",
+      "ref": "ev-no-secrets-in-prompts",
+      "label": "The prompt files, configuration and a sampled week of logs were scanned for credential shapes and for long literals assigned to secret-named keys. Nothing was f",
+      "control_id": "ARS-03",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-prompt-config-versioned",
+      "type": "evidence",
+      "ref": "ev-prompt-config-versioned",
+      "label": "The prompt carries a version stamp, the tool registry carries a registry version, and both appear in every run record, so a run can be tied to the exact text an",
+      "control_id": "ARS-17",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-retention-covers-artifacts",
+      "type": "evidence",
+      "ref": "ev-retention-covers-artifacts",
+      "label": "Retention and deletion procedures were reviewed and cover prompts, traces and tool-call records, not only the primary database.",
+      "control_id": "ARS-40",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-retry-and-loop-bounds",
+      "type": "evidence",
+      "ref": "ev-retry-and-loop-bounds",
+      "label": "The retry ceiling of 3 and the loop ceiling of 8 are enforced in code and were driven to their limits in test.",
+      "control_id": "ARS-20",
+      "kind": "automatically_verified",
+      "state": "retained",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-review-board-package",
+      "type": "evidence",
+      "ref": "ev-review-board-package",
+      "label": "The traceability package assembled for the review board maps each control to its evidence and names the accountable role for each.",
+      "control_id": "ARS-41",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-scope-minimality-review",
+      "type": "evidence",
+      "ref": "ev-scope-minimality-review",
+      "label": "Each declared scope was walked against the tool that holds it and confirmed to be exercised by its function. No wildcard or administrative grant is present in a",
+      "control_id": "ARS-02",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-scope-static-scan",
+      "type": "evidence",
+      "ref": "ev-scope-static-scan",
+      "label": "ars-check found no wildcard scope, no administrative role bound to an agent principal, and no shared credential across tools with different functions.",
+      "control_id": "ARS-02",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-server-side-authz-probe",
+      "type": "evidence",
+      "ref": "ev-server-side-authz-probe",
+      "label": "A tool call was replayed with the authorization header stripped and with a second user's token; both were refused at the service, not at the agent.",
+      "control_id": "ARS-11",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-supply-chain-pinned",
+      "type": "evidence",
+      "ref": "ev-supply-chain-pinned",
+      "label": "The model identifier is pinned to an exact dated version with auto-upgrade declared false, and a lockfile pins every dependency.",
+      "control_id": "ARS-28",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-timeout-discipline",
+      "type": "evidence",
+      "ref": "ev-timeout-discipline",
+      "label": "Every tool declares a timeout and the agent declares a run deadline; a hung downstream call was simulated and the run terminated at the declared bound.",
+      "control_id": "ARS-23",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-trace-retention-acl",
+      "type": "evidence",
+      "ref": "ev-trace-retention-acl",
+      "label": "Reasoning traces are retained for 30 days behind an access-control list naming two roles, and access is itself logged.",
+      "control_id": "ARS-15",
+      "kind": "manually_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "evidence:ev-untrusted-segregation",
+      "type": "evidence",
+      "ref": "ev-untrusted-segregation",
+      "label": "Ticket content and scraped help-centre text are wrapped in a labelled delimiter by the context assembly path and never concatenated into the system prompt.",
+      "control_id": "ARS-24",
+      "kind": "automatically_verified",
+      "state": "invalidated",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-04",
+      "type": "insufficient_evidence",
+      "ref": "ARS-04",
+      "label": "No evidence item in the ledger supports ARS-04.",
+      "control_id": "ARS-04",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-06",
+      "type": "insufficient_evidence",
+      "ref": "ARS-06",
+      "label": "No evidence item in the ledger supports ARS-06.",
+      "control_id": "ARS-06",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-07",
+      "type": "insufficient_evidence",
+      "ref": "ARS-07",
+      "label": "No evidence item in the ledger supports ARS-07.",
+      "control_id": "ARS-07",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-16",
+      "type": "insufficient_evidence",
+      "ref": "ARS-16",
+      "label": "No evidence item in the ledger supports ARS-16.",
+      "control_id": "ARS-16",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-18",
+      "type": "insufficient_evidence",
+      "ref": "ARS-18",
+      "label": "No evidence item in the ledger supports ARS-18.",
+      "control_id": "ARS-18",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-21",
+      "type": "insufficient_evidence",
+      "ref": "ARS-21",
+      "label": "No evidence item in the ledger supports ARS-21.",
+      "control_id": "ARS-21",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-22",
+      "type": "insufficient_evidence",
+      "ref": "ARS-22",
+      "label": "No evidence item in the ledger supports ARS-22.",
+      "control_id": "ARS-22",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-26",
+      "type": "insufficient_evidence",
+      "ref": "ARS-26",
+      "label": "No evidence item in the ledger supports ARS-26.",
+      "control_id": "ARS-26",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-29",
+      "type": "insufficient_evidence",
+      "ref": "ARS-29",
+      "label": "No evidence item in the ledger supports ARS-29.",
+      "control_id": "ARS-29",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-32",
+      "type": "insufficient_evidence",
+      "ref": "ARS-32",
+      "label": "No evidence item in the ledger supports ARS-32.",
+      "control_id": "ARS-32",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-35",
+      "type": "insufficient_evidence",
+      "ref": "ARS-35",
+      "label": "No evidence item in the ledger supports ARS-35.",
+      "control_id": "ARS-35",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-38",
+      "type": "insufficient_evidence",
+      "ref": "ARS-38",
+      "label": "No evidence item in the ledger supports ARS-38.",
+      "control_id": "ARS-38",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "insufficient_evidence:ARS-39",
+      "type": "insufficient_evidence",
+      "ref": "ARS-39",
+      "label": "No evidence item in the ledger supports ARS-39.",
+      "control_id": "ARS-39",
+      "applicability": "applicable",
+      "note": "This control applies to this agent and nothing in the evidence ledger addresses it. It is recorded explicitly rather than left as an absence, because a control with silence beside it reads as a control that passed."
+    },
+    {
+      "node_id": "required_review:approval-design-review_draft-reply",
+      "type": "required_review",
+      "ref": "approval-design-review:draft-reply",
+      "label": "Confirm the remaining gate is proportionate to the action's blast radius.",
+      "role": "Security review board"
+    },
+    {
+      "node_id": "required_review:approval-owner-review_draft-reply",
+      "type": "required_review",
+      "ref": "approval-owner-review:draft-reply",
+      "label": "Accept, in writing, that draft-reply may now act with less human involvement than the previous release required.",
+      "role": "Head of Customer Operations Engineering"
+    },
+    {
+      "node_id": "required_review:authorisation-review_lookup-customer",
+      "type": "required_review",
+      "ref": "authorisation-review:lookup-customer",
+      "label": "Approve the expanded authority on lookup-customer, or narrow it.",
+      "role": "Security review board"
+    },
+    {
+      "node_id": "required_review:data-flow-review_mail-relay.internal.acme.example/transactional",
+      "type": "required_review",
+      "ref": "data-flow-review:mail-relay.internal.acme.example/transactional",
+      "label": "Approve the path by which data may now reach mail-relay.internal.acme.example/transactional, and record what may travel it.",
+      "role": "Data protection reviewer"
+    },
+    {
+      "node_id": "required_review:data-flow-review_notifications.vendor.example/dispatch",
+      "type": "required_review",
+      "ref": "data-flow-review:notifications.vendor.example/dispatch",
+      "label": "Approve the path by which data may now reach notifications.vendor.example/dispatch, and record what may travel it.",
+      "role": "Data protection reviewer"
+    },
+    {
+      "node_id": "required_review:data-flow-review_send-email",
+      "type": "required_review",
+      "ref": "data-flow-review:send-email",
+      "label": "Approve the path by which data may now reach send-email, and record what may travel it.",
+      "role": "Data protection reviewer"
+    },
+    {
+      "node_id": "required_review:destructive-action-review_send-customer-email",
+      "type": "required_review",
+      "ref": "destructive-action-review:send-customer-email",
+      "label": "Approve the addition of an action that act, and record its compensating action.",
+      "role": "Head of Customer Operations Engineering"
+    },
+    {
+      "node_id": "required_review:destructive-action-review_send-email",
+      "type": "required_review",
+      "ref": "destructive-action-review:send-email",
+      "label": "Approve the addition of an action that transmit to recipients, and record its compensating action.",
+      "role": "Head of Customer Operations Engineering"
+    },
+    {
+      "node_id": "required_test:destination-allowlist_mail-relay.internal.acme.example/transactional",
+      "type": "required_test",
+      "ref": "destination-allowlist:mail-relay.internal.acme.example/transactional",
+      "label": "Confirm the destination allowlist is enforced at the call site rather than only declared."
+    },
+    {
+      "node_id": "required_test:destination-allowlist_notifications.vendor.example/dispatch",
+      "type": "required_test",
+      "ref": "destination-allowlist:notifications.vendor.example/dispatch",
+      "label": "Confirm the destination allowlist is enforced at the call site rather than only declared."
+    },
+    {
+      "node_id": "required_test:destination-allowlist_send-email",
+      "type": "required_test",
+      "ref": "destination-allowlist:send-email",
+      "label": "Confirm the destination allowlist is enforced at the call site rather than only declared."
+    },
+    {
+      "node_id": "required_test:eval-suite_primary-reasoner",
+      "type": "required_test",
+      "ref": "eval-suite:primary-reasoner",
+      "label": "Re-run the versioned evaluation suite against the model now in use."
+    },
+    {
+      "node_id": "required_test:exfiltration-path_mail-relay.internal.acme.example/transactional",
+      "type": "required_test",
+      "ref": "exfiltration-path:mail-relay.internal.acme.example/transactional",
+      "label": "Attempt to move data to mail-relay.internal.acme.example/transactional through injected content, and confirm the path is constrained as declared."
+    },
+    {
+      "node_id": "required_test:exfiltration-path_notifications.vendor.example/dispatch",
+      "type": "required_test",
+      "ref": "exfiltration-path:notifications.vendor.example/dispatch",
+      "label": "Attempt to move data to notifications.vendor.example/dispatch through injected content, and confirm the path is constrained as declared."
+    },
+    {
+      "node_id": "required_test:exfiltration-path_send-email",
+      "type": "required_test",
+      "ref": "exfiltration-path:send-email",
+      "label": "Attempt to move data to send-email through injected content, and confirm the path is constrained as declared."
+    },
+    {
+      "node_id": "required_test:gate-bypass_draft-reply",
+      "type": "required_test",
+      "ref": "gate-bypass:draft-reply",
+      "label": "Attempt to reach draft-reply without the approval the declaration now requires."
+    },
+    {
+      "node_id": "required_test:gate-enforced_draft-reply",
+      "type": "required_test",
+      "ref": "gate-enforced:draft-reply",
+      "label": "Confirm the approval path that remains on draft-reply is enforced server-side, not only in the client."
+    },
+    {
+      "node_id": "required_test:injection-reaches-tool_send-customer-email",
+      "type": "required_test",
+      "ref": "injection-reaches-tool:send-customer-email",
+      "label": "Attempt to reach send-customer-email through content the agent did not author, and confirm it is refused where the declaration says it should be."
+    },
+    {
+      "node_id": "required_test:injection-reaches-tool_send-email",
+      "type": "required_test",
+      "ref": "injection-reaches-tool:send-email",
+      "label": "Attempt to reach send-email through content the agent did not author, and confirm it is refused where the declaration says it should be."
+    },
+    {
+      "node_id": "required_test:scope-blast-radius_lookup-customer",
+      "type": "required_test",
+      "ref": "scope-blast-radius:lookup-customer",
+      "label": "Establish what the newly granted authority can reach, and confirm nothing outside the declared blast radius is reachable through it."
+    },
+    {
+      "node_id": "required_test:scope-exercised_lookup-customer",
+      "type": "required_test",
+      "ref": "scope-exercised:lookup-customer",
+      "label": "Confirm every scope now held by lookup-customer is exercised by its declared function, and that nothing it does not need remains granted."
+    },
+    {
+      "node_id": "required_test:tool-behaviour_send-customer-email",
+      "type": "required_test",
+      "ref": "tool-behaviour:send-customer-email",
+      "label": "Exercise send-customer-email against its declared input schema, including the boundary and rejection cases."
+    },
+    {
+      "node_id": "required_test:tool-behaviour_send-email",
+      "type": "required_test",
+      "ref": "tool-behaviour:send-email",
+      "label": "Exercise send-email against its declared input schema, including the boundary and rejection cases."
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "change_approval_strengthened_class_customer-facing-send:affects:control_ARS-10",
+      "from": "change:approval_strengthened_class_customer-facing-send",
+      "relation": "affects",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "change_approval_strengthened_class_customer-facing-send:derives_from:declaration_autonomy/approval_classes[customer-facing-send]/applies_to",
+      "from": "change:approval_strengthened_class_customer-facing-send",
+      "relation": "derives_from",
+      "to": "declaration:autonomy/approval_classes[customer-facing-send]/applies_to"
+    },
+    {
+      "edge_id": "change_approval_strengthened_class_customer-facing-send:invalidates:evidence_ev-approval-volume-measured",
+      "from": "change:approval_strengthened_class_customer-facing-send",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-volume-measured"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:affects:control_ARS-08",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "affects",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:affects:control_ARS-09",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "affects",
+      "to": "control:ARS-09"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:affects:control_ARS-10",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "affects",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:affects:control_ARS-12",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "affects",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:affects:control_ARS-34",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "affects",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:affects:control_ARS-35",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "affects",
+      "to": "control:ARS-35"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:derives_from:declaration_tools[draft-reply]/approval/approval_class",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "derives_from",
+      "to": "declaration:tools[draft-reply]/approval/approval_class"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:derives_from:declaration_tools[draft-reply]/approval/condition",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "derives_from",
+      "to": "declaration:tools[draft-reply]/approval/condition"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:derives_from:declaration_tools[draft-reply]/approval/policy",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "derives_from",
+      "to": "declaration:tools[draft-reply]/approval/policy"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:invalidates:evidence_ev-approval-gate-enforced",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-gate-enforced"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:invalidates:evidence_ev-approval-volume-measured",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-volume-measured"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:invalidates:evidence_ev-cross-tool-flow-policy",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "invalidates",
+      "to": "evidence:ev-cross-tool-flow-policy"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:invalidates:evidence_ev-destructive-inventory-complete",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "invalidates",
+      "to": "evidence:ev-destructive-inventory-complete"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:invalidates:evidence_ev-eval-covers-destructive",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-covers-destructive"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:requires_review:required_review_approval-design-review_draft-reply",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "requires_review",
+      "to": "required_review:approval-design-review_draft-reply"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:requires_review:required_review_approval-owner-review_draft-reply",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "requires_review",
+      "to": "required_review:approval-owner-review_draft-reply"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:requires_test:required_test_gate-bypass_draft-reply",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "requires_test",
+      "to": "required_test:gate-bypass_draft-reply"
+    },
+    {
+      "edge_id": "change_approval_weakened_draft-reply:requires_test:required_test_gate-enforced_draft-reply",
+      "from": "change:approval_weakened_draft-reply",
+      "relation": "requires_test",
+      "to": "required_test:gate-enforced_draft-reply"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-08",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-09",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-09"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-10",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-18",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-18"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-19",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-19"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-22",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-22"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-34",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-37",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:affects:control_ARS-41",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "affects",
+      "to": "control:ARS-41"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:derives_from:declaration_autonomy/destructive_action_inventory[send-customer-email]",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "derives_from",
+      "to": "declaration:autonomy/destructive_action_inventory[send-customer-email]"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-approval-gate-enforced",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-gate-enforced"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-approval-volume-measured",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-volume-measured"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-destructive-inventory-complete",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-destructive-inventory-complete"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-eval-covers-destructive",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-covers-destructive"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-idempotency-keys",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-idempotency-keys"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:invalidates:evidence_ev-review-board-package",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-review-board-package"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:requires_review:required_review_destructive-action-review_send-customer-email",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "requires_review",
+      "to": "required_review:destructive-action-review_send-customer-email"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:requires_test:required_test_injection-reaches-tool_send-customer-email",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "requires_test",
+      "to": "required_test:injection-reaches-tool_send-customer-email"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-customer-email:requires_test:required_test_tool-behaviour_send-customer-email",
+      "from": "change:destructive_action_added_send-customer-email",
+      "relation": "requires_test",
+      "to": "required_test:tool-behaviour_send-customer-email"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-08",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-09",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-09"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-10",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-18",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-18"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-19",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-19"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-22",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-22"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-34",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-37",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:affects:control_ARS-41",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-41"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:derives_from:declaration_tools[send-email]/side_effect",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "derives_from",
+      "to": "declaration:tools[send-email]/side_effect"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-approval-gate-enforced",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-gate-enforced"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-approval-volume-measured",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-volume-measured"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-destructive-inventory-complete",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-destructive-inventory-complete"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-eval-covers-destructive",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-covers-destructive"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-idempotency-keys",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-idempotency-keys"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:invalidates:evidence_ev-review-board-package",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-review-board-package"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:requires_review:required_review_destructive-action-review_send-email",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "requires_review",
+      "to": "required_review:destructive-action-review_send-email"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:requires_test:required_test_injection-reaches-tool_send-email",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "requires_test",
+      "to": "required_test:injection-reaches-tool_send-email"
+    },
+    {
+      "edge_id": "change_destructive_action_added_send-email:requires_test:required_test_tool-behaviour_send-email",
+      "from": "change:destructive_action_added_send-email",
+      "relation": "requires_test",
+      "to": "required_test:tool-behaviour_send-email"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-12",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-14",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-14"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-25",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-26",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-26"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-27",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-32",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-32"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-36",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-36"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-37",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:affects:control_ARS-40",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "affects",
+      "to": "control:ARS-40"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:derives_from:declaration_data_sinks[customer-mailbox]",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "derives_from",
+      "to": "declaration:data_sinks[customer-mailbox]"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-correlation-ids",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-correlation-ids"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-cross-tool-flow-policy",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-cross-tool-flow-policy"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-exfiltration-channels-enumerated",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-exfiltration-channels-enumerated"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-feedback-loop-instrumented",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-feedback-loop-instrumented"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-injection-suite-run",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-injection-suite-run"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:invalidates:evidence_ev-retention-covers-artifacts",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "invalidates",
+      "to": "evidence:ev-retention-covers-artifacts"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:requires_review:required_review_data-flow-review_mail-relay.internal.acme.example/transactional",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "requires_review",
+      "to": "required_review:data-flow-review_mail-relay.internal.acme.example/transactional"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:requires_test:required_test_destination-allowlist_mail-relay.internal.acme.example/transactional",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "requires_test",
+      "to": "required_test:destination-allowlist_mail-relay.internal.acme.example/transactional"
+    },
+    {
+      "edge_id": "change_external_destination_added_mail-relay.internal.acme.example/transactional:requires_test:required_test_exfiltration-path_mail-relay.internal.acme.example/transactional",
+      "from": "change:external_destination_added_mail-relay.internal.acme.example/transactional",
+      "relation": "requires_test",
+      "to": "required_test:exfiltration-path_mail-relay.internal.acme.example/transactional"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-12",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-14",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-14"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-25",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-26",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-26"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-27",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-32",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-32"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-36",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-36"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-37",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:affects:control_ARS-40",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "affects",
+      "to": "control:ARS-40"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:derives_from:declaration_data_sinks[customer-mailbox]",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "derives_from",
+      "to": "declaration:data_sinks[customer-mailbox]"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-correlation-ids",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-correlation-ids"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-cross-tool-flow-policy",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-cross-tool-flow-policy"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-exfiltration-channels-enumerated",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-exfiltration-channels-enumerated"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-feedback-loop-instrumented",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-feedback-loop-instrumented"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-injection-suite-run",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-injection-suite-run"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:invalidates:evidence_ev-retention-covers-artifacts",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "invalidates",
+      "to": "evidence:ev-retention-covers-artifacts"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:requires_review:required_review_data-flow-review_notifications.vendor.example/dispatch",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "requires_review",
+      "to": "required_review:data-flow-review_notifications.vendor.example/dispatch"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:requires_test:required_test_destination-allowlist_notifications.vendor.example/dispatch",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "requires_test",
+      "to": "required_test:destination-allowlist_notifications.vendor.example/dispatch"
+    },
+    {
+      "edge_id": "change_external_destination_added_notifications.vendor.example/dispatch:requires_test:required_test_exfiltration-path_notifications.vendor.example/dispatch",
+      "from": "change:external_destination_added_notifications.vendor.example/dispatch",
+      "relation": "requires_test",
+      "to": "required_test:exfiltration-path_notifications.vendor.example/dispatch"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-15",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-15"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-16",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-16"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-21",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-21"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-25",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-28",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-28"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-31",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-31"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:affects:control_ARS-35",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "affects",
+      "to": "control:ARS-35"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:derives_from:declaration_models[primary-reasoner]/identifier",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "derives_from",
+      "to": "declaration:models[primary-reasoner]/identifier"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:derives_from:declaration_models[primary-reasoner]/version",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "derives_from",
+      "to": "declaration:models[primary-reasoner]/version"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:invalidates:evidence_ev-cost-attribution",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "invalidates",
+      "to": "evidence:ev-cost-attribution"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:invalidates:evidence_ev-injection-suite-run",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "invalidates",
+      "to": "evidence:ev-injection-suite-run"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:invalidates:evidence_ev-supply-chain-pinned",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "invalidates",
+      "to": "evidence:ev-supply-chain-pinned"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:invalidates:evidence_ev-trace-retention-acl",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "invalidates",
+      "to": "evidence:ev-trace-retention-acl"
+    },
+    {
+      "edge_id": "change_model_changed_primary-reasoner:requires_test:required_test_eval-suite_primary-reasoner",
+      "from": "change:model_changed_primary-reasoner",
+      "relation": "requires_test",
+      "to": "required_test:eval-suite_primary-reasoner"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-12",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-19",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-19"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-22",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-22"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-25",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-26",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-26"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-27",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:affects:control_ARS-37",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:derives_from:declaration_tools[send-email]/outbound_transmission",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "derives_from",
+      "to": "declaration:tools[send-email]/outbound_transmission"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:invalidates:evidence_ev-cross-tool-flow-policy",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-cross-tool-flow-policy"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:invalidates:evidence_ev-exfiltration-channels-enumerated",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-exfiltration-channels-enumerated"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:invalidates:evidence_ev-idempotency-keys",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-idempotency-keys"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:invalidates:evidence_ev-incident-taxonomy",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-incident-taxonomy"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:invalidates:evidence_ev-injection-suite-run",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-injection-suite-run"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:requires_review:required_review_data-flow-review_send-email",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "requires_review",
+      "to": "required_review:data-flow-review_send-email"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:requires_test:required_test_destination-allowlist_send-email",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "requires_test",
+      "to": "required_test:destination-allowlist_send-email"
+    },
+    {
+      "edge_id": "change_outbound_transmission_added_send-email:requires_test:required_test_exfiltration-path_send-email",
+      "from": "change:outbound_transmission_added_send-email",
+      "relation": "requires_test",
+      "to": "required_test:exfiltration-path_send-email"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-01",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-01"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-02",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-11",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-11"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-13",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-13"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-22",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-22"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-25",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-27",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-29",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-29"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-38",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-38"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:affects:control_ARS-39",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "affects",
+      "to": "control:ARS-39"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:derives_from:declaration_tools[lookup-customer]/required_scopes",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "derives_from",
+      "to": "declaration:tools[lookup-customer]/required_scopes"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-audit-plane-immutable",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-audit-plane-immutable"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-exfiltration-channels-enumerated",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-exfiltration-channels-enumerated"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-identity-propagation-trace",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-identity-propagation-trace"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-injection-suite-run",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-injection-suite-run"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-scope-minimality-review",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-minimality-review"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-scope-static-scan",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-static-scan"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:invalidates:evidence_ev-server-side-authz-probe",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "invalidates",
+      "to": "evidence:ev-server-side-authz-probe"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:requires_review:required_review_authorisation-review_lookup-customer",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "requires_review",
+      "to": "required_review:authorisation-review_lookup-customer"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:requires_test:required_test_scope-blast-radius_lookup-customer",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "requires_test",
+      "to": "required_test:scope-blast-radius_lookup-customer"
+    },
+    {
+      "edge_id": "change_permission_expanded_lookup-customer:requires_test:required_test_scope-exercised_lookup-customer",
+      "from": "change:permission_expanded_lookup-customer",
+      "relation": "requires_test",
+      "to": "required_test:scope-exercised_lookup-customer"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-02",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-08",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-15",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-15"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-21",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-21"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-22",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-22"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-24",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-24"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-26",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-26"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-27",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-29",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-29"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-31",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-31"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-33",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-33"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-34",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-35",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-35"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-36",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-36"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-38",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-38"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-39",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-39"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:affects:control_ARS-40",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "affects",
+      "to": "control:ARS-40"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:derives_from:declaration_skills[customer-correspondence]",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "derives_from",
+      "to": "declaration:skills[customer-correspondence]"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-cost-attribution",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-cost-attribution"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-destructive-inventory-complete",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-destructive-inventory-complete"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-eval-covers-destructive",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-covers-destructive"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-eval-suite-versioned",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-suite-versioned"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-exfiltration-channels-enumerated",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-exfiltration-channels-enumerated"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-feedback-loop-instrumented",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-feedback-loop-instrumented"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-retention-covers-artifacts",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-retention-covers-artifacts"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-scope-minimality-review",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-minimality-review"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-scope-static-scan",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-static-scan"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-trace-retention-acl",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-trace-retention-acl"
+    },
+    {
+      "edge_id": "change_skill_added_customer-correspondence:invalidates:evidence_ev-untrusted-segregation",
+      "from": "change:skill_added_customer-correspondence",
+      "relation": "invalidates",
+      "to": "evidence:ev-untrusted-segregation"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-01",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-01"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-02",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-04",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-04"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-06",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-06"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-07",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-07"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-08",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-09",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-09"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-10",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-11",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-11"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-12",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-14",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-14"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-16",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-16"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-18",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-18"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-19",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-19"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-21",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-21"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-22",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-22"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-23",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-23"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-24",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-24"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-25",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-26",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-26"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-27",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-29",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-29"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-31",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-31"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-32",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-32"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-33",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-33"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-34",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-35",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-35"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-38",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-38"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:affects:control_ARS-39",
+      "from": "change:tool_added_send-email",
+      "relation": "affects",
+      "to": "control:ARS-39"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:derives_from:declaration_tools[send-email]",
+      "from": "change:tool_added_send-email",
+      "relation": "derives_from",
+      "to": "declaration:tools[send-email]"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-approval-gate-enforced",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-gate-enforced"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-approval-volume-measured",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-approval-volume-measured"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-correlation-ids",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-correlation-ids"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-cost-attribution",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-cost-attribution"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-cross-tool-flow-policy",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-cross-tool-flow-policy"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-destructive-inventory-complete",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-destructive-inventory-complete"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-eval-covers-destructive",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-covers-destructive"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-eval-suite-versioned",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-eval-suite-versioned"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-exfiltration-channels-enumerated",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-exfiltration-channels-enumerated"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-idempotency-keys",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-idempotency-keys"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-identity-propagation-trace",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-identity-propagation-trace"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-injection-suite-run",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-injection-suite-run"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-scope-minimality-review",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-minimality-review"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-scope-static-scan",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-scope-static-scan"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-server-side-authz-probe",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-server-side-authz-probe"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-timeout-discipline",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-timeout-discipline"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:invalidates:evidence_ev-untrusted-segregation",
+      "from": "change:tool_added_send-email",
+      "relation": "invalidates",
+      "to": "evidence:ev-untrusted-segregation"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:requires_test:required_test_injection-reaches-tool_send-email",
+      "from": "change:tool_added_send-email",
+      "relation": "requires_test",
+      "to": "required_test:injection-reaches-tool_send-email"
+    },
+    {
+      "edge_id": "change_tool_added_send-email:requires_test:required_test_tool-behaviour_send-email",
+      "from": "change:tool_added_send-email",
+      "relation": "requires_test",
+      "to": "required_test:tool-behaviour_send-email"
+    },
+    {
+      "edge_id": "control_ARS-04:lacks_evidence:insufficient_evidence_ARS-04",
+      "from": "control:ARS-04",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-04"
+    },
+    {
+      "edge_id": "control_ARS-06:lacks_evidence:insufficient_evidence_ARS-06",
+      "from": "control:ARS-06",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-06"
+    },
+    {
+      "edge_id": "control_ARS-07:lacks_evidence:insufficient_evidence_ARS-07",
+      "from": "control:ARS-07",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-07"
+    },
+    {
+      "edge_id": "control_ARS-16:lacks_evidence:insufficient_evidence_ARS-16",
+      "from": "control:ARS-16",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-16"
+    },
+    {
+      "edge_id": "control_ARS-18:lacks_evidence:insufficient_evidence_ARS-18",
+      "from": "control:ARS-18",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-18"
+    },
+    {
+      "edge_id": "control_ARS-21:lacks_evidence:insufficient_evidence_ARS-21",
+      "from": "control:ARS-21",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-21"
+    },
+    {
+      "edge_id": "control_ARS-22:lacks_evidence:insufficient_evidence_ARS-22",
+      "from": "control:ARS-22",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-22"
+    },
+    {
+      "edge_id": "control_ARS-26:lacks_evidence:insufficient_evidence_ARS-26",
+      "from": "control:ARS-26",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-26"
+    },
+    {
+      "edge_id": "control_ARS-29:lacks_evidence:insufficient_evidence_ARS-29",
+      "from": "control:ARS-29",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-29"
+    },
+    {
+      "edge_id": "control_ARS-32:lacks_evidence:insufficient_evidence_ARS-32",
+      "from": "control:ARS-32",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-32"
+    },
+    {
+      "edge_id": "control_ARS-35:lacks_evidence:insufficient_evidence_ARS-35",
+      "from": "control:ARS-35",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-35"
+    },
+    {
+      "edge_id": "control_ARS-38:lacks_evidence:insufficient_evidence_ARS-38",
+      "from": "control:ARS-38",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-38"
+    },
+    {
+      "edge_id": "control_ARS-39:lacks_evidence:insufficient_evidence_ARS-39",
+      "from": "control:ARS-39",
+      "relation": "lacks_evidence",
+      "to": "insufficient_evidence:ARS-39"
+    },
+    {
+      "edge_id": "evidence_ev-approval-gate-enforced:supports:control_ARS-09",
+      "from": "evidence:ev-approval-gate-enforced",
+      "relation": "supports",
+      "to": "control:ARS-09"
+    },
+    {
+      "edge_id": "evidence_ev-approval-volume-measured:supports:control_ARS-10",
+      "from": "evidence:ev-approval-volume-measured",
+      "relation": "supports",
+      "to": "control:ARS-10"
+    },
+    {
+      "edge_id": "evidence_ev-audit-identity-separated:supports:control_ARS-05",
+      "from": "evidence:ev-audit-identity-separated",
+      "relation": "supports",
+      "to": "control:ARS-05"
+    },
+    {
+      "edge_id": "evidence_ev-audit-plane-immutable:supports:control_ARS-13",
+      "from": "evidence:ev-audit-plane-immutable",
+      "relation": "supports",
+      "to": "control:ARS-13"
+    },
+    {
+      "edge_id": "evidence_ev-budget-ceilings:supports:control_ARS-30",
+      "from": "evidence:ev-budget-ceilings",
+      "relation": "supports",
+      "to": "control:ARS-30"
+    },
+    {
+      "edge_id": "evidence_ev-correlation-ids:supports:control_ARS-14",
+      "from": "evidence:ev-correlation-ids",
+      "relation": "supports",
+      "to": "control:ARS-14"
+    },
+    {
+      "edge_id": "evidence_ev-cost-attribution:supports:control_ARS-31",
+      "from": "evidence:ev-cost-attribution",
+      "relation": "supports",
+      "to": "control:ARS-31"
+    },
+    {
+      "edge_id": "evidence_ev-cross-tool-flow-policy:supports:control_ARS-12",
+      "from": "evidence:ev-cross-tool-flow-policy",
+      "relation": "supports",
+      "to": "control:ARS-12"
+    },
+    {
+      "edge_id": "evidence_ev-destructive-inventory-complete:supports:control_ARS-08",
+      "from": "evidence:ev-destructive-inventory-complete",
+      "relation": "supports",
+      "to": "control:ARS-08"
+    },
+    {
+      "edge_id": "evidence_ev-eval-covers-destructive:supports:control_ARS-34",
+      "from": "evidence:ev-eval-covers-destructive",
+      "relation": "supports",
+      "to": "control:ARS-34"
+    },
+    {
+      "edge_id": "evidence_ev-eval-suite-versioned:supports:control_ARS-33",
+      "from": "evidence:ev-eval-suite-versioned",
+      "relation": "supports",
+      "to": "control:ARS-33"
+    },
+    {
+      "edge_id": "evidence_ev-exfiltration-channels-enumerated:supports:control_ARS-27",
+      "from": "evidence:ev-exfiltration-channels-enumerated",
+      "relation": "supports",
+      "to": "control:ARS-27"
+    },
+    {
+      "edge_id": "evidence_ev-feedback-loop-instrumented:supports:control_ARS-36",
+      "from": "evidence:ev-feedback-loop-instrumented",
+      "relation": "supports",
+      "to": "control:ARS-36"
+    },
+    {
+      "edge_id": "evidence_ev-idempotency-keys:supports:control_ARS-19",
+      "from": "evidence:ev-idempotency-keys",
+      "relation": "supports",
+      "to": "control:ARS-19"
+    },
+    {
+      "edge_id": "evidence_ev-identity-propagation-trace:supports:control_ARS-01",
+      "from": "evidence:ev-identity-propagation-trace",
+      "relation": "supports",
+      "to": "control:ARS-01"
+    },
+    {
+      "edge_id": "evidence_ev-incident-taxonomy:supports:control_ARS-37",
+      "from": "evidence:ev-incident-taxonomy",
+      "relation": "supports",
+      "to": "control:ARS-37"
+    },
+    {
+      "edge_id": "evidence_ev-injection-suite-run:supports:control_ARS-25",
+      "from": "evidence:ev-injection-suite-run",
+      "relation": "supports",
+      "to": "control:ARS-25"
+    },
+    {
+      "edge_id": "evidence_ev-no-secrets-in-prompts:supports:control_ARS-03",
+      "from": "evidence:ev-no-secrets-in-prompts",
+      "relation": "supports",
+      "to": "control:ARS-03"
+    },
+    {
+      "edge_id": "evidence_ev-prompt-config-versioned:supports:control_ARS-17",
+      "from": "evidence:ev-prompt-config-versioned",
+      "relation": "supports",
+      "to": "control:ARS-17"
+    },
+    {
+      "edge_id": "evidence_ev-retention-covers-artifacts:supports:control_ARS-40",
+      "from": "evidence:ev-retention-covers-artifacts",
+      "relation": "supports",
+      "to": "control:ARS-40"
+    },
+    {
+      "edge_id": "evidence_ev-retry-and-loop-bounds:supports:control_ARS-20",
+      "from": "evidence:ev-retry-and-loop-bounds",
+      "relation": "supports",
+      "to": "control:ARS-20"
+    },
+    {
+      "edge_id": "evidence_ev-review-board-package:supports:control_ARS-41",
+      "from": "evidence:ev-review-board-package",
+      "relation": "supports",
+      "to": "control:ARS-41"
+    },
+    {
+      "edge_id": "evidence_ev-scope-minimality-review:supports:control_ARS-02",
+      "from": "evidence:ev-scope-minimality-review",
+      "relation": "supports",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "evidence_ev-scope-static-scan:supports:control_ARS-02",
+      "from": "evidence:ev-scope-static-scan",
+      "relation": "supports",
+      "to": "control:ARS-02"
+    },
+    {
+      "edge_id": "evidence_ev-server-side-authz-probe:supports:control_ARS-11",
+      "from": "evidence:ev-server-side-authz-probe",
+      "relation": "supports",
+      "to": "control:ARS-11"
+    },
+    {
+      "edge_id": "evidence_ev-supply-chain-pinned:supports:control_ARS-28",
+      "from": "evidence:ev-supply-chain-pinned",
+      "relation": "supports",
+      "to": "control:ARS-28"
+    },
+    {
+      "edge_id": "evidence_ev-timeout-discipline:supports:control_ARS-23",
+      "from": "evidence:ev-timeout-discipline",
+      "relation": "supports",
+      "to": "control:ARS-23"
+    },
+    {
+      "edge_id": "evidence_ev-trace-retention-acl:supports:control_ARS-15",
+      "from": "evidence:ev-trace-retention-acl",
+      "relation": "supports",
+      "to": "control:ARS-15"
+    },
+    {
+      "edge_id": "evidence_ev-untrusted-segregation:supports:control_ARS-24",
+      "from": "evidence:ev-untrusted-segregation",
+      "relation": "supports",
+      "to": "control:ARS-24"
+    }
+  ],
+  "volatile": {
+    "built_at": "2026-08-06T14:08:37.128Z"
+  },
+  "canonical_hash": "fb361f5514c99c75b562af4683849298cd57f8377898d1783248a8de35527514"
+}

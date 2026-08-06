@@ -1,0 +1,426 @@
+/* ===========================================================================
+   ARS — the light editorial theme.
+
+   The palette, the recorded contrast ratios, the type ramp and the print block
+   are taken from ShopifyACO/viewer/src/theme.css (lens.thirdocular.com), which
+   is the "light editorial theme" the build contract names. thirdocular.com
+   itself is deep navy; a document and a report are not that surface.
+
+   ⚠️ THE THREE RESULT HUES ARE RESERVED, and the lens repo enforces it with
+   test/palette.test.ts. --pass slate, --requires-access sand, --not-proven
+   crimson mean pass, requires-access and not-proven and nothing else.
+
+   ON A STANDARD PAGE THEY MAY NOT APPEAR AT ALL. A standard is a document;
+   nothing on it has failed. The automation-flag badges are therefore neutral
+   ink, NOT a red/amber/green scale — an [R] badge is not a warning, it says
+   which instrument reads the check. A report is a result surface and may use
+   the reserved hues; report.css does, and this file does not.
+   =========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --navy: #24273a;
+  --slate: #596c8e;
+  --slate-light: #8fa6c6;
+  --ice: #c7d1da;
+
+  --bg: #f7f5f1;
+  --surface: #ffffff;
+  --surface-2: #efede8;
+  --band: #e9edf1;
+
+  --ink: #24273a;   /* 14.72:1 on --surface */
+  --ink-2: #484c6b; /* 7.12:1 on --surface-2 */
+  --ink-3: #64698a; /* 4.54:1 on --band — the a11y floor */
+
+  --border: #c7d1da;
+  --border-ui: #728ba2; /* a control edge — WCAG 1.4.11, 3:1 */
+  --border-strong: rgba(89, 108, 142, 0.38);
+  --accent: #24273a;
+  --accent-soft: rgba(89, 108, 142, 0.09);
+  --line: var(--border);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --font-body: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-display: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-ui: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, 'Cascadia Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-2);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--slate); text-underline-offset: 2px; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--border-ui); outline-offset: 3px; }
+
+/* ============ page shell ============ */
+
+.std-page { max-width: 780px; margin: 0 auto; padding: 40px 22px 96px; }
+
+.std-crumb {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
+.std-crumb a { color: var(--ink-3); }
+
+/* Type ramp 26/18/15/13. The h1 is the SHORT name and the full descriptive
+   title is a subtitle below it: a 26px h1 against an 18px h2 is a 1.44x step,
+   where the 30px original was 1.76x and made the top of the page a wall. */
+.std-doc h1 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.std-doc h2 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 44px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.std-doc h3 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--ink);
+  margin: 22px 0 6px;
+}
+.std-doc h4 {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+
+.std-subtitle { font-size: 15px; color: var(--ink-3); margin: 0 0 20px; line-height: 1.5; }
+.std-page p { margin: 0 0 12px; }
+.std-page ul, .std-page ol { padding-left: 20px; margin: 0 0 12px; }
+.std-page li { margin-bottom: 8px; }
+.std-page code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--surface-2);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+/* ============ the artifact header ============ */
+
+.std-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 20px;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-version { border-color: var(--border-ui); color: var(--ink); }
+.badge-status { text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; }
+
+.std-hash {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 11px;
+  margin: 0 0 22px;
+  overflow-wrap: anywhere;
+}
+.std-hash b { color: var(--ink-2); font-weight: 600; }
+
+/* The posture statement. This is the load-bearing honesty block; it is set as a
+   quiet card rather than a warning, because it is a statement of standing and
+   not an alert. */
+.std-posture {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-ui);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin: 0 0 26px;
+  font-size: 15px;
+}
+.std-posture h4 { margin-top: 0; }
+.std-posture p:last-child { margin-bottom: 0; }
+
+/* ============ counts strip ============ */
+
+.std-counts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin: 0 0 26px;
+}
+.std-count { background: var(--surface); padding: 12px 14px; }
+.std-count-v {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.std-count-k {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: var(--ink-3);
+  line-height: 1.35;
+  margin-top: 3px;
+}
+@media (max-width: 560px) {
+  .std-counts { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============ tier navigation ============ */
+
+.std-nav {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin: 0 0 30px;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+}
+.std-nav ol { list-style: none; padding: 0; margin: 0; }
+.std-nav li { margin: 0 0 5px; display: flex; gap: 10px; align-items: baseline; }
+.std-nav li:last-child { margin-bottom: 0; }
+.std-nav-n { color: var(--ink-3); font-variant-numeric: tabular-nums; min-width: 1.6em; }
+.std-nav-range { color: var(--ink-3); font-size: 12px; margin-left: auto; white-space: nowrap; }
+
+/* ============ a tier ============ */
+
+.std-tier { margin-top: 44px; }
+.std-tier-weight {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin: -4px 0 16px;
+}
+
+/* ============ a check ============ */
+
+.std-entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin: 0 0 14px;
+  /* An anchored check must not land under a sticky header or flush against the
+     viewport edge, or /ars#ARS-24 arrives with its heading off-screen. */
+  scroll-margin-top: 18px;
+}
+.std-entry-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.std-entry-id {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.std-entry-id a { color: inherit; text-decoration: none; }
+.std-entry-id a:hover { text-decoration: underline; }
+.std-entry-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0;
+  flex: 1 1 260px;
+}
+
+/* Automation-flag badge. Neutral by rule: see the header note. The three flags
+   differ by BORDER WEIGHT and label, never by hue. */
+.flag {
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.flag-S { border-color: var(--border-ui); color: var(--ink-2); }
+
+.std-field { margin: 10px 0 0; }
+.std-field-k {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-3);
+  margin-bottom: 2px;
+}
+.std-field-v { margin: 0; }
+.std-field-fail { color: var(--ink-2); }
+
+/* A qualifying line inside a table cell — "attestation alone cannot settle it".
+   Smaller and quieter than the claim it qualifies, and it survives print,
+   because a qualifier that disappears on paper turns a hedged sentence into a
+   flat one. */
+.std-note {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+.std-static {
+  margin-top: 12px;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+.std-static summary {
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  list-style: none;
+}
+.std-static summary::-webkit-details-marker { display: none; }
+.std-static summary::after {
+  content: ' +';
+  font-family: var(--font-mono);
+}
+.std-static[open] summary::after { content: ' \2212'; }
+.std-static summary:hover { color: var(--ink-2); }
+.std-ceiling {
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+  margin: 10px 0;
+}
+.std-ceiling b { color: var(--ink); }
+.std-signals { font-size: 14.5px; }
+
+/* ============ tables (scoring model) ============ */
+
+.std-table-wrap { overflow-x: auto; margin: 0 0 14px; }
+.std-page table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+}
+.std-page th, .std-page td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.std-page th { color: var(--ink); font-weight: 600; border-bottom-color: var(--border-ui); }
+.std-page tbody tr:last-child td { border-bottom: none; }
+
+/* ============ footer ============ */
+
+.std-foot {
+  margin-top: 56px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.std-foot p { margin: 0 0 6px; }
+
+/* ===========================================================================
+   PRINT.
+
+   ⚠️ A COLLAPSED <details> PRINTS NOTHING OF ITS BODY, AND ON THIS PAGE THAT IS
+   WHERE THE STATIC CEILINGS AND SIGNALS LIVE. Measured in the lens repo, not
+   argued: /standards/coffee/1.3 printed 20 pages as served and 27 with its
+   sections expanded — 7 pages, 18,100 of 60,542 visible characters, 29.9% of
+   the document, gone.
+
+   THE MECHANISM IS THE PSEUDO-ELEMENT. Chromium hides the body via a UA rule on
+   `details::details-content`, not on the author-visible children, so every
+   folklore fix was measured INERT there:
+     details { display: block }
+     details > *:not(summary) { display: revert !important }
+     details > * { display: block !important }
+     details { content-visibility: visible !important }
+     * { content-visibility: visible !important }   <- the universal selector
+                                                       does not match pseudo-elements
+   Only the rule below restores it, and it is deliberately NOT scoped to a page
+   class. No second "fallback" rule is shipped beside it: the obvious pairing
+   measured inert and a guard whose removal changes nothing is decorative.
+   =========================================================================== */
+
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .no-print { display: none !important; }
+  .std-page { max-width: 100%; padding: 0; }
+
+  .std-entry,
+  .std-posture,
+  .std-hash,
+  .std-nav { break-inside: avoid; box-shadow: none; border-color: #ddd; }
+  .std-doc h2 { break-after: avoid; }
+  .std-tier { break-before: auto; }
+
+  details::details-content { content-visibility: visible !important; }
+  details { break-inside: avoid; }
+
+  /* The disclosure marker is driven by [open], so an expanded-in-print section
+     would still print "+" — an affordance that is both untrue and unusable on
+     paper. */
+  summary::after { content: '' !important; }
+
+  /* A printed page cannot be clicked, so a bare "#ARS-24" href is noise, but
+     the full canonical URL of the artifact is not. */
+  .std-entry-id a::after { content: ''; }
+  .std-foot a::after { content: ' (' attr(href) ')'; font-family: var(--font-mono); font-size: 9pt; }
+}

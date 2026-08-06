@@ -1,0 +1,507 @@
+{
+  "artifact": "observed-agent",
+  "artifact_version": "0.1",
+  "subject": {
+    "name": "records-assistant",
+    "root_reference": "fixtures/ts-agent",
+    "files_read": 7,
+    "files_skipped": 0
+  },
+  "completeness": "complete",
+  "adapters": [
+    {
+      "adapter_id": "json-manifest",
+      "version": "0.1.0",
+      "detected": true,
+      "status": "ok",
+      "reason": "applicable: 1 parseable JSON file(s)",
+      "fact_count": 1,
+      "diagnostics": [
+        "contract-excluded",
+        "no-json-tools",
+        "no-approval-source"
+      ]
+    },
+    {
+      "adapter_id": "typescript-source",
+      "version": "0.1.0",
+      "detected": true,
+      "status": "ok",
+      "reason": "applicable: 4 TypeScript source file(s)",
+      "fact_count": 13,
+      "diagnostics": [
+        "unreadable-tool-name",
+        "unreadable-tool-name",
+        "factory-built-registry",
+        "spread-built-registry",
+        "unreadable-tool-name",
+        "unreadable-constructions"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "model:claude-sonnet-4-5-20250929",
+      "fact_class": "model",
+      "subject": "claude-sonnet-4-5-20250929",
+      "attribute": null,
+      "value": {
+        "identifier": "claude-sonnet-4-5-20250929"
+      },
+      "provenance": {
+        "file": "src/agent.ts",
+        "line": 6,
+        "collection_method": "source_literal",
+        "collector": {
+          "adapter": "json-manifest",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_id": "scope:accounts.read",
+      "fact_class": "scope",
+      "subject": "accounts.read",
+      "attribute": null,
+      "value": "accounts.read",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 36,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "scope:records.read",
+      "fact_class": "scope",
+      "subject": "records.read",
+      "attribute": null,
+      "value": "records.read",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 47,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "scope:webhook.post",
+      "fact_class": "scope",
+      "subject": "webhook.post",
+      "attribute": null,
+      "value": "webhook.post",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 77,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.approval_policy:lookup-account",
+      "fact_class": "tool.approval_policy",
+      "subject": "lookup-account",
+      "attribute": null,
+      "value": "auto_allow",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 28,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "inferred",
+        "basis": "read from a boolean flag on the definition, which is a configuration value beside the tool rather than an enforcement point in front of it"
+      },
+      "confidence": "medium",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.approval_policy:post-to-partner-webhook",
+      "fact_class": "tool.approval_policy",
+      "subject": "post-to-partner-webhook",
+      "attribute": null,
+      "value": "auto_allow",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 69,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "inferred",
+        "basis": "read from a boolean flag on the definition, which is a configuration value beside the tool rather than an enforcement point in front of it"
+      },
+      "confidence": "medium",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.approval_policy:search-records",
+      "fact_class": "tool.approval_policy",
+      "subject": "search-records",
+      "attribute": null,
+      "value": "auto_allow",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 39,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "inferred",
+        "basis": "read from a boolean flag on the definition, which is a configuration value beside the tool rather than an enforcement point in front of it"
+      },
+      "confidence": "medium",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.outbound_transmission:post-to-partner-webhook",
+      "fact_class": "tool.outbound_transmission",
+      "subject": "post-to-partner-webhook",
+      "attribute": null,
+      "value": true,
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 69,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "inferred",
+        "basis": "the definition states a `send` side effect, which is a claim that this tool carries content out"
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.side_effect:lookup-account",
+      "fact_class": "tool.side_effect",
+      "subject": "lookup-account",
+      "attribute": null,
+      "value": "read",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 28,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.side_effect:post-to-partner-webhook",
+      "fact_class": "tool.side_effect",
+      "subject": "post-to-partner-webhook",
+      "attribute": null,
+      "value": "send",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 69,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool.side_effect:search-records",
+      "fact_class": "tool.side_effect",
+      "subject": "search-records",
+      "attribute": null,
+      "value": "read",
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 39,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool:lookup-account",
+      "fact_class": "tool",
+      "subject": "lookup-account",
+      "attribute": null,
+      "value": {
+        "display_name": "lookup_account",
+        "description": "Look up one account record by its account number.",
+        "definition_pattern": "object_literal",
+        "wrapper": null,
+        "registered_in": "TOOLS",
+        "input_schema_ref": "AccountLookupSchema",
+        "timeout_ms": 30000,
+        "max_retries": 3,
+        "destructive": null
+      },
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 28,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool:post-to-partner-webhook",
+      "fact_class": "tool",
+      "subject": "post-to-partner-webhook",
+      "attribute": null,
+      "value": {
+        "display_name": "post_to_partner_webhook",
+        "description": "Send the record payload to the partner integration endpoint.",
+        "definition_pattern": "wrapper_call",
+        "wrapper": "defineTool",
+        "registered_in": "TOOLS",
+        "input_schema_ref": "WebhookPayloadSchema",
+        "timeout_ms": 15000,
+        "max_retries": 5,
+        "destructive": null
+      },
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 69,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_id": "tool:search-records",
+      "fact_class": "tool",
+      "subject": "search-records",
+      "attribute": null,
+      "value": {
+        "display_name": "search_records",
+        "description": "Search the records index and return matching rows.",
+        "definition_pattern": "object_literal",
+        "wrapper": null,
+        "registered_in": "TOOLS",
+        "input_schema_ref": "RecordSearchSchema",
+        "timeout_ms": 30000,
+        "max_retries": 3,
+        "destructive": null
+      },
+      "provenance": {
+        "file": "src/tools/registry.ts",
+        "line": 39,
+        "collection_method": "source_ast",
+        "collector": {
+          "adapter": "typescript-source",
+          "version": "0.1.0"
+        },
+        "derivation": "direct",
+        "basis": null
+      },
+      "confidence": "high",
+      "adapter_id": "typescript-source"
+    }
+  ],
+  "not_observable": [
+    {
+      "fact_class": "effective_principal",
+      "reason": "Which principal a downstream call actually carries is a runtime property. A shared service account named in configuration is reported; identity propagation working correctly is not observable from a repository.",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_class": "effective_principal",
+      "reason": "Which principal a downstream call actually carries is a runtime property. Source shows the call being made; it does not show whose identity the token minted at run time belongs to, and nothing here infers one.",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_class": "tool",
+      "reason": "Tools defined only in code — an object literal passed to a framework, a decorated function, a registration call — are invisible to this adapter. It reads tool definitions published as JSON data and nothing else.",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_class": "tool",
+      "reason": "A tool whose name is computed — a template literal, a member expression, a config lookup — or whose definition is produced by a factory, spread into a registry, or handed to a wrapper shape outside this adapter's documented set, is reported as an unreadable construction with its line and is never given an invented name.",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_class": "tool.approval_policy",
+      "reason": "An inventory document states a policy; it does not enforce one. Where a policy is read from a document, the fact is marked inferred and says so, because a table row and an enforcement point are different things.",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_class": "tool.approval_policy",
+      "reason": "A `requiresApproval` flag in a definition object is a configuration value, not an enforcement point. Where one is read the fact is marked inferred and says so, because a boolean beside a tool and a gate in front of it are different things.",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_class": "tool.dynamic_loading",
+      "reason": "Whether a dispatcher resolves a tool name computed at run time is a property of the dispatcher, not of the manifest. Reported only where an execution sink over model-shaped input is visible in configuration.",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_class": "tool.dynamic_loading",
+      "reason": "Whether a dispatcher resolves a tool name computed at run time is a property of the dispatcher, not of a tool definition. This adapter reads definitions; it does not follow the dispatch path, and it reports neither that dynamic loading happens nor that it does not.",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_class": "tool.input_schema_permissive",
+      "reason": "The input schema is recorded as a REFERENCE — the identifier the definition names, or the location of an inline literal. Resolving a schema across modules needs the type checker and a resolvable tsconfig, which ADR 005 defers with a trigger rather than building speculatively, so permissiveness is not observable here.",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_class": "tool.outbound_transmission",
+      "reason": "A JSON manifest does not say whether a tool can carry content out of the trust boundary. This adapter reports the capability only where a name or description asserts it, and never reports its absence.",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_class": "tool.outbound_transmission",
+      "reason": "Whether a tool can carry content out of the trust boundary is reported only where the definition states a send effect or names an outbound mechanism. Source that reaches the network through a helper this adapter did not follow is invisible to it, and its absence is never reported as evidence of containment.",
+      "adapter_id": "typescript-source"
+    },
+    {
+      "fact_class": "tool.side_effect",
+      "reason": "A manifest names a tool; it does not classify what the tool does to the world. Side effects are reported only where the name or description states one, so a tool with a neutral name is `not_observable` rather than `read`.",
+      "adapter_id": "json-manifest"
+    },
+    {
+      "fact_class": "tool.side_effect",
+      "reason": "A side effect is read only where the definition STATES one in a property. A definition that says nothing about what it does to the world is `not_observable` here, never `read` — `read` is the classification that agrees with a read-only contract and keeps a tool out of the destructive-action inventory.",
+      "adapter_id": "typescript-source"
+    }
+  ],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "contract-excluded",
+      "message": "1 Agent Contract(s) in the scanned tree were excluded from observation: agent.contract.json. A declaration is not evidence about the implementation it describes, and reconciling one against itself would find agreement by construction.",
+      "file": null,
+      "line": null,
+      "adapter_id": "json-manifest"
+    },
+    {
+      "level": "info",
+      "code": "no-json-tools",
+      "message": "No tool definition published as JSON was found. This adapter reads a `tools` array, a bare array of tool objects, or one tool per file, each with an input_schema, inputSchema, parameters or schema key. Tools defined only in code are not read, and this is recorded rather than reported as an absence of tools.",
+      "file": null,
+      "line": null,
+      "adapter_id": "json-manifest"
+    },
+    {
+      "level": "info",
+      "code": "no-approval-source",
+      "message": "No destructive-action inventory was found as a document table or as JSON, so no approval policy could be read. Approval policies are therefore `not_observable`, not `auto_allow`.",
+      "file": null,
+      "line": null,
+      "adapter_id": "json-manifest"
+    },
+    {
+      "level": "warning",
+      "code": "unreadable-tool-name",
+      "message": "A tool definition here names itself with a template literal assembled at run time, which has no value until something runs. The tool is real and callable and this adapter cannot say what it is called, so it is reported as unreadable rather than given a name assembled here. Assembling one would put a tool in an assurance artifact under a name that appears nowhere in the source.",
+      "file": "src/tools/dynamic.ts",
+      "line": 21,
+      "adapter_id": "typescript-source"
+    },
+    {
+      "level": "warning",
+      "code": "unreadable-tool-name",
+      "message": "A tool definition here names itself with a template literal assembled at run time, which has no value until something runs. The tool is real and callable and this adapter cannot say what it is called, so it is reported as unreadable rather than given a name assembled here. Assembling one would put a tool in an assurance artifact under a name that appears nowhere in the source.",
+      "file": "src/tools/dynamic.ts",
+      "line": 30,
+      "adapter_id": "typescript-source"
+    },
+    {
+      "level": "warning",
+      "code": "factory-built-registry",
+      "message": "\"generatedTools\" reads like a tool registry and is produced by calling the variable makeCrudTools. What that call returns is decided at run time; this adapter does not execute anything it parses, so the tools in it are reported as unreadable rather than as absent.",
+      "file": "src/tools/dynamic.ts",
+      "line": 37,
+      "adapter_id": "typescript-source"
+    },
+    {
+      "level": "warning",
+      "code": "spread-built-registry",
+      "message": "The registration array \"EXTENDED_TOOLS\" is assembled by spreading another value into itself, so its members are decided at run time. Reporting the elements written here as though they were the set would state a tool inventory shorter than the one the agent actually loads.",
+      "file": "src/tools/dynamic.ts",
+      "line": 40,
+      "adapter_id": "typescript-source"
+    },
+    {
+      "level": "warning",
+      "code": "unreadable-tool-name",
+      "message": "A tool definition here names itself with a lookup on another object (CONFIG.escalation), which has no value until something runs. The tool is real and callable and this adapter cannot say what it is called, so it is reported as unreadable rather than given a name assembled here. Assembling one would put a tool in an assurance artifact under a name that appears nowhere in the source.",
+      "file": "src/tools/dynamic.ts",
+      "line": 45,
+      "adapter_id": "typescript-source"
+    },
+    {
+      "level": "warning",
+      "code": "unreadable-constructions",
+      "message": "5 construction(s) in 1 file(s) define or register tools in ways this adapter refuses to guess at (src/tools/dynamic.ts). Each is reported above with its line. The tools it did read are therefore a floor and not an inventory: the honest claim is \"these tools, and there are constructions here I cannot read\", which is a different sentence from \"these tools\".",
+      "file": null,
+      "line": null,
+      "adapter_id": "typescript-source"
+    }
+  ],
+  "redaction": {
+    "applied": false,
+    "classes": [],
+    "note": "Credentials are masked before a value enters this artifact, not before it is rendered. What survives is the class of thing found and its location, which is what a reader needs in order to rotate it."
+  },
+  "volatile": {
+    "collected_at": "2026-08-06T14:08:37.161Z",
+    "root_path": "C:\\Users\\iamka\\Documents\\projects\\ARS\\fixtures\\ts-agent"
+  },
+  "canonical_hash": "ad7e31b027d7666ba21838cb2f4a8d3b2756f815975fdf905b7fa17403cbd2b5"
+}

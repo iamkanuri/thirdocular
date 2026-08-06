@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent readiness assessment and change-impact analysis — ThirdOcular</title>
+<meta name="description" content="An assessment of one agent deployment against all 41 checks in ARS v1.0, and a change-impact analysis that says which evidence, tests and approvals each release invalidated.">
+<link rel="canonical" href="https://thirdocular.com/consulting">
+<meta property="og:title" content="Your agent shipped twice this month. Which of its approvals still hold?">
+<meta property="og:description" content="An assessment of one agent deployment against all 41 checks in ARS v1.0, and a change-impact analysis that says which evidence, tests and approvals each release invalidated.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ThirdOcular">
+<meta property="og:url" content="https://thirdocular.com/consulting">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thirdocular.com/og.png">
+<meta property="og:image:alt" content="ThirdOcular">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your agent shipped twice this month. Which of its approvals still hold?">
+<meta name="twitter:description" content="An assessment of one agent deployment against all 41 checks in ARS v1.0, and a change-impact analysis that says which evidence, tests and approvals each release invalidated.">
+<meta name="twitter:image" content="https://thirdocular.com/og.png">
+<link rel="stylesheet" href="../ars-assets/ars.css">
+</head>
+<body>
+<main class="std-page">
+<header class="std-crumb no-print"><a href="../">ThirdOcular</a> &rsaquo; Consulting</header>
+<div class="std-doc">
+<h1>Agent readiness, and what your last release cost you</h1>
+<p class="std-subtitle">Two engagements against ARS v1.0: an assessment
+of one production agent deployment, and the change-impact analysis that keeps its findings from expiring.</p>
+<h2 id="two-questions">Two questions, and they decay at different rates</h2>
+<p>
+  The first is <b>is this agent ready</b> — whose identity it acts under, what it can destroy, who approved that,
+  and how you would know afterwards. Enterprise review boards do not ask whether an agent is impressive; they ask
+  those four, in that order, and a programme that cannot answer them re-litigates its own existence at every
+  review cycle.
+</p>
+<p>
+  The second is <b>is it still ready</b>. An assessment describes a system on a particular day. The agent then
+  ships twice a week, and by the second month nobody can say which of the findings still hold. That is the part
+  of an assurance programme that decays fastest, and the usual answer — re-run the whole review — costs more than
+  most teams will pay more than once.
+</p>
+<h2 id="who">Who is doing the assessment</h2>
+<p>
+  I have built and run agentic AI in production inside a regulated utility, where the deployment had to clear
+  legal, cybersecurity and enterprise architecture review before it could ship and again before it could grow.
+  The controls in this standard are the ones those reviews asked about, in the order they asked about them, and
+  the failure notes attached to each check are drawn from what actually goes wrong rather than from a threat
+  taxonomy.
+</p>
+<h2 id="standard">The standard</h2>
+<p>
+  ARS v1.0 is published in full, with a content hash, so an assessment
+  cites a specific text rather than a version number. 41 checks across 8 tiers, each
+  with a pass criterion, the way it fails in production, and one flag naming the instrument that can read it.
+</p>
+<p>
+  It is a draft, and it says so in its own posture field: <b>no second party has applied it without me.</b>
+  Until that happens it is a rubric with a versioned changelog rather than a standard, and the document carries
+  that statement rather than burying it. The same applies to everything below: the instruments are real, tested
+  and deterministic, and every system they have been pointed at so far is one of mine.
+</p>
+<p><a href="../ars/">Read ARS v1.0 &rarr;</a>
+&middot; <a href="../ars/#how-assessed">how a control is assessed &rarr;</a></p>
+<h2 id="example">A worked example</h2>
+<p>
+  20 of the 41 checks can be read from a repository, and a harness does that part.
+  Here is its output against a deliberately unsafe toy agent: the verdict, every finding with its file and line,
+  and a remediation for each one.
+</p>
+<p>
+  It is also an honest demonstration of the limits. The harness cannot award better than Conditional to anything,
+  at any score, because 21 of the checks are not readable from code at all. 13 of
+  the 20 it does read are capped at a score of 1, because static analysis cannot tell a working
+  mechanism from the appearance of one. Those ceilings are published in the standard rather than held in the tool.
+</p>
+<p><a href="../reports/fb4eab2bfaca8ed6/">Read the sample assessment report &rarr;</a></p>
+<h2 id="offers">The two engagements</h2>
+<section class="std-entry" id="offer-review">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">Agent Readiness Review</h3>
+    <span class="flag flag-S">2 weeks</span>
+  </div>
+  <p>
+    A full assessment of one agent deployment against all 41 checks in
+    ARS v1.0: the 20 that can be read from code and
+    configuration, the 11 that need a running system, and the 10 that need
+    interviews and document review.
+  </p>
+
+  <div class="std-field">
+    <div class="std-field-k">What you get</div>
+    <ul>
+      <li>A scored assessment against every check, with the evidence each score rests on and its location.</li>
+      <li>A remediation plan, ordered by blast radius rather than by effort.</li>
+      <li>The control-to-mechanism mapping ARS-41 asks for, in the form legal, cybersecurity and enterprise
+          architecture review actually want to receive.</li>
+      <li>The harness output, so your team can re-run the static subset on every change without me.</li>
+      <li>An Agent Contract for the deployment — a provider-neutral declaration of what it is permitted and
+          expected to do. It is the input the second engagement runs on, and it is yours whether or not there
+          is a second engagement.</li>
+    </ul>
+  </div>
+
+  <div class="std-field">
+    <div class="std-field-k">What it is not</div>
+    <ul>
+      <li>Not a certification. Nothing here certifies anything, and the standard says so in its own scoring model.</li>
+      <li>Not a penetration test, and not a code audit. It assesses the controls around the agent, not the whole application.</li>
+      <li>Not a judgement about whether the agent is good at its job. That is a capability question; this is a
+          readiness one, and conflating them is how a security review gets answered with a demo.</li>
+    </ul>
+  </div>
+</section>
+<section class="std-entry" id="offer-change-impact">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">Change-Impact Analysis</h3>
+    <span class="flag flag-S">per release, or on a cadence</span>
+  </div>
+  <p>
+    The agent shipped again. This answers, for that specific change: <b>which evidence it invalidated, which
+    evidence survived, which tests have to be re-run, which approvals have to be re-taken, and whether it can
+    ship.</b> The comparison is semantic rather than textual — it reports that the agent gained the ability to
+    transmit to arbitrary external recipients, not that a line was added to an array.
+  </p>
+
+  <div class="std-field">
+    <div class="std-field-k">What you get</div>
+    <ul>
+      <li>A named list of what changed, drawn from a closed vocabulary of
+          35 change categories — each one carrying
+          the controls it touches, a severity floor it cannot fall below, and the nearby safe change it must
+          <i>not</i> fire on.</li>
+      <li>The evidence arithmetic: what is invalidated, and what is retained <em>by identity</em>. An item is
+          retained exactly when its id is in the prior ledger and in no invalidation set. Nothing is
+          re-derived and nothing "still looks fine".</li>
+      <li>A verdict — PROMOTE, REVIEW or BLOCK — from
+          11 named rules, each printed in the artifact, with no score
+          anywhere in the path and the exact conditions that would clear it.</li>
+      <li>Where source is available, a reconciliation: what the implementation carries that the declaration
+          does not. A tool defined only in code is still a tool.</li>
+      <li>The machine-readable artifact, canonically hashed with timestamps excluded, so re-running it over the
+          same inputs produces the same bytes and your team can dispute any line of it.</li>
+    </ul>
+  </div>
+
+  <div class="std-field">
+    <div class="std-field-k">What it is not</div>
+    <ul>
+      <li>It compares declarations. Where observations are supplied it also reports what the implementation
+          carries and the declaration does not — but a contract that is simply wrong about a fact no adapter
+          can see is not caught by this or by anything else here.</li>
+      <li>It is not a re-assessment. It says which parts of the last one stopped being true.</li>
+    </ul>
+  </div>
+  <div class="std-field">
+    <div class="std-field-k">Both of these run live, on published artifacts</div>
+    <ul>
+      <li><a href="../assurance-delta/"><b>One agent, two versions</b></a> — a new send capability, a widened
+          scope, a new external destination, a model version change and one approval requirement weakened.
+          Verdict: BLOCK, with what would have to change to reach review.</li>
+      <li><a href="../assurance-delta/undeclared-capability/"><b>The contract said read-only; the TypeScript could send</b></a> —
+          the declaration did not change and the agent did. The tool is declared nowhere as data; it was found
+          by parsing the source. Verdict: BLOCK.</li>
+    </ul>
+    <p class="std-field-v">Each page ships every artifact it was computed from, so the result can be recomputed
+    rather than taken on trust.</p>
+  </div>
+</section>
+<h2 id="engagement">How the first two weeks run</h2>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Week</th><th>What happens</th></tr></thead>
+<tbody>
+<tr><td>Before</td><td>A short call on what the agent does and what it can reach. Some deployments do not need this assessment, and it is cheaper for both of us to find that out first.</td></tr>
+<tr><td>1</td><td>Static subset against the repository, then system access for the 11 runtime checks: identity propagation, server-side authorization, the audit plane, replay, tenant isolation, injection testing.</td></tr>
+<tr><td>2</td><td>Interviews and document review for the 10 governance checks: approval volume, data-flow policy, exfiltration channels, retention, incident process. Then findings, scoring and the remediation plan.</td></tr>
+<tr><td>After</td><td>You keep the harness and the Agent Contract. The static subset re-runs on every change without me, which is the part that would otherwise expire the day the assessment ends.</td></tr>
+</tbody>
+</table>
+</div>
+<section class="std-entry" id="price">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">Price, scope and how to start</h3>
+  </div>
+  <div class="std-field">
+    <div class="std-field-k">Price</div>
+    <p class="std-field-v"><b>Engagement pricing on inquiry.</b> Scope is one agent deployment. A second deployment in the same
+    organisation is usually faster, because most of Tier 3 and Tier 7 is shared.</p>
+  </div>
+  <div class="std-field">
+    <div class="std-field-k">To start</div>
+    <p class="std-field-v">
+      Email <a href="mailto:Contact@thirdocular.com">Contact@thirdocular.com</a> with what the agent does and what it can reach.
+      That is enough to say whether this is the right assessment for it, which is sometimes no.
+    </p>
+  </div>
+</section>
+<footer class="std-foot">
+  <p>ThirdOcular LLC &middot; <a href="mailto:Contact@thirdocular.com">Contact@thirdocular.com</a></p>
+  <p class="no-print"><a href="../ars/">ARS v1.0</a> &middot; <a href="../reports/fb4eab2bfaca8ed6/">sample report</a> &middot; <a href="../assurance-delta/">assurance delta</a> &middot; <a href="../assurance-delta/undeclared-capability/">undeclared capability</a> &middot; <a href="https://lens.thirdocular.com">AisleLens</a></p>
+  <p>12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
+</footer>
+</div>
+</main>
+</body>
+</html>

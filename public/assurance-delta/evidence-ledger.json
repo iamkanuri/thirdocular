@@ -1,0 +1,328 @@
+{
+  "artifact": "evidence-ledger",
+  "artifact_version": "0.1",
+  "agent_id": "acme-ticket-triage",
+  "agent_version": "1.4.2",
+  "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037",
+  "items": [
+    {
+      "evidence_id": "ev-scope-minimality-review",
+      "control_id": "ARS-02",
+      "citation_id": "ARS-1.0-02",
+      "kind": "manually_verified",
+      "summary": "Each declared scope was walked against the tool that holds it and confirmed to be exercised by its function. No wildcard or administrative grant is present in any connector configuration.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-scope-static-scan",
+      "control_id": "ARS-02",
+      "citation_id": "ARS-1.0-02",
+      "kind": "automatically_verified",
+      "summary": "ars-check found no wildcard scope, no administrative role bound to an agent principal, and no shared credential across tools with different functions.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-server-side-authz-probe",
+      "control_id": "ARS-11",
+      "citation_id": "ARS-1.0-11",
+      "kind": "automatically_verified",
+      "summary": "A tool call was replayed with the authorization header stripped and with a second user's token; both were refused at the service, not at the agent.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-identity-propagation-trace",
+      "control_id": "ARS-01",
+      "citation_id": "ARS-1.0-01",
+      "kind": "automatically_verified",
+      "summary": "Ten sampled runs were traced end to end; every downstream call carried the originating user's identity rather than a service principal.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-destructive-inventory-complete",
+      "control_id": "ARS-08",
+      "citation_id": "ARS-1.0-08",
+      "kind": "manually_verified",
+      "summary": "The destructive-action inventory was compared against the tool registry: every tool that creates, modifies, deletes, sends or spends appears in it, classified, with a gating policy attached.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-approval-gate-enforced",
+      "control_id": "ARS-09",
+      "citation_id": "ARS-1.0-09",
+      "kind": "automatically_verified",
+      "summary": "The approval gate on issue-refund and draft-reply was exercised by attempting each action without an approval record; both were refused at the enforcement point rather than in the client.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-approval-volume-measured",
+      "control_id": "ARS-10",
+      "citation_id": "ARS-1.0-10",
+      "kind": "attested",
+      "summary": "The owner reports approval volume at roughly 30 to 40 per reviewer per week, reviewed in the weekly ops meeting, with a documented threshold at which the classification is revisited.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-cross-tool-flow-policy",
+      "control_id": "ARS-12",
+      "citation_id": "ARS-1.0-12",
+      "kind": "manually_verified",
+      "summary": "The permitted flows between tools were enumerated: customer records reach the ticket writer and the refund tool, and nothing reaches a tool that leaves the platform, because no such tool exists in this version.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-untrusted-segregation",
+      "control_id": "ARS-24",
+      "citation_id": "ARS-1.0-24",
+      "kind": "automatically_verified",
+      "summary": "Ticket content and scraped help-centre text are wrapped in a labelled delimiter by the context assembly path and never concatenated into the system prompt.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-injection-suite-run",
+      "control_id": "ARS-25",
+      "citation_id": "ARS-1.0-25",
+      "kind": "automatically_verified",
+      "summary": "The adversarial injection suite of 42 cases was run against the pinned prompt and model; no case produced a tool call outside the declared set.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-exfiltration-channels-enumerated",
+      "control_id": "ARS-27",
+      "citation_id": "ARS-1.0-27",
+      "kind": "manually_verified",
+      "summary": "Every channel by which data could leave was enumerated. In this version the agent holds no tool that can transmit outside the platform, so the enumerated set is empty and the control passes on that basis.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-supply-chain-pinned",
+      "control_id": "ARS-28",
+      "citation_id": "ARS-1.0-28",
+      "kind": "automatically_verified",
+      "summary": "The model identifier is pinned to an exact dated version with auto-upgrade declared false, and a lockfile pins every dependency.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-eval-suite-versioned",
+      "control_id": "ARS-33",
+      "citation_id": "ARS-1.0-33",
+      "kind": "automatically_verified",
+      "summary": "A versioned evaluation suite of 3 case classes runs in CI and gates deployment; the pipeline fails the build when the suite fails.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-eval-covers-destructive",
+      "control_id": "ARS-34",
+      "citation_id": "ARS-1.0-34",
+      "kind": "automatically_verified",
+      "summary": "Every action in the destructive-action inventory has at least one execution case and one refusal case in the evaluation suite.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-audit-plane-immutable",
+      "control_id": "ARS-13",
+      "citation_id": "ARS-1.0-13",
+      "kind": "manually_verified",
+      "summary": "The audit store is append-only, written by a principal that cannot delete, and retention is set beyond the incident window.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-correlation-ids",
+      "control_id": "ARS-14",
+      "citation_id": "ARS-1.0-14",
+      "kind": "automatically_verified",
+      "summary": "Every log line in a sampled run carries the same correlation id, and it propagates to downstream service logs.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-timeout-discipline",
+      "control_id": "ARS-23",
+      "citation_id": "ARS-1.0-23",
+      "kind": "automatically_verified",
+      "summary": "Every tool declares a timeout and the agent declares a run deadline; a hung downstream call was simulated and the run terminated at the declared bound.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-idempotency-keys",
+      "control_id": "ARS-19",
+      "citation_id": "ARS-1.0-19",
+      "kind": "automatically_verified",
+      "summary": "Side-effecting calls carry an idempotency key derived from the ticket and the action; a replayed call produced no second effect.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-retry-and-loop-bounds",
+      "control_id": "ARS-20",
+      "citation_id": "ARS-1.0-20",
+      "kind": "automatically_verified",
+      "summary": "The retry ceiling of 3 and the loop ceiling of 8 are enforced in code and were driven to their limits in test.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-budget-ceilings",
+      "control_id": "ARS-30",
+      "citation_id": "ARS-1.0-30",
+      "kind": "automatically_verified",
+      "summary": "Session token and cost ceilings are enforced and were exercised; a run that reached the ceiling stopped rather than degrading silently.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-cost-attribution",
+      "control_id": "ARS-31",
+      "citation_id": "ARS-1.0-31",
+      "kind": "attested",
+      "summary": "The owner reports that spend is attributed per ticket and reported monthly against the support cost centre.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-incident-taxonomy",
+      "control_id": "ARS-37",
+      "citation_id": "ARS-1.0-37",
+      "kind": "attested",
+      "summary": "A severity taxonomy for agent failures exists with named owners per severity and a documented escalation path.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-retention-covers-artifacts",
+      "control_id": "ARS-40",
+      "citation_id": "ARS-1.0-40",
+      "kind": "manually_verified",
+      "summary": "Retention and deletion procedures were reviewed and cover prompts, traces and tool-call records, not only the primary database.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-review-board-package",
+      "control_id": "ARS-41",
+      "citation_id": "ARS-1.0-41",
+      "kind": "manually_verified",
+      "summary": "The traceability package assembled for the review board maps each control to its evidence and names the accountable role for each.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-no-secrets-in-prompts",
+      "control_id": "ARS-03",
+      "citation_id": "ARS-1.0-03",
+      "kind": "automatically_verified",
+      "summary": "The prompt files, configuration and a sampled week of logs were scanned for credential shapes and for long literals assigned to secret-named keys. Nothing was found; every credential is injected from the environment at run time.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-audit-identity-separated",
+      "control_id": "ARS-05",
+      "citation_id": "ARS-1.0-05",
+      "kind": "manually_verified",
+      "summary": "Audit records carry both the acting user and the agent principal in separate fields, so a record written by the agent on behalf of a person is distinguishable from one the person wrote.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-trace-retention-acl",
+      "control_id": "ARS-15",
+      "citation_id": "ARS-1.0-15",
+      "kind": "manually_verified",
+      "summary": "Reasoning traces are retained for 30 days behind an access-control list naming two roles, and access is itself logged.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-prompt-config-versioned",
+      "control_id": "ARS-17",
+      "citation_id": "ARS-1.0-17",
+      "kind": "automatically_verified",
+      "summary": "The prompt carries a version stamp, the tool registry carries a registry version, and both appear in every run record, so a run can be tied to the exact text and configuration it used.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    },
+    {
+      "evidence_id": "ev-feedback-loop-instrumented",
+      "control_id": "ARS-36",
+      "citation_id": "ARS-1.0-36",
+      "kind": "attested",
+      "summary": "The owner reports an in-flow thumbs-down control on every agent reply, routed to the triage queue, with volume reviewed weekly.",
+      "gathered_against": {
+        "agent_version": "1.4.2",
+        "contract_hash": "57907eecb0eb7796fb3fa8ce4e013c011112a1f9c7bd068f00f2d21010993037"
+      }
+    }
+  ]
+}

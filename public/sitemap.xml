@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The five addresses this site serves. /ars, /consulting and the two
+  /assurance-delta pages are static bundles built in the ARS repository and
+  copied into public/ by its emit script; they are listed here by hand because
+  a sitemap generated from the filesystem would also list every artifact JSON
+  beside them, and those are inputs, not pages.
+
+  lastmod is the date the page's CONTENT last changed, not the date of the
+  deploy. A sitemap whose lastmod tracks deploys tells a crawler that everything
+  changed every time anything did.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thirdocular.com/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://thirdocular.com/ars</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thirdocular.com/consulting</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thirdocular.com/assurance-delta/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thirdocular.com/assurance-delta/undeclared-capability/</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

@@ -1,0 +1,1679 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Readiness Standard ARS v1.0 — ThirdOcular</title>
+<meta name="description" content="41 controls for production agentic AI systems, across 8 tiers. 20 are checkable from code and configuration; 21 require runtime or governance review.">
+<link rel="canonical" href="https://thirdocular.com/ars">
+<meta property="og:title" content="Agent Readiness Standard ARS v1.0 — ThirdOcular">
+<meta property="og:description" content="41 controls for production agentic AI systems, across 8 tiers. 20 are checkable from code and configuration; 21 require runtime or governance review.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ThirdOcular">
+<meta property="og:url" content="https://thirdocular.com/ars">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thirdocular.com/og.png">
+<meta property="og:image:alt" content="ThirdOcular">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agent Readiness Standard ARS v1.0 — ThirdOcular">
+<meta name="twitter:description" content="41 controls for production agentic AI systems, across 8 tiers. 20 are checkable from code and configuration; 21 require runtime or governance review.">
+<meta name="twitter:image" content="https://thirdocular.com/og.png">
+<link rel="stylesheet" href="../ars-assets/ars.css">
+</head>
+<body>
+<main class="std-page">
+<header class="std-crumb no-print">
+  <a href="../">ThirdOcular</a> &rsaquo; Agent Readiness Standard &rsaquo; v1.0
+</header>
+
+<div class="std-doc">
+<h1>Agent Readiness Standard</h1>
+<p class="std-subtitle">controls, pass criteria and evidence rules for production agentic AI systems</p>
+
+<div class="std-meta">
+  <span class="badge badge-version">ARS v1.0</span>
+  <span class="badge badge-status">draft</span>
+  <span class="badge">41 checks</span>
+  <span class="badge">8 tiers</span>
+  <span class="badge">ThirdOcular LLC</span>
+  <span class="badge">2026-08-05</span>
+</div>
+
+<div class="std-hash">
+  <b>Content hash</b> sha256 &middot; json-sorted-keys-no-hash-field<br>
+  12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c
+  <br><br>
+  Computed over this document with the hash object removed, every object's keys sorted
+  recursively, serialised with no whitespace, sha256 of the UTF-8 bytes, lowercase hex.
+  Array order is preserved. A citation to <code>ARS-1.0-01</code>
+  resolves to a specific text, and a version number alone is a promise enforced by nothing.
+</div>
+
+<section class="std-posture">
+  <h4>Standing</h4>
+  <p>No second party has applied this document without the authoring party&#39;s involvement. Until that happens it is a rubric with a versioned changelog, not a standard. It is written to a publishable bar and is published as a draft so that it can be cited and argued with. The independently_applied flag may only become true once a second party has assessed a system against this document without us, and no score produced under this version is a certification of anything.</p>
+</section>
+<div class="std-counts">
+  <div class="std-count">
+    <div class="std-count-v">41</div>
+    <div class="std-count-k">checks in total</div>
+  </div>
+  <div class="std-count">
+    <div class="std-count-v">20</div>
+    <div class="std-count-k">[S] static &mdash; readable from code and config</div>
+  </div>
+  <div class="std-count">
+    <div class="std-count-v">11</div>
+    <div class="std-count-k">[R] runtime &mdash; needs a running system</div>
+  </div>
+  <div class="std-count">
+    <div class="std-count-v">10</div>
+    <div class="std-count-k">[G] governance &mdash; interview and document review</div>
+  </div>
+</div>
+<nav class="std-nav no-print" aria-label="Tiers">
+  <ol>
+    <li>
+      <span class="std-nav-n">1</span>
+      <a href="#tier-1">Identity &amp; Access Propagation</a>
+      <span class="std-nav-range">ARS-01&ndash;ARS-05 &middot; &times;1.5</span>
+    </li>
+    <li>
+      <span class="std-nav-n">2</span>
+      <a href="#tier-2">Tool-Call Governance</a>
+      <span class="std-nav-range">ARS-06&ndash;ARS-12 &middot; &times;1.5</span>
+    </li>
+    <li>
+      <span class="std-nav-n">3</span>
+      <a href="#tier-3">Audit &amp; Traceability</a>
+      <span class="std-nav-range">ARS-13&ndash;ARS-17 &middot; &times;1.5</span>
+    </li>
+    <li>
+      <span class="std-nav-n">4</span>
+      <a href="#tier-4">Failure, Recovery &amp; Control</a>
+      <span class="std-nav-range">ARS-18&ndash;ARS-23 &middot; &times;1</span>
+    </li>
+    <li>
+      <span class="std-nav-n">5</span>
+      <a href="#tier-5">Security Surface</a>
+      <span class="std-nav-range">ARS-24&ndash;ARS-29 &middot; &times;1.5</span>
+    </li>
+    <li>
+      <span class="std-nav-n">6</span>
+      <a href="#tier-6">Cost &amp; Resource Containment</a>
+      <span class="std-nav-range">ARS-30&ndash;ARS-32 &middot; &times;1</span>
+    </li>
+    <li>
+      <span class="std-nav-n">7</span>
+      <a href="#tier-7">Evaluation &amp; Monitoring</a>
+      <span class="std-nav-range">ARS-33&ndash;ARS-37 &middot; &times;1</span>
+    </li>
+    <li>
+      <span class="std-nav-n">8</span>
+      <a href="#tier-8">Data Handling &amp; Compliance</a>
+      <span class="std-nav-range">ARS-38&ndash;ARS-41 &middot; &times;1</span>
+    </li>
+  </ol>
+</nav>
+<h2 id="applicability">What this applies to</h2>
+<p>Software systems in which a language model selects and invokes tools, retrieves data, or takes actions against other systems on behalf of a human user or an automated trigger, in a production or production-bound deployment.</p>
+<h4>It does not cover</h4>
+<ul>
+  <li>single-turn text generation with no tool access and no retrieval, where most of Tiers 1 through 4 have no subject</li>
+  <li>model training, fine-tuning and data curation pipelines, which are a different control surface</li>
+  <li>research prototypes with no production data and no production credentials</li>
+  <li>chat interfaces whose only side effect is returning text to the person who asked, and which hold no credential of their own</li>
+  <li>the question of whether the model is any good at the task, which is a capability question and not a readiness one</li>
+</ul>
+<h4>What decides whether a system is in scope</h4>
+<p>Authoritative: the system holds or delegates a credential to reach another system; model output selects which action executes, rather than only what text is displayed; an execution loop can invoke a tool more than once without returning to a human.</p>
+<p>Never: the presence of the word agent in a product name, a repository name, or a job title, none of which is a statement about architecture; the model vendor, which determines none of these controls.</p>
+
+<h2 id="out-of-scope">What this does not adjudicate</h2>
+<p>A standard that does not bound itself will be read as bounding nothing.</p>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Subject</th><th>Why not</th></tr></thead>
+<tbody>
+<tr><td>whether the agent is good at its job</td><td>Every control here is about what happens when the agent is wrong, compromised, or looping. A system can pass all 41 and still produce useless output. Readiness and capability are different questions and conflating them is how a security review gets answered with a demo.</td></tr>
+<tr><td>model safety behaviour and alignment properties of the underlying model</td><td>Those are properties of a vendor&#39;s model that the deploying organisation cannot inspect, cannot version independently, and cannot remediate. This standard assesses the architecture the model is deployed inside, which is the part the deploying organisation controls and is accountable for.</td></tr>
+<tr><td>general application security, infrastructure hardening and enterprise IT controls</td><td>Network segmentation, endpoint management, patching and the rest are covered by established frameworks that already have auditors. Duplicating them here would produce a document nobody finishes reading and would dilute the controls that are specific to agents.</td></tr>
+<tr><td>regulatory classification of the AI system under any specific regime</td><td>Whether a deployment is high-risk under a given regulation is a legal determination about purpose and context, made by counsel. This document maps controls to mechanisms so that determination can be made against evidence, and takes no position on the determination itself.</td></tr>
+<tr><td>vendor and model selection</td><td>The controls are written to be model-agnostic on purpose. A standard that scored vendors would be obsolete on the next release and would be read as a procurement recommendation, which is not what a control assessment is.</td></tr>
+<tr><td>cost efficiency as an optimisation goal</td><td>Tier 6 asks whether spend is bounded and attributable, never whether it is low. An agent that costs a great deal and is contained passes; a cheap one that cannot be stopped fails. Efficiency is a business question with no defensible pass line.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="how-to-read">How to read a check</h2>
+<p>
+  Every check carries a pass criterion, the way it fails in production, and one automation
+  flag naming the instrument that can read it. The flag is not a severity: an
+  <span class="flag">R &middot; runtime</span> check is not more or less serious than an
+  <span class="flag flag-S">S &middot; static</span> one, it is read differently.
+</p>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Flag</th><th>Instrument</th><th>What reads it</th></tr></thead>
+<tbody>
+<tr><td><span class="flag flag-S">S</span></td><td>static</td><td>Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.</td></tr>
+<tr><td><span class="flag flag-R">R</span></td><td>runtime</td><td>Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</td></tr>
+<tr><td><span class="flag flag-G">G</span></td><td>governance</td><td>Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</td></tr>
+</tbody>
+</table>
+</div>
+<section class="std-tier" id="tier-1">
+<h2>Tier 1. Identity &amp; Access Propagation</h2>
+<p class="std-tier-weight">
+  5 checks &middot; weighted &times;1.5 in the overall mean.
+  A failure here means any user can reach any data the agent can reach. It is the largest blast radius in the set and the hardest to retrofit.
+</p>
+<article class="std-entry" id="ARS-01">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-01">ARS-01</a></span>
+    <h3 class="std-entry-title">End-user identity propagates to every downstream call</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Every tool call, API call, and data access executed by the agent carries the originating user&#39;s identity, not a shared service identity, and downstream authorization is evaluated against that user.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Agents running on a god-mode service account mean any user can reach any data the agent can. This is the single most common finding in enterprise agent deployments and the first thing a security review board asks about.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-01</code></p>
+</article>
+<article class="std-entry" id="ARS-02">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-02">ARS-02</a></span>
+    <h3 class="std-entry-title">Least-privilege tool credentials</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Each tool/connector is provisioned with the minimum scopes required for its declared function; no wildcard or admin-level grants where a narrower scope exists.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">A read-only summarization agent holding write scopes becomes a write agent the moment a prompt injection lands.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A wildcard or admin scope is conclusive evidence of failure. Its absence is not evidence of least privilege, because minimality is a judgement about what the tool actually needs and static analysis does not know that.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means no wildcard or administrative grant was found in the scope declarations that were read. It does not mean the scopes are minimal for the function, which requires knowing the function.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>wildcard scope literals in connector and OAuth configuration</li>
+      <li>administrative role names bound to agent service principals</li>
+      <li>a single credential shared across tools with materially different functions</li>
+      <li>declared scopes absent entirely, which is scored as no mechanism rather than as narrow</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-02</code></p>
+</article>
+<article class="std-entry" id="ARS-03">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-03">ARS-03</a></span>
+    <h3 class="std-entry-title">No secrets in prompts, context, or logs</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Static scan finds no API keys, tokens, connection strings, or credentials in prompt templates, system prompts, config files committed to the repo, or log output paths. Secrets are injected at runtime from a managed store.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Context windows get logged, cached, and replayed. A secret in a prompt is a secret in your observability stack forever.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    Secret scanning is a static discipline and this criterion is written as a static scan. A found credential settles the check at 0; a clean scan combined with a managed-store reference is the evidence the criterion asks for.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means no credential literal was found in the files that were read, and a managed secret store is referenced. It says nothing about files outside the scanned tree, about history, or about secrets that entered at runtime.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>high-entropy string literals and known credential prefixes in prompt templates and config</li>
+      <li>connection strings with embedded passwords</li>
+      <li>credential literals inside files whose contents are assembled into a prompt</li>
+      <li>a reference to a managed secret store or runtime secret injection, required for a 2</li>
+      <li>log configuration that writes full prompt or context payloads to a persistent sink</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-03</code></p>
+</article>
+<article class="std-entry" id="ARS-04">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-04">ARS-04</a></span>
+    <h3 class="std-entry-title">Session and credential lifetime bounds</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Agent sessions and their delegated credentials have explicit TTLs; long-running agents re-authenticate rather than holding immortal tokens.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">An agent that never re-auths is an agent whose stolen token never expires.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A TTL constant in configuration is a declaration. Whether the runtime honours it, and whether a long-lived process actually re-authenticates rather than caching a token past its stated life, are runtime facts.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means an explicit lifetime bound was found in configuration. It does not mean the bound is enforced, that expiry is honoured, or that re-authentication succeeds.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>explicit TTL, expiry or max-age settings on session and token configuration</li>
+      <li>a refresh or re-authentication path in the agent loop</li>
+      <li>non-expiring credential types such as static personal access tokens bound to the agent</li>
+      <li>session objects created with no lifetime setting at all</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-04</code></p>
+</article>
+<article class="std-entry" id="ARS-05">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-05">ARS-05</a></span>
+    <h3 class="std-entry-title">Separation of agent identity from human identity in audit records</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Audit records distinguish &quot;user X asked&quot; from &quot;agent acting for user X did&quot; — both identities present, never conflated.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">When something goes wrong, &quot;who did this&quot; must have two answers. Systems that record only one cannot support incident response or legal review.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-05</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-2">
+<h2>Tier 2. Tool-Call Governance</h2>
+<p class="std-tier-weight">
+  7 checks &middot; weighted &times;1.5 in the overall mean.
+  Tool calls are where an agent stops being a text generator and starts changing the world. Every irreversible action in the system passes through this tier.
+</p>
+<article class="std-entry" id="ARS-06">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-06">ARS-06</a></span>
+    <h3 class="std-entry-title">Closed tool registry</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">The agent can only invoke tools from an explicit, versioned registry; no dynamic tool loading from model output, no eval/exec of generated code against production systems without a sandbox boundary.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Dynamic tool acquisition converts a prompt injection into arbitrary code execution.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A registry file proves a registry exists. Only runtime can establish that a tool name outside it is refused rather than resolved by a fallback path, and the fallback is exactly where this control fails.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means an explicit tool registry was found and no dynamic-execution sink reachable from model output was found in the scanned tree. It does not establish that the dispatcher refuses a tool name absent from the registry.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>an explicit, enumerable tool registry or manifest, versioned</li>
+      <li>eval, exec, Function constructor, or dynamic import applied to model output</li>
+      <li>shell invocation constructed from model output without an argument allowlist</li>
+      <li>tool resolution by string lookup against an open namespace rather than a closed map</li>
+      <li>a sandbox boundary declared around any code-execution tool</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-06</code></p>
+</article>
+<article class="std-entry" id="ARS-07">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-07">ARS-07</a></span>
+    <h3 class="std-entry-title">Tool schemas are maximally constrained</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Tool input schemas use enums, patterns, ranges, and required fields rather than free-form strings wherever the domain permits; no additionalProperties: true on production tool schemas.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">A free-text query parameter on a database tool is a SQL injection surface with a language model as the injector.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    Schema permissiveness is entirely a property of the schema document. There is no runtime fact that makes a schema with additionalProperties true into a constrained one. This is the check static analysis can settle most completely.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means the tool schemas as written constrain their inputs. This is a property of the schema text and is fully settled by reading it. It does not mean the runtime validates against the schema.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>additionalProperties true, or absent on an object schema in a strict-mode toolchain</li>
+      <li>string parameters with no enum, no pattern and no maxLength on tools that reach a datastore or a network</li>
+      <li>numeric parameters with no minimum or maximum</li>
+      <li>required arrays absent, making every parameter optional</li>
+      <li>enums, patterns, ranges and required fields present, which is what a 2 is awarded for</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-07</code></p>
+</article>
+<article class="std-entry" id="ARS-08">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-08">ARS-08</a></span>
+    <h3 class="std-entry-title">Destructive actions are enumerated and gated</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A written inventory exists of every tool action that creates, modifies, deletes, sends, or spends. Each is classified, and each classification maps to a gating policy (auto-allow / human approval / prohibited).</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">If nobody can produce the list of what the agent can destroy, the answer is &quot;more than you think.&quot;</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    The criterion asks whether a written inventory exists and is classified. That is a document property, readable in full. Its completeness against the tool registry is also checkable statically by set comparison.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means the inventory exists, classifies each listed action, and maps each classification to a gating policy, and that its entries cover the side-effecting tools found in the registry. It does not mean the gating policy is enforced, which is ARS-09 and ARS-11.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>an inventory document or data file enumerating side-effecting actions</li>
+      <li>a classification on each entry, drawn from a closed set</li>
+      <li>a gating policy mapped to each classification</li>
+      <li>side-effecting tools present in the registry but absent from the inventory, which caps the score at 1 with the gap named</li>
+      <li>an inventory that exists but classifies nothing, which is a list rather than an inventory</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-08</code></p>
+</article>
+<article class="std-entry" id="ARS-09">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-09">ARS-09</a></span>
+    <h3 class="std-entry-title">Human approval gate on irreversible or high-impact actions</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Actions classified high-impact route through an explicit human approval step (e.g., a three-state approve/modify/reject pattern) before execution, and the approval is recorded with approver identity.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">&quot;The agent sent it before anyone saw it&quot; is the failure mode that ends agent programs. Approval must be structural, not a prompt instruction.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    Static analysis can find an approval mechanism and can tell code from a prompt string. It cannot establish that no path reaches execution around the gate, and an unenforced gate and an enforced one look identical in a diff.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means an approval mechanism exists in code and records an approver identity. It does not mean execution is impossible without it.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>an approval state machine with at least approve, modify and reject</li>
+      <li>approver identity captured and persisted with the decision</li>
+      <li>the gate implemented in orchestration code rather than requested in a system prompt, which is the difference between a 1 and a 0</li>
+      <li>high-impact actions from the ARS-08 inventory with no reference to the approval path</li>
+      <li>an approval flag that defaults to auto-approve</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-09</code></p>
+</article>
+<article class="std-entry" id="ARS-10">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-10">ARS-10</a></span>
+    <h3 class="std-entry-title">Approval fatigue is designed against</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Approval volume per approver is measured and bounded; low-risk actions are auto-allowed by policy so that human review capacity is spent where it matters.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">A gate that fires 400 times a day is a gate everyone clicks through. Rubber-stamp approval is worse than no approval because it launders accountability.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-10</code></p>
+</article>
+<article class="std-entry" id="ARS-11">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-11">ARS-11</a></span>
+    <h3 class="std-entry-title">Tool-call authorization is enforced server-side</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">The gateway/backend independently enforces which tools a given agent+user pairing may call; the model&#39;s own restraint is not the enforcement mechanism.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">System-prompt-based restrictions (&quot;you may not call X&quot;) are suggestions. Enforcement lives in infrastructure or it doesn&#39;t exist.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-11</code></p>
+</article>
+<article class="std-entry" id="ARS-12">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-12">ARS-12</a></span>
+    <h3 class="std-entry-title">Cross-tool data flow policy</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A written policy governs which tool outputs may flow into which tool inputs (e.g., untrusted web content may not flow into an email-send tool without human review), and the orchestration layer enforces it.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Exfiltration via tool chaining — read sensitive data with tool A, transmit it with tool B — is the canonical agent attack and requires flow-level, not tool-level, policy.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-12</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-3">
+<h2>Tier 3. Audit &amp; Traceability</h2>
+<p class="std-tier-weight">
+  5 checks &middot; weighted &times;1.5 in the overall mean.
+  Without this tier no other tier can be verified after the fact, and no incident can be investigated. It is the tier that makes the others reviewable.
+</p>
+<article class="std-entry" id="ARS-13">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-13">ARS-13</a></span>
+    <h3 class="std-entry-title">Immutable audit plane</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Every agent action (prompt, tool call, tool result, approval, final output) is written to an append-only/WORM store that the agent itself has no write-modify or delete permission on.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">An agent with delete rights on its own audit log is an agent with an alibi.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-13</code></p>
+</article>
+<article class="std-entry" id="ARS-14">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-14">ARS-14</a></span>
+    <h3 class="std-entry-title">End-to-end correlation IDs</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A single correlation ID links user request → agent reasoning trace → every tool call → every downstream system record, and it is queryable.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Without correlation, incident response is archaeology. &quot;Which agent run touched this record&quot; must be a query, not an investigation.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    Static analysis can see an identifier created and passed. Whether it survives into every downstream record, and whether anything indexes it, are properties of systems outside the repository.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means a correlation identifier is generated and threaded through the code paths that were read. It does not mean it reaches downstream system records, and it does not mean it is queryable.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>a correlation, trace or run identifier generated once per user request</li>
+      <li>that identifier passed into tool invocations rather than regenerated per call</li>
+      <li>the identifier present in log and audit write paths</li>
+      <li>tool call sites that log without it, which is where the chain breaks</li>
+      <li>per-call identifiers with no parent, which produce records that cannot be joined</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-14</code></p>
+</article>
+<article class="std-entry" id="ARS-15">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-15">ARS-15</a></span>
+    <h3 class="std-entry-title">Reasoning trace retention with access controls</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Model reasoning/intermediate outputs are retained per a defined policy, access-controlled (traces can contain sensitive data), with defined retention and deletion schedules.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Traces are discovery-relevant records. Retaining them forever and retaining them for no time are both legal problems; the policy must be deliberate.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-15</code></p>
+</article>
+<article class="std-entry" id="ARS-16">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-16">ARS-16</a></span>
+    <h3 class="std-entry-title">Full replayability of any agent run</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Given a run ID, the team can reconstruct exactly what the agent saw, decided, and did — inputs, model version, prompt version, tool versions, outputs.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">&quot;We can&#39;t reproduce what happened&quot; is unacceptable to every review board and every regulator.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-16</code></p>
+</article>
+<article class="std-entry" id="ARS-17">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-17">ARS-17</a></span>
+    <h3 class="std-entry-title">Prompt and configuration versioning</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">System prompts, tool definitions, and orchestration config are version-controlled; every production run records which versions it executed under.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Prompts edited live in a console are unversioned production code. Behavior changes with no diff and no rollback.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    Whether a prompt lives in a version-controlled file or is fetched from a console at runtime is settled by reading the code. Both halves of the criterion, the versioning and the recording, are visible statically.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means prompts, tool definitions and orchestration config are files under version control, and the run record captures a version identifier for them. It does not mean the recorded identifier is correct at runtime.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>system prompts stored as files in the repository rather than fetched from a remote console at runtime</li>
+      <li>tool definitions and orchestration config committed alongside them</li>
+      <li>a prompt or config version identifier written into the run record</li>
+      <li>prompts assembled from a remote configuration service with no pinned version, which is unversioned production code</li>
+      <li>prompt files present but no version stamped on runs, which is the difference between a 1 and a 2</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-17</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-4">
+<h2>Tier 4. Failure, Recovery &amp; Control</h2>
+<p class="std-tier-weight">
+  6 checks &middot; weighted &times;1 in the overall mean.
+  Serious, and weighted at parity because a mature organisation can add most of these controls after deployment without re-architecting.
+</p>
+<article class="std-entry" id="ARS-18">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-18">ARS-18</a></span>
+    <h3 class="std-entry-title">Kill switch with defined blast radius</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A documented, tested mechanism halts the agent (per-session, per-agent, fleet-wide) within a defined time bound, and in-flight actions have defined disposition (complete/abort/rollback).</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">The question is never whether you&#39;ll need to stop it; the question is whether stopping it is a runbook or a scramble.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-18</code></p>
+</article>
+<article class="std-entry" id="ARS-19">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-19">ARS-19</a></span>
+    <h3 class="std-entry-title">Idempotency on side-effecting operations</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Retried or duplicated tool calls cannot double-execute side effects (idempotency keys, dedup at the tool boundary).</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Agents retry. Networks fail. Without idempotency, &quot;send the payment&quot; runs twice.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    An idempotency key can be seen in code. Whether it is derived stably, whether the deduplication window is long enough, and whether the receiving system enforces it are all runtime facts, and each of them silently defeats the control.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means an idempotency mechanism is present on side-effecting tool paths. It does not mean it is correct, that the key is stable across retries, or that the downstream system honours it.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>idempotency keys or request identifiers sent with side-effecting calls</li>
+      <li>deduplication at the tool boundary keyed on request identity</li>
+      <li>retry logic wrapping side-effecting calls with no idempotency key, which is the failure this check names</li>
+      <li>keys derived from a timestamp or a random value per attempt, which is a key that changes on the retry it exists to survive</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-19</code></p>
+</article>
+<article class="std-entry" id="ARS-20">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-20">ARS-20</a></span>
+    <h3 class="std-entry-title">Bounded retries and loop detection</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Retry counts, recursion depth, and agent-loop iteration counts have hard ceilings enforced outside the model; repeated identical tool calls trip a breaker.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">An agent in a loop is a denial-of-service attack you are running against yourself, billed by the token.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A maximum-iteration constant is visible. Whether every loop in the system is governed by one, and whether the breaker for repeated identical calls actually trips, are not settled by finding a constant.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means explicit ceilings on retries and loop iterations are present in orchestration code. It does not mean the ceilings are reached safely or that a breaker exists for repeated identical calls unless that was separately found.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>an explicit maximum iteration or step count on the agent loop</li>
+      <li>bounded retry counts on tool and model calls</li>
+      <li>a breaker on repeated identical tool calls</li>
+      <li>while loops around model calls with no counter, which is the unbounded case</li>
+      <li>a ceiling stated in the system prompt rather than enforced in code, which is at most a 1 and usually a 0</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-20</code></p>
+</article>
+<article class="std-entry" id="ARS-21">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-21">ARS-21</a></span>
+    <h3 class="std-entry-title">Graceful degradation path</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">For each critical agent function, a documented fallback exists when the model, a tool, or a dependency is down — and the fallback has been exercised.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">If the agent is in a business-critical path and the fallback is &quot;call the person who used to do this,&quot; that person had better still know how.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-21</code></p>
+</article>
+<article class="std-entry" id="ARS-22">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-22">ARS-22</a></span>
+    <h3 class="std-entry-title">Rollback/compensation for committed actions</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">For each destructive action class, a compensation procedure exists (undo, reversal, manual remediation runbook) and has been tested at least once.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Approval gates reduce the frequency of bad actions; compensation bounds their cost. You need both.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-22</code></p>
+</article>
+<article class="std-entry" id="ARS-23">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-23">ARS-23</a></span>
+    <h3 class="std-entry-title">Timeout discipline at every boundary</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Model calls, tool calls, and end-to-end sessions all have explicit timeouts; no unbounded waits.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Hung agent sessions accumulate silently — holding credentials, locks, and cost the entire time.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A call site with no timeout is a definite finding. A clean read is not proof of coverage, because a boundary the scan did not reach is indistinguishable from a boundary that has a timeout.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means explicit timeouts were found on the outbound call sites that were read. It does not mean every boundary in the system has one, because static analysis cannot enumerate every boundary.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>explicit timeouts or abort signals on model client construction and invocation</li>
+      <li>timeouts on outbound HTTP and database calls made by tools</li>
+      <li>an end-to-end session or run deadline</li>
+      <li>fetch, request and client calls with no timeout and no abort signal, reported individually with their locations</li>
+      <li>a default timeout set at the client rather than per call, which counts</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-23</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-5">
+<h2>Tier 5. Security Surface</h2>
+<p class="std-tier-weight">
+  6 checks &middot; weighted &times;1.5 in the overall mean.
+  Prompt injection and exfiltration are trust-boundary properties of the architecture. A failure here is not patchable by a model upgrade and usually requires the prompt assembly to be rebuilt.
+</p>
+<article class="std-entry" id="ARS-24">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-24">ARS-24</a></span>
+    <h3 class="std-entry-title">Untrusted content is segregated and labeled</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Content from external/untrusted sources (web, email, user uploads, third-party APIs) is structurally distinguished from operator instructions in the prompt assembly, and the orchestrator treats instructions found inside it as data.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Prompt injection is not a model bug to be patched; it is a trust-boundary property of the architecture. If untrusted text and operator instructions are concatenated undifferentiated, the injection surface is total.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    Undifferentiated concatenation of untrusted content into a prompt is conclusive: the injection surface is total and the check is 0. Structural separation caps at 1, because whether the boundary holds is a behavioural property that only adversarial testing establishes.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means untrusted content is structurally separated from operator instructions in the prompt assembly code. It does not mean the model honours the separation, which is ARS-25 and is tested, not read.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>tool results and retrieved content placed in a distinct structural position from operator instructions rather than interpolated into the system prompt</li>
+      <li>an explicit labelling or wrapping function applied to external content</li>
+      <li>string concatenation or template interpolation of fetched web, email or file content directly into the instruction text, which is the total-surface case</li>
+      <li>a stated rule in the assembly code that instructions inside external content are data</li>
+      <li>user uploads and third-party API responses treated the same way as retrieved web content</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-24</code></p>
+</article>
+<article class="std-entry" id="ARS-25">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-25">ARS-25</a></span>
+    <h3 class="std-entry-title">Injection resistance is tested, not assumed</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A maintained adversarial test suite (direct injection, indirect injection via tool results, exfiltration chains) runs against the production configuration, with results tracked across model/prompt versions.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Every model upgrade re-rolls the dice on injection behavior. Untested resistance is unmeasured resistance.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-25</code></p>
+</article>
+<article class="std-entry" id="ARS-26">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-26">ARS-26</a></span>
+    <h3 class="std-entry-title">Output handling prevents downstream injection</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Agent output rendered into UIs, emails, or documents is encoded/sanitized (XSS, markdown link exfiltration, HTML smuggling); agent output executed as code or queries passes through the same review gates as human-authored code.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">The agent&#39;s output is attacker-influenced input to every system that consumes it.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    An unescaped sink reached by model output is a definite finding. The converse is not settled statically: a sanitiser can be present and wrong, and sinks outside the scanned tree are invisible.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means agent output passes through an encoding or sanitisation step before reaching a rendering sink in the code that was read. It does not establish that the sanitiser is correct or that every sink was found.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>model output reaching innerHTML, dangerouslySetInnerHTML, or an unescaped template sink</li>
+      <li>model output written into an email body or document without encoding</li>
+      <li>markdown rendered from model output with image and link URLs unrestricted, which is the exfiltration channel</li>
+      <li>an escaping or sanitising function applied on the path from model output to sink</li>
+      <li>model output executed as a query or as code without passing a review gate</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-26</code></p>
+</article>
+<article class="std-entry" id="ARS-27">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-27">ARS-27</a></span>
+    <h3 class="std-entry-title">Data exfiltration channels are enumerated and constrained</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A written inventory of every channel by which the agent can transmit data outward (messages, emails, HTTP calls, file writes, URL rendering) exists, with per-channel policy on what data classes may flow.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">You cannot prevent exfiltration through channels you haven&#39;t listed. Markdown image URLs count as a channel.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-27</code></p>
+</article>
+<article class="std-entry" id="ARS-28">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-28">ARS-28</a></span>
+    <h3 class="std-entry-title">Model and dependency supply chain is pinned</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Model versions are pinned and upgrades are deliberate events with eval gates; third-party MCP servers, libraries, and tool packages are version-pinned and provenance-reviewed.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">An auto-upgrading model is a production deployment nobody approved. An unreviewed MCP server is third-party code with your credentials.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    Pinning is a text property of manifests and configuration. A floating model alias or an unpinned dependency range is visible in full, and no runtime fact turns a range into a pin.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means model identifiers and dependency versions are pinned as written. It does not cover provenance review, which is a process, and it does not establish that an upgrade would be gated by evals.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>model identifiers pinned to a specific version rather than a floating alias such as latest</li>
+      <li>a dependency lockfile present and committed</li>
+      <li>dependency ranges rather than exact versions in the manifest</li>
+      <li>third-party MCP servers referenced by a moving tag or an unpinned remote source</li>
+      <li>tool packages installed from a URL or a branch rather than a versioned release</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-28</code></p>
+</article>
+<article class="std-entry" id="ARS-29">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-29">ARS-29</a></span>
+    <h3 class="std-entry-title">Tenant and context isolation</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">In multi-user or multi-tenant deployments, no channel exists by which one user&#39;s data, memory, or context can surface in another user&#39;s session (including via shared caches, vector stores, and memory systems).</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Shared pgVector namespaces and shared conversation memory are the two places this fails quietly.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-29</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-6">
+<h2>Tier 6. Cost &amp; Resource Containment</h2>
+<p class="std-tier-weight">
+  3 checks &middot; weighted &times;1 in the overall mean.
+  The most common first production incident and the most preventable, but a cost runaway is recoverable in a way a data exposure is not.
+</p>
+<article class="std-entry" id="ARS-30">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-30">ARS-30</a></span>
+    <h3 class="std-entry-title">Hard budget ceilings per session and per period</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Token/dollar budgets are enforced per-run, per-user, and fleet-wide by infrastructure (not by prompt instruction), with alerting before ceilings and hard stops at them.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Cost incidents are the most common first production incident for agent programs, and the most preventable.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A budget constant is a declaration. Whether the run actually halts at the ceiling, and whether alerting fires before it, are runtime behaviours that a configuration value does not establish.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means budget ceilings are declared in configuration or enforced in code. It does not mean the hard stop fires, and it does not cover the fleet-wide scope unless that was separately found.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>per-run token or cost ceilings enforced in orchestration code</li>
+      <li>per-user and aggregate budget configuration</li>
+      <li>a hard stop rather than a warning at the ceiling</li>
+      <li>a budget stated in the system prompt, which is not enforcement and scores 0 for this criterion</li>
+      <li>token accounting present with no ceiling attached to it</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-30</code></p>
+</article>
+<article class="std-entry" id="ARS-31">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-31">ARS-31</a></span>
+    <h3 class="std-entry-title">Cost attribution to business unit of work</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Spend is attributable per agent, per user, per task type — such that &quot;what does one completed X cost us&quot; is answerable.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Unattributed spend cannot be optimized and cannot survive a budget review. Programs die at renewal for lack of this number.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-31</code></p>
+</article>
+<article class="std-entry" id="ARS-32">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-32">ARS-32</a></span>
+    <h3 class="std-entry-title">Resource quotas on downstream systems</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">The agent&#39;s access to downstream systems is rate-limited independently of any limits the model provider imposes, sized so a runaway agent cannot degrade shared systems.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">An agent hammering an internal API is an internal DDoS with valid credentials.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    A rate limiter is visible in configuration or code. Whether it is sized so a runaway agent cannot degrade a shared system is a capacity judgement about systems the scan cannot see.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means an independent rate limit on the agent&#39;s downstream access was found. It does not establish that the limit is sized correctly for the systems being protected.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>rate limiting or concurrency caps applied to the agent&#39;s outbound calls</li>
+      <li>limits configured independently of the model provider&#39;s own throttling</li>
+      <li>per-downstream-system quotas rather than one global limit</li>
+      <li>unbounded parallel fan-out over tool calls</li>
+      <li>reliance on the provider&#39;s rate limit as the only bound, which is a limit sized for the provider and not for the downstream system</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-32</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-7">
+<h2>Tier 7. Evaluation &amp; Monitoring</h2>
+<p class="std-tier-weight">
+  5 checks &middot; weighted &times;1 in the overall mean.
+  Determines whether the other tiers stay true over time. Weighted at parity because it is a rate of decay rather than a present exposure.
+</p>
+<article class="std-entry" id="ARS-33">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-33">ARS-33</a></span>
+    <h3 class="std-entry-title">A versioned eval suite exists and gates deployment</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A maintained eval suite covering the agent&#39;s core tasks (success cases, failure cases, refusal cases, adversarial cases) runs on every prompt/model/tool change, with defined pass thresholds that block promotion on regression.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Without eval gates, every prompt tweak is an untested production deploy. &quot;It seemed fine in the console&quot; is not a release process.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    Existence, CI wiring and a blocking threshold are all text: eval case files, a CI workflow that runs them, and a failure condition. Whether the suite is any good is a quality judgement this check does not make and says so.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means an eval suite exists, is wired into CI, and CI is configured to fail below a threshold. It does not mean the evals are good, and a suite that passes trivially would read the same way here.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>eval case files present and enumerable</li>
+      <li>cases covering success, failure, refusal and adversarial classes rather than success only</li>
+      <li>a CI workflow or pipeline step that runs the suite</li>
+      <li>a pass threshold that fails the build, rather than a step that reports and continues</li>
+      <li>an eval suite present but not referenced by any CI configuration, which caps the score at 1</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-33</code></p>
+</article>
+<article class="std-entry" id="ARS-34">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-34">ARS-34</a></span>
+    <h3 class="std-entry-title">Eval coverage maps to destructive-action inventory</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Every high-impact action class from ARS-08 has corresponding eval cases exercising both correct execution and correct refusal.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Evals that only test the happy path certify that the agent works when nothing is wrong, which was never the question.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 2 of 2.</b>
+    This is a set comparison between two documents in the repository: the destructive-action inventory and the eval cases. Both are readable in full, so the mapping is completely settled statically.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means every high-impact class in the ARS-08 inventory is referenced by at least one execution eval and one refusal eval. It is a coverage mapping, not a statement that the eval cases are adequate.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>eval cases tagged or named with the action class they exercise</li>
+      <li>both an execution case and a refusal case per high-impact class</li>
+      <li>high-impact classes from ARS-08 with no eval case referencing them, reported by name</li>
+      <li>an ARS-08 inventory absent, which makes this check unscoreable and is reported as such rather than as a pass</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-34</code></p>
+</article>
+<article class="std-entry" id="ARS-35">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-35">ARS-35</a></span>
+    <h3 class="std-entry-title">Production behavior monitoring with drift detection</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Task success rate, tool-call error rate, approval rejection rate, and cost per task are monitored in production with baselines and alerting on drift.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Agent behavior drifts with data, usage patterns, and silent upstream changes. Point-in-time certification without monitoring expires immediately.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-35</code></p>
+</article>
+<article class="std-entry" id="ARS-36">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-36">ARS-36</a></span>
+    <h3 class="std-entry-title">Human feedback loop is instrumented</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Users can flag bad agent outputs in-flow; flags route to a triage process; triage outcomes feed the eval suite.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Your users find the failure modes first. If there&#39;s no capture mechanism, that knowledge evaporates in Teams threads.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-36</code></p>
+</article>
+<article class="std-entry" id="ARS-37">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-37">ARS-37</a></span>
+    <h3 class="std-entry-title">Defined severity taxonomy and incident process for agent failures</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Agent-specific incident classes (wrong action taken, data exposure, injection event, cost runaway) are defined with severity levels, response owners, and postmortem requirements.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">The first agent incident handled ad hoc becomes the story leadership remembers. The process must predate the incident.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-37</code></p>
+</article>
+</section>
+<section class="std-tier" id="tier-8">
+<h2>Tier 8. Data Handling &amp; Compliance</h2>
+<p class="std-tier-weight">
+  4 checks &middot; weighted &times;1 in the overall mean.
+  Weighted at parity because the highest-severity data control, retrieval-layer access enforcement, is already carried at 1.5 by its dependence on Tier 1 identity propagation.
+</p>
+<article class="std-entry" id="ARS-38">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-38">ARS-38</a></span>
+    <h3 class="std-entry-title">Data classification enforced at the retrieval layer</h3>
+    <span class="flag flag-R" title="Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.">R &middot; runtime</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">RAG/retrieval respects document-level and row-level access controls per requesting user; classification labels survive into the context and constrain what the agent may output.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">A vector store that indexed everything for everyone is an access-control bypass with cosine similarity.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Runtime-testable. Requires access to a running system, its logs, and usually its non-production environment. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-38</code></p>
+</article>
+<article class="std-entry" id="ARS-39">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-39">ARS-39</a></span>
+    <h3 class="std-entry-title">PII/sensitive data minimization in context assembly</h3>
+    <span class="flag flag-S" title="Statically checkable from code and configuration. Automatable by the ars-check harness against a repository or config directory, with no access to a running system.">S &middot; static</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Context assembly redacts or excludes sensitive fields not required for the task; what enters the context window is a deliberate allowlist, not a table dump.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Every field in the context is a field that can appear in the output, the logs, and the traces.</p>
+</div>
+  <details class="std-static">
+  <summary>What the harness can and cannot establish</summary>
+  <div class="std-ceiling">
+    <b>Static ceiling: 1 of 2.</b>
+    Whole-record interpolation into a prompt is a definite finding. An allowlist that is present but wrong reads identically to one that is right, because static analysis does not know which fields are sensitive in this domain.
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">A pass means</div>
+  <p class="std-field-v">A pass means context assembly selects fields explicitly or applies a redaction step. It does not establish that the allowlist is correct or that every sensitive field is covered.</p>
+</div>
+  <div class="std-field">
+    <div class="std-field-k">Signals</div>
+    <ul class="std-signals">
+      <li>explicit field selection when building context from a record</li>
+      <li>a redaction or masking step applied before assembly</li>
+      <li>whole rows, whole documents or entire API responses serialised into the prompt</li>
+      <li>select-star queries feeding context assembly</li>
+      <li>a redaction function that exists but is not applied on the assembly path</li>
+    </ul>
+  </div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-39</code></p>
+</article>
+<article class="std-entry" id="ARS-40">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-40">ARS-40</a></span>
+    <h3 class="std-entry-title">Retention, deletion, and data-subject request handling covers agent artifacts</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">Conversation logs, traces, embeddings, and memory stores are included in the organization&#39;s retention schedules and deletion workflows; a deletion request reaches all of them.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">&quot;We deleted the record but it&#39;s still in the vector store and in 9,000 cached traces&quot; is a compliance finding waiting for an auditor.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-40</code></p>
+</article>
+<article class="std-entry" id="ARS-41">
+  <div class="std-entry-head">
+    <span class="std-entry-id"><a href="#ARS-41">ARS-41</a></span>
+    <h3 class="std-entry-title">Regulatory and review-board traceability package</h3>
+    <span class="flag flag-G" title="Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.">G &middot; governance</span>
+  </div>
+  <div class="std-field">
+  <div class="std-field-k">Pass</div>
+  <p class="std-field-v">A maintained document maps each ARS control to its implementing mechanism, suitable for handing to legal, cybersecurity, or enterprise architecture review.</p>
+</div>
+  <div class="std-field std-field-fail">
+  <div class="std-field-k">In production, this fails like this</div>
+  <p class="std-field-v">Programs that can&#39;t produce this package re-litigate their existence at every review cycle. Programs that can, ship.</p>
+</div>
+  <details class="std-static">
+  <summary>Why this is not automatable</summary>
+  <div class="std-ceiling">Governance and process review. Requires interviews and document review. Assessed in a paid engagement, not by the harness.</div>
+</details>
+  <p class="std-field-k" style="margin-top:12px">Cite as <code>ARS-1.0-41</code></p>
+</article>
+</section>
+<h2 id="scoring">Scoring model</h2>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Score</th><th>Label</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>fail</td><td>No mechanism exists, or the mechanism present does not do what the pass criterion requires.</td></tr>
+<tr><td>1</td><td>partial</td><td>A mechanism exists but is untested, unenforced, or enforced somewhere other than where it must be. A prompt instruction that asks the model to behave is always at most a 1.</td></tr>
+<tr><td>2</td><td>pass with evidence</td><td>The mechanism exists, is enforced outside the model, and evidence of it was produced during the assessment.</td></tr>
+</tbody>
+</table>
+</div>
+<p><b>Not evaluated</b> is a state, not a score. A distinct state, not a score. Excluded from the numerator and the denominator. Reported by count so that no percentage is read as broader than it is.</p>
+<p><b>Tier score</b> is points awarded / points available, over the checks in that tier that were evaluated.</p>
+<p><b>Overall score</b> is Weighted mean of tier scores, using each tier&#39;s weight. Tiers 1, 2, 3 and 5 are weighted 1.5; tiers 4, 6, 7 and 8 are weighted 1.0.</p>
+
+<h3>Readiness bands</h3>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Band</th><th>Score</th><th>And</th><th>Reachable from static analysis alone</th></tr></thead>
+<tbody>
+<tr><td>Production-Ready</td><td>85% and above</td><td>No check in tiers 1, 2 or 5 scored 0.</td><td>no</td></tr>
+<tr><td>Conditional</td><td>65% and above</td><td>No check in tiers 1, 2 or 5 scored 0.</td><td>yes</td></tr>
+<tr><td>Not Ready</td><td>below 65%</td><td>Also assigned regardless of score if any check in tiers 1, 2 or 5 scored 0.</td><td>yes</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="static-floor">The static subset, and what it may claim</h3>
+<p>
+  20 of the 41 checks carry the
+  <span class="flag flag-S">S</span> flag and are read by the
+  <code>ars-check</code> harness from a repository or config
+  directory. The remaining 21 &mdash; 11 runtime and
+  10 governance &mdash; are not automatable and the harness does not
+  attempt them.
+</p>
+<p>
+  Each static check declares its own ceiling: the highest score the harness may award it.
+  Where static signals cannot tell a working mechanism from the appearance of one, the
+  ceiling is 1 and the check says why. <b>13
+  of the 20 static checks are capped at 1</b>, so the highest score a purely
+  static run can reach is 27 of a possible 82
+  unweighted points across the full standard. The ceilings live in this document rather
+  than in the harness, so the limit on what static analysis may claim is published rather
+  than being implementation detail.
+</p>
+<p>
+  <b>Conditional is the highest band a static run can reach.</b>
+  A static run leaves every runtime and governance check not_evaluated. Production-Ready asserts that controls are enforced and tested, and no static reader can establish either. The harness therefore cannot award Production-Ready at any score, and says so on every report.
+</p>
+<p>Any published static score must state the number of checks evaluated, the number not evaluated, and that the result is a floor estimate rather than a certification.</p>
+<p>A check that could not be evaluated is recorded as not_evaluated and is excluded from both the numerator and the denominator. It is never recorded as a zero and never as a pass. An instrument that fails in the flattering direction is worse than no instrument, because its output is indistinguishable from a real result.</p>
+<p class="no-print"><a href="../reports/fb4eab2bfaca8ed6/">A worked example: the harness run against a deliberately unsafe toy agent &rarr;</a></p>
+<h2 id="how-assessed">How a control is assessed</h2>
+<p>
+  The 41 rows below are generated from the applicability methodology, a
+  <b>sidecar</b> to this document rather than part of it. This standard is content-hashed and published;
+  the methodology says, for each check, <i>when it applies to a particular agent</i>, <i>what kind of
+  evidence can settle it</i>, and <i>which categories of change invalidate evidence already gathered
+  for it</i>. Those are assessment decisions, they will change more often than the standard does, and
+  putting them in the hashed document would mean re-hashing a published text every time a judgement
+  moved.
+</p>
+<p>This is a SIDECAR to ARS v1.0, not part of it. ARS v1.0 is content-hashed and published and is not modified by this document. What this adds is the three things an assessment needs and the standard deliberately does not carry: when each control applies to a given agent, what kind of evidence can settle it, and which categories of change invalidate evidence already gathered for it. Every applicability decision is made from named contract facts and states which ones. Nothing here certifies anything, and a control marked applicable is a control somebody still has to assess.</p>
+<div class="std-hash">
+  <b>Methodology v0.1</b> — written against
+  ARS v1.0, content hash
+  <br>12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c
+  <br><br>
+  A methodology that cites a version number rather than a hash is a methodology whose subject can move
+  underneath it. The build refuses to render this page if the two hashes differ.
+</div>
+<h3 id="three-answers">Applicability has three answers, not two</h3>
+<p>
+  A predicate that could not be evaluated returns <b>not evaluated</b> — never <code>false</code>. If an
+  erroring predicate evaluated as false the control would be marked not applicable and would drop out of
+  the denominator, so a failure of the instrument would read as a smaller, cleaner scope. Not applicable
+  is excluded from both the numerator and the denominator; <b>not evaluated stays visible and is excluded
+  from neither</b>, because establishing nothing must not shrink the applicable set.
+</p>
+<p>
+  <b>Attestation alone settles 1 of the 41 checks.</b> For the
+  other 40, an owner's statement that the mechanism works is the claim
+  under test, so it cannot also be the evidence for it. 15 hard blockers are declared across
+  the 41 checks: a hard blocker is a declared fact that no score elsewhere can offset.
+</p>
+<h3 id="applicability-table">When each check applies, and what can settle it</h3>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Check</th><th>Applies when</th><th>Evidence that can settle it</th><th>Static ceiling</th><th>Invalidated by</th></tr></thead>
+<tbody>
+<tr><td><a href="#ARS-01">ARS-01</a></td><td>at least one declared tool authenticates by <code>api_key</code> or <code>service_account</code> or <code>delegated_user</code> or <code>workload_identity_federation</code> or <code>oauth_client_credentials</code> or <code>oauth_authorization_code</code> or <code>unspecified</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-02">ARS-02</a></td><td>at least one declared tool authenticates by <code>api_key</code> or <code>service_account</code> or <code>delegated_user</code> or <code>workload_identity_federation</code> or <code>oauth_client_credentials</code> or <code>oauth_authorization_code</code> or <code>unspecified</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-03">ARS-03</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>2 change categories</td></tr>
+<tr><td><a href="#ARS-04">ARS-04</a></td><td>at least one declared tool authenticates by <code>api_key</code> or <code>service_account</code> or <code>delegated_user</code> or <code>workload_identity_federation</code> or <code>oauth_client_credentials</code> or <code>oauth_authorization_code</code> or <code>unspecified</code>, <b>or</b> the declared trigger modes include <code>scheduled</code> or <code>event_driven</code> or <code>agent_initiated</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-05">ARS-05</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>2 change categories</td></tr>
+<tr><td><a href="#ARS-06">ARS-06</a></td><td>the contract declares at least <code>1</code> tool(s)</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>2 change categories</td></tr>
+<tr><td><a href="#ARS-07">ARS-07</a></td><td>the contract declares at least <code>1</code> tool(s)</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>3 change categories</td></tr>
+<tr><td><a href="#ARS-08">ARS-08</a></td><td>at least one declared tool creates, modifies, deletes, sends or spends, <b>or</b> at least one declared skill has side effect <code>write</code> or <code>send</code> or <code>spend</code> or <code>delete</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-09">ARS-09</a></td><td>at least one destructive-action inventory entry is classified <code>irreversible</code> or <code>reversible_with_effort</code>, <b>or</b> at least one declared tool has side effect <code>send</code> or <code>spend</code> or <code>delete</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-10">ARS-10</a></td><td>the contract declares at least one approval class, <b>or</b> at least one declared tool is gated at <code>human_approval</code> or <code>human_approval_conditional</code></td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-11">ARS-11</a></td><td>the contract declares at least <code>1</code> tool(s)</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-12">ARS-12</a></td><td>the contract declares at least <code>2</code> tool(s), <b>and</b> at least one declared tool can carry content out of the trust boundary, <b>or</b> at least one declared data sink is outside the platform, <b>or</b> at least one declared tool has side effect <code>write</code> or <code>send</code> or <code>spend</code> or <code>delete</code></td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-13">ARS-13</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>2 change categories</td></tr>
+<tr><td><a href="#ARS-14">ARS-14</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-15">ARS-15</a></td><td>a declared sink or skill carries data classified <code>internal</code> or <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code>, <b>or</b> at least one declared prompt interpolates user or external content</td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-16">ARS-16</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>or</b> the declared criticality is <code>moderate</code> or higher</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-17">ARS-17</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>2 change categories</td></tr>
+<tr><td><a href="#ARS-18">ARS-18</a></td><td>at least one declared tool creates, modifies, deletes, sends or spends, <b>or</b> the declared autonomy level is <code>human_on_the_loop</code> or higher, <b>or</b> the declared trigger modes include <code>scheduled</code> or <code>event_driven</code> or <code>agent_initiated</code>, <b>or</b> the declared maximum plausible blast radius reaches <code>single_tenant</code> or wider</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-19">ARS-19</a></td><td>at least one declared tool creates, modifies, deletes, sends or spends, <b>or</b> at least one declared skill has side effect <code>write</code> or <code>send</code> or <code>spend</code> or <code>delete</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-20">ARS-20</a></td><td>the contract declares at least <code>1</code> tool(s), <b>or</b> the declared autonomy level is <code>human_on_the_loop</code> or higher</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-21">ARS-21</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>and</b> the declared criticality is <code>moderate</code> or higher, <b>or</b> the declared maximum plausible blast radius reaches <code>single_customer</code> or wider, <b>or</b> at least one declared tool creates, modifies, deletes, sends or spends</td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-22">ARS-22</a></td><td>at least one declared tool creates, modifies, deletes, sends or spends, <b>or</b> at least one declared skill has side effect <code>write</code> or <code>send</code> or <code>spend</code> or <code>delete</code>, <b>or</b> at least one destructive-action inventory entry is classified <code>reversible</code> or <code>reversible_with_effort</code> or <code>irreversible</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>7 change categories</td></tr>
+<tr><td><a href="#ARS-23">ARS-23</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-24">ARS-24</a></td><td>at least one declared prompt is whose trust level is <code>assembled_untrusted</code>, <b>or</b> at least one declared prompt interpolates user or external content, <b>or</b> at least one declared data sink is outside the platform, whose direction is <code>inbound</code> or <code>bidirectional</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-25">ARS-25</a></td><td>at least one declared prompt interpolates user or external content, <b>or</b> at least one declared data sink is outside the platform, <b>and</b> at least one declared tool creates, modifies, deletes, sends or spends, <b>or</b> at least one declared tool can carry content out of the trust boundary, <b>or</b> a required scope anywhere in the declaration is a wildcard or a breadth-named scope (<code>*</code>, <code>admin</code>, <code>write_all</code> and the like), <b>or</b> a declared sink or skill carries data classified <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>9 change categories</td></tr>
+<tr><td><a href="#ARS-26">ARS-26</a></td><td>at least one declared tool can carry content out of the trust boundary, <b>or</b> at least one declared data sink is outside the platform, <b>or</b> at least one declared skill has side effect <code>send</code> or <code>write</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-27">ARS-27</a></td><td>at least one declared data sink is outside the platform, <b>or</b> at least one declared tool can carry content out of the trust boundary, <b>or</b> a declared data sink permits <code>*</code> as a destination, <b>or</b> at least one declared skill has side effect <code>send</code>, <b>and</b> a declared sink or skill carries data classified <code>internal</code> or <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>7 change categories</td></tr>
+<tr><td><a href="#ARS-28">ARS-28</a></td><td>every agent in the envelope — this control has no condition</td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>3 change categories</td></tr>
+<tr><td><a href="#ARS-29">ARS-29</a></td><td>the declared maximum plausible blast radius reaches <code>single_tenant</code> or wider, <b>or</b> at least one declared tool acts as <code>shared_service_account</code> or <code>service_identity</code> or <code>unspecified</code>, <b>or</b> a required scope anywhere in the declaration is a wildcard or a breadth-named scope (<code>*</code>, <code>admin</code>, <code>write_all</code> and the like)</td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-30">ARS-30</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>or</b> the declared autonomy level is <code>human_on_the_loop</code> or higher, <b>or</b> the declared trigger modes include <code>scheduled</code> or <code>event_driven</code> or <code>agent_initiated</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-31">ARS-31</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>and</b> the declared criticality is <code>moderate</code> or higher, <b>or</b> the declared trigger modes include <code>scheduled</code> or <code>event_driven</code> or <code>agent_initiated</code>, <b>or</b> the declared autonomy level is <code>human_on_the_loop</code> or higher</td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-32">ARS-32</a></td><td>the contract declares at least <code>1</code> tool(s), <b>and</b> the declared autonomy level is <code>human_on_the_loop</code> or higher, <b>or</b> the declared trigger modes include <code>scheduled</code> or <code>event_driven</code> or <code>agent_initiated</code>, <b>or</b> no value is declared for the containment field <code>loop_ceiling</code>, <b>or</b> no value is declared for the containment field <code>retry_ceiling</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>7 change categories</td></tr>
+<tr><td><a href="#ARS-33">ARS-33</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-34">ARS-34</a></td><td>at least one destructive-action inventory entry is classified <code>reversible</code> or <code>reversible_with_effort</code> or <code>irreversible</code></td><td>automatically verified, manually verified<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>2 of 2</b></td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-35">ARS-35</a></td><td>the declared lifecycle state is <code>production</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>7 change categories</td></tr>
+<tr><td><a href="#ARS-36">ARS-36</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>and</b> the declared trigger modes include <code>human_initiated</code>, <b>or</b> at least one declared data sink is outside the platform, <b>or</b> at least one declared tool can carry content out of the trust boundary, <b>or</b> at least one declared skill has side effect <code>send</code></td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-37">ARS-37</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>and</b> at least one declared tool creates, modifies, deletes, sends or spends, <b>or</b> at least one declared data sink is outside the platform, <b>or</b> the declared maximum plausible blast radius reaches <code>single_customer</code> or wider, <b>or</b> a declared sink or skill carries data classified <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>manually verified, attested</td><td><span class="flag flag-G">G</span> not read by the harness</td><td>7 change categories</td></tr>
+<tr><td><a href="#ARS-38">ARS-38</a></td><td>at least one declared tool has side effect <code>read</code>, <b>or</b> at least one declared skill has side effect <code>read</code>, <b>and</b> a declared sink or skill carries data classified <code>internal</code> or <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-R">R</span> not read by the harness</td><td>5 change categories</td></tr>
+<tr><td><a href="#ARS-39">ARS-39</a></td><td>the contract declares at least one prompt, <b>and</b> a declared sink or skill carries data classified <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><b>1 of 2</b> — capped</td><td>6 change categories</td></tr>
+<tr><td><a href="#ARS-40">ARS-40</a></td><td>the declared lifecycle state is <code>pilot</code> or <code>production</code>, <b>and</b> a declared sink or skill carries data classified <code>confidential</code> or <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>automatically verified, manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>4 change categories</td></tr>
+<tr><td><a href="#ARS-41">ARS-41</a></td><td>the declared lifecycle state is <code>production</code>, <b>or</b> the declared criticality is <code>high</code> or higher, <b>or</b> the declared maximum plausible blast radius reaches <code>single_tenant</code> or wider, <b>or</b> a declared sink or skill carries data classified <code>personal_data</code> or <code>special_category</code> or <code>financial</code> or <code>credential</code></td><td>manually verified, attested<br><span class="std-note">attestation alone cannot settle it</span></td><td><span class="flag flag-G">G</span> not read by the harness</td><td>6 change categories</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="risk-profile">The risk profile the applicability decisions are made against</h3>
+<p>
+  7 dimensions, each read from named fields of the declaration. There is no aggregate
+  number: a single risk score would be the one thing on this page a reader could not argue with, and every
+  decision below names the fields that produced it.
+</p>
+<article class="std-entry" id="dim-authority_surface">
+  <div class="std-entry-head">
+    <span class="std-entry-id">authority surface</span>
+    <h3 class="std-entry-title">What can this agent do to the world, at the widest point of its declared tool set?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>read_only</code></td><td>every agent in the envelope — this control has no condition</td><td>No declared tool creates, modifies, deletes, sends or spends. The floor, and the only level that needs no condition.</td></tr>
+<tr><td><code>writes</code></td><td>at least one declared tool whose side effect is <code>write</code></td><td>At least one tool creates or modifies records. Reversible in principle, and a compensating action has to exist.</td></tr>
+<tr><td><code>transmits</code></td><td>at least one declared tool whose side effect is <code>send</code></td><td>At least one tool sends. What is sent cannot be unsent, and the recipient is outside the system that produced it.</td></tr>
+<tr><td><code>spends_or_destroys</code></td><td>at least one declared tool whose side effect is <code>spend</code> or <code>delete</code></td><td>At least one tool moves money or destroys records. Both are irreversible in the sense that matters to a review board: there is no undo, only a compensating action somebody has to perform.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="std-entry" id="dim-transmission_reach">
+  <div class="std-entry-head">
+    <span class="std-entry-id">transmission reach</span>
+    <h3 class="std-entry-title">How far outside the trust boundary can content this agent handles travel?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>contained</code></td><td>every agent in the envelope — this control has no condition</td><td>No declared sink is external and no tool declares outbound transmission. Nothing this agent touches has a declared route out.</td></tr>
+<tr><td><code>internal_only</code></td><td>at least one declared data sink is inside the platform, whose direction is <code>outbound</code> or <code>bidirectional</code></td><td>Data moves, and every declared destination is inside the platform.</td></tr>
+<tr><td><code>named_external</code></td><td>at least one declared data sink is outside the platform, <b>or</b> at least one declared tool can carry content out of the trust boundary</td><td>At least one declared destination is outside the platform, and the contract names it. A named external destination is reviewable.</td></tr>
+<tr><td><code>unrestricted_external</code></td><td>at least one declared data sink is outside the platform, permitting any destination</td><td>An external sink permits every destination. A wildcard makes every destination permitted and no destination reviewed, which is a different kind of claim from a long list.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="std-entry" id="dim-data_sensitivity">
+  <div class="std-entry-head">
+    <span class="std-entry-id">data sensitivity</span>
+    <h3 class="std-entry-title">What is the most sensitive class of data the declaration says this agent handles?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>public</code></td><td>every agent in the envelope — this control has no condition</td><td>Nothing above public is declared by any sink or skill.</td></tr>
+<tr><td><code>internal</code></td><td>a declared sink or skill carries data classified <code>internal</code></td><td>Internal material is in scope. Disclosure is a business problem rather than a personal one, and the controls that matter are about the boundary rather than about the subject.</td></tr>
+<tr><td><code>confidential_or_personal</code></td><td>a declared sink or skill carries data classified <code>confidential</code> or <code>personal_data</code> or <code>financial</code></td><td>Personal, financial or confidential material is in scope, so a disclosure has a subject who can be harmed by it and usually a regulator who has an opinion about it.</td></tr>
+<tr><td><code>special_category_or_credential</code></td><td>a declared sink or skill carries data classified <code>special_category</code> or <code>credential</code></td><td>Special-category personal data or credentials are in scope. A single disclosure here is not recoverable by apology, and a credential disclosure widens every other control&#39;s blast radius at once.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="std-entry" id="dim-delegated_authority">
+  <div class="std-entry-head">
+    <span class="std-entry-id">delegated authority</span>
+    <h3 class="std-entry-title">Whose authority do the downstream calls actually carry?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>end_user</code></td><td>every agent in the envelope — this control has no condition</td><td>Every declared tool acts as the calling user, so downstream authorisation is evaluated against the person who asked.</td></tr>
+<tr><td><code>mixed</code></td><td>at least one declared tool acting as <code>service_identity</code> or <code>unspecified</code></td><td>At least one tool acts as a service identity or does not say. Some part of what this agent does is not attributable to a person at the point it happens.</td></tr>
+<tr><td><code>shared_identity</code></td><td>at least one declared tool acting as <code>shared_service_account</code></td><td>At least one tool acts as a shared service account. Any user can reach anything that account can reach, which is the single most common finding in enterprise agent deployments.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="std-entry" id="dim-autonomous_triggering">
+  <div class="std-entry-head">
+    <span class="std-entry-id">autonomous triggering</span>
+    <h3 class="std-entry-title">Can this agent act without a person asking it to, and how much of the loop is a person in?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>human_initiated</code></td><td>every agent in the envelope — this control has no condition</td><td>A person starts every run and every control that assumes a human is present at the start holds.</td></tr>
+<tr><td><code>scheduled_or_event</code></td><td>the declared trigger modes include <code>scheduled</code> or <code>event_driven</code></td><td>A schedule or an event can start a run. Nobody is necessarily watching when it does.</td></tr>
+<tr><td><code>agent_initiated</code></td><td>the declared trigger modes include <code>agent_initiated</code>, <b>or</b> the declared autonomy level is <code>autonomous</code> or higher</td><td>The agent can start its own work, or acts at full autonomy. There is no point in the loop where a person is structurally required.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="std-entry" id="dim-blast_radius">
+  <div class="std-entry-head">
+    <span class="std-entry-id">blast radius</span>
+    <h3 class="std-entry-title">How far does the worst plausible outcome of one bad run reach?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>single_record</code></td><td>every agent in the envelope — this control has no condition</td><td>The declaration bounds a run to one record.</td></tr>
+<tr><td><code>single_customer</code></td><td>the declared maximum plausible blast radius reaches <code>single_customer</code> or wider</td><td>One customer&#39;s data or money is reachable in one run.</td></tr>
+<tr><td><code>single_tenant</code></td><td>the declared maximum plausible blast radius reaches <code>single_tenant</code> or wider</td><td>A whole tenant is reachable, so isolation between tenants becomes load-bearing.</td></tr>
+<tr><td><code>all_customers</code></td><td>the declared maximum plausible blast radius reaches <code>all_customers</code> or wider</td><td>Every customer is reachable from one run. At this level a single prompt injection is an incident rather than a ticket.</td></tr>
+<tr><td><code>external_third_parties</code></td><td>the declared maximum plausible blast radius reaches <code>external_third_parties</code> or wider</td><td>The declared reach extends to parties outside the organisation entirely, who did not choose to be in scope.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<article class="std-entry" id="dim-containment_declared">
+  <div class="std-entry-head">
+    <span class="std-entry-id">containment declared</span>
+    <h3 class="std-entry-title">How much of what stops a runaway run is written down rather than left to the runtime?</h3>
+  </div>
+  <div class="std-table-wrap">
+<table>
+<thead><tr><th>Level</th><th>When it is reached</th><th>What that means</th></tr></thead>
+<tbody>
+<tr><td><code>fully_bounded</code></td><td>every agent in the envelope — this control has no condition</td><td>Every containment field carries a declared value. The floor here is the GOOD state, deliberately: this dimension measures what is missing.</td></tr>
+<tr><td><code>partially_bounded</code></td><td>no value is declared for the containment field <code>retry_ceiling</code>, <b>or</b> no value is declared for the containment field <code>loop_ceiling</code>, <b>or</b> no value is declared for the containment field <code>default_timeout_ms</code>, <b>or</b> no value is declared for the containment field <code>session_budget.max_cost_usd</code></td><td>At least one ceiling is undeclared. An undeclared ceiling is not a ceiling of zero; it is whatever the runtime happens to impose, which nobody reviewed.</td></tr>
+<tr><td><code>unbounded</code></td><td>no value is declared for the containment field <code>retry_ceiling</code>, <b>and</b> no value is declared for the containment field <code>loop_ceiling</code>, <b>and</b> no value is declared for the containment field <code>session_budget.max_cost_usd</code>, <b>and</b> no value is declared for the containment field <code>session_budget.max_tokens</code></td><td>Neither ceiling, neither budget. Nothing in the declaration says what stops a run that goes wrong.</td></tr>
+</tbody>
+</table>
+</div>
+</article>
+<h2 id="in-use">This document, in use</h2>
+<p>
+  A standard nobody has applied is a rubric. These are the instruments built against this text, and each
+  ships the whole input it was computed from so a reader can recompute it and disagree with the result.
+</p>
+<ul>
+  <li><a href="../reports/fb4eab2bfaca8ed6/">A scored assessment</a> — the static harness against a deliberately unsafe toy agent, every finding with its file and line.</li>
+  <li><a href="../assurance-delta/">A change-impact analysis</a> — one agent, two versions: which evidence, tests and approvals the change invalidated, which survived, and whether it can ship.</li>
+  <li><a href="../assurance-delta/undeclared-capability/">A declaration that did not match the code</a> — a contract describing a read-only tool set, and a send-capable tool found in TypeScript source. Verdict: BLOCK.</li>
+  <li><a href="../consulting/">The assessment offer</a> — what an engagement against this standard covers, and what it does not.</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3>v1.0 &middot; 2026-08-05 &middot; draft</h3>
+<p>First authored version. 41 checks across 8 tiers: 20 statically checkable, 11 runtime-testable, 10 governance review. Nothing has been assessed against a real production system by a second party.</p>
+<div class="std-table-wrap">
+<table>
+<thead><tr><th>Check</th><th>Change</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>ARS-01</td><td>added</td><td>Identity propagation is the first question every enterprise security review board asks about an agent deployment, and a shared service identity is the most common finding. It anchors Tier 1.</td></tr>
+<tr><td>ARS-07</td><td>added</td><td>Tool schema permissiveness is the only control in the set that a static reader can settle completely: the schema either constrains the domain or it does not. Published with a static ceiling of 2 for that reason, and it is the check the harness can be most confident about.</td></tr>
+<tr><td>ARS-09</td><td>added</td><td>Approval gating is published as statically checkable at a ceiling of 1 rather than 2, because static analysis can find an approval mechanism but cannot establish that execution is impossible without it. The distinction between a structural gate and a prompt instruction is exactly what the ceiling exists to preserve.</td></tr>
+<tr><td>ARS-10</td><td>added</td><td>Approval fatigue is published as a governance check rather than dropped, because a gate that fires 400 times a day is measurably worse than no gate, and no code inspection can see approval volume.</td></tr>
+<tr><td>ARS-24</td><td>added</td><td>Untrusted-content segregation is stated as a trust-boundary property of the architecture rather than as a model behaviour, because writing it as a model property would make it unassessable and would imply it is the vendor&#39;s to fix.</td></tr>
+<tr><td>ARS-41</td><td>added</td><td>The traceability package is a control rather than an appendix. Programs that cannot produce it re-litigate their existence at every review cycle, which is a readiness failure with no technical cause.</td></tr>
+</tbody>
+</table>
+</div>
+<p>
+  A MAJOR version bump means an assessment result under the old version is not comparable
+  to one under the new. Every published version keeps its own address and its own hash, so
+  a citation written today resolves to the text it was written against.
+</p>
+<footer class="std-foot">
+  <p>Agent Readiness Standard v1.0 — controls, pass criteria and evidence rules for production agentic AI systems</p>
+  <p>Published by ThirdOcular LLC. Status: draft. Applied independently 0 times.</p>
+  <p><a href="https://thirdocular.com/ars">https://thirdocular.com/ars</a></p>
+  <p class="no-print"><a href="../consulting/">Assessment</a> &middot; 
+<a href="../assurance-delta/">Assurance delta</a> &middot; 
+<a href="../assurance-delta/undeclared-capability/">Undeclared capability</a> &middot; 
+<a href="https://lens.thirdocular.com">AisleLens</a></p>
+  <p>12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
+</footer>
+</div>
+</main>
+</body>
+</html>

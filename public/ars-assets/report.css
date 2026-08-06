@@ -1,0 +1,289 @@
+/* ===========================================================================
+   ARS assessment report.
+
+   Layers on ars.css. Everything structural comes from there; this file adds
+   only what a RESULT surface needs.
+
+   ⚠️ THIS IS THE ONE PLACE THE RESERVED RESULT HUES MAY APPEAR, and they keep
+   their published meanings from the lens theme:
+
+     --pass            #596C8E  slate    ✓ pass
+     --requires-access #826738  sand     ○ requires access
+     --not-proven      #BF3A4F  crimson  ✕ not proven
+
+   The ARS bands map onto them, and the mapping is the honest one rather than a
+   traffic light invented for this page:
+
+     Production-Ready  -> --pass             the control is in place and shown
+     Conditional       -> --requires-access  more access is needed to say more
+     Not Ready         -> --not-proven
+
+   `/ars` uses none of these, because a standard is a document and nothing on it
+   has failed. See the note at the top of ars.css.
+   =========================================================================== */
+
+:root {
+  --pass: #596c8e;
+  --pass-soft: rgba(89, 108, 142, 0.12);
+  --requires-access: #826738; /* sand darkened at hue 38 so it holds at small sizes */
+  --requires-access-soft: rgba(130, 103, 56, 0.12);
+  --not-proven: #bf3a4f;
+  --not-proven-soft: rgba(191, 58, 79, 0.1);
+}
+
+/* ============ the banner ============
+   Not decoration. It is the sentence that stops the report being read as a
+   certificate, so it sits above the verdict, not beneath it. */
+
+.rp-banner {
+  border: 1px solid var(--requires-access);
+  border-left: 4px solid var(--requires-access);
+  background: var(--requires-access-soft);
+  border-radius: var(--radius-sm);
+  padding: 15px 18px;
+  margin: 0 0 26px;
+}
+.rp-banner-k {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--requires-access);
+  margin-bottom: 5px;
+}
+.rp-banner p {
+  margin: 0 0 8px;
+  color: var(--ink-2);
+  font-size: 15px;
+}
+.rp-banner p:last-child {
+  margin-bottom: 0;
+}
+.rp-banner b {
+  color: var(--ink);
+}
+
+/* ============ the verdict ============ */
+
+.rp-verdict {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 20px 22px;
+  margin: 0 0 20px;
+}
+.rp-band {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.rp-band-not-ready { color: var(--not-proven); }
+.rp-band-conditional { color: var(--requires-access); }
+.rp-band-production-ready { color: var(--pass); }
+
+.rp-score {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.rp-score b { color: var(--ink); font-size: 15px; }
+.rp-band-note {
+  flex-basis: 100%;
+  font-size: 14.5px;
+  color: var(--ink-2);
+  border-top: 1px dashed var(--border);
+  padding-top: 12px;
+  margin: 4px 0 0;
+}
+.rp-band-note p { margin: 0 0 8px; }
+.rp-band-note p:last-child { margin-bottom: 0; }
+
+/* ============ score chips ============ */
+
+.rp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.rp-chip-0 { border-color: var(--not-proven); color: var(--not-proven); background: var(--not-proven-soft); }
+.rp-chip-1 { border-color: var(--requires-access); color: var(--requires-access); background: var(--requires-access-soft); }
+.rp-chip-2 { border-color: var(--pass); color: var(--pass); background: var(--pass-soft); }
+.rp-chip-ne { border-style: dashed; color: var(--ink-3); }
+
+/* ============ tier table ============ */
+
+.rp-bar {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  overflow: hidden;
+  min-width: 90px;
+}
+.rp-bar span {
+  display: block;
+  height: 100%;
+  background: var(--pass);
+}
+.rp-bar-low span { background: var(--not-proven); }
+.rp-bar-mid span { background: var(--requires-access); }
+
+/* ============ a finding ============ */
+
+.rp-check {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 15px 17px;
+  margin: 0 0 12px;
+  scroll-margin-top: 18px;
+}
+.rp-check-0 { border-left: 3px solid var(--not-proven); }
+.rp-check-1 { border-left: 3px solid var(--requires-access); }
+.rp-check-2 { border-left: 3px solid var(--pass); }
+.rp-check-ne { border-left: 3px dashed var(--border-ui); background: var(--surface-2); }
+
+.rp-check-head {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.rp-check-id {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.rp-check-title {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  color: var(--ink);
+  margin: 0;
+  flex: 1 1 220px;
+}
+
+.rp-ev {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+.rp-ev li {
+  padding: 7px 0 7px 13px;
+  border-left: 2px solid var(--border);
+  margin-bottom: 7px;
+}
+.rp-ev-finding { border-left-color: var(--not-proven) !important; }
+.rp-ev-support { border-left-color: var(--pass) !important; }
+.rp-ev-absence { border-left-color: var(--border-ui) !important; }
+.rp-ev-limit { border-left-color: var(--requires-access) !important; }
+
+.rp-loc {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 2px;
+}
+.rp-quote {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-2);
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 4px 7px;
+  margin: 4px 0;
+  display: block;
+  overflow-x: auto;
+  white-space: pre;
+}
+.rp-ev-kind {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-right: 6px;
+}
+
+.rp-fix {
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.rp-fix-k {
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.rp-waiting {
+  font-size: 14px;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+.rp-meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 13px;
+  margin: 0 0 24px;
+  overflow-wrap: anywhere;
+}
+.rp-meta div { margin-bottom: 3px; }
+.rp-meta div:last-child { margin-bottom: 0; }
+.rp-meta b { color: var(--ink-2); font-weight: 600; }
+
+/* ===========================================================================
+   PRINT. The report is the artifact that gets forwarded, so this path matters
+   more here than anywhere else on the site.
+
+   The details rule is carried from ars.css for the same measured reason: a
+   collapsed <details> prints nothing of its body, and on this page the bodies
+   are the evidence. See the note in ars.css for the measurement and for the
+   five folklore fixes that were tested and found inert.
+   =========================================================================== */
+
+@media print {
+  .rp-banner {
+    border: 1px solid #999;
+    border-left: 4px solid #333;
+    background: transparent;
+  }
+  .rp-verdict, .rp-check, .rp-meta { break-inside: avoid; }
+  .rp-quote { white-space: pre-wrap; word-break: break-word; }
+  .rp-check { box-shadow: none; }
+
+  details::details-content { content-visibility: visible !important; }
+  details { break-inside: avoid; }
+  summary::after { content: '' !important; }
+}
