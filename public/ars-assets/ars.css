@@ -424,3 +424,68 @@ a:hover { color: var(--ink); }
   .std-entry-id a::after { content: ''; }
   .std-foot a::after { content: ' (' attr(href) ')'; font-family: var(--font-mono); font-size: 9pt; }
 }
+
+
+/* ===========================================================================
+   /findings — the corpus scan.
+   
+   The one rule that matters here: the not-observable bucket renders at the SAME
+   SIZE as the other two. A figure whose unreadable share is set in small grey
+   type is a figure that hides it, and hiding it is what makes a percentage a
+   statement about the instrument rather than about the subject.
+   =========================================================================== */
+
+.finding-figure { margin: 0.6rem 0 0.9rem; font-size: 1.05rem; }
+.finding-figure b { font-size: 2.1rem; font-family: var(--font-mono, monospace); letter-spacing: -0.02em; }
+.finding-frac { margin-left: 0.6rem; opacity: 0.75; }
+
+.finding-headline { border-left-width: 4px; }
+.finding-headline .finding-figure b { font-size: 2.8rem; }
+
+/* Same type scale as observed-present and observed-absent. Deliberate. */
+.finding-buckets .std-count-v { font-variant-numeric: tabular-nums; }
+.finding-noobs .std-count-v { text-decoration: underline; text-underline-offset: 3px; }
+
+.finding-caveat { font-style: normal; }
+
+.finding-examples, .finding-limits { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+.finding-examples li, .finding-limits li { margin: 0.45rem 0; line-height: 1.55; }
+.finding-examples .flag { margin-right: 0.4rem; }
+
+@media (max-width: 480px) {
+  .finding-headline .finding-figure b { font-size: 2.1rem; }
+  .finding-figure b { font-size: 1.7rem; }
+  .finding-frac { display: block; margin-left: 0; }
+}
+
+/* The outreach one-pager. Narrower measure, bigger lede, prints to one page. */
+.brief-page { max-width: 46rem; }
+.brief-lede { font-size: 1.15rem; line-height: 1.6; }
+.brief-lede b { font-family: var(--font-mono, monospace); }
+.brief-stats { list-style: none; padding: 0; margin: 0.9rem 0 0; }
+.brief-stats li { margin: 0.7rem 0; line-height: 1.5; }
+.brief-stats b { font-family: var(--font-mono, monospace); font-size: 1.3rem; }
+/* Same size as the surrounding text. Not small, not grey. */
+.brief-noobs { font-size: inherit; }
+
+/* ⚠️ A STATISTIC ID IS AN UNBROKEN 40-CHARACTER STRING and it pushed the page
+   into horizontal scroll at 375px. Caught by measuring rather than by looking:
+   scrollWidth 502 against a 375 viewport. The provenance line is the one place
+   on this page that prints an identifier, so it wraps. */
+.finding .std-field-v { overflow-wrap: anywhere; word-break: break-word; min-width: 0; }
+.finding .std-field-v code { overflow-wrap: anywhere; word-break: break-word; }
+.finding .std-field { flex-wrap: wrap; min-width: 0; }
+
+/* ⚠️ A 64-HEX CONTENT HASH IS ONE UNBREAKABLE TOKEN, and it pushed /consulting
+   and /ars into horizontal scroll at 380px — measured at 442 against a 380
+   viewport. Pre-existing, found while checking the new pages, and fixed here
+   because the footer hash appears on every page this site publishes. It wraps
+   rather than shrinking: a truncated content hash is worse than a wrapped one,
+   since the whole point of printing it is that somebody can compare it. */
+.std-hash { overflow-wrap: anywhere; word-break: break-all; }
+
+/* And the same token appears in footers that never got the .std-hash class.
+   Keying on the class alone left /consulting and /ars still overflowing at
+   380px, which is how a fix that measured clean in one place ships broken in
+   another. Any monospace-length token in a footer wraps. */
+.std-foot p, .std-foot code { overflow-wrap: anywhere; word-break: break-word; }

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent tools mostly do not say what they do — ThirdOcular</title>
+<meta name="description" content="Of 4,435 agent tools across 199 public repositories, 102 state anything about whether they change state. A one-page summary.">
+<link rel="canonical" href="https://thirdocular.com/findings/brief/">
+<meta property="og:title" content="Agent tools mostly do not say what they do">
+<meta property="og:description" content="Of 4,435 agent tools across 199 public repositories, 102 state anything about whether they change state. A one-page summary.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ThirdOcular">
+<meta property="og:url" content="https://thirdocular.com/findings/brief/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thirdocular.com/og.png">
+<meta property="og:image:alt" content="ThirdOcular">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agent tools mostly do not say what they do">
+<meta name="twitter:description" content="Of 4,435 agent tools across 199 public repositories, 102 state anything about whether they change state. A one-page summary.">
+<meta name="twitter:image" content="https://thirdocular.com/og.png">
+<link rel="stylesheet" href="../../ars-assets/ars.css">
+</head>
+<body class="findings brief">
+<main class="std-page brief-page">
+<header class="std-doc">
+  <h1>Agent tools mostly do not say what they do</h1>
+  <p class="std-subtitle">A static scan of 200 public, permissively-licensed agent
+  repositories at pinned commits. 199 assessed, 1 scan failed,
+  0 fetch failed. No repository is named.</p>
+</header>
+
+<section class="std-doc">
+<h2>The finding</h2>
+<p class="brief-lede">Of <b>4,435</b> agent tools observed across
+199 repositories, <b>102</b> —
+2.3% — state anything at all about whether they change state.</p>
+<p>Of the 99 tools whose read-only claim could be checked against their own
+implementation, <b>0</b> were found contradicting
+it (3 could not be checked). <b>The problem is not that declarations are
+wrong. It is that there are almost none.</b></p>
+<p><b>A zero is not a clean bill of health.</b> It says the small population that made a checkable
+claim was keeping to it, under rules deliberately chosen to under-report. It says nothing about the
+4,333 tools
+that made no claim at all — and those are the ones a review board has to take on trust.</p>
+<ul class="brief-stats">
+<li><b>19.5%</b> — 16 of 82 repositories
+         <span class="brief-noobs">(118 not observable, excluded from the denominator)</span>
+         <br>of repositories where a tool was observed register at least one tool that writes, sends, spends or deletes.</li>
+<li><b>48.6%</b> — 69 of 142 repositories
+         <span class="brief-noobs">(58 not observable, excluded from the denominator)</span>
+         <br>of repositories that name a model pin a dated version rather than a floating alias.</li>
+</ul>
+</section>
+
+<section class="std-doc">
+<h2>The method, in three sentences</h2>
+<p>Two hundred repositories were selected by a rule committed before anything was measured — fifteen
+GitHub topics, a star floor, a permissive-licence gate — and fetched at pinned commit SHAs, with
+nothing executed and nothing re-hosted. Each was read statically by the same instrument this site
+publishes, and a tool was counted as contradicting itself only where its own declaration or its own
+description says it changes nothing and its own body writes, deletes, shells out, evaluates code,
+issues an HTTP DELETE, sends mail, mutates a database, or spends. HTTP POST is deliberately not
+counted as a write, because search, GraphQL, embedding and inference calls are POSTs that change
+nothing, and the figure therefore understates.</p>
+</section>
+
+<section class="std-doc">
+<h2>What it does not establish</h2>
+<p>Static analysis only; nothing ran. The detector reads each tool's own body and follows no calls,
+so a contradiction one frame down is not counted. The sample is popularity-weighted and
+licence-gated, both of which bias it toward more careful code. Every figure above carries the count
+of what could not be observed, and those counts are excluded from the denominators rather than
+folded in. This is a measurement, not a certification, and it confers no status on anybody.</p>
+</section>
+
+<section class="std-doc">
+<h2>Why it matters if you run or review agent deployments</h2>
+<p>An assurance argument compares what a system is permitted to do with what it does. Across this
+corpus the first half of that comparison is mostly missing — which means a review board approving an
+agent has, in most cases, nothing to approve <em>against</em>, and no way to tell six weeks later
+which of its approvals a release invalidated.</p>
+<p><a href="../">The full findings, with every figure's three buckets and its
+provenance</a> · <a href="../../consulting/">What we do about it</a></p>
+</section>
+
+<footer class="std-foot">
+  <p class="std-hash">aggregate 6efc743e61c2868a3a6400d9752aa5daed6ba6f64a463cef444ea05c5b9aa533</p>
+  <p>Computed from a frozen artifact that ships beside the full page. No repository is named here or
+  there. On this corpus the contradiction figure is zero, so there is no maintainer to contact — the disclosure ledger is empty.</p>
+</footer>
+</main>
+</body>
+</html>

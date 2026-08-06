@@ -467,3 +467,18 @@
   .rt-table tr { break-inside: avoid; }
   .rt-fail { border-left-width: 5px; }
 }
+
+
+/* ===========================================================================
+   ⚠️ A 64-HEX HASH IS ONE UNBREAKABLE WORD, and these pages print several.
+   Measured at 380px: /assurance-delta/ scrolled to 432 and
+   /assurance-delta/runtime/ to 568, both pushed by a canonical hash inside a
+   list item. Wide TABLES were already handled — .std-table-wrap scrolls inside
+   its own container, which is correct — so the tables were not the problem and
+   looking at them first would have wasted the afternoon.
+
+   `overflow-wrap: anywhere` breaks a word only when it would otherwise
+   overflow, so ordinary prose is unaffected. The hash wraps rather than being
+   truncated: the whole reason it is printed is so somebody can compare it.
+   =========================================================================== */
+li, p, dd, .std-field-v { overflow-wrap: anywhere; }

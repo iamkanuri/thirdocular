@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What 200 public agent repositories declare, and what they do — ThirdOcular</title>
+<meta name="description" content="Of 4,435 tools observed across 200 public agent repositories, 102 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
+<link rel="canonical" href="https://thirdocular.com/findings/">
+<meta property="og:title" content="What 200 public agent repositories declare, and what they do">
+<meta property="og:description" content="Of 4,435 tools observed across 200 public agent repositories, 102 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ThirdOcular">
+<meta property="og:url" content="https://thirdocular.com/findings/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thirdocular.com/og.png">
+<meta property="og:image:alt" content="ThirdOcular">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What 200 public agent repositories declare, and what they do">
+<meta name="twitter:description" content="Of 4,435 tools observed across 200 public agent repositories, 102 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
+<meta name="twitter:image" content="https://thirdocular.com/og.png">
+<link rel="stylesheet" href="../ars-assets/ars.css">
+</head>
+<body class="findings">
+<main class="std-page findings-page">
+<nav class="std-crumb"><a href="../ars/">ARS v1.0</a> · <a href="../assurance-delta/">Assurance delta</a> · <a href="../consulting/">Consulting</a></nav>
+
+<header class="std-doc">
+  <h1>What 200 public agent repositories declare, and what they do</h1>
+  <p class="std-subtitle">A static scan of 200 permissively-licensed public agent
+  repositories, at pinned commits, measured against ARS v1.0. No repository is named.</p>
+  <div class="std-meta">
+    <span class="badge badge-version">corpus 6efc743e61c2</span>
+    <span class="badge badge-status">static analysis only</span>
+  </div>
+</header>
+
+<section class="std-doc" id="what-this-is">
+<h2>What this is</h2>
+<p>Two hundred public agent repositories, selected by a rule written before the results were known,
+fetched at pinned commits, and read by the same instrument this site publishes. Nothing was executed.
+No repository is named.</p>
+<p><b>The short version.</b> Of 4,435 tools observed across the
+corpus, <b>102</b> — 2.3% — state anything at
+all about whether they change state. Of the 99 whose claim could be checked against
+their own implementation, <b>0</b> were found
+contradicting it. <b>The gap is not that declarations are wrong. It is that there are almost
+none.</b></p>
+<p><b>Read the headline carefully, because a zero is the easiest number on a page to misread.</b> It
+does not say that agent tools are safe. It says that in a corpus of
+4,435 tools, only 102
+made a statement specific enough to be checked at all — and that the ones that did were, by these
+deliberately conservative rules, keeping to it. The finding is the size of that denominator.</p>
+<p>That is the measurable version of the problem this standard exists for. An assurance argument
+compares what a system is permitted to do with what it does, and across this corpus the first half of
+that comparison is mostly absent.</p>
+</section>
+
+<section class="std-doc" id="headline">
+<h2>The headline figure</h2>
+<section class="std-entry finding finding-headline" id="stat-primary-contradiction-by-tool">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">Of the tools whose OWN self-description asserts that they only read — a declared read side-effect, or a description shipped to the model saying it changes nothing — how many have an implementation that changes state?</h3>
+    <span class="flag flag-S">headline</span>
+  </div>
+  <p class="finding-figure"><b>0.0%</b>
+    <span class="finding-frac">0 of 99 tools</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">99</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">3</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 3 not-observable cases.</b>
+    the tool asserts read-only and its body could not be read: the implementation is in a language this does not parse, the function could not be bounded without risking a neighbour&#39;s code, or the source line was not resolvable</p>
+  
+  <p class="std-note finding-zero"><b>A zero here is a measurement, not a reassurance.</b>
+    It says that of the 99 tools that made a checkable
+    claim, none was found breaking it <em>under these rules</em> — rules deliberately chosen to
+    under-report: POST is not counted as a write, calls into helpers are not followed, and writes to
+    caches, temp paths and logs are discounted. It is not a statement about the
+    3 that could not be checked, and it is not a statement about anything that
+    made no claim at all.</p>
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>primary-contradiction-by-tool</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 0
+    + 99 + 3 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+</section>
+
+<section class="std-doc" id="corpus">
+<h2>The corpus</h2>
+<div class="std-counts">
+  <div class="std-count"><span class="std-count-v">200</span><span class="std-count-k">repositories</span></div>
+  <div class="std-count"><span class="std-count-v">199</span><span class="std-count-k">assessed</span></div>
+  <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">fetch failed</span></div>
+  <div class="std-count"><span class="std-count-v">1</span><span class="std-count-k">scan failed</span></div>
+  <div class="std-count"><span class="std-count-v">4,435</span><span class="std-count-k">tools observed</span></div>
+</div>
+<p><b>How it was built.</b> Fifteen GitHub topic queries — the frame is committed beside the data and
+was fixed before anything was measured. Every entry cleared 80 stars, is not a fork, is not archived,
+and carries a permissive SPDX licence; anything with no licence, an unresolvable one, or a copyleft
+one was excluded and recorded. 1,017 repositories were discovered, 435 excluded by a published rule,
+582 eligible, and 200 selected by walking the fifteen strata in turn rather than taking the
+top 200 by stars — which would have described whichever two topics have the largest repositories.</p>
+<p><b>Every entry is pinned to a commit SHA, never a branch.</b> A corpus that moves under its own
+findings cannot be re-checked by anybody who disputes them.</p>
+<p><b>Nothing was executed and nothing was re-hosted.</b> Clones were shallow, at the pinned commit,
+with hooks and both gitconfigs pointed at an empty directory, symlinks materialised as inert files,
+and <code>.git</code> removed after checkout. This work references public repositories and extracts
+facts about them; it does not redistribute anyone's source.</p>
+<p><b>What the sample is biased toward, stated rather than discovered later.</b> Popularity — every
+entry cleared a star floor, so this describes agent code people found. Topic labels — a repository
+that applies none of the fifteen topics is invisible to the frame. And a clear licence, which
+correlates with organisational maturity. All three bias the sample toward <em>more</em> careful code,
+which is the conservative direction for a finding of this shape.</p>
+</section>
+<section class="std-doc" id="intent">
+<h2>Where "undeclared" comes from, when nobody wrote a declaration</h2>
+<p>Not one repository in this corpus has ever written an Agent Contract. So the finding cannot come
+from comparing code against an owner's declaration — there is none. It comes from the artifact
+contradicting itself.</p>
+<p><b>Primary, and the only source the headline uses.</b> A tool's own self-description against its
+own body. Either a machine-readable classification in the declaration — an MCP
+<code>readOnlyHint</code>, a <code>read_only</code> keyword, a declared read side-effect — or the
+description string that gets shipped to the model, saying in words that the tool changes nothing. A
+tool description is not documentation in the usual sense: it is the operative text the agent plans
+against, at the moment of the decision.</p>
+<p><b>Excluded from the headline:</b> the tool's <em>name</em>. <code>fetch_</code> in HTTP code
+frequently means "make a request", and a <code>get_</code> on a search client can legitimately POST.
+That reading is computed and published below, separately, so a reader can see what the looser
+interpretation would have produced — it is not folded in.</p>
+<p><b>Also excluded:</b> the repository's README. A README describes a project; a contradiction has
+to be about a tool.</p>
+<h3>⚠️ POST is not a write, and that decision is why this number is small</h3>
+<p>The tempting implementation counts any outbound HTTP call from a read-named tool as a
+transmission. It is wrong. Every vector search, GraphQL query, embedding lookup and model inference
+call is an HTTP POST that changes nothing. A detector that counted them would fire on nearly every
+retrieval tool in the corpus, and the first reader to open an example would find a
+<code>requests.post</code> to a search endpoint and stop reading.</p>
+<p>So POST and PUT are excluded entirely. What counts is behaviour that changes state under any
+reading: local file writes and deletes, subprocess execution, runtime code evaluation, explicit HTTP
+DELETE, mail and message dispatch, state-changing SQL, and payment. Losing volume to keep the claim
+true is the trade this page makes.</p>
+<p>Two further choices, both of which shrink the number: a write whose target names a cache, a temp
+path or a log is not counted; and the detector reads each tool's own body and <b>follows no
+calls</b>, so a tool that delegates to a helper that deletes is not reported. The figure
+understates.</p>
+<p>Every rule is a published regular expression. Nothing was judged by a model, so a maintainer who
+disputes a result can run the same rules over their own code and get the same answer.</p>
+</section>
+
+<section class="std-doc" id="distribution">
+<h2>The distribution</h2>
+<p>Every figure carries three buckets: what was observed present, what was observed absent, and what
+could not be observed at all. The third is printed at the same size as the other two, because a
+percentage whose unreadable share is hidden is a statement about the instrument.</p>
+<section class="std-entry finding" id="stat-primary-contradiction-by-repository">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">How many repositories contain at least one tool that asserts read-only and does not behave that way?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>0.0%</b>
+    <span class="finding-frac">0 of 10 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">10</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">190</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 190 not-observable cases.</b>
+    no tool in the repository made a tier A or tier B read-only assertion that could be checked — either no tool was observed at all, none of the observed tools said anything about reading, or the bodies of those that did could not be read. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  
+  <p class="std-note finding-zero"><b>A zero here is a measurement, not a reassurance.</b>
+    It says that of the 10 repositories that made a checkable
+    claim, none was found breaking it <em>under these rules</em> — rules deliberately chosen to
+    under-report: POST is not counted as a write, calls into helpers are not followed, and writes to
+    caches, temp paths and logs are discounted. It is not a statement about the
+    190 that could not be checked, and it is not a statement about anything that
+    made no claim at all.</p>
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>primary-contradiction-by-repository</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 0
+    + 10 + 190 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-tools-that-state-their-own-side-effects">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">Of every tool observed across the corpus, how many make any statement at all about whether they change state — either a machine-readable annotation in the declaration, or a sentence in the description shipped to the model?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>2.3%</b>
+    <span class="finding-frac">102 of 4435 tools</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">102</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">4333</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 0 not-observable cases.</b>
+    none: whether a tool says anything about its own side effects is readable from the tool as observed, and does not depend on reading its body. Tools in repositories the adapters could not read at all are absent from this population entirely, which the coverage figures below account for.</p>
+  <p class="std-note finding-caveat">⚠️ A tool that states nothing is not thereby doing anything wrong. This measures the availability of a declaration to check an implementation against — not the quality of any implementation.</p>
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>tools-that-state-their-own-side-effects</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 102
+    + 4333 + 0 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-name-implies-read-contradiction-by-tool">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">Of the tools whose NAME begins with a read verb and whose description says nothing either way, how many have an implementation that changes state?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>0.4%</b>
+    <span class="finding-frac">2 of 516 tools</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">2</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">514</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">41</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 41 not-observable cases.</b>
+    the tool name implies a read and its body could not be read</p>
+  <p class="std-note finding-caveat">⚠️ A name is not a declaration. `fetch_` in HTTP code frequently means &quot;make a request&quot;, and a `get_` on a search client can legitimately POST. This is reported because excluding it entirely would hide what the looser reading would have produced, and it is EXCLUDED FROM THE HEADLINE for the same reason it is caveated here.</p>
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>name-implies-read-contradiction-by-tool</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 2
+    + 514 + 41 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-posture.registers_a_send_capable_tool">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">How many repositories register at least one tool that writes, sends, spends or deletes?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>19.5%</b>
+    <span class="finding-frac">16 of 82 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">16</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">66</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">118</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 118 not-observable cases.</b>
+    no adapter observed any tool in the repository, so nothing can be said about what its tools do. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>posture.registers_a_send_capable_tool</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 16
+    + 66 + 118 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-posture.sets_any_timeout">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">How many repositories configure any timeout, deadline or abort signal at all?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>89.8%</b>
+    <span class="finding-frac">176 of 196 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">176</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">20</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">4</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 4 not-observable cases.</b>
+    the reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  <p class="std-note finding-caveat">⚠️ Inferred from source and configuration text rather than from a declaration. A timeout set by a framework default, or a model pinned in a deployment manifest this scan never saw, would read as absent here.</p>
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>posture.sets_any_timeout</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 176
+    + 20 + 4 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-posture.pins_a_model_version">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">How many repositories pin a dated or fully-qualified model version, rather than a floating alias?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>48.6%</b>
+    <span class="finding-frac">69 of 142 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">69</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">73</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">58</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 58 not-observable cases.</b>
+    the reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  <p class="std-note finding-caveat">⚠️ Inferred from source and configuration text rather than from a declaration. A timeout set by a framework default, or a model pinned in a deployment manifest this scan never saw, would read as absent here.</p>
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>posture.pins_a_model_version</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 69
+    + 73 + 58 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-posture.concatenates_untrusted_content_into_instructions">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">How many repositories interpolate a variable into a string used as a prompt or system message?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>86.2%</b>
+    <span class="finding-frac">169 of 196 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">169</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">27</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">4</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 4 not-observable cases.</b>
+    the reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  <p class="std-note finding-caveat">⚠️ Inferred from source and configuration text rather than from a declaration. A timeout set by a framework default, or a model pinned in a deployment manifest this scan never saw, would read as absent here.</p>
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>posture.concatenates_untrusted_content_into_instructions</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 169
+    + 27 + 4 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-coverage.any-tool-observed">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">In how many repositories did any of the three adapters observe at least one tool?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>41.2%</b>
+    <span class="finding-frac">82 of 199 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">82</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">117</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">1</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 1 not-observable case.</b>
+    nothing was read for these repositories: 1 scan_failed</p>
+  <p class="std-note finding-caveat">⚠️ An observed-absent here is a statement about the adapters, not about the repository. The three adapters read a documented pattern set; a repository defining its tools some other way is indistinguishable, to them, from a repository with no tools. This figure is published precisely so the headline can be read against it.</p>
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>coverage.any-tool-observed</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 82
+    + 117 + 1 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+<section class="std-entry finding" id="stat-coverage.stack-is-readable">
+  <div class="std-entry-head">
+    <h3 class="std-entry-title">How many repositories are in a language one of the three adapters reads at all?</h3>
+    
+  </div>
+  <p class="finding-figure"><b>79.5%</b>
+    <span class="finding-frac">159 of 200 repositories</span></p>
+  <div class="std-counts finding-buckets">
+    <div class="std-count"><span class="std-count-v">159</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">41</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">not observable</span></div>
+  </div>
+  <p class="std-note"><b>The denominator excludes the 0 not-observable cases.</b>
+    none: the primary language is metadata from the corpus frame and is known for every entry, whether or not the repository was ever fetched or scanned</p>
+  
+  
+  <p class="std-field"><span class="std-field-k">provenance</span>
+    <span class="std-field-v"><code>coverage.stack-is-readable</code> in
+    <a href="./aggregate.json">aggregate.json</a> — 159
+    + 41 + 0 references,
+    one per member of each bucket, as salted identifiers</span></p>
+</section>
+</section>
+
+<section class="std-doc" id="examples">
+<h2>What the contradiction looks like</h2>
+<p>No instance of the primary contradiction survived the detector's rules on this corpus, so there is
+no pattern to show. That is the measurement, not an omission.</p>
+</section>
+<section class="std-doc" id="disclosure">
+<h2>Disclosure posture</h2>
+<p><b>No repository is named anywhere on this page, and none will be before its maintainer has been
+contacted.</b> Aggregate and anonymised statistics are published freely; an individual repository is
+not named as flawed until the person who maintains it has had the finding and a reasonable period to
+respond.</p>
+<p><b>On this corpus the private disclosure ledger is empty.</b> The primary contradiction figure
+is zero, so there is nobody to notify. The machinery is here anyway, tested and in the way, because
+the corpus with a non-zero figure is the one it has to be right about — and building it after finding
+something would be building it under pressure.</p>
+<p>The provenance behind every figure above is a list of salted identifiers. They are complete —
+you can count them, and check that the buckets partition the population — and they do not resolve to
+a repository without a salt that is not published. Once any maintainer named in the private ledger
+has been notified, that salt can be released and every number here becomes attributable.</p>
+<p>Notification is a human action. Nothing in the toolchain that produced this page can send a
+message, open an issue, or file an advisory, and none of it has network access.</p>
+</section>
+<section class="std-doc" id="limitations">
+<h2>What this does not establish</h2>
+<ul class="finding-limits">
+  <li>Static analysis only. Nothing in this corpus was executed, so every finding is about what the code says and what it contains, never about what it does at run time.</li>
+  <li>The detector reads each tool&#39;s own body and follows no calls. A tool that delegates to a helper that changes state is NOT counted. The primary figure therefore understates.</li>
+  <li>HTTP POST and PUT are deliberately not treated as writes. Search, GraphQL, embedding and inference calls are POSTs that change nothing, and counting them would inflate the figure with false positives. Some genuine writes performed by POST are consequently missed.</li>
+  <li>The three adapters read a documented pattern set. A repository that defines its tools some other way contributes a not_observable, and the coverage figures are published so this can be read against the headline.</li>
+  <li>The corpus is popularity-weighted (every entry cleared 80 stars) and licence-gated. Both bias the sample toward more careful code, which is the conservative direction for a finding of this shape.</li>
+  <li>Repository documentation was NOT used as a source of declared intent for the headline. A README describes a project; a contradiction has to be about a tool.</li>
+  <li>A tool description asserting read-only is treated as a claim about that tool. It is not a contract, and no maintainer has agreed to be held to it.</li>
+</ul>
+<h3>What the instrument could not see</h3>
+<ul class="finding-limits">
+  <li><code>tool.body_behaviour</code> — A contradiction reached through a helper function is invisible. This reads the body of the tool itself and follows no calls, so a read-named tool whose delete happens one frame down is not reported.</li>
+  <li><code>tool.body_behaviour</code> — Dynamic dispatch — a handler selected by name at runtime, a registry populated from configuration, a method resolved through getattr — has no body this can locate statically.</li>
+  <li><code>tool.body_behaviour</code> — Bodies in languages other than Python, TypeScript and JavaScript are not read at all. The marker sets are language-specific and no attempt is made to guess at a third syntax.</li>
+  <li><code>tool.self_description</code> — A tool whose description is assembled at runtime, loaded from a file, or translated, has no static string to compare against its body.</li>
+</ul>
+<p class="std-note">This is a measurement of public code by one party, using one instrument, on one
+day. It is not a certification of anything, it confers no status on any repository named or unnamed,
+and it is not an audit. The standard it was measured against is itself a draft that no second party
+has applied.</p>
+</section>
+
+<footer class="std-foot">
+  <p>Computed from a frozen aggregate. This page runs no scan and recomputes nothing; the artifact it
+  renders ships beside it as <a href="./aggregate.json">aggregate.json</a>, with every figure's
+  provenance in it.</p>
+  <p class="std-hash">aggregate 6efc743e61c2868a3a6400d9752aa5daed6ba6f64a463cef444ea05c5b9aa533</p>
+  <p class="std-hash">ARS v1.0 12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
+</footer>
+</main>
+</body>
+</html>
