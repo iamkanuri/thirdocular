@@ -1,0 +1,72 @@
+{
+  "artifact": "probe-result",
+  "artifact_version": "0.1",
+  "probe_id": "probe-ars-29-tenant-isolation",
+  "control_id": "ARS-29",
+  "citation_id": "ARS-1.0-29",
+  "target": {
+    "target_id": "reference-agent-hardened",
+    "kind": "local_reference_agent",
+    "config_name": "hardened",
+    "contract_hash": null
+  },
+  "correlation_id": "direct-82",
+  "outcome": "pass",
+  "evidence_status": "runtime_verified",
+  "completeness": "complete",
+  "observations": [
+    {
+      "observation_id": "ars29.own",
+      "what": "A record inside the session's own tenant (tenant-a)",
+      "value": {
+        "ok": true,
+        "record_id": "rec-001",
+        "error": null
+      },
+      "derivation": "direct",
+      "confidence": "high",
+      "source": null
+    },
+    {
+      "observation_id": "ars29.cross",
+      "what": "A record belonging to another tenant (rec-100)",
+      "value": {
+        "ok": false,
+        "error": "cross_tenant_denied",
+        "record_tenant_returned": null,
+        "body": null
+      },
+      "derivation": "direct",
+      "confidence": "high",
+      "source": null
+    },
+    {
+      "observation_id": "ars29.conclusion",
+      "what": "Whether the boundary held on the ordinary read path",
+      "value": {
+        "own_readable": true,
+        "cross_denied": true
+      },
+      "derivation": "inferred",
+      "confidence": "medium",
+      "source": null
+    }
+  ],
+  "what_this_does_not_prove": [
+    "That isolation holds anywhere but this one read path. A write, a search, a cache, an export and a log line are five more paths and none of them is observed here.",
+    "That the boundary is enforced in storage. The fixture holds one in-memory array; a real system's isolation is usually a property of a query, a row policy or a connection, none of which exists here.",
+    "That tenant identity itself is trustworthy. The session declares its tenant; a system where a caller can choose its own tenant would pass this probe and fail the control."
+  ],
+  "diagnostics": [],
+  "cleanup": {
+    "ran": true,
+    "released": [],
+    "error": null
+  },
+  "volatile": {
+    "executed_at": "2026-08-06T15:26:40.463Z",
+    "duration_ms": 2.1618,
+    "target_origin": "http://127.0.0.1:55797"
+  },
+  "canonical_hash": "cbdcf5539db51bd38847c5563f46bb9667f5168069c3856fb824520ac2007dad"
+}

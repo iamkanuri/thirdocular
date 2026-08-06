@@ -423,3 +423,47 @@
   .ad-origin-inference { border-style: dashed; }
   .ad-support { break-inside: avoid; }
 }
+
+/* ===========================================================================
+   RUNTIME EVIDENCE — two configurations, side by side.
+
+   ⚠️ THE TWO COLUMNS MUST NOT READ AS GOOD AND BAD BY COLOUR ALONE. Same rule
+   as retained-vs-invalidated above, and for the same two readers: a colour
+   vision deficiency, and a black-and-white print taken into a release meeting.
+   So an observed pass carries a solid left border and an observed failure
+   carries a heavy one plus a prefix glyph, and the reserved hue is the third
+   signal rather than the only one.
+
+   No new hue: `pass` reuses slate, `fail` reuses crimson, both with their
+   published meanings from report.css.
+   =========================================================================== */
+
+.rt-table th[scope='row'] { text-align: left; vertical-align: top; font-weight: 600; }
+.rt-table td { vertical-align: top; }
+.rt-table .std-note { display: block; margin-top: 3px; font-weight: 400; }
+
+.rt-pass {
+  border-left: 3px solid var(--pass);
+  background: var(--surface);
+}
+.rt-pass b { color: var(--pass); }
+.rt-pass b::before { content: '✓ '; }
+
+.rt-fail {
+  border-left: 5px double var(--not-proven);
+  background: var(--not-proven-soft);
+}
+.rt-fail b { color: var(--not-proven); }
+.rt-fail b::before { content: '✕ '; }
+
+.rt-error, .rt-inconclusive, .rt-not_supported {
+  border-left: 3px dashed var(--requires-access);
+  background: var(--requires-access-soft);
+}
+.rt-error b, .rt-inconclusive b, .rt-not_supported b { color: var(--requires-access); }
+.rt-error b::before, .rt-inconclusive b::before, .rt-not_supported b::before { content: '? '; }
+
+@media print {
+  .rt-table tr { break-inside: avoid; }
+  .rt-fail { border-left-width: 5px; }
+}
