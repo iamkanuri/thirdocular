@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What 200 public agent repositories declare, and what they do — ThirdOcular</title>
-<meta name="description" content="Of 4,435 tools observed across 200 public agent repositories, 102 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
+<meta name="description" content="Of 4,445 tools observed across 200 public agent repositories, 103 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
 <link rel="canonical" href="https://thirdocular.com/findings/">
 <meta property="og:title" content="What 200 public agent repositories declare, and what they do">
-<meta property="og:description" content="Of 4,435 tools observed across 200 public agent repositories, 102 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
+<meta property="og:description" content="Of 4,445 tools observed across 200 public agent repositories, 103 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ThirdOcular">
 <meta property="og:url" content="https://thirdocular.com/findings/">
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="ThirdOcular">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What 200 public agent repositories declare, and what they do">
-<meta name="twitter:description" content="Of 4,435 tools observed across 200 public agent repositories, 102 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
+<meta name="twitter:description" content="Of 4,445 tools observed across 200 public agent repositories, 103 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
 </head>
@@ -29,7 +29,7 @@
   <p class="std-subtitle">A static scan of 200 permissively-licensed public agent
   repositories, at pinned commits, measured against ARS v1.0. No repository is named.</p>
   <div class="std-meta">
-    <span class="badge badge-version">corpus 6efc743e61c2</span>
+    <span class="badge badge-version">corpus 0aa06e40b633</span>
     <span class="badge badge-status">static analysis only</span>
   </div>
 </header>
@@ -39,15 +39,15 @@
 <p>Two hundred public agent repositories, selected by a rule written before the results were known,
 fetched at pinned commits, and read by the same instrument this site publishes. Nothing was executed.
 No repository is named.</p>
-<p><b>The short version.</b> Of 4,435 tools observed across the
-corpus, <b>102</b> — 2.3% — state anything at
-all about whether they change state. Of the 99 whose claim could be checked against
+<p><b>The short version.</b> Of 4,445 tools observed across the
+corpus, <b>103</b> — 2.3% — state anything at
+all about whether they change state. Of the 100 whose claim could be checked against
 their own implementation, <b>0</b> were found
 contradicting it. <b>The gap is not that declarations are wrong. It is that there are almost
 none.</b></p>
 <p><b>Read the headline carefully, because a zero is the easiest number on a page to misread.</b> It
 does not say that agent tools are safe. It says that in a corpus of
-4,435 tools, only 102
+4,445 tools, only 103
 made a statement specific enough to be checked at all — and that the ones that did were, by these
 deliberately conservative rules, keeping to it. The finding is the size of that denominator.</p>
 <p>That is the measurable version of the problem this standard exists for. An assurance argument
@@ -63,17 +63,17 @@ that comparison is mostly absent.</p>
     <span class="flag flag-S">headline</span>
   </div>
   <p class="finding-figure"><b>0.0%</b>
-    <span class="finding-frac">0 of 99 tools</span></p>
+    <span class="finding-frac">0 of 100 tools</span></p>
   <div class="std-counts finding-buckets">
     <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">observed present</span></div>
-    <div class="std-count"><span class="std-count-v">99</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count"><span class="std-count-v">100</span><span class="std-count-k">observed absent</span></div>
     <div class="std-count finding-noobs"><span class="std-count-v">3</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 3 not-observable cases.</b>
-    the tool asserts read-only and its body could not be read: the implementation is in a language this does not parse, the function could not be bounded without risking a neighbour&#39;s code, or the source line was not resolvable</p>
+    The tool asserts read-only and its body could not be read: the implementation is in a language this does not parse, the function could not be bounded without risking a neighbour&#39;s code, or the source line was not resolvable</p>
   
   <p class="std-note finding-zero"><b>A zero here is a measurement, not a reassurance.</b>
-    It says that of the 99 tools that made a checkable
+    It says that of the 100 tools that made a checkable
     claim, none was found breaking it <em>under these rules</em> — rules deliberately chosen to
     under-report: POST is not counted as a write, calls into helpers are not followed, and writes to
     caches, temp paths and logs are discounted. It is not a statement about the
@@ -82,7 +82,7 @@ that comparison is mostly absent.</p>
   <p class="std-field"><span class="std-field-k">provenance</span>
     <span class="std-field-v"><code>primary-contradiction-by-tool</code> in
     <a href="./aggregate.json">aggregate.json</a> — 0
-    + 99 + 3 references,
+    + 100 + 3 references,
     one per member of each bucket, as salted identifiers</span></p>
 </section>
 </section>
@@ -94,7 +94,7 @@ that comparison is mostly absent.</p>
   <div class="std-count"><span class="std-count-v">199</span><span class="std-count-k">assessed</span></div>
   <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">fetch failed</span></div>
   <div class="std-count"><span class="std-count-v">1</span><span class="std-count-k">scan failed</span></div>
-  <div class="std-count"><span class="std-count-v">4,435</span><span class="std-count-k">tools observed</span></div>
+  <div class="std-count"><span class="std-count-v">4,445</span><span class="std-count-k">tools observed</span></div>
 </div>
 <p><b>How it was built.</b> Fifteen GitHub topic queries — the frame is committed beside the data and
 was fixed before anything was measured. Every entry cleared 80 stars, is not a fork, is not archived,
@@ -160,26 +160,26 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     
   </div>
   <p class="finding-figure"><b>0.0%</b>
-    <span class="finding-frac">0 of 10 repositories</span></p>
+    <span class="finding-frac">0 of 11 repositories</span></p>
   <div class="std-counts finding-buckets">
     <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">observed present</span></div>
-    <div class="std-count"><span class="std-count-v">10</span><span class="std-count-k">observed absent</span></div>
-    <div class="std-count finding-noobs"><span class="std-count-v">190</span><span class="std-count-k">not observable</span></div>
+    <div class="std-count"><span class="std-count-v">11</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">189</span><span class="std-count-k">not observable</span></div>
   </div>
-  <p class="std-note"><b>The denominator excludes the 190 not-observable cases.</b>
-    no tool in the repository made a tier A or tier B read-only assertion that could be checked — either no tool was observed at all, none of the observed tools said anything about reading, or the bodies of those that did could not be read. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  <p class="std-note"><b>The denominator excludes the 189 not-observable cases.</b>
+    No tool in the repository made a tier A or tier B read-only assertion that could be checked — either no tool was observed at all, none of the observed tools said anything about reading, or the bodies of those that did could not be read. Plus: nothing was read for these repositories: 1 scan_failed.</p>
   
   <p class="std-note finding-zero"><b>A zero here is a measurement, not a reassurance.</b>
-    It says that of the 10 repositories that made a checkable
+    It says that of the 11 repositories that made a checkable
     claim, none was found breaking it <em>under these rules</em> — rules deliberately chosen to
     under-report: POST is not counted as a write, calls into helpers are not followed, and writes to
     caches, temp paths and logs are discounted. It is not a statement about the
-    190 that could not be checked, and it is not a statement about anything that
+    189 that could not be checked, and it is not a statement about anything that
     made no claim at all.</p>
   <p class="std-field"><span class="std-field-k">provenance</span>
     <span class="std-field-v"><code>primary-contradiction-by-repository</code> in
     <a href="./aggregate.json">aggregate.json</a> — 0
-    + 10 + 190 references,
+    + 11 + 189 references,
     one per member of each bucket, as salted identifiers</span></p>
 </section>
 <section class="std-entry finding" id="stat-tools-that-state-their-own-side-effects">
@@ -188,20 +188,20 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     
   </div>
   <p class="finding-figure"><b>2.3%</b>
-    <span class="finding-frac">102 of 4435 tools</span></p>
+    <span class="finding-frac">103 of 4445 tools</span></p>
   <div class="std-counts finding-buckets">
-    <div class="std-count"><span class="std-count-v">102</span><span class="std-count-k">observed present</span></div>
-    <div class="std-count"><span class="std-count-v">4333</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count"><span class="std-count-v">103</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">4342</span><span class="std-count-k">observed absent</span></div>
     <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 0 not-observable cases.</b>
-    none: whether a tool says anything about its own side effects is readable from the tool as observed, and does not depend on reading its body. Tools in repositories the adapters could not read at all are absent from this population entirely, which the coverage figures below account for.</p>
+    None: whether a tool says anything about its own side effects is readable from the tool as observed, and does not depend on reading its body. Tools in repositories the adapters could not read at all are absent from this population entirely, which the coverage figures below account for.</p>
   <p class="std-note finding-caveat">⚠️ A tool that states nothing is not thereby doing anything wrong. This measures the availability of a declaration to check an implementation against — not the quality of any implementation.</p>
   
   <p class="std-field"><span class="std-field-k">provenance</span>
     <span class="std-field-v"><code>tools-that-state-their-own-side-effects</code> in
-    <a href="./aggregate.json">aggregate.json</a> — 102
-    + 4333 + 0 references,
+    <a href="./aggregate.json">aggregate.json</a> — 103
+    + 4342 + 0 references,
     one per member of each bucket, as salted identifiers</span></p>
 </section>
 <section class="std-entry finding" id="stat-name-implies-read-contradiction-by-tool">
@@ -217,7 +217,7 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <div class="std-count finding-noobs"><span class="std-count-v">41</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 41 not-observable cases.</b>
-    the tool name implies a read and its body could not be read</p>
+    The tool name implies a read and its body could not be read</p>
   <p class="std-note finding-caveat">⚠️ A name is not a declaration. `fetch_` in HTTP code frequently means &quot;make a request&quot;, and a `get_` on a search client can legitimately POST. This is reported because excluding it entirely would hide what the looser reading would have produced, and it is EXCLUDED FROM THE HEADLINE for the same reason it is caveated here.</p>
   
   <p class="std-field"><span class="std-field-k">provenance</span>
@@ -231,21 +231,21 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <h3 class="std-entry-title">How many repositories register at least one tool that writes, sends, spends or deletes?</h3>
     
   </div>
-  <p class="finding-figure"><b>19.5%</b>
-    <span class="finding-frac">16 of 82 repositories</span></p>
+  <p class="finding-figure"><b>19.3%</b>
+    <span class="finding-frac">16 of 83 repositories</span></p>
   <div class="std-counts finding-buckets">
     <div class="std-count"><span class="std-count-v">16</span><span class="std-count-k">observed present</span></div>
-    <div class="std-count"><span class="std-count-v">66</span><span class="std-count-k">observed absent</span></div>
-    <div class="std-count finding-noobs"><span class="std-count-v">118</span><span class="std-count-k">not observable</span></div>
+    <div class="std-count"><span class="std-count-v">67</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count finding-noobs"><span class="std-count-v">117</span><span class="std-count-k">not observable</span></div>
   </div>
-  <p class="std-note"><b>The denominator excludes the 118 not-observable cases.</b>
-    no adapter observed any tool in the repository, so nothing can be said about what its tools do. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+  <p class="std-note"><b>The denominator excludes the 117 not-observable cases.</b>
+    No adapter observed any tool in the repository, so nothing can be said about what its tools do. Plus: nothing was read for these repositories: 1 scan_failed.</p>
   
   
   <p class="std-field"><span class="std-field-k">provenance</span>
     <span class="std-field-v"><code>posture.registers_a_send_capable_tool</code> in
     <a href="./aggregate.json">aggregate.json</a> — 16
-    + 66 + 118 references,
+    + 67 + 117 references,
     one per member of each bucket, as salted identifiers</span></p>
 </section>
 <section class="std-entry finding" id="stat-posture.sets_any_timeout">
@@ -261,7 +261,7 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <div class="std-count finding-noobs"><span class="std-count-v">4</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 4 not-observable cases.</b>
-    the reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+    The reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
   <p class="std-note finding-caveat">⚠️ Inferred from source and configuration text rather than from a declaration. A timeout set by a framework default, or a model pinned in a deployment manifest this scan never saw, would read as absent here.</p>
   
   <p class="std-field"><span class="std-field-k">provenance</span>
@@ -283,7 +283,7 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <div class="std-count finding-noobs"><span class="std-count-v">58</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 58 not-observable cases.</b>
-    the reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+    The reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
   <p class="std-note finding-caveat">⚠️ Inferred from source and configuration text rather than from a declaration. A timeout set by a framework default, or a model pinned in a deployment manifest this scan never saw, would read as absent here.</p>
   
   <p class="std-field"><span class="std-field-k">provenance</span>
@@ -305,7 +305,7 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <div class="std-count finding-noobs"><span class="std-count-v">4</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 4 not-observable cases.</b>
-    the reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
+    The reading of the repository was incomplete, or no model identifier was recognised at all. Plus: nothing was read for these repositories: 1 scan_failed.</p>
   <p class="std-note finding-caveat">⚠️ Inferred from source and configuration text rather than from a declaration. A timeout set by a framework default, or a model pinned in a deployment manifest this scan never saw, would read as absent here.</p>
   
   <p class="std-field"><span class="std-field-k">provenance</span>
@@ -319,21 +319,21 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <h3 class="std-entry-title">In how many repositories did any of the three adapters observe at least one tool?</h3>
     
   </div>
-  <p class="finding-figure"><b>41.2%</b>
-    <span class="finding-frac">82 of 199 repositories</span></p>
+  <p class="finding-figure"><b>41.7%</b>
+    <span class="finding-frac">83 of 199 repositories</span></p>
   <div class="std-counts finding-buckets">
-    <div class="std-count"><span class="std-count-v">82</span><span class="std-count-k">observed present</span></div>
-    <div class="std-count"><span class="std-count-v">117</span><span class="std-count-k">observed absent</span></div>
+    <div class="std-count"><span class="std-count-v">83</span><span class="std-count-k">observed present</span></div>
+    <div class="std-count"><span class="std-count-v">116</span><span class="std-count-k">observed absent</span></div>
     <div class="std-count finding-noobs"><span class="std-count-v">1</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 1 not-observable case.</b>
-    nothing was read for these repositories: 1 scan_failed</p>
+    Nothing was read for these repositories: 1 scan_failed</p>
   <p class="std-note finding-caveat">⚠️ An observed-absent here is a statement about the adapters, not about the repository. The three adapters read a documented pattern set; a repository defining its tools some other way is indistinguishable, to them, from a repository with no tools. This figure is published precisely so the headline can be read against it.</p>
   
   <p class="std-field"><span class="std-field-k">provenance</span>
     <span class="std-field-v"><code>coverage.any-tool-observed</code> in
-    <a href="./aggregate.json">aggregate.json</a> — 82
-    + 117 + 1 references,
+    <a href="./aggregate.json">aggregate.json</a> — 83
+    + 116 + 1 references,
     one per member of each bucket, as salted identifiers</span></p>
 </section>
 <section class="std-entry finding" id="stat-coverage.stack-is-readable">
@@ -349,7 +349,7 @@ percentage whose unreadable share is hidden is a statement about the instrument.
     <div class="std-count"><span class="std-count-v">0</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 0 not-observable cases.</b>
-    none: the primary language is metadata from the corpus frame and is known for every entry, whether or not the repository was ever fetched or scanned</p>
+    None: the primary language is metadata from the corpus frame and is known for every entry, whether or not the repository was ever fetched or scanned</p>
   
   
   <p class="std-field"><span class="std-field-k">provenance</span>
@@ -392,6 +392,7 @@ message, open an issue, or file an advisory, and none of it has network access.<
   <li>The corpus is popularity-weighted (every entry cleared 80 stars) and licence-gated. Both bias the sample toward more careful code, which is the conservative direction for a finding of this shape.</li>
   <li>Repository documentation was NOT used as a source of declared intent for the headline. A README describes a project; a contradiction has to be about a tool.</li>
   <li>A tool description asserting read-only is treated as a claim about that tool. It is not a contract, and no maintainer has agreed to be held to it.</li>
+  <li>The scan is not bit-identical between runs. Re-running it moved one repository&#39;s Python adapter between `unavailable` and `partial` — a subprocess resource limit on a very large tree under concurrent scanning — which moved the tool count by ten. The state is visible rather than silent (see adapter_outcomes below), and an unavailable adapter contributes not_observable rather than zero tools, but figures at this precision can shift slightly on a re-run.</li>
 </ul>
 <h3>What the instrument could not see</h3>
 <ul class="finding-limits">
@@ -410,7 +411,7 @@ has applied.</p>
   <p>Computed from a frozen aggregate. This page runs no scan and recomputes nothing; the artifact it
   renders ships beside it as <a href="./aggregate.json">aggregate.json</a>, with every figure's
   provenance in it.</p>
-  <p class="std-hash">aggregate 6efc743e61c2868a3a6400d9752aa5daed6ba6f64a463cef444ea05c5b9aa533</p>
+  <p class="std-hash">aggregate 0aa06e40b6339f7010e324f8021c7c05f06faa577c0bb3c251a7a1822e0e483c</p>
   <p class="std-hash">ARS v1.0 12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
 </footer>
 </main>

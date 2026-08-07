@@ -1,7 +1,7 @@
 {
   "artifact": "corpus-aggregate",
   "artifact_version": "0.1",
-  "scan_log_hash": "ba1687253ddf104608c70ec4a17d41684b0bc100b2a4604dbd2fd092882de3f5",
+  "scan_log_hash": "8606c5c49f2624255758be4f319b319faa2eaf98541883dd7cf7989a6cf0721f",
   "manifest_hash": "e256a271e7aea5b46d7734548bb77b8ceaadf7cf9c5b2bccea4feed277cc5979",
   "standard_hash": "12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c",
   "corpus": {
@@ -10,8 +10,8 @@
     "scan_failed": 1,
     "fetch_failed": 0,
     "not_in_corpus": 0,
-    "tools_observed": 4435,
-    "tool_readings_before_adapter_dedup": 4435,
+    "tools_observed": 4445,
+    "tool_readings_before_adapter_dedup": 4445,
     "adapter_conflicts_unresolved": 0,
     "repositories_by_language": {
       "Python": 106,
@@ -41,9 +41,9 @@
       },
       "python-source": {
         "ok": 73,
-        "partial": 78,
+        "partial": 79,
         "not_applicable": 46,
-        "unavailable": 2
+        "unavailable": 1
       },
       "typescript-source": {
         "ok": 64,
@@ -61,19 +61,20 @@
       "headline": true,
       "caveat": null,
       "numerator": 0,
-      "denominator": 99,
+      "denominator": 100,
       "share": 0,
       "denominator_excludes_not_observable": true,
       "buckets": {
         "observed_present": 0,
-        "observed_absent": 99,
+        "observed_absent": 100,
         "not_observable": 3
       },
       "not_observable_why": "the tool asserts read-only and its body could not be read: the implementation is in a language this does not parse, the function could not be bounded without risking a neighbour's code, or the source line was not resolvable",
-      "population_total": 102,
+      "population_total": 103,
       "provenance": {
         "observed_present": [],
         "observed_absent": [
+          "ref-3a5b99630148#tdffc2ddf8d",
           "ref-3d1fe30465c4#t44f9357f3e",
           "ref-62c532085d7c#t01df2c53d4",
           "ref-62c532085d7c#t044b79ac0c",
@@ -188,19 +189,20 @@
       "headline": false,
       "caveat": null,
       "numerator": 0,
-      "denominator": 10,
+      "denominator": 11,
       "share": 0,
       "denominator_excludes_not_observable": true,
       "buckets": {
         "observed_present": 0,
-        "observed_absent": 10,
-        "not_observable": 190
+        "observed_absent": 11,
+        "not_observable": 189
       },
       "not_observable_why": "no tool in the repository made a tier A or tier B read-only assertion that could be checked — either no tool was observed at all, none of the observed tools said anything about reading, or the bodies of those that did could not be read. Plus: nothing was read for these repositories: 1 scan_failed.",
       "population_total": 200,
       "provenance": {
         "observed_present": [],
         "observed_absent": [
+          "ref-3a5b99630148",
           "ref-3d1fe30465c4",
           "ref-62c532085d7c",
           "ref-6a7ebcee8114",
@@ -256,7 +258,6 @@
           "ref-397d231e4484",
           "ref-3a063310a860",
           "ref-3a4a21827f56",
-          "ref-3a5b99630148",
           "ref-3a79b21bee82",
           "ref-3b6aa51d51c1",
           "ref-3bb7ed2059fb",
@@ -412,20 +413,21 @@
       "unit": "tool",
       "headline": false,
       "caveat": "A tool that states nothing is not thereby doing anything wrong. This measures the availability of a declaration to check an implementation against — not the quality of any implementation.",
-      "numerator": 102,
-      "denominator": 4435,
-      "share": 0.022998872604284102,
+      "numerator": 103,
+      "denominator": 4445,
+      "share": 0.023172103487064118,
       "denominator_excludes_not_observable": true,
       "buckets": {
-        "observed_present": 102,
-        "observed_absent": 4333,
+        "observed_present": 103,
+        "observed_absent": 4342,
         "not_observable": 0
       },
       "not_observable_why": "none: whether a tool says anything about its own side effects is readable from the tool as observed, and does not depend on reading its body. Tools in repositories the adapters could not read at all are absent from this population entirely, which the coverage figures below account for.",
-      "population_total": 4435,
+      "population_total": 4445,
       "provenance": {
         "observed_present": [
           "ref-38be7e043421#t729d35488d",
+          "ref-3a5b99630148#tdffc2ddf8d",
           "ref-3d1fe30465c4#t44f9357f3e",
           "ref-62c532085d7c#t01df2c53d4",
           "ref-62c532085d7c#t044b79ac0c",
@@ -818,6 +820,15 @@
           "ref-3a063310a860#td82fad997a",
           "ref-3a063310a860#tdab3b2ffa6",
           "ref-3a063310a860#tf3f1c19e8d",
+          "ref-3a5b99630148#t00a898c162",
+          "ref-3a5b99630148#t04d7a1a152",
+          "ref-3a5b99630148#t206c843023",
+          "ref-3a5b99630148#t352a863855",
+          "ref-3a5b99630148#t7d6b32c825",
+          "ref-3a5b99630148#t9392c00b5b",
+          "ref-3a5b99630148#tcb846bcdff",
+          "ref-3a5b99630148#te75f8f5638",
+          "ref-3a5b99630148#tef544aa859",
           "ref-3a79b21bee82#tcf77c038ca",
           "ref-3a79b21bee82#tf9100eca49",
           "ref-3cebdad9de3d#t0e9d05f832",
@@ -5456,13 +5467,13 @@
       "headline": false,
       "caveat": null,
       "numerator": 16,
-      "denominator": 82,
-      "share": 0.1951219512195122,
+      "denominator": 83,
+      "share": 0.1927710843373494,
       "denominator_excludes_not_observable": true,
       "buckets": {
         "observed_present": 16,
-        "observed_absent": 66,
-        "not_observable": 118
+        "observed_absent": 67,
+        "not_observable": 117
       },
       "not_observable_why": "no adapter observed any tool in the repository, so nothing can be said about what its tools do. Plus: nothing was read for these repositories: 1 scan_failed.",
       "population_total": 200,
@@ -5504,6 +5515,7 @@
           "ref-31506cccb49c",
           "ref-397d231e4484",
           "ref-3a063310a860",
+          "ref-3a5b99630148",
           "ref-3a79b21bee82",
           "ref-3cebdad9de3d",
           "ref-3d1fe30465c4",
@@ -5575,7 +5587,6 @@
           "ref-3691e755c883",
           "ref-36930ebce929",
           "ref-3a4a21827f56",
-          "ref-3a5b99630148",
           "ref-3b6aa51d51c1",
           "ref-3bb7ed2059fb",
           "ref-3d8441f29106",
@@ -6359,13 +6370,13 @@
       "unit": "repository",
       "headline": false,
       "caveat": "An observed-absent here is a statement about the adapters, not about the repository. The three adapters read a documented pattern set; a repository defining its tools some other way is indistinguishable, to them, from a repository with no tools. This figure is published precisely so the headline can be read against it.",
-      "numerator": 82,
+      "numerator": 83,
       "denominator": 199,
-      "share": 0.4120603015075377,
+      "share": 0.41708542713567837,
       "denominator_excludes_not_observable": true,
       "buckets": {
-        "observed_present": 82,
-        "observed_absent": 117,
+        "observed_present": 83,
+        "observed_absent": 116,
         "not_observable": 1
       },
       "not_observable_why": "nothing was read for these repositories: 1 scan_failed",
@@ -6394,6 +6405,7 @@
           "ref-38be7e043421",
           "ref-397d231e4484",
           "ref-3a063310a860",
+          "ref-3a5b99630148",
           "ref-3a79b21bee82",
           "ref-3cebdad9de3d",
           "ref-3d1fe30465c4",
@@ -6477,7 +6489,6 @@
           "ref-3691e755c883",
           "ref-36930ebce929",
           "ref-3a4a21827f56",
-          "ref-3a5b99630148",
           "ref-3b6aa51d51c1",
           "ref-3bb7ed2059fb",
           "ref-3d8441f29106",
@@ -6812,7 +6823,8 @@
     "The three adapters read a documented pattern set. A repository that defines its tools some other way contributes a not_observable, and the coverage figures are published so this can be read against the headline.",
     "The corpus is popularity-weighted (every entry cleared 80 stars) and licence-gated. Both bias the sample toward more careful code, which is the conservative direction for a finding of this shape.",
     "Repository documentation was NOT used as a source of declared intent for the headline. A README describes a project; a contradiction has to be about a tool.",
-    "A tool description asserting read-only is treated as a claim about that tool. It is not a contract, and no maintainer has agreed to be held to it."
+    "A tool description asserting read-only is treated as a claim about that tool. It is not a contract, and no maintainer has agreed to be held to it.",
+    "The scan is not bit-identical between runs. Re-running it moved one repository's Python adapter between `unavailable` and `partial` — a subprocess resource limit on a very large tree under concurrent scanning — which moved the tool count by ten. The state is visible rather than silent (see adapter_outcomes below), and an unavailable adapter contributes not_observable rather than zero tools, but figures at this precision can shift slightly on a re-run."
   ],
   "anonymised_examples": [],
   "detector_blind_spots": [
@@ -6834,7 +6846,7 @@
     }
   ],
   "volatile": {
-    "computed_at": "2026-08-06T23:43:19.160Z"
+    "computed_at": "2026-08-07T00:13:35.880Z"
   },
-  "canonical_hash": "6efc743e61c2868a3a6400d9752aa5daed6ba6f64a463cef444ea05c5b9aa533"
+  "canonical_hash": "0aa06e40b6339f7010e324f8021c7c05f06faa577c0bb3c251a7a1822e0e483c"
 }
