@@ -225,7 +225,9 @@
         <div class="section-grid">
           <span class="label reveal">02&ensp;·&ensp;Products</span>
           <div class="signals-body">
-            <p class="signals-intro reveal">Our first product is live.</p>
+            <p class="signals-intro reveal">Two properties, both live. One publishes standards for
+            what a product page has to be able to answer; the other, for what an AI agent has to be
+            able to say about itself.</p>
 
             <!--
               ⚠️ The rendered text of .signal-kind, .signal-desc and .signal-capability is
@@ -263,6 +265,41 @@
               </span>
               <span class="signal-cta">Open AisleLens&ensp;<span class="arrow" aria-hidden="true">↗</span></span>
             </a>
+
+            <!--
+              ⚠️ PRIVI'S SPANS ARE .prop-*, NOT .signal-*, AND THAT IS LOAD-BEARING.
+              scripts/check-copy.mjs finds the three gated spans by exact class token and
+              compares the FIRST match against lens.thirdocular.com/api/brand.json. Giving
+              this block the same class names would make which product the gate checks
+              depend on the order the two blocks happen to sit in. src/style.css styles
+              .prop-* identically to .signal-*.
+
+              PRIVI's copy is local rather than gated: it has no equivalent endpoint — the
+              site is a static bundle built from a private repository. Nothing here quotes
+              one of its measured figures, so there is nothing on this page that can
+              silently disagree with a measurement.
+            -->
+            <a class="signal reveal" href="https://privi.thirdocular.com">
+              <span class="signal-no">002</span>
+              <span class="signal-main">
+                <span class="signal-name"
+                  >PRIVI<span class="signal-live"><span class="live-dot"></span>Live</span></span
+                >
+                <span class="prop-kind">Production readiness for agentic systems</span>
+                <span class="prop-desc"
+                  >An AI agent should be able to state what it is allowed to do. PRIVI publishes the
+                  checks it has to pass before production, in full, and the tooling that compares what
+                  a team says its agent may do against what its code actually does — then says, for
+                  each release, which approvals stopped being valid and which still hold.</span
+                >
+                <span class="prop-capability"
+                  >Every check published, with a content hash&nbsp;· What the declaration says vs.
+                  what the code does&nbsp;· What each release breaks, and what it costs to
+                  re-approve</span
+                >
+              </span>
+              <span class="signal-cta">Open PRIVI&ensp;<span class="arrow" aria-hidden="true">↗</span></span>
+            </a>
           </div>
         </div>
       </section>
@@ -287,17 +324,20 @@
           <span>ThirdOcular</span>
         </div>
         <!--
-          /ars and /consulting are static pages built in the ARS repository and
-          copied into public/ by `npm run emit` there. They are linked from here
-          because a page nothing links to is published in name only. This nav is
-          the ONLY part of this file that knows about them: the emit script
-          refuses to touch index.html, src/ or config, so nothing outside these
-          two lines can be changed by a copy from another repository.
+          The Agent Readiness Standard now has its own property at
+          privi.thirdocular.com (ADR 008 in the ARS repository), so the footer
+          points there rather than at /ars and /consulting.
+
+          ⚠️ THOSE TWO PATHS STILL RESOLVE and the files under public/ are
+          deliberately left in place: they are published addresses that exist in
+          sent email. They are simply no longer the canonical home, and nothing
+          links to them from here. Retiring them is a separate decision, and the
+          emit that wrote them is still the one thing that may touch public/ —
+          it refuses to touch index.html, src/ or config.
         -->
         <nav class="foot-nav" aria-label="Footer">
           <a href="https://lens.thirdocular.com">AisleLens</a>
-          <a href="/ars">Agent Readiness Standard</a>
-          <a href="/consulting">Assessment</a>
+          <a href="https://privi.thirdocular.com">PRIVI</a>
           <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
         </nav>
       </div>

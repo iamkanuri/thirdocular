@@ -116,6 +116,14 @@ a {
   opacity: 1;
 }
 
+/* ⚠️ .prop-* MIRRORS .signal-* AND EXISTS ONLY BECAUSE OF THE COPY GATE.
+   scripts/check-copy.mjs locates the three gated spans by exact class token and
+   uses the FIRST match in the document. AisleLens's copy is shared content
+   compared against lens.thirdocular.com/api/brand.json on every build; PRIVI's
+   is local. Giving the second product the same class names would make which
+   product the gate checks depend on the order the two blocks happen to appear
+   in — so the second product gets its own names and the same styling. */
+
 /* ============ header ============ */
 
 .site-head {
@@ -479,7 +487,8 @@ section {
   }
 }
 
-.signal-kind {
+.signal-kind,
+.prop-kind {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -490,7 +499,8 @@ section {
   margin-top: 0.7rem;
 }
 
-.signal-desc {
+.signal-desc,
+.prop-desc {
   display: block;
   font-size: 1rem;
   line-height: 1.5;
@@ -499,7 +509,8 @@ section {
   max-width: 30rem;
 }
 
-.signal-capability {
+.signal-capability,
+.prop-capability {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
