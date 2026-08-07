@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ThirdOcular — standards, and the tooling that tests against them</title>
+    <title>ThirdOcular — Practical tools for decisions shaped by AI</title>
     <meta
       name="description"
-      content="ThirdOcular publishes written standards and the tooling that measures real systems against them, requirement by requirement, with the evidence attached. Two properties: AisleLens for AI commerce, PRIVI for agentic systems going into production."
+      content="ThirdOcular builds instruments for decisions shaped by AI. Its first product, AisleLens, publishes versioned buying standards for a category and runs them as tests against a store's real product pages."
     />
     <link rel="canonical" href="https://thirdocular.com/" />
-    <meta name="theme-color" content="#f7f5f1" />
+    <meta name="theme-color" content="#1B2131" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -18,27 +18,27 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ThirdOcular" />
-    <meta property="og:title" content="ThirdOcular — standards, and the tooling that tests against them" />
+    <meta property="og:title" content="ThirdOcular — Practical tools for decisions shaped by AI" />
     <meta
       property="og:description"
-      content="Written standards, published in full, and the tooling that checks a real system against them requirement by requirement, with the evidence that decided each one."
+      content="Written standards for what a category's buyers need to know, and tests that check a real page against them, requirement by requirement."
     />
     <meta property="og:url" content="https://thirdocular.com/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://thirdocular.com/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="ThirdOcular — standards, and the tooling that tests against them" />
+    <meta property="og:image:alt" content="ThirdOcular — Practical tools for decisions shaped by AI" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ThirdOcular — standards, and the tooling that tests against them" />
+    <meta name="twitter:title" content="ThirdOcular — Practical tools for decisions shaped by AI" />
     <meta
       name="twitter:description"
-      content="Written standards, published in full, and the tooling that checks a real system against them requirement by requirement, with the evidence that decided each one."
+      content="Written standards for what a category's buyers need to know, and tests that check a real page against them, requirement by requirement."
     />
     <meta name="twitter:image" content="https://thirdocular.com/og.png" />
-    <meta name="twitter:image:alt" content="ThirdOcular — standards, and the tooling that tests against them" />
+    <meta name="twitter:image:alt" content="ThirdOcular — Practical tools for decisions shaped by AI" />
 
     <script type="application/ld+json">
       {
@@ -47,15 +47,18 @@
         "name": "ThirdOcular",
         "url": "https://thirdocular.com",
         "email": "contact@thirdocular.com",
-        "description": "ThirdOcular publishes written standards and the tooling that measures real systems against them, requirement by requirement, with the evidence attached.",
-        "subOrganization": [
-          { "@type": "Organization", "name": "AisleLens", "url": "https://lens.thirdocular.com" },
-          { "@type": "Organization", "name": "PRIVI", "url": "https://privi.thirdocular.com" }
-        ]
+        "description": "ThirdOcular builds instruments for decisions shaped by AI. Its first product, AisleLens, publishes versioned buying standards for a category and runs them as tests against a store's real product pages."
       }
     </script>
 
     <link rel="preload" as="font" type="font/woff2" href="fonts/geist-latin.woff2" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/instrumentserif-italic-latin.woff2"
+      crossorigin
+    />
     <link rel="preload" as="font" type="font/woff2" href="fonts/geistmono-latin.woff2" crossorigin />
     <style>
       /* Self-hosted fonts — no third-party requests, no swap flash. */
@@ -99,10 +102,34 @@
           U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
           U+2113, U+2C60-2C7F, U+A720-A7FF;
       }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(fonts/instrumentserif-italic-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(fonts/instrumentserif-italic-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+          U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+          U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
     </style>
     <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
   </head>
   <body>
+    <div class="lens-clarity" aria-hidden="true"></div>
     <header class="site-head">
       <a class="glyph-link" href="/" aria-label="ThirdOcular home">
         <svg class="glyph" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -115,109 +142,170 @@
     </header>
 
     <main>
-      <!-- ================= WHAT WE PUBLISH ================= -->
-      <h1 class="wordmark">ThirdOcular</h1>
-      <p class="lede">
-        We publish written standards, and the tooling that measures a real system against them —
-        requirement by requirement, with the evidence that decided each one.
-      </p>
-      <p class="lede lede-sub">
-        Both standards are published in full, with a content hash, so a result cites a specific text
-        rather than a version number. Both say plainly what they cannot establish.
-      </p>
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="iris-wrap" aria-hidden="true">
+          <div class="horizon"></div>
+          <div class="iris-glow"></div>
+          <svg class="iris" viewBox="0 0 320 320" width="320" height="320">
+            <!-- instrument ticks -->
+            <g class="ticks" stroke="rgba(123,155,199,0.40)" stroke-width="1">
+              <line x1="160" y1="6" x2="160" y2="14" />
+              <line x1="160" y1="306" x2="160" y2="314" />
+              <line x1="6" y1="160" x2="14" y2="160" />
+              <line x1="306" y1="160" x2="314" y2="160" />
+            </g>
+            <!-- outer ring -->
+            <circle cx="160" cy="160" r="140" fill="none" stroke="rgba(123,155,199,0.20)" stroke-width="1" />
+            <!-- slow rotating arc -->
+            <circle
+              class="arc"
+              cx="160"
+              cy="160"
+              r="104"
+              fill="none"
+              stroke="rgba(123,155,199,0.32)"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-dasharray="480 173.4"
+            />
+            <!-- fine dashed inner ring, counter-rotating -->
+            <circle
+              class="ring-dashed"
+              cx="160"
+              cy="160"
+              r="68"
+              fill="none"
+              stroke="rgba(123,155,199,0.30)"
+              stroke-width="1"
+              stroke-dasharray="1 7"
+            />
+            <!-- pupil -->
+            <circle cx="160" cy="160" r="14" fill="rgba(203,216,228,0.08)" />
+            <circle cx="160" cy="160" r="2.8" fill="#CBD8E4" />
+            <!-- orbiting point of light -->
+            <g class="orbit">
+              <circle r="5" fill="rgba(203,216,228,0.20)" />
+              <circle r="1.8" fill="#CBD8E4" />
+              <animateMotion
+                dur="32s"
+                repeatCount="indefinite"
+                path="M 160 20 A 140 140 0 1 1 159.9 20 Z"
+              />
+            </g>
+          </svg>
+        </div>
 
-      <!-- ================= THE TWO PROPERTIES ================= -->
-      <div class="properties">
-        <!--
-          ⚠️ The rendered text of .signal-kind, .signal-desc and .signal-capability is
-          SHARED CONTENT, not local copy. It must decode + whitespace-collapse to exactly
-          PRODUCT_KIND / PRODUCT_DESCRIPTION / PRODUCT_CAPABILITIES, which lens.thirdocular.com
-          serves at GET /api/brand.json. `npm run build` runs scripts/check-copy.mjs and
-          refuses to deploy on a mismatch.
+        <h1 class="wordmark">ThirdOcular</h1>
+        <p class="tagline">Practical tools for decisions shaped by AI.</p>
 
-          This block already drifted once, by ONE WORD ("pass" where the product says
-          "proven"), and v3.2 audited both sites and passed them — every check it ran was an
-          ABSENCE sweep, and an absence check cannot see a paragraph that sells the wrong
-          product. It can only see words that are gone.
+        <div class="scroll-cue" aria-hidden="true"></div>
+      </section>
 
-          The apostrophes here are ASCII U+0027, not the typographic ’ used elsewhere on this
-          page, because the served constants are. Do not "fix" them: the comparison is on
-          decoded characters, so a curly quote fails the build.
+      <!-- ================= WHAT WE BUILD ================= -->
+      <section class="philosophy" id="philosophy">
+        <div class="section-grid">
+          <span class="label reveal">01&ensp;·&ensp;What we build</span>
+          <div class="philosophy-copy">
+            <p class="lede reveal">
+              More of what people buy is now filtered by software that reads the page on their
+              behalf. It works only from what the page actually states.
+            </p>
+            <p class="lede lede-strong reveal">
+              ThirdOcular builds instruments for that: written standards for what a category’s
+              buyers need to know, and tests that check a real page against them, requirement by
+              requirement, with the evidence attached.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          ⚠️ THE CLASS NAMES ARE THE GATE'S SELECTORS. check-copy.mjs finds these three spans
-          by class. They kept their `signal-*` names through this redesign for that reason —
-          renaming them to match the new `property-*` block would make the gate report
-          INCOMPLETE, which stops the build rather than failing open, but stops it for a
-          reason that has nothing to do with the copy.
-        -->
-        <a class="property" href="https://lens.thirdocular.com">
-          <span class="property-no">001</span>
-          <span class="property-body">
-            <span class="property-name"
-              >AisleLens<span class="property-live"><span class="live-dot"></span>Live</span></span
-            >
-            <span class="property-kind signal-kind">Buying standards, published and run as tests</span>
-            <span class="property-desc signal-desc"
-              >A buying standard is the set of questions a competent buyer asks in a category,
-              written down, versioned, and executable. AisleLens publishes them, then runs them
-              against a store's real product pages — reporting every requirement as proven, not
-              proven, or requires store access, with the evidence that decided it.</span
-            >
-            <span class="property-capability signal-capability"
-              >Versioned standards, published in full&nbsp;· Run against a store's public
-              product pages&nbsp;· Per-requirement results with the evidence</span
-            >
-            <span class="property-go">lens.thirdocular.com&ensp;<span class="arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
+      <!-- ================= PRODUCTS ================= -->
+      <section class="signals" id="signals">
+        <div class="section-grid">
+          <span class="label reveal">02&ensp;·&ensp;Products</span>
+          <div class="signals-body">
+            <p class="signals-intro reveal">Our first product is live.</p>
 
-        <!--
-          ⚠️ PRIVI'S COPY IS NOT GATED, AND THAT ASYMMETRY IS DELIBERATE FOR NOW.
-          The AisleLens block above is compared against a live endpoint on every build because
-          those two surfaces drifted once. PRIVI has no equivalent endpoint — its site is a
-          static bundle generated from a private repository, with no server to ask. The
-          protection there is different in kind: every figure on privi.thirdocular.com is
-          rendered from a frozen artifact that ships beside the page, and its own build refuses
-          to publish a number that is typed rather than read. Nothing here quotes one of those
-          figures, so there is nothing on this page that can silently disagree with a
-          measurement.
-        -->
-        <a class="property" href="https://privi.thirdocular.com">
-          <span class="property-no">002</span>
-          <span class="property-body">
-            <span class="property-name"
-              >PRIVI<span class="property-live"><span class="live-dot"></span>Live</span></span
-            >
-            <span class="property-kind">Production readiness for agentic systems</span>
-            <span class="property-desc"
-              >An AI agent should be able to state what it is allowed to do. PRIVI publishes the
-              checks it has to pass before production, in full, and the tooling that compares what
-              a team says its agent may do against what its code actually does — then says, for
-              each release, which approvals stopped being valid and which still hold.</span
-            >
-            <span class="property-capability"
-              >Every check published, with a content hash&nbsp;· What the declaration says vs. what
-              the code does&nbsp;· What each release breaks, and what it costs to re-approve</span
-            >
-            <span class="property-go">privi.thirdocular.com&ensp;<span class="arrow" aria-hidden="true">↗</span></span>
-          </span>
-        </a>
-      </div>
+            <!--
+              ⚠️ The rendered text of .signal-kind, .signal-desc and .signal-capability is
+              SHARED CONTENT, not local copy. It must decode + whitespace-collapse to exactly
+              PRODUCT_KIND / PRODUCT_DESCRIPTION / PRODUCT_CAPABILITIES, which lens.thirdocular.com
+              serves at GET /api/brand.json. `npm run build` runs scripts/check-copy.mjs and
+              refuses to deploy on a mismatch.
 
-      <!-- ================= CONTACT ================= -->
+              This block already drifted once, by ONE WORD ("pass" where the product says
+              "proven"), and v3.2 audited both sites and passed them — every check it ran was an
+              ABSENCE sweep, and an absence check cannot see a paragraph that sells the wrong
+              product. It can only see words that are gone.
+
+              The apostrophes here are ASCII U+0027, not the typographic ’ used elsewhere on this
+              page, because the served constants are. Do not "fix" them: the comparison is on
+              decoded characters, so a curly quote fails the build.
+            -->
+            <a class="signal reveal" href="https://lens.thirdocular.com">
+              <span class="signal-no">001</span>
+              <span class="signal-main">
+                <span class="signal-name"
+                  >AisleLens<span class="signal-live"><span class="live-dot"></span>Live</span></span
+                >
+                <span class="signal-kind">Buying standards, published and run as tests</span>
+                <span class="signal-desc"
+                  >A buying standard is the set of questions a competent buyer asks in a category,
+                  written down, versioned, and executable. AisleLens publishes them, then runs them
+                  against a store's real product pages — reporting every requirement as proven, not
+                  proven, or requires store access, with the evidence that decided it.</span
+                >
+                <span class="signal-capability"
+                  >Versioned standards, published in full&nbsp;· Run against a store's public
+                  product pages&nbsp;· Per-requirement results with the evidence</span
+                >
+              </span>
+              <span class="signal-cta">Open AisleLens&ensp;<span class="arrow" aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CLOSING ================= -->
       <section class="closing">
-        <p class="closing-line">We publish what we cannot test, and why.</p>
-        <a class="closing-contact" href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
+        <p class="closing-line reveal">We publish what we cannot test, and why.</p>
+        <a class="closing-contact reveal" href="mailto:contact@thirdocular.com"
+          >contact@thirdocular.com</a
+        >
       </section>
     </main>
 
     <footer class="site-foot">
-      <span>© 2026 ThirdOcular</span>
-      <nav class="foot-nav" aria-label="Footer">
-        <a href="https://lens.thirdocular.com">AisleLens</a>
-        <a href="https://privi.thirdocular.com">PRIVI</a>
-        <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
-      </nav>
+      <div class="foot-top">
+        <div class="foot-brand">
+          <svg class="glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
+            <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+            <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
+          </svg>
+          <span>ThirdOcular</span>
+        </div>
+        <!--
+          /ars and /consulting are static pages built in the ARS repository and
+          copied into public/ by `npm run emit` there. They are linked from here
+          because a page nothing links to is published in name only. This nav is
+          the ONLY part of this file that knows about them: the emit script
+          refuses to touch index.html, src/ or config, so nothing outside these
+          two lines can be changed by a copy from another repository.
+        -->
+        <nav class="foot-nav" aria-label="Footer">
+          <a href="https://lens.thirdocular.com">AisleLens</a>
+          <a href="/ars">Agent Readiness Standard</a>
+          <a href="/consulting">Assessment</a>
+          <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 ThirdOcular</span>
+      </div>
     </footer>
+
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
