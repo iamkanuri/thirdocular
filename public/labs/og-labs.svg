@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="ThirdOcular Labs">
+  <!--
+    Abstract OG card for the Labs index. Generated marks only: an instrument
+    dial resolving out of a measured grid. No raster source, no photograph.
+  -->
+  <defs>
+    <radialGradient id="ground" cx="50%" cy="-8%" r="88%">
+      <stop offset="0%" stop-color="#232b3d" />
+      <stop offset="65%" stop-color="#1b2131" />
+    </radialGradient>
+    <radialGradient id="halo" cx="76%" cy="52%" r="40%">
+      <stop offset="0%" stop-color="#7cc5bc" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#7cc5bc" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ground)" />
+  <rect width="1200" height="630" fill="url(#halo)" />
+
+  <g transform="translate(910, 315)">
+    <circle r="200" fill="none" stroke="#4f6890" stroke-opacity="0.2" stroke-width="1" />
+    <circle r="148" fill="none" stroke="#4f6890" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="480 173" />
+    <circle r="96" fill="none" stroke="#7cc5bc" stroke-opacity="0.28" stroke-width="1" stroke-dasharray="1 7" />
+    <circle r="18" fill="#7cc5bc" fill-opacity="0.08" />
+    <circle r="4" fill="#7cc5bc" />
+    <g stroke="#7b9bc7" stroke-opacity="0.4" stroke-width="1">
+      <line x1="0" y1="-212" x2="0" y2="-196" /><line x1="0" y1="196" x2="0" y2="212" />
+      <line x1="-212" y1="0" x2="-196" y2="0" /><line x1="196" y1="0" x2="212" y2="0" />
+    </g>
+    <circle cx="141" cy="-141" r="6" fill="#cbd8e4" fill-opacity="0.22" />
+    <circle cx="141" cy="-141" r="2.4" fill="#cbd8e4" />
+  </g>
+
+  <g transform="translate(88, 84)" stroke="#cbd8e4" fill="none">
+    <circle cx="12" cy="12" r="8.5" stroke-width="1" opacity="0.9" />
+    <circle cx="12" cy="12" r="1.6" fill="#cbd8e4" stroke="none" />
+    <circle cx="18" cy="6" r="1" fill="#cbd8e4" stroke="none" opacity="0.9" />
+  </g>
+  <text x="124" y="101" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="19" fill="#8a97ab" letter-spacing="3.4">THIRDOCULAR</text>
+
+  <text x="88" y="290" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="96" font-weight="200" fill="#cbd8e4" letter-spacing="-2.5">Labs</text>
+
+  <text x="88" y="362" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">Instruments built for ourselves</text>
+  <text x="88" y="406" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">first, with the numbers showing.</text>
+
+  <line x1="88" y1="464" x2="520" y2="464" stroke="#4f6890" stroke-opacity="0.4" stroke-width="1" />
+
+  <text x="88" y="508" font-family="ui-monospace, 'Cascadia Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#8a97ab" letter-spacing="1.4">We measure before we trust.</text>
+</svg>
