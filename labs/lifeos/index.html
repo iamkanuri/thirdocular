@@ -165,7 +165,7 @@
                 <path d="M92 300 L136 304" /><path d="M770 330 L600 220" />
                 <path d="M762 212 L600 220" /><path d="M620 380 L360 312" />
               </g>
-              <g stroke="rgba(124,197,188,0.5)" stroke-width="1.2" fill="none">
+              <g stroke="rgba(124,197,188,0.62)" stroke-width="1.3" fill="none">
                 <path d="M208 184 L136 304" /><path d="M208 184 L120 72" />
                 <path d="M208 184 L280 52" /><path d="M208 184 L424 168" />
                 <path d="M208 184 L584 68" /><path d="M208 184 L360 312" />
@@ -188,7 +188,7 @@
                   <text x="220" y="188">Person 01</text>
                   <text x="148" y="308">Person 02</text>
                 </g>
-                <g fill="#8a97ab">
+                <g fill="#a3b1c4">
                   <text x="132" y="76">Employer</text>
                   <text x="292" y="56">Home A</text>
                   <text x="436" y="172">Home B</text>
@@ -224,22 +224,20 @@
               <span class="idx">i</span>
               <h3>The records exist. The understanding does not.</h3>
               <p>
-                A family's history is already written down. It is written down in three mailboxes,
-                several drives, two photo libraries, a laptop, and the dumps of the laptops before
-                it. Every one of those accounts is owned by a company that indexes it for its own
-                purposes, and none of them know the others exist. The information is not missing.
-                It is unreconciled.
+                A family's history is already written down: in three mailboxes, several drives,
+                two photo libraries, and the dumps of every laptop that came before this one. Each
+                account is indexed by a company for its own purposes, and none of them know the
+                others exist. The information is not missing. It is unreconciled.
               </p>
             </div>
             <div class="thesis-col reveal">
               <span class="idx">ii</span>
               <h3>One model, held locally.</h3>
               <p>
-                LifeOS reads those sources and builds a single model above them: people, places,
-                events, properties, institutions, documents, obligations, tax years. Twenty files
-                that are one document become one document with twenty pieces of provenance. The
-                model is cross referenced, versioned, and correctable by a human, and it lives on
-                hardware its subject owns.
+                LifeOS reads those sources and builds one model above them: people, places,
+                events, documents, obligations. Twenty files that are one document become one
+                document with twenty pieces of provenance. The model is cross referenced,
+                correctable by a human, and lives on hardware its subject owns.
               </p>
             </div>
             <div class="thesis-col reveal">
@@ -250,11 +248,10 @@
                      dated honestly and the two disagreed. On a page whose thesis
                      includes contradiction detection, that is not a sentence to
                      leave standing. The ambition is years. The work is weeks. -->
-                This is a personal experiment on one family's archive, built in public and still
-                early: the ambition is measured in years, the work so far in weeks. Two layers run
-                today and are measured. The reasoning layer above them is design work with
-                prototypes behind it, and is labelled that way everywhere on this page. Nothing
-                here is a product, and there is nothing to sign up for.
+                A personal experiment on one family's archive, built in public and still early:
+                the ambition is measured in years, the work so far in weeks. Two layers run today
+                and are measured. The reasoning layer above them is design work, labelled that way
+                everywhere on this page. Nothing here is a product.
               </p>
             </div>
           </div>
@@ -441,79 +438,48 @@
 
           <div class="figure-run" style="margin-top: clamp(2.8rem, 7vh, 4.2rem)">
             <div class="figure reveal">
-              <div class="figure-n">89,569<small>Fragments cataloged</small></div>
+              <div class="figure-n">77,078 &#8594; 45,325<small>Files into real photographs</small></div>
               <p class="figure-t">
-                77,078 photo and file records across eight sources, plus 12,491 document occurrences
-                across seven more. Every one of them is a claim about something, and almost none of
-                them are unique.
+                Eight photo sources reconciled into one set. Checksums counted 56,943 unique
+                files; perceptual hashing found roughly 45,325 photographs that actually exist.
+                <strong>The collection was smaller, and more precious, than the byte count
+                claimed.</strong>
               </p>
             </div>
 
             <div class="figure reveal">
               <div class="figure-n">12,491 &#8594; 7,703<small>Occurrences into logical documents</small></div>
               <p class="figure-t">
-                <strong>Twelve thousand scattered occurrences became seven thousand seven hundred
-                logical records.</strong> The same tax document arriving as an attachment, saved to a
-                drive, re-saved by a spouse, and scanned again years later is one document with four
-                pieces of provenance, not four documents.
-              </p>
-            </div>
-
-            <div class="figure reveal">
-              <div class="figure-n">6,884<small>Clusters checksums could not see</small></div>
-              <p class="figure-t">
-                Visual duplicate groups whose members have different bytes and identical content: a
-                recompressed copy sitting beside its original. Collapsing them refined 56,943
-                checksum-unique files down to roughly <strong>45,325 photographs that actually
-                exist</strong>. The collection was smaller, and more precious, than the byte count
-                claimed.
+                The same tax document arriving as an attachment, saved to a drive, re-saved by a
+                spouse, and scanned again years later is <strong>one document with four pieces of
+                provenance</strong>, not four documents.
               </p>
             </div>
 
             <div class="figure reveal">
               <div class="figure-n">164.8 GB<small>Redundant, and still on disk</small></div>
               <p class="figure-t">
-                Identified, marked, reported, and left exactly where it was. The analysis is
-                marks-only. <strong>Nothing in the pipeline has ever deleted an original</strong>,
-                and no part of it is permitted to.
+                Identified, marked, reported, and left exactly where it was. <strong>Nothing in
+                the pipeline has ever deleted an original</strong>, and no part of it is permitted
+                to.
               </p>
             </div>
 
             <div class="figure reveal">
               <div class="figure-n">890 &middot; 18,369<small>Entities and document links</small></div>
               <p class="figure-t">
-                The graph that makes the rest possible. Every link is a typed edge between a document
-                and something in the world, which is what allows a question about a person, a year or
-                an institution to be answered without a filename ever being involved.
-              </p>
-            </div>
-
-            <div class="figure reveal">
-              <div class="figure-n">3,678<small>Documents recovered by OCR</small></div>
-              <p class="figure-t">
-                Records that existed only as photographs of paper. Alongside them,
-                <strong>11 extraction failures recorded as failures</strong>, because a document that
-                could not be read is a different thing from a document that is not there, and
-                collapsing the two would corrupt every conclusion about absence.
-              </p>
-            </div>
-
-            <div class="figure reveal">
-              <div class="figure-n">9,275 &middot; 35,344<small>Messages scanned, attachments triaged</small></div>
-              <p class="figure-t">
-                Three mailboxes read with a read-only OAuth scope, from which 10,879 attachments were
-                worth fetching and the rest were cataloged and left alone. Knowing that a thing exists
-                is often the whole job.
+                The graph that makes the rest possible. Typed links between documents and the
+                world are what let a question about a person, a year or an institution be answered
+                <strong>without a filename ever being involved</strong>.
               </p>
             </div>
 
             <div class="figure reveal">
               <div class="figure-n">23<small>Records that should exist and do not</small></div>
               <p class="figure-t">
-                Across fifteen monitored record series, six show breaks in a pattern that had been
-                regular for years. <strong>Nobody asked for those records.</strong> The system worked
-                out what a complete series looks like and reported the holes, which is the first thing
-                on this page that search cannot do.
+                Found across fifteen monitored record series. <strong>Nobody asked for those
+                records.</strong> The system worked out what a complete series looks like and
+                reported the holes, which is the first thing on this page that search cannot do.
               </p>
             </div>
           </div>
@@ -538,13 +504,13 @@
               </p>
               <ul class="caps">
                 <li>Multi-source dedup by checksum and by perceptual hash, with one canonical copy chosen per cluster</li>
-                <li>Face detection and clustering into people, with a human review loop that outranks the model</li>
+                <li>Face detection and clustering into people: one person seen in thousands of photos leaves thousands of face appearances, and a human review loop names and corrects the result</li>
                 <li>Offline reverse geocoding, home and trip detection, and semantic search over image embeddings</li>
               </ul>
               <div class="stat-row">
                 <div><span class="s">77,078</span><span class="k">Files, 8 sources</span></div>
                 <div><span class="s">~45,325</span><span class="k">Distinct photos</span></div>
-                <div><span class="s">53,780</span><span class="k">Faces detected</span></div>
+                <div><span class="s">53,780</span><span class="k">Face appearances</span></div>
               </div>
               <p class="pull">
                 Perceptual hashing found the collection was smaller, and more precious, than the byte
@@ -588,9 +554,8 @@
 
           <div class="mission-note reveal">
             A Mission is a continuing responsibility evaluated against changing evidence. Not a
-            prompt. Not a search. It has a state, it survives restarts, and its answer changes when
-            the world does rather than when someone asks again. Every example below uses synthetic
-            entities.
+            prompt. Not a search. It keeps its state, stays open, and re-evaluates itself when the
+            evidence changes. Every example below is synthetic.
           </div>
 
           <!-- Interactive B: the mission state machine. -->
@@ -636,16 +601,15 @@
             </div>
           </div>
 
-          <div class="missions reveal" style="margin-top: clamp(2rem, 5vh, 3rem)">
-            <article class="mission">
+          <div class="missions" style="margin-top: clamp(2rem, 5vh, 3rem)">
+            <article class="mission reveal">
               <span class="m-no">M01</span>
               <h3>Tax readiness</h3>
               <p class="q">Am I actually ready to file?</p>
               <p>
-                The graph knows what evidence a tax year is supposed to produce and compares it
-                against what has actually been observed. Readiness becomes an evidence-completeness
-                score with a list of specific holes behind it, rather than a checklist somebody
-                remembered to update.
+                The graph knows what evidence a tax year should produce and compares it to what
+                has been observed. Readiness becomes a completeness score with the specific holes
+                listed behind it.
               </p>
               <div class="states">
                 <span class="s on">Expected</span><span class="sep">&#8594;</span>
@@ -655,14 +619,14 @@
               </div>
             </article>
 
-            <article class="mission">
+            <article class="mission reveal">
               <span class="m-no">M02</span>
               <h3>Records continuity</h3>
               <p class="q">What should still exist, but disappeared?</p>
               <p>
-                Documentary patterns that recur on their own schedule get monitored for breaks. A
-                series that arrived every year for six years and then stopped is a finding, not an
-                absence of results. This is absence reasoning, and it is the opposite of search.
+                Recurring records are watched for breaks. A series that arrived every year for six
+                years and then went quiet is a finding. This is absence reasoning, the opposite of
+                search.
               </p>
               <div class="states">
                 <span class="s on">Expected</span><span class="sep">&#8594;</span>
@@ -671,15 +635,14 @@
               </div>
             </article>
 
-            <article class="mission">
+            <article class="mission reveal">
               <span class="m-no">M03</span>
               <h3>Dormant value</h3>
               <p class="q">What might my history have left behind?</p>
               <p>
-                Evidence chains run from a former employer to a plan administrator to the absence of
-                any rollover evidence, and produce a lead a human then verifies with the institution.
-                The system never says money is owed. It says here is a chain, and here is the gap in
-                it.
+                Evidence chains run from a former employer to a plan administrator to the absence
+                of any rollover evidence, and end as a lead a human verifies with the institution.
+                Here is the chain. Here is the gap in it.
               </p>
               <div class="states">
                 <span class="s on">Observed</span><span class="sep">&#8594;</span>
@@ -688,31 +651,14 @@
               </div>
             </article>
 
-            <article class="mission">
+            <article class="mission reveal">
               <span class="m-no">M04</span>
-              <h3>Life contradictions</h3>
-              <p class="q">Where does my own history disagree with itself?</p>
-              <p>
-                Two policies that both look active. A date that appears twice with different values.
-                Three files each claiming to be the latest version. Each conflict resolves into
-                historical truth, current truth, or an honest unresolved contradiction that stays
-                visible. A personal truth-maintenance system.
-              </p>
-              <div class="states">
-                <span class="s on">Observed</span><span class="sep">&#8594;</span>
-                <span class="s on">Conflict</span><span class="sep">&#8594;</span>
-                <span class="s">Resolved or declared</span>
-              </div>
-            </article>
-
-            <article class="mission">
-              <span class="m-no">M05</span>
               <h3>Family continuity</h3>
               <p class="q">If my family suddenly needed to understand everything important, could they?</p>
               <p>
-                A structured map of what exists, who it belongs to, who depends on it, and what is
-                missing, generated from evidence rather than assembled by hand from decades of
-                folders. The archive a family inherits should not be a password nobody wrote down.
+                A living map of what exists, who it belongs to, who depends on it, and what is
+                missing, generated from evidence. The archive a family inherits should not be a
+                password nobody wrote down.
               </p>
               <div class="states">
                 <span class="s on">Expected</span><span class="sep">&#8594;</span>
@@ -721,45 +667,14 @@
               </div>
             </article>
 
-            <article class="mission">
-              <span class="m-no">M06</span>
-              <h3>Home as entity</h3>
-              <p class="q">What has this house actually cost, and what has no maintenance evidence?</p>
-              <p>
-                A property that accumulates its own history: purchase, insurance, taxes, repairs,
-                warranties, and the appliance whose warranty has an installation date and no service
-                record since. A place stops being an address and becomes an entity with a ledger.
-              </p>
-              <div class="states">
-                <span class="s on">Observed</span><span class="sep">&#8594;</span>
-                <span class="s on">Reconciled</span><span class="sep">&#8594;</span>
-                <span class="s">Missing</span>
-              </div>
-            </article>
-
-            <article class="mission">
-              <span class="m-no">M07</span>
-              <h3>Transition detection</h3>
-              <p class="q">Detect life's chapters instead of asking for them.</p>
-              <p>
-                An address change, a shift in photo geography, a closing document and an insurance
-                change all landing in the same season are one event seen from four angles. The system
-                proposes the chapter; one human confirmation mints it.
-              </p>
-              <div class="states">
-                <span class="s on">Converging evidence</span><span class="sep">&#8594;</span>
-                <span class="s">Confirmed by a human</span>
-              </div>
-            </article>
-
-            <article class="mission">
-              <span class="m-no">M08</span>
+            <article class="mission reveal">
+              <span class="m-no">M05</span>
               <h3>The unfinished things</h3>
               <p class="q">What started but never concluded?</p>
               <p>
-                Applications without outcomes. Claims without resolutions. Deposits without refunds.
-                Each is a pattern of initiated, then expected evidence, then nothing, and the useful
-                signal is the silence at the end rather than any document in the chain.
+                Applications without outcomes. Claims without resolutions. Deposits without
+                refunds. The useful signal is the silence at the end of the chain, and silence is
+                exactly what a search box cannot return.
               </p>
               <div class="states">
                 <span class="s on">Initiated</span><span class="sep">&#8594;</span>
@@ -769,30 +684,14 @@
               </div>
             </article>
 
-            <article class="mission">
-              <span class="m-no">M09</span>
-              <h3>Personal provenance</h3>
-              <p class="q">Why does LifeOS believe this?</p>
-              <p>
-                Every assertion is inspectable down to the evidence that produced it, including the
-                confidence and the human corrections applied along the way. The system does not state
-                truth. It shows its receipts and lets a person disagree with them.
-              </p>
-              <div class="states">
-                <span class="s on">Assertion</span><span class="sep">&#8594;</span>
-                <span class="s on">Evidence trail</span><span class="sep">&#8594;</span>
-                <span class="s on">Human override</span>
-              </div>
-            </article>
-
-            <article class="mission">
-              <span class="m-no">M10</span>
+            <article class="mission reveal">
+              <span class="m-no">M06</span>
               <h3>Memory reconstruction</h3>
-              <p class="q">Reconstruct the trip, do not just show the photos.</p>
+              <p class="q">Reconstruct the trip, not just the photos.</p>
               <p>
-                Photographs, the people in them, the coordinates, the reservation confirmation and
-                the receipts collapse into one event object with a beginning, an end, a cast and a
-                cost. A gallery shows you files from a week. This returns the week.
+                Photographs, the people in them, the coordinates, the reservation and the receipts
+                collapse into one event with a beginning, an end, a cast and a cost. A gallery
+                shows files from a week. This returns the week.
               </p>
               <div class="states">
                 <span class="s on">Observed</span><span class="sep">&#8594;</span>
@@ -813,16 +712,14 @@
             <div class="col col-working">
               <div class="col-head"><span class="mark"></span>Working today</div>
               <ul>
-                <li>Multi-source document catalog across seven sources</li>
+                <li>Multi-source catalog across every photo and document source</li>
                 <li>OCR over scanned and photographed records</li>
-                <li>Exact dedup, fuzzy dedup, and version detection</li>
-                <li>Semantic indexing of documents and photographs</li>
-                <li>Knowledge graph with typed document-to-entity edges</li>
-                <li>Entity extraction for people, institutions and years</li>
+                <li>Exact and fuzzy dedup, with version chains</li>
+                <li>Knowledge graph with typed document-to-entity links</li>
                 <li>Missing-record analysis over recurring series</li>
                 <li>Local face detection and clustering into people</li>
                 <li>Place, home and event learning from photo geography</li>
-                <li>Semantic photo search in plain language</li>
+                <li>Semantic search over photos and documents, in plain language</li>
                 <li>A human correction loop whose answers outrank the model</li>
               </ul>
               <p class="col-note">
@@ -840,19 +737,18 @@
                 <li>Continuity monitoring as a standing background process</li>
                 <li>Dormant-value evidence chains ending in human verification</li>
                 <li>Life-transition detection from converging weak signals</li>
-                <li>Evidence-backed autonomous reasoning over the whole model</li>
               </ul>
               <p class="col-note">
-                These are prototypes and design work. They are not running against the archive on a
-                schedule, and several of them may turn out to be the wrong idea. They are listed here
-                because a page that only lists its successes is not worth reading.
+                Prototypes and design work, not scheduled runs. Several of these may turn out to
+                be the wrong idea, and they are listed anyway, because a page that only lists its
+                successes is not worth reading.
               </p>
             </div>
           </div>
 
           <div class="fiction reveal">
             <div class="fiction-head">
-              <span class="t">Direction, not product</span>
+              <span class="t">Three ways to look at one model</span>
               <span class="tag-concept">Concept frames &middot; synthetic data</span>
             </div>
             <div class="frames">
@@ -878,7 +774,7 @@
                   </g>
                 </svg>
                 <span class="cap">Life orbit</span>
-                <p>Entities held at a distance set by how strongly the evidence ties them to a person, rather than by folder depth.</p>
+                <p>The model arranged around one person: everything the evidence ties to them, at a distance set by the strength of the tie.</p>
               </div>
 
               <div class="frame">
@@ -898,7 +794,7 @@
                   </g>
                 </svg>
                 <span class="cap">Time river</span>
-                <p>Eras that widen into years, years into events, events into the individual evidence underneath them.</p>
+                <p>The same model arranged along time: eras widen into years, years into events, events into the evidence beneath them.</p>
               </div>
 
               <div class="frame">
@@ -923,7 +819,7 @@
                   </g>
                 </svg>
                 <span class="cap">Your model changed</span>
-                <p>What the system learned since you last looked, with the evidence for each change and a way to disagree with it.</p>
+                <p>The model as a diff: each change since you last looked, carrying its receipts and a way to disagree.</p>
               </div>
             </div>
           </div>
@@ -946,14 +842,10 @@
               <h3>The sixteen-thousand-face blob</h3>
               <p>
                 I merged similar face clusters with union-find, which quietly makes merging
-                transitive: if A resembles B and B resembles C, A and C end up in one person even
-                when they look nothing alike. At six thousand faces this was invisible. At 53,780 it
-                produced a single cluster holding 16,504 faces, and five clusters between them held
-                sixty percent of every face in the library.
-              </p>
-              <p>
-                Merging is now one hop only, and only between clusters that are each other's nearest
-                neighbour. The bug was not the threshold. The bug was an operation that composed.
+                transitive: A resembles B, B resembles C, so A and C become one person. At six
+                thousand faces this was invisible. At 53,780 it produced a single cluster of
+                16,504 faces and put sixty percent of the library into five clusters. Merging is
+                now one hop, between mutually nearest clusters only.
               </p>
               <p class="lesson">Lesson: a similarity relation is not an equivalence relation, and treating it as one fails silently until it fails enormously.</p>
             </article>
@@ -962,145 +854,59 @@
               <span class="n-no">N02</span>
               <h3>The age model that got deleted</h3>
               <p>
-                The face toolkit ships an age estimator, so I used it. Then I measured it against four
-                people whose ages I knew exactly. It was wrong by 11 to 26 years in every case: a
-                three-year-old read as forty-five, a forty-year-old read as twenty-three. It was
-                squashing everything toward its training mean. Re-cropping to the exact framing the
-                model expected did not help.
-              </p>
-              <p>
-                It was not demoted to a hint or shown with a confidence badge. It was removed from the
-                pipeline. Age now comes from birth dates a human typed in, which also made the slowest
-                stage faster.
+                The face toolkit ships an age estimator, so I used it, then measured it against
+                four people whose ages I knew exactly. Wrong by 11 to 26 years in every case: a
+                three-year-old read as forty-five. It was not demoted to a hint. It was deleted,
+                and age now comes only from birth dates a human typed in.
               </p>
               <p class="lesson">Lesson: a measured-wrong signal shown as a hint is still a wrong signal, and it will be believed.</p>
             </article>
 
             <article class="note reveal">
               <span class="n-no">N03</span>
-              <h3>Thresholds are measured, not chosen</h3>
-              <p>
-                Every constant in the clustering path was originally a number that felt right for the
-                library size I happened to have. Now the clustering threshold rises until no large
-                cluster is still internally loose, and the auto-link threshold was validated against
-                clusters I had labelled by hand, where it made zero errors.
-              </p>
-              <p>
-                Its ceiling is set by the hardest real case in the archive: two siblings photographed
-                as babies score 0.763 against each other, higher than any two unrelated people. The
-                hardest true case in your own data is the only honest place to put a limit.
-              </p>
-              <p class="lesson">Lesson: a constant nobody measured is a guess with a decimal point.</p>
-            </article>
-
-            <article class="note reveal">
-              <span class="n-no">N04</span>
-              <h3>Over-splitting is the safe direction</h3>
-              <p>
-                A person split across three clusters costs the reviewer two merge questions, answered
-                in four seconds. Two people merged into one silently mis-attributes thousands of
-                photographs and is very hard to notice, because the gallery looks fine.
-              </p>
-              <p>
-                Those two failures are not symmetric, so the thresholds are not centred. Every one of
-                them is deliberately set to fail toward the cheap mistake.
-              </p>
-              <p class="lesson">Lesson: tune to the cost of being wrong, not to the rate of being wrong.</p>
-            </article>
-
-            <article class="note reveal">
-              <span class="n-no">N05</span>
               <h3>Show the whole cluster, not its best faces</h3>
               <p>
-                The review card sampled the twelve sharpest crops from a cluster, which is exactly
-                what you would do if you wanted the reviewer to say yes. A cluster of 1,650 faces
-                containing several people looked like one child, and I confidently named it.
-              </p>
-              <p>
-                Cards now draw half their crops from across the whole cluster, including the ugly
-                ones. A review interface that shows you the model's best work is measuring the wrong
-                thing.
+                The review card showed the twelve sharpest crops from each cluster, which is
+                exactly what you would do if you wanted the reviewer to say yes. A 1,650-face grab
+                bag looked like one child, and it got confidently named. Cards now sample across
+                the whole cluster, ugly crops included.
               </p>
               <p class="lesson">Lesson: if you are asking a human to catch errors, show them where errors would live.</p>
             </article>
 
             <article class="note reveal">
-              <span class="n-no">N06</span>
-              <h3>Missing is not nonexistent</h3>
-              <p>
-                Eleven documents in the catalog failed text extraction. They are recorded as
-                extraction failures, not as documents with no text, and the missing-record analysis
-                refuses to reason over them.
-              </p>
-              <p>
-                This matters more than it sounds. The entire value of the absence reasoning depends on
-                the difference between "this record is not here" and "I could not read this record".
-                Collapse those two and every conclusion about a gap becomes noise.
-              </p>
-              <p class="lesson">Lesson: absence is a conclusion, and a conclusion needs evidence like any other.</p>
-            </article>
-
-            <article class="note reveal">
-              <span class="n-no">N07</span>
+              <span class="n-no">N04</span>
               <h3>Checksums lie about photographs</h3>
               <p>
-                6,884 duplicate clusters merge files with different checksums and identical visual
-                content: a cloud-recompressed copy sitting next to the original it was made from. To
-                a checksum these are unrelated files. To a person they are the same photograph, twice.
-              </p>
-              <p>
-                The other direction was funnier. The most-copied image in the entire library, at 34
-                copies, turned out to be a user-interface icon from a code repository. Which is
-                precisely why project directories are no longer part of the photo library. Deciding
-                what is not in the corpus is as much of the work as processing what is.
+                6,884 duplicate clusters merge files with different bytes and identical pictures:
+                a cloud-recompressed copy beside the original it was made from. And the most-copied
+                image in the whole library, at 34 copies, was a user-interface icon from a code
+                repository. Deciding what is not in the corpus is as much of the work as processing
+                what is.
               </p>
               <p class="lesson">Lesson: identity is a property of content, and content is not bytes.</p>
             </article>
 
             <article class="note reveal">
-              <span class="n-no">N08</span>
-              <h3>Read-only at the driver, not at the discipline</h3>
-              <p>
-                The intelligence layer opens the source catalog with SQLite in read-only mode, so an
-                accidental write fails at the driver rather than depending on my remembering not to.
-                All derived state lives in a separate database keyed by the original identifiers.
-              </p>
-              <p>
-                Same principle in the mailboxes: the OAuth scope is read-only, so the code cannot send
-                or delete an email even if it were asked to. The guarantee lives in the structure and
-                not in an intention.
-              </p>
-              <p class="lesson">Lesson: make the dangerous thing impossible, not discouraged.</p>
-            </article>
-
-            <article class="note reveal">
-              <span class="n-no">N09</span>
+              <span class="n-no">N05</span>
               <h3>A folder date is not a date</h3>
               <p>
-                Around 6,200 photographs have no usable capture metadata, and their date was recovered
-                from a folder name. Every one of those collapses to January 1 of its year.
-              </p>
-              <p>
-                Fed into event detection, that produces the largest New Year's party in recorded
-                history, every year, for a decade. They are grouped as an undated batch instead, and
-                marked as such, because a date whose precision you invented is worse than no date.
+                About 6,200 photographs carry dates recovered from folder names, and every one
+                collapses to January 1. Fed to event detection, that is the largest New Year's
+                party in history, every year, for a decade. They are grouped as an undated batch
+                instead, because a date whose precision you invented is worse than no date.
               </p>
               <p class="lesson">Lesson: carry the precision of a value alongside the value, or something downstream will assume it.</p>
             </article>
 
             <article class="note reveal">
-              <span class="n-no">N10</span>
+              <span class="n-no">N06</span>
               <h3>The scripture false positive</h3>
               <p>
-                A phrase matcher looking for uncashed cheques flagged a religious text with high
-                confidence. The phrase "void after" appears in cheque boilerplate and, it turns out,
-                in theology.
-              </p>
-              <p>
-                Nothing was harmed, because that analysis produces leads for a human rather than
-                conclusions. But it is a useful reminder about which class of system this is: a
-                pattern that fires on a phrase does not know what a document is about, and any
-                pipeline that treats a keyword hit as a finding will eventually embarrass itself.
+                A matcher hunting uncashed cheques flagged a religious text with high confidence,
+                because "void after" appears in cheque boilerplate and, it turns out, in theology.
+                Nothing was harmed; that analysis only ever produces leads for a human. But it is
+                why no keyword hit is ever treated as a finding.
               </p>
               <p class="lesson">Lesson: precision is a discipline, not a default, and lead generation must always end at a person.</p>
             </article>
@@ -1146,29 +952,15 @@
             <div class="tenet">
               <span class="mk" aria-hidden="true"></span>
               <div>
-                <h3>Originals remain originals</h3>
-                <p>Duplicates are marked, reported, and left in place. No stage in either pipeline can delete a source file.</p>
+                <h3>Nothing is ever deleted</h3>
+                <p>Duplicates are marked and left in place, and every rebuild carries human corrections forward.</p>
               </div>
             </div>
             <div class="tenet">
               <span class="mk" aria-hidden="true"></span>
               <div>
-                <h3>Nothing silently disappears</h3>
-                <p>Every rebuild carries forward human corrections, and every correction is keyed to something stable.</p>
-              </div>
-            </div>
-            <div class="tenet">
-              <span class="mk" aria-hidden="true"></span>
-              <div>
-                <h3>Local when practical</h3>
-                <p>Perception runs on this laptop at near-zero marginal cost, which is what makes running it over everything affordable.</p>
-              </div>
-            </div>
-            <div class="tenet">
-              <span class="mk" aria-hidden="true"></span>
-              <div>
-                <h3>Smallest sufficient intelligence</h3>
-                <p>Frontier reasoning is spent only where it earns its price. Most of this problem is not a reasoning problem.</p>
+                <h3>Local first, frontier last</h3>
+                <p>Perception runs on the laptop at near-zero marginal cost. Frontier reasoning is spent only where it earns its price.</p>
               </div>
             </div>
           </div>
@@ -1207,9 +999,10 @@
               </div>
             </div>
             <p class="body" style="margin-top: 1.8rem; color: var(--text-faint)">
-              This is the one architectural claim that could not be copied by a cloud product, and it
-              is the reason the whole experiment is worth running. A system this personal is only
-              acceptable if the sovereignty is structural.
+              This is the one architectural claim a cloud product cannot copy, and the reason the
+              experiment is worth running. It is also why there is no login on this page: the
+              application that shows the real photographs binds to the laptop and nowhere else.
+              The public page is the story of the system, not a window into it.
             </p>
           </div>
         </div>
@@ -1221,63 +1014,40 @@
           <div class="eyebrow reveal"><span class="no">09</span> Changelog</div>
           <h2 class="band-title reveal">v0.x, built in public.</h2>
           <p class="body reveal" style="margin-top: 1.6rem">
-            Every entry below carries the same month, and that is not a formatting error. Both
-            instruments were built in one concentrated stretch in August 2026. The ambition is
-            measured in years; the work so far is measured in weeks, and saying otherwise would be
-            the first dishonest sentence on this page.
-          </p>
-          <p class="body reveal" style="margin-top: 1.2rem">
-            Dated at month resolution, because a build log with precise timestamps invites precise
-            questions about a private archive.
+            Both instruments were built in one concentrated stretch in August 2026, and the log
+            says so rather than implying a longer history. Dates stay at month resolution on
+            purpose: a precise timestamp on a private archive invites precise questions.
           </p>
 
           <div class="log reveal" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
             <div class="log-row">
               <span class="when">2026 &middot; 08</span>
               <p class="what">
-                <b>Photo master set reconciled across eight sources.</b> Three photo libraries, three
-                drives, a cloud library and a laptop cataloged into one set, with one canonical copy
-                elected per duplicate cluster and every member kept traceable.
+                <b>Photo master set reconciled across eight sources</b>, with the perceptual
+                verdict: 6,884 duplicate clusters checksums could not see, one canonical copy per
+                cluster, every member traceable.
               </p>
             </div>
             <div class="log-row">
               <span class="when">2026 &middot; 08</span>
               <p class="what">
-                <b>Perceptual dedup verdict.</b> The near-duplicate pass found 6,884 clusters that
-                checksums could not see, refining the real collection size and settling a question
-                about which sources were worth keeping.
+                <b>Intelligence layer.</b> Local faces, places, events, and the review loop whose
+                answers outrank every model in the stack.
               </p>
             </div>
             <div class="log-row">
               <span class="when">2026 &middot; 08</span>
               <p class="what">
-                <b>Document catalog and knowledge graph.</b> Twelve thousand occurrences resolved into
-                7,703 logical documents, with 890 entities and 18,369 typed links between documents
-                and the world.
+                <b>Document catalog and knowledge graph.</b> 12,491 occurrences into 7,703 logical
+                documents; 890 entities; 18,369 links.
               </p>
             </div>
             <div class="log-row">
               <span class="when">2026 &middot; 08</span>
               <p class="what">
-                <b>Read-only mailbox ingestion across three accounts.</b> Messages scanned and
-                attachments triaged under a read-only scope, with everything not worth fetching still
-                cataloged so its existence is known.
-              </p>
-            </div>
-            <div class="log-row">
-              <span class="when">2026 &middot; 08</span>
-              <p class="what">
-                <b>Missing-record and dormant-value analysis.</b> The first two pieces of reasoning
-                that answer questions nobody asked: what should exist and does not, and what a
-                history might have left behind.
-              </p>
-            </div>
-            <div class="log-row">
-              <span class="when">2026 &middot; 08</span>
-              <p class="what">
-                <b>Intelligence layer: faces, places, events, review loop.</b> Local face detection
-                and clustering, offline reverse geocoding, event detection, and the human review
-                application whose answers outrank every model in the stack.
+                <b>Read-only mailbox ingestion, then the first absence reasoning.</b> Three
+                accounts scanned under a read-only scope, and the first two questions nobody
+                asked: what is missing, and what value went dormant.
               </p>
             </div>
             <div class="log-row">

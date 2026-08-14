@@ -188,8 +188,17 @@ if (stage && canvas && !reduced) {
 
     ctx.clearRect(0, 0, w, h);
 
+    /* Concept positions for this frame. After assembly the structure keeps a
+       slow sway, scaled by ep so it fades in with the model, because a resolved
+       graph that freezes reads as a diagram and this one is meant to read as a
+       living thing. */
+    const pos = CONCEPTS.map((c, i) => [
+      c.x * w + Math.sin(t * 0.4 + i * 1.9) * 2.6 * ep,
+      c.y * h + Math.cos(t * 0.33 + i * 1.3) * 1.9 * ep,
+    ]);
+
     /* trails: fragment to its concept */
-    const trailAlpha = clamp01((p - 0.3) / 0.35) * 0.32;
+    const trailAlpha = clamp01((p - 0.3) / 0.35) * 0.24;
     if (trailAlpha > 0.002) {
       ctx.strokeStyle = `rgba(124,197,188,${trailAlpha})`;
       ctx.lineWidth = 1;
@@ -201,24 +210,24 @@ if (stage && canvas && !reduced) {
         const x = (dxp + (f.ax - dxp) * fp) * w;
         const y = (dyp + (f.ay - dyp) * fp) * h;
         ctx.moveTo(x, y);
-        ctx.lineTo(CONCEPTS[f.concept].x * w, CONCEPTS[f.concept].y * h);
+        ctx.lineTo(pos[f.concept][0], pos[f.concept][1]);
       }
       ctx.stroke();
     }
 
     /* structure: concept to concept, the last thing to appear. Corroborated
        edges draw solid; inferred or unresolved ones draw dashed and dimmer. */
-    const edgeAlpha = clamp01((p - 0.66) / 0.3) * 0.55;
+    const edgeAlpha = clamp01((p - 0.66) / 0.3) * 0.8;
     if (edgeAlpha > 0.002) {
       for (const soft of [false, true]) {
-        ctx.strokeStyle = `rgba(124,197,188,${edgeAlpha * (soft ? 0.72 : 1)})`;
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = `rgba(124,197,188,${edgeAlpha * (soft ? 0.6 : 1)})`;
+        ctx.lineWidth = soft ? 1 : 1.2;
         ctx.setLineDash(soft ? [4, 5] : []);
         ctx.beginPath();
         for (const [a, b, isSoft] of EDGES) {
           if (Boolean(isSoft) !== soft) continue;
-          ctx.moveTo(CONCEPTS[a].x * w, CONCEPTS[a].y * h);
-          ctx.lineTo(CONCEPTS[b].x * w, CONCEPTS[b].y * h);
+          ctx.moveTo(pos[a][0], pos[a][1]);
+          ctx.lineTo(pos[b][0], pos[b][1]);
         }
         ctx.stroke();
       }
@@ -232,24 +241,30 @@ if (stage && canvas && !reduced) {
       const dyp = f.dy + Math.cos(t * f.speed * 0.8 + f.phase) * f.amp;
       const x = (dxp + (f.ax - dxp) * fp) * w;
       const y = (dyp + (f.ay - dyp) * fp) * h;
-      drawGlyph(f.glyph, x, y, 0.16 + 0.4 * (1 - fp * 0.55));
+      drawGlyph(f.glyph, x, y, 0.13 + 0.37 * (1 - fp * 0.72));
     }
 
     /* concept nodes and their labels */
     const nodeAlpha = clamp01((p - 0.5) / 0.3);
-    const labelAlpha = clamp01((p - 0.72) / 0.24);
-    for (const c of CONCEPTS) {
-      const cx = c.x * w;
-      const cy = c.y * h;
+    const labelAlpha = clamp01((p - 0.62) / 0.28);
+    CONCEPTS.forEach((c, i) => {
+      const cx = pos[i][0];
+      const cy = pos[i][1];
       if (nodeAlpha > 0.002) {
-        const r = c.big ? 4.2 : 3.2;
+        const r = c.big ? 5.2 : 4;
+        /* A halo, because the resolved structure was getting lost against the
+           ground on phones. Nine nodes; the shadow costs nothing. */
+        ctx.save();
+        ctx.shadowColor = 'rgba(124,197,188,0.9)';
+        ctx.shadowBlur = 14 * nodeAlpha;
         /* The unresolved node stays hollow. It is the one entity on the stage
            the model has not been able to close, and it should look like it. */
         if (c.hollow) {
-          ctx.strokeStyle = `rgba(124,197,188,${nodeAlpha * 0.85})`;
-          ctx.lineWidth = 1.3;
+          ctx.strokeStyle = `rgba(124,197,188,${nodeAlpha * 0.9})`;
+          ctx.lineWidth = 1.4;
           ctx.beginPath();
-          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          /* the one unresolved entity breathes instead of sitting still */
+          ctx.arc(cx, cy, r + Math.sin(t * 2.1) * 0.7 * ep, 0, Math.PI * 2);
           ctx.stroke();
           ctx.lineWidth = 1;
         } else {
@@ -258,25 +273,26 @@ if (stage && canvas && !reduced) {
           ctx.arc(cx, cy, r, 0, Math.PI * 2);
           ctx.fill();
         }
+        ctx.restore();
         ctx.strokeStyle = `rgba(124,197,188,${nodeAlpha * 0.25})`;
         ctx.beginPath();
         ctx.arc(cx, cy, 9 + (1 - ep) * 6, 0, Math.PI * 2);
         ctx.stroke();
       }
       if (labelAlpha > 0.002) {
-        ctx.font = '11px "Geist Mono", ui-monospace, monospace';
+        ctx.font = '12px "Geist Mono", ui-monospace, monospace';
         ctx.textBaseline = 'middle';
         /* A knockout behind the text. Edges and stray fragments still pass
            behind labels even with the placement bias, and a hairline crossing
            a 11px glyph is the difference between reading a word and guessing
            it. Tinted to the stage ground so it never reads as a chip. */
         const tw = ctx.measureText(c.label).width;
-        ctx.fillStyle = `rgba(23,29,44,${labelAlpha * 0.72})`;
-        ctx.fillRect(cx + 9, cy - 7, tw + 6, 14);
-        ctx.fillStyle = `rgba(203,216,228,${labelAlpha})`;
-        ctx.fillText(c.label, cx + 12, cy + 1);
+        ctx.fillStyle = `rgba(23,29,44,${labelAlpha * 0.78})`;
+        ctx.fillRect(cx + 10, cy - 8, tw + 7, 16);
+        ctx.fillStyle = `rgba(230,238,244,${labelAlpha})`;
+        ctx.fillText(c.label, cx + 13, cy + 1);
       }
-    }
+    });
 
     if (stateEl) {
       const label =
@@ -451,5 +467,42 @@ if (machine) {
       },
       { threshold: 0.35 }
     ).observe(machine);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reveal rescue for tall containers.
+
+   main.js reveals a .reveal element when 20% of it is visible. On a phone, a
+   grid of stacked cards can run five screens tall, and 20% of five screens
+   never fits in one viewport, so the grid sat at opacity zero forever and the
+   page showed a screen-sized hole where the Missions were. Desktop never saw
+   it: two columns, taller viewport, the threshold fired.
+
+   Anything still unrevealed and taller than 60% of the viewport gets
+   re-observed here at threshold zero, so a single visible pixel reveals it.
+   The small elements keep main.js's nicer 20% timing.
+   ------------------------------------------------------------------------- */
+{
+  const tall = [...document.querySelectorAll('.reveal:not(.is-visible)')].filter(
+    (el) => el.offsetHeight > window.innerHeight * 0.6
+  );
+  if (tall.length) {
+    if (reduced || !('IntersectionObserver' in window)) {
+      tall.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -40px 0px' }
+      );
+      tall.forEach((el) => io.observe(el));
+    }
   }
 }

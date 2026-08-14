@@ -315,8 +315,8 @@ h1.os-title em {
   height: clamp(300px, 46vh, 460px);
   border: 1px solid var(--rule);
   background:
-    radial-gradient(closest-side at 50% 50%, rgba(124, 197, 188, 0.045), transparent 78%),
-    rgba(20, 25, 38, 0.35);
+    radial-gradient(closest-side at 50% 50%, rgba(124, 197, 188, 0.05), transparent 78%),
+    rgba(15, 19, 30, 0.6);
   overflow: hidden;
 }
 
