@@ -32,29 +32,38 @@ const stateEl = document.getElementById('stage-state');
 if (stage && canvas && !reduced) {
   const ctx = canvas.getContext('2d', { alpha: true });
 
-  /* Five concepts, in normalized stage coordinates. Fully synthetic labels:
-     abstract entity names that match the visual language and carry no risk. */
+  /* Nine concepts, in normalized stage coordinates. Fully synthetic labels:
+     abstract entity names that match the visual language and carry no risk.
+     `big` marks the two people, who carry slightly more weight than the things
+     arranged around them. */
   const CONCEPTS = [
-    { x: 0.22, y: 0.36, label: 'Person 01' },
-    { x: 0.42, y: 0.24, label: 'Home A' },
-    { x: 0.71, y: 0.39, label: 'Trip 2019' },
-    { x: 0.81, y: 0.66, label: 'Tax Year' },
-    { x: 0.5, y: 0.75, label: 'Policy' },
+    { x: 0.26, y: 0.46, label: 'Person 01', big: true },
+    { x: 0.17, y: 0.76, label: 'Person 02', big: true },
+    { x: 0.15, y: 0.18, label: 'Employer' },
+    { x: 0.35, y: 0.13, label: 'Home A' },
+    { x: 0.53, y: 0.42, label: 'Home B' },
+    { x: 0.73, y: 0.17, label: 'Trip 2019' },
+    { x: 0.45, y: 0.78, label: 'Tax Year' },
+    { x: 0.75, y: 0.55, label: 'Policy' },
+    { x: 0.64, y: 0.86, label: 'Claim', hollow: true },
   ];
 
-  /* Which concepts are joined once the model resolves. */
+  /* The structure the fragments resolve into. It is not decoration: two people
+     joined and sharing a tax year and a trip is a household; two homes joined
+     to each other is a move; a policy on the second home is property, insured.
+     `soft: true` edges are inferred or unresolved and draw dashed, which is the
+     page's trust model expressed in line weight. */
   const EDGES = [
-    [0, 1],
-    [1, 2],
-    [2, 3],
+    [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6],
+    [1, 4], [1, 6],
     [3, 4],
-    [4, 0],
-    [1, 4],
-    [0, 2],
+    [4, 5], [4, 7],
+    [7, 8, true],
+    [1, 2, true],
   ];
 
   const GLYPHS = ['doc', 'photo', 'pin', 'mail', 'date', 'person'];
-  const COUNT = 34;
+  const COUNT = 36;
 
   /* A deterministic generator: the composition should be identical on every
      load and on every machine, so it can be judged as a design rather than
@@ -68,8 +77,12 @@ if (stage && canvas && !reduced) {
   const frags = [];
   for (let i = 0; i < COUNT; i++) {
     const concept = i % CONCEPTS.length;
-    const angle = rand() * Math.PI * 2;
-    const radius = 0.035 + rand() * 0.055;
+    /* Fragments tuck around their concept everywhere EXCEPT the arc where the
+       label sits, which is due right. Without this they land on top of the
+       text and "Home B" becomes unreadable at the exact moment the model
+       resolves, which is the one frame that has to be legible. */
+    const angle = 0.55 + rand() * (Math.PI * 2 - 1.1);
+    const radius = 0.04 + rand() * 0.055;
     frags.push({
       glyph: GLYPHS[Math.floor(rand() * GLYPHS.length)],
       /* where it drifts before it belongs to anything */
@@ -193,17 +206,23 @@ if (stage && canvas && !reduced) {
       ctx.stroke();
     }
 
-    /* structure: concept to concept, the last thing to appear */
+    /* structure: concept to concept, the last thing to appear. Corroborated
+       edges draw solid; inferred or unresolved ones draw dashed and dimmer. */
     const edgeAlpha = clamp01((p - 0.66) / 0.3) * 0.55;
     if (edgeAlpha > 0.002) {
-      ctx.strokeStyle = `rgba(124,197,188,${edgeAlpha})`;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      for (const [a, b] of EDGES) {
-        ctx.moveTo(CONCEPTS[a].x * w, CONCEPTS[a].y * h);
-        ctx.lineTo(CONCEPTS[b].x * w, CONCEPTS[b].y * h);
+      for (const soft of [false, true]) {
+        ctx.strokeStyle = `rgba(124,197,188,${edgeAlpha * (soft ? 0.72 : 1)})`;
+        ctx.lineWidth = 1;
+        ctx.setLineDash(soft ? [4, 5] : []);
+        ctx.beginPath();
+        for (const [a, b, isSoft] of EDGES) {
+          if (Boolean(isSoft) !== soft) continue;
+          ctx.moveTo(CONCEPTS[a].x * w, CONCEPTS[a].y * h);
+          ctx.lineTo(CONCEPTS[b].x * w, CONCEPTS[b].y * h);
+        }
+        ctx.stroke();
       }
-      ctx.stroke();
+      ctx.setLineDash([]);
     }
 
     /* fragments */
@@ -223,19 +242,38 @@ if (stage && canvas && !reduced) {
       const cx = c.x * w;
       const cy = c.y * h;
       if (nodeAlpha > 0.002) {
-        ctx.fillStyle = `rgba(124,197,188,${nodeAlpha})`;
-        ctx.beginPath();
-        ctx.arc(cx, cy, 3.2, 0, Math.PI * 2);
-        ctx.fill();
+        const r = c.big ? 4.2 : 3.2;
+        /* The unresolved node stays hollow. It is the one entity on the stage
+           the model has not been able to close, and it should look like it. */
+        if (c.hollow) {
+          ctx.strokeStyle = `rgba(124,197,188,${nodeAlpha * 0.85})`;
+          ctx.lineWidth = 1.3;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.lineWidth = 1;
+        } else {
+          ctx.fillStyle = `rgba(124,197,188,${nodeAlpha})`;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
         ctx.strokeStyle = `rgba(124,197,188,${nodeAlpha * 0.25})`;
         ctx.beginPath();
         ctx.arc(cx, cy, 9 + (1 - ep) * 6, 0, Math.PI * 2);
         ctx.stroke();
       }
       if (labelAlpha > 0.002) {
-        ctx.fillStyle = `rgba(203,216,228,${labelAlpha})`;
         ctx.font = '11px "Geist Mono", ui-monospace, monospace';
         ctx.textBaseline = 'middle';
+        /* A knockout behind the text. Edges and stray fragments still pass
+           behind labels even with the placement bias, and a hairline crossing
+           a 11px glyph is the difference between reading a word and guessing
+           it. Tinted to the stage ground so it never reads as a chip. */
+        const tw = ctx.measureText(c.label).width;
+        ctx.fillStyle = `rgba(23,29,44,${labelAlpha * 0.72})`;
+        ctx.fillRect(cx + 9, cy - 7, tw + 6, 14);
+        ctx.fillStyle = `rgba(203,216,228,${labelAlpha})`;
         ctx.fillText(c.label, cx + 12, cy + 1);
       }
     }

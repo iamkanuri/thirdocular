@@ -349,6 +349,38 @@ h1.os-title em {
   color: var(--labs);
 }
 
+/* Key for the two edge weights in the hero graph. */
+.stage-caption .key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.stage-caption .key i {
+  display: inline-block;
+  width: 14px;
+  height: 0;
+  margin-left: 0.5rem;
+  border-top: 1px solid var(--labs-dim);
+}
+
+.stage-caption .key i:first-child {
+  margin-left: 0;
+}
+
+.stage-caption .key .k-dash {
+  border-top-style: dashed;
+}
+
+/* At narrow widths the caption is already carrying the state readout, and a
+   three-item row wraps into something that reads as broken. The key is the
+   least important of the three, so it is the one that goes. */
+@media (max-width: 700px) {
+  .stage-caption .key {
+    display: none;
+  }
+}
+
 /* The static composition the canvas is replaced by under reduced motion or
    without JavaScript. It is a real composed frame, not a blank box: the
    metaphor has to survive with the motion switched off. */
