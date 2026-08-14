@@ -166,6 +166,14 @@ a {
   color: var(--text);
 }
 
+/* The header carried one link until /labs existed. .head-contact is unchanged;
+   this only supplies the row that now holds two of them. */
+.head-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 4vw, 2.2rem);
+}
+
 /* ============ hero ============ */
 
 .hero {

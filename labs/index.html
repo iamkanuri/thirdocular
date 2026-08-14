@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThirdOcular Labs · Instruments built for ourselves first</title>
+    <meta
+      name="description"
+      content="Labs is the ThirdOcular workshop: long-running experiments built for our own use, measured before they are trusted, and published with the numbers attached. Its flagship is LifeOS."
+    />
+    <link rel="canonical" href="https://thirdocular.com/labs/" />
+    <meta name="theme-color" content="#1B2131" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="manifest" href="../site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ThirdOcular" />
+    <meta property="og:title" content="ThirdOcular Labs" />
+    <meta
+      property="og:description"
+      content="The workshop. Instruments built for our own use first, measured before they are trusted, published with the numbers attached."
+    />
+    <meta property="og:url" content="https://thirdocular.com/labs/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://thirdocular.com/labs/og-labs.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ThirdOcular Labs" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ThirdOcular Labs" />
+    <meta
+      name="twitter:description"
+      content="The workshop. Instruments built for our own use first, measured before they are trusted, published with the numbers attached."
+    />
+    <meta name="twitter:image" content="https://thirdocular.com/labs/og-labs.png" />
+    <meta name="twitter:image:alt" content="ThirdOcular Labs" />
+
+    <link rel="preload" as="font" type="font/woff2" href="../fonts/geist-latin.woff2" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="../fonts/instrumentserif-italic-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="../fonts/geistmono-latin.woff2"
+      crossorigin
+    />
+    <style>
+      /* Self-hosted fonts, same faces as the home page. The URLs are relative
+         to this document because public/ assets are served verbatim from the
+         site root and Vite cannot rewrite them; ../ resolves correctly under
+         both the custom domain and the project-page deployment. */
+      @font-face {
+        font-family: 'Geist';
+        font-style: normal;
+        font-weight: 200 500;
+        font-display: swap;
+        src: url(../fonts/geist-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Geist Mono';
+        font-style: normal;
+        font-weight: 300 400;
+        font-display: swap;
+        src: url(../fonts/geistmono-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(../fonts/instrumentserif-italic-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/labs.css" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body class="labs">
+    <div class="lens-clarity" aria-hidden="true"></div>
+
+    <header class="site-head">
+      <a class="glyph-link" href="/" aria-label="ThirdOcular home">
+        <svg class="glyph" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
+          <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+          <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
+        </svg>
+      </a>
+      <nav class="head-nav" aria-label="Primary">
+        <a href="/">ThirdOcular</a>
+        <a href="/labs/" aria-current="page">Labs</a>
+        <a href="mailto:contact@thirdocular.com">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="labs-hero">
+        <div class="wrap">
+          <span class="kicker reveal"><span class="dot"></span>ThirdOcular Labs</span>
+          <h1 class="reveal">The workshop.</h1>
+          <p class="lede-serif reveal">Instruments built for ourselves first, in public, with the numbers showing.</p>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">01</span> What Labs is</div>
+          <div class="thesis-grid">
+            <div class="thesis-col reveal">
+              <span class="idx">i</span>
+              <h3>Practice on ourselves</h3>
+              <p>
+                ThirdOcular builds and evaluates agentic systems. Labs is where the same discipline
+                gets applied to problems we have personally, on data we personally own, with no
+                customer to reassure and no deadline to protect. We measure before we trust.
+              </p>
+            </div>
+            <div class="thesis-col reveal">
+              <span class="idx">ii</span>
+              <h3>One discipline, harder stakes</h3>
+              <p>
+                The products the company sells apply a single method: write down what a thing has to
+                be able to prove, run the check, publish the result including the parts that failed.
+                Labs applies that method where the subject is a life rather than a product page, and
+                where the honest answer is often that a component was measured and then deleted.
+              </p>
+            </div>
+            <div class="thesis-col reveal">
+              <span class="idx">iii</span>
+              <h3>Nothing here is finished</h3>
+              <p>
+                Each experiment ships as a long-running build with a changelog, an evidence ledger,
+                and a plain account of what does not work yet. If a claim on a Labs page has no
+                number behind it, it is marked as direction rather than dressed up as a result.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">02</span> Flagship experiment</div>
+
+          <a class="flagship reveal" href="/labs/lifeos/">
+            <div class="flagship-top">
+              <div>
+                <h2>LifeOS</h2>
+                <span class="role">Local AI · Entity resolution · Temporal reasoning</span>
+              </div>
+              <!-- "v0.x", not an invented point release. The changelog on the
+                   LifeOS page is versioned v0.x and nothing assigns a number
+                   past that, so neither does this card. -->
+              <span class="tag-concept">v0.x &middot; in progress</span>
+            </div>
+            <p class="desc">
+              A long-horizon attempt to turn one family's scattered digital exhaust into a single,
+              evidence-backed, locally computed model of a life. Photographs, documents, mailboxes
+              and file dumps are treated as evidence. The product is the model above them: people,
+              places, events, obligations, and the things that should exist but do not.
+            </p>
+            <div class="figures">
+              <div>
+                <span class="v">89,569</span>
+                <span class="k">Fragments cataloged</span>
+              </div>
+              <div>
+                <span class="v">7,703</span>
+                <span class="k">Logical documents</span>
+              </div>
+              <div>
+                <span class="v">18,369</span>
+                <span class="k">Entity links</span>
+              </div>
+              <div>
+                <span class="v">0</span>
+                <span class="k">Cloud calls</span>
+              </div>
+            </div>
+            <span class="go">Open LifeOS <span class="arrow" aria-hidden="true">&#8594;</span></span>
+          </a>
+
+          <div class="bench reveal">
+            <span class="t">More instruments in the workshop</span>
+            <span class="d">
+              Experiments are added when they have run long enough to have numbers worth publishing.
+              An empty bench is more honest than a roadmap.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap-narrow">
+          <p class="tie">
+            ThirdOcular builds and evaluates agentic systems. AisleLens and PRIVI are the instruments
+            the company sells. Labs is where the same discipline gets pointed at the founder's own
+            life, because an instrument you have not used on yourself is a claim, not a tool.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <svg class="glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
+            <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+            <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
+          </svg>
+          <span>ThirdOcular</span>
+        </div>
+        <nav class="foot-nav" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/labs/lifeos/">LifeOS</a>
+          <a href="https://lens.thirdocular.com">AisleLens</a>
+          <a href="https://privi.thirdocular.com">PRIVI</a>
+          <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 ThirdOcular</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
