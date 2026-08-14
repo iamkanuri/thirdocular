@@ -14,15 +14,18 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------------------------------------------------------------------------
    INTERACTIVE A — fragments become a model.
 
-   Scattered evidence drifts. As the visitor scrolls, each fragment migrates to
-   one of five concepts, trails are drawn from fragment to concept, and the
-   concepts connect into a single structure.
+   Scattered evidence drifts. On a toggle, fragments migrate to their concepts,
+   trails draw from fragment to concept, and the concepts connect into one
+   labelled structure.
 
-   The assembly is driven by scroll position so it reads as the visitor's own
-   doing. If nobody scrolls within four seconds, it assembles itself once, so
-   that a reader who stops to read the headline still sees the argument. Once a
-   scroll has happened the automatic ramp is abandoned for good and the scroll
-   is the only driver, which keeps the interaction reversible.
+   Two resting states, one tween. The first build scrubbed assembly with scroll
+   position, which parked visitors on half-connected intermediates and finished
+   assembling just as the stage scrolled out of view with its head cut off. On
+   a phone it was worse: assembly rode a scroll-and-pinch negotiation. Discrete
+   states fix all of it. The graph rests as either scattered fragments or one
+   model, the animation between them is watched rather than steered, and on a
+   phone it is a tap. The stage assembles itself once, unprompted, the first
+   time it is seen; after that the toggle owns the state.
    ------------------------------------------------------------------------- */
 
 const stage = document.getElementById('stage');
@@ -103,6 +106,8 @@ if (stage && canvas && !reduced) {
 
   let w = 0;
   let h = 0;
+  let lh = 0; /* layout height: the stage minus the caption overlay */
+  let tp = 0; /* top inset: the toggle's strip, reserved on narrow screens */
   let dpr = 1;
 
   function resize() {
@@ -112,6 +117,10 @@ if (stage && canvas && !reduced) {
     h = Math.max(1, Math.round(r.height));
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
+    const caption = stage.querySelector('.stage-caption');
+    const toggle = stage.querySelector('.stage-toggle');
+    lh = Math.max(140, h - ((caption && caption.offsetHeight) || 0) - 8);
+    tp = w < 760 && toggle ? toggle.offsetHeight + 16 : 0;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -163,27 +172,48 @@ if (stage && canvas && !reduced) {
     ctx.stroke();
   }
 
-  let started = 0;
-  let scrolled = false;
-  let scrollP = 0;
+  let tAcc = 0;
+  let last = 0;
   let visible = true;
   let raf = 0;
 
-  function readScroll() {
-    const r = stage.getBoundingClientRect();
-    const vh = window.innerHeight || 800;
-    scrollP = clamp01(1 - (r.top + r.height * 0.35) / (vh * 0.9));
+  /* Which view the stage is heading toward: 0 scattered, 1 one model. */
+  let prog = 0;
+  let target = 0;
+  let userChose = false;
+  let autoTimer = 0;
+
+  const tFrag = document.getElementById('t-frag');
+  const tModel = document.getElementById('t-model');
+
+  function setView(v, fromUser) {
+    target = v;
+    if (fromUser) {
+      userChose = true;
+      window.clearTimeout(autoTimer);
+    }
+    if (tFrag) tFrag.setAttribute('aria-pressed', String(v === 0));
+    if (tModel) tModel.setAttribute('aria-pressed', String(v === 1));
   }
+
+  if (tFrag) tFrag.addEventListener('click', () => setView(0, true));
+  if (tModel) tModel.addEventListener('click', () => setView(1, true));
 
   function frame(now) {
     raf = requestAnimationFrame(frame);
     if (!visible) return;
-    if (!started) started = now;
-    const t = (now - started) / 1000;
+    const dt = Math.min(0.05, (now - (last || now)) / 1000);
+    last = now;
+    /* accumulated, not absolute: rAF pauses in background tabs, and an
+       absolute clock would snap every drift phase forward on return */
+    tAcc += dt;
+    const t = tAcc;
 
-    /* The automatic ramp only exists for a visitor who has not scrolled. */
-    const autoP = scrolled ? 0 : clamp01((t - 4) / 5);
-    const p = Math.max(scrollP, autoP);
+    /* Time-based damping toward the chosen view, so the tween runs at the
+       same speed on a 60Hz laptop and a 120Hz phone. */
+    prog += (target - prog) * Math.min(1, dt * 3.4);
+    if (Math.abs(target - prog) < 0.0015) prog = target;
+    const p = prog;
     const ep = easeOut(clamp01(p));
 
     ctx.clearRect(0, 0, w, h);
@@ -194,7 +224,7 @@ if (stage && canvas && !reduced) {
        living thing. */
     const pos = CONCEPTS.map((c, i) => [
       c.x * w + Math.sin(t * 0.4 + i * 1.9) * 2.6 * ep,
-      c.y * h + Math.cos(t * 0.33 + i * 1.3) * 1.9 * ep,
+      tp + c.y * (lh - tp) + Math.cos(t * 0.33 + i * 1.3) * 1.9 * ep,
     ]);
 
     /* trails: fragment to its concept */
@@ -208,7 +238,7 @@ if (stage && canvas && !reduced) {
         const dxp = f.dx + Math.sin(t * f.speed + f.phase) * f.amp;
         const dyp = f.dy + Math.cos(t * f.speed * 0.8 + f.phase) * f.amp;
         const x = (dxp + (f.ax - dxp) * fp) * w;
-        const y = (dyp + (f.ay - dyp) * fp) * h;
+        const y = tp + (dyp + (f.ay - dyp) * fp) * (lh - tp);
         ctx.moveTo(x, y);
         ctx.lineTo(pos[f.concept][0], pos[f.concept][1]);
       }
@@ -240,7 +270,7 @@ if (stage && canvas && !reduced) {
       const dxp = f.dx + Math.sin(t * f.speed + f.phase) * f.amp;
       const dyp = f.dy + Math.cos(t * f.speed * 0.8 + f.phase) * f.amp;
       const x = (dxp + (f.ax - dxp) * fp) * w;
-      const y = (dyp + (f.ay - dyp) * fp) * h;
+      const y = tp + (dyp + (f.ay - dyp) * fp) * (lh - tp);
       drawGlyph(f.glyph, x, y, 0.13 + 0.37 * (1 - fp * 0.72));
     }
 
@@ -302,25 +332,39 @@ if (stage && canvas && !reduced) {
   }
 
   resize();
-  readScroll();
 
   window.addEventListener('resize', resize, { passive: true });
-  window.addEventListener(
-    'scroll',
-    () => {
-      scrolled = true;
-      readScroll();
-    },
-    { passive: true }
-  );
 
+  /* Assemble once, unprompted, the first time the stage is on screen: the
+     scattered state gets two seconds to register as chaos, then becomes one
+     model while fully in view. A visitor who taps first wins the race. */
+  let autoPlayed = false;
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(
       (entries) => {
-        visible = entries[0].isIntersecting;
+        /* newest record, not entries[0]: a fast exit-and-reenter arrives as
+           one batched callback and the first entry is the stale one */
+        visible = entries[entries.length - 1].isIntersecting;
+        if (visible && !autoPlayed) {
+          autoPlayed = true;
+          autoTimer = window.setTimeout(() => {
+            if (userChose) return;
+            if (visible) {
+              setView(1, false);
+            } else {
+              /* scrolled away before the scattered beat finished; let the
+                 next appearance re-arm, so assembly is always watched */
+              autoPlayed = false;
+            }
+          }, 2000);
+        }
       },
       { rootMargin: '120px' }
     ).observe(stage);
+  } else {
+    autoTimer = window.setTimeout(() => {
+      if (!userChose) setView(1, false);
+    }, 2000);
   }
 
   raf = requestAnimationFrame(frame);
@@ -419,6 +463,17 @@ if (machine) {
       step = (step + 1) % SCRIPT.length;
       const s = SCRIPT[step];
 
+      if (s.state === 'expected') {
+        /* Zero here, not only inside the reset timeout: scrolling away during
+           the reset window cancels that timer, and the next cycle must still
+           start from zero. */
+        rows.forEach((r) => {
+          r.querySelector('.count').textContent = '0';
+        });
+        if (meter) meter.style.width = '0%';
+        if (readiness) readiness.textContent = '0%';
+      }
+
       if (s.state === 'reset') {
         rows.forEach((r) => r.classList.remove('active'));
         if (narration) narration.textContent = s.say;
@@ -456,7 +511,7 @@ if (machine) {
 
     new IntersectionObserver(
       (entries) => {
-        const seen = entries[0].isIntersecting;
+        const seen = entries[entries.length - 1].isIntersecting;
         if (seen && !running) {
           running = true;
           advance();

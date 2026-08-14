@@ -1537,3 +1537,59 @@ h1.os-title em {
     transition: none;
   }
 }
+
+/* ============ hero graph: the two-view toggle ============ */
+
+/* Two resting states beat a scroll scrub: the graph is always either
+   scattered fragments or one labelled model, and the tween between them is
+   watched, not steered. Hidden without JS (nothing to drive it) and under
+   reduced motion (the static frame already shows the model). */
+.stage-toggle {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 2;
+  display: none;
+  border: 1px solid var(--rule);
+  background: rgba(20, 25, 38, 0.78);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.js .stage-toggle {
+  display: flex;
+}
+
+.stage-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 0.55rem 0.85rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.stage-toggle button + button {
+  border-left: 1px solid var(--rule);
+}
+
+.stage-toggle button:hover {
+  color: var(--text);
+}
+
+.stage-toggle button[aria-pressed='true'] {
+  color: var(--labs);
+  background: var(--labs-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .stage-toggle {
+    display: none;
+  }
+}

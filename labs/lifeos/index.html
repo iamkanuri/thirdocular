@@ -144,8 +144,8 @@
           </div>
 
           <!-- Interactive A: fragments become a model. -->
-          <div class="stage reveal" id="stage" aria-hidden="true">
-            <canvas id="fragments"></canvas>
+          <div class="stage reveal" id="stage">
+            <canvas id="fragments" aria-hidden="true"></canvas>
             <!--
               The composed static state. This is what a visitor sees with
               JavaScript off or prefers-reduced-motion set: not a placeholder,
@@ -199,6 +199,10 @@
                 </g>
               </g>
             </svg>
+            <div class="stage-toggle" role="group" aria-label="Choose graph view">
+              <button type="button" id="t-frag" aria-pressed="true">Fragments</button>
+              <button type="button" id="t-model" aria-pressed="false">Model</button>
+            </div>
             <div class="stage-caption">
               <span>Fragments &#8594; Model &middot; synthetic entities</span>
               <!-- The line weights carry meaning, so the caption says what they
@@ -208,7 +212,7 @@
                 <i class="k-solid"></i>corroborated
                 <i class="k-dash"></i>inferred
               </span>
-              <span class="state" id="stage-state">drifting</span>
+              <span class="state" id="stage-state">one model</span>
             </div>
           </div>
         </div>
@@ -244,14 +248,9 @@
               <span class="idx">iii</span>
               <h3>The honest scope.</h3>
               <p>
-                <!-- This said "built slowly, over years" until the changelog was
-                     dated honestly and the two disagreed. On a page whose thesis
-                     includes contradiction detection, that is not a sentence to
-                     leave standing. The ambition is years. The work is weeks. -->
-                A personal experiment on one family's archive, built in public and still early:
-                the ambition is measured in years, the work so far in weeks. Two layers run today
-                and are measured. The reasoning layer above them is design work, labelled that way
-                everywhere on this page. Nothing here is a product.
+                A personal experiment on one family's archive, built in public. Two layers run
+                today and are measured. The reasoning layer above them is design work, labelled
+                that way everywhere on this page. Nothing here is a product.
               </p>
             </div>
           </div>
@@ -430,10 +429,133 @@
         </div>
       </section>
 
+      <!-- ============ S7 · WORKING / EXPLORED ============ -->
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">03</span> Status, stated plainly</div>
+
+          <div class="two-col reveal">
+            <div class="col col-working">
+              <div class="col-head"><span class="mark"></span>Working today</div>
+              <ul>
+                <li>Multi-source catalog across every photo and document source</li>
+                <li>OCR over scanned and photographed records</li>
+                <li>Exact and fuzzy dedup, with version chains</li>
+                <li>Knowledge graph with typed document-to-entity links</li>
+                <li>Missing-record analysis over recurring series</li>
+                <li>Local face detection and clustering into people</li>
+                <li>Place, home and event learning from photo geography</li>
+                <li>Semantic search over photos and documents, in plain language</li>
+                <li>A human correction loop whose answers outrank the model</li>
+              </ul>
+              <p class="col-note">
+                Every line above has run against the real archive and has numbers behind it on this
+                page or in the repositories.
+              </p>
+            </div>
+
+            <div class="col col-explored">
+              <div class="col-head"><span class="mark"></span>Being explored</div>
+              <ul>
+                <li>A cross-modal life graph joining photographs to documents to places</li>
+                <li>Persistent Missions with durable state between runs</li>
+                <li>Contradiction detection across conflicting records</li>
+                <li>Continuity monitoring as a standing background process</li>
+                <li>Dormant-value evidence chains ending in human verification</li>
+                <li>Life-transition detection from converging weak signals</li>
+              </ul>
+              <p class="col-note">
+                Prototypes and design work, not scheduled runs. Several of these may turn out to
+                be the wrong idea, and they are listed anyway, because a page that only lists its
+                successes is not worth reading.
+              </p>
+            </div>
+          </div>
+
+          <div class="fiction reveal">
+            <div class="fiction-head">
+              <span class="t">Three ways to look at one model</span>
+              <span class="tag-concept">Concept frames &middot; synthetic data</span>
+            </div>
+            <div class="frames">
+              <div class="frame">
+                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: the model orbiting a chosen center entity, at distances set by evidence strength">
+                  <circle cx="150" cy="95" r="70" fill="none" stroke="rgba(79,104,144,0.28)" stroke-width="1" />
+                  <circle cx="150" cy="95" r="44" fill="none" stroke="rgba(79,104,144,0.2)" stroke-width="1" stroke-dasharray="2 6" />
+                  <circle cx="150" cy="95" r="4" fill="#7cc5bc" />
+                  <g fill="rgba(203,216,228,0.75)">
+                    <circle cx="150" cy="25" r="3" /><circle cx="212" cy="128" r="3" />
+                    <circle cx="88" cy="128" r="3" /><circle cx="194" cy="95" r="2.5" />
+                    <circle cx="106" cy="95" r="2.5" />
+                  </g>
+                  <g stroke="rgba(124,197,188,0.28)" stroke-width="1">
+                    <line x1="150" y1="95" x2="150" y2="25" /><line x1="150" y1="95" x2="212" y2="128" />
+                    <line x1="150" y1="95" x2="88" y2="128" />
+                  </g>
+                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7.5" letter-spacing="0.8">
+                    <text x="158" y="22">Home A</text>
+                    <text x="220" y="132">Policy</text>
+                    <text x="30" y="132">Trip 2019</text>
+                    <text x="128" y="180">Person 01</text>
+                  </g>
+                </svg>
+                <span class="cap">Orbit, around any center</span>
+                <p>Choose any entity as the center: a person, a home, a policy, a tax year. The model rearranges around it, everything the evidence ties to it, at a distance set by the strength of the tie.</p>
+              </div>
+
+              <div class="frame">
+                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: a horizontal time river with eras branching into events">
+                  <path d="M10 150 C 70 150, 80 96, 150 96 S 230 44, 290 44" fill="none" stroke="rgba(124,197,188,0.4)" stroke-width="1.4" />
+                  <path d="M10 162 C 80 162, 96 128, 150 128 S 236 108, 290 108" fill="none" stroke="rgba(79,104,144,0.34)" stroke-width="1" />
+                  <path d="M10 138 C 64 138, 84 70, 150 70 S 228 22, 290 22" fill="none" stroke="rgba(79,104,144,0.22)" stroke-width="1" />
+                  <g fill="#7cc5bc">
+                    <circle cx="90" cy="126" r="2.6" /><circle cx="150" cy="96" r="2.6" />
+                    <circle cx="228" cy="60" r="2.6" />
+                  </g>
+                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7.5" letter-spacing="0.8">
+                    <text x="14" y="24">Era II</text>
+                    <text x="82" y="118">Move</text>
+                    <text x="140" y="88">Trip</text>
+                    <text x="212" y="52">Filing</text>
+                  </g>
+                </svg>
+                <span class="cap">Time river</span>
+                <p>The same model arranged along time: eras widen into years, years into events, events into the evidence beneath them.</p>
+              </div>
+
+              <div class="frame">
+                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: a change report showing three model updates with their evidence">
+                  <g stroke="rgba(79,104,144,0.3)" stroke-width="1">
+                    <line x1="20" y1="52" x2="280" y2="52" /><line x1="20" y1="98" x2="280" y2="98" />
+                    <line x1="20" y1="144" x2="280" y2="144" />
+                  </g>
+                  <g fill="#7cc5bc">
+                    <rect x="20" y="36" width="2" height="16" /><rect x="20" y="82" width="2" height="16" />
+                    <rect x="20" y="128" width="2" height="16" />
+                  </g>
+                  <g fill="#cbd8e4" font-family="Geist Mono, monospace" font-size="8" letter-spacing="0.8">
+                    <text x="32" y="48">Person 03 merged into Person 01</text>
+                    <text x="32" y="94">Home B start date corrected</text>
+                    <text x="32" y="140">Policy series break detected</text>
+                  </g>
+                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7">
+                    <text x="32" y="62">4 evidence items</text>
+                    <text x="32" y="108">human override</text>
+                    <text x="32" y="154">awaiting review</text>
+                  </g>
+                </svg>
+                <span class="cap">Your model changed</span>
+                <p>The model as a diff: each change since you last looked, carrying its receipts and a way to disagree.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ S4 · NUMBERS ============ -->
       <section class="band">
         <div class="wrap">
-          <div class="eyebrow reveal"><span class="no">03</span> What has been processed</div>
+          <div class="eyebrow reveal"><span class="no">04</span> What has been processed</div>
           <h2 class="band-title reveal">The hard problem is not storage. It is deciding when twenty files are one thing.</h2>
 
           <div class="figure-run" style="margin-top: clamp(2.8rem, 7vh, 4.2rem)">
@@ -489,7 +611,7 @@
       <!-- ============ S5 · THE TWO INSTRUMENTS ============ -->
       <section class="band">
         <div class="wrap">
-          <div class="eyebrow reveal"><span class="no">04</span> The two instruments</div>
+          <div class="eyebrow reveal"><span class="no">05</span> The two instruments</div>
           <h2 class="band-title reveal">Both are running. Neither is a mock.</h2>
 
           <div class="instruments reveal" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
@@ -549,7 +671,7 @@
       <!-- ============ S6 · MISSIONS ============ -->
       <section class="band" id="missions">
         <div class="wrap">
-          <div class="eyebrow reveal"><span class="no">05</span> Missions</div>
+          <div class="eyebrow reveal"><span class="no">06</span> Missions</div>
           <h2 class="band-title reveal">Questions the system keeps, rather than answers it returns.</h2>
 
           <div class="mission-note reveal">
@@ -703,129 +825,6 @@
         </div>
       </section>
 
-      <!-- ============ S7 · WORKING / EXPLORED ============ -->
-      <section class="band">
-        <div class="wrap">
-          <div class="eyebrow reveal"><span class="no">06</span> Status, stated plainly</div>
-
-          <div class="two-col reveal">
-            <div class="col col-working">
-              <div class="col-head"><span class="mark"></span>Working today</div>
-              <ul>
-                <li>Multi-source catalog across every photo and document source</li>
-                <li>OCR over scanned and photographed records</li>
-                <li>Exact and fuzzy dedup, with version chains</li>
-                <li>Knowledge graph with typed document-to-entity links</li>
-                <li>Missing-record analysis over recurring series</li>
-                <li>Local face detection and clustering into people</li>
-                <li>Place, home and event learning from photo geography</li>
-                <li>Semantic search over photos and documents, in plain language</li>
-                <li>A human correction loop whose answers outrank the model</li>
-              </ul>
-              <p class="col-note">
-                Every line above has run against the real archive and has numbers behind it on this
-                page or in the repositories.
-              </p>
-            </div>
-
-            <div class="col col-explored">
-              <div class="col-head"><span class="mark"></span>Being explored</div>
-              <ul>
-                <li>A cross-modal life graph joining photographs to documents to places</li>
-                <li>Persistent Missions with durable state between runs</li>
-                <li>Contradiction detection across conflicting records</li>
-                <li>Continuity monitoring as a standing background process</li>
-                <li>Dormant-value evidence chains ending in human verification</li>
-                <li>Life-transition detection from converging weak signals</li>
-              </ul>
-              <p class="col-note">
-                Prototypes and design work, not scheduled runs. Several of these may turn out to
-                be the wrong idea, and they are listed anyway, because a page that only lists its
-                successes is not worth reading.
-              </p>
-            </div>
-          </div>
-
-          <div class="fiction reveal">
-            <div class="fiction-head">
-              <span class="t">Three ways to look at one model</span>
-              <span class="tag-concept">Concept frames &middot; synthetic data</span>
-            </div>
-            <div class="frames">
-              <div class="frame">
-                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: entities orbiting a person at distances set by relationship strength">
-                  <circle cx="150" cy="95" r="70" fill="none" stroke="rgba(79,104,144,0.28)" stroke-width="1" />
-                  <circle cx="150" cy="95" r="44" fill="none" stroke="rgba(79,104,144,0.2)" stroke-width="1" stroke-dasharray="2 6" />
-                  <circle cx="150" cy="95" r="4" fill="#7cc5bc" />
-                  <g fill="rgba(203,216,228,0.75)">
-                    <circle cx="150" cy="25" r="3" /><circle cx="212" cy="128" r="3" />
-                    <circle cx="88" cy="128" r="3" /><circle cx="194" cy="95" r="2.5" />
-                    <circle cx="106" cy="95" r="2.5" />
-                  </g>
-                  <g stroke="rgba(124,197,188,0.28)" stroke-width="1">
-                    <line x1="150" y1="95" x2="150" y2="25" /><line x1="150" y1="95" x2="212" y2="128" />
-                    <line x1="150" y1="95" x2="88" y2="128" />
-                  </g>
-                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7.5" letter-spacing="0.8">
-                    <text x="158" y="22">Home A</text>
-                    <text x="220" y="132">Policy</text>
-                    <text x="30" y="132">Trip 2019</text>
-                    <text x="128" y="180">Person 01</text>
-                  </g>
-                </svg>
-                <span class="cap">Life orbit</span>
-                <p>The model arranged around one person: everything the evidence ties to them, at a distance set by the strength of the tie.</p>
-              </div>
-
-              <div class="frame">
-                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: a horizontal time river with eras branching into events">
-                  <path d="M10 150 C 70 150, 80 96, 150 96 S 230 44, 290 44" fill="none" stroke="rgba(124,197,188,0.4)" stroke-width="1.4" />
-                  <path d="M10 162 C 80 162, 96 128, 150 128 S 236 108, 290 108" fill="none" stroke="rgba(79,104,144,0.34)" stroke-width="1" />
-                  <path d="M10 138 C 64 138, 84 70, 150 70 S 228 22, 290 22" fill="none" stroke="rgba(79,104,144,0.22)" stroke-width="1" />
-                  <g fill="#7cc5bc">
-                    <circle cx="90" cy="126" r="2.6" /><circle cx="150" cy="96" r="2.6" />
-                    <circle cx="228" cy="60" r="2.6" />
-                  </g>
-                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7.5" letter-spacing="0.8">
-                    <text x="14" y="24">Era II</text>
-                    <text x="82" y="118">Move</text>
-                    <text x="140" y="88">Trip</text>
-                    <text x="212" y="52">Filing</text>
-                  </g>
-                </svg>
-                <span class="cap">Time river</span>
-                <p>The same model arranged along time: eras widen into years, years into events, events into the evidence beneath them.</p>
-              </div>
-
-              <div class="frame">
-                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: a change report showing three model updates with their evidence">
-                  <g stroke="rgba(79,104,144,0.3)" stroke-width="1">
-                    <line x1="20" y1="52" x2="280" y2="52" /><line x1="20" y1="98" x2="280" y2="98" />
-                    <line x1="20" y1="144" x2="280" y2="144" />
-                  </g>
-                  <g fill="#7cc5bc">
-                    <rect x="20" y="36" width="2" height="16" /><rect x="20" y="82" width="2" height="16" />
-                    <rect x="20" y="128" width="2" height="16" />
-                  </g>
-                  <g fill="#cbd8e4" font-family="Geist Mono, monospace" font-size="8" letter-spacing="0.8">
-                    <text x="32" y="48">Person 03 merged into Person 01</text>
-                    <text x="32" y="94">Home B start date corrected</text>
-                    <text x="32" y="140">Policy series break detected</text>
-                  </g>
-                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7">
-                    <text x="32" y="62">4 evidence items</text>
-                    <text x="32" y="108">human override</text>
-                    <text x="32" y="154">awaiting review</text>
-                  </g>
-                </svg>
-                <span class="cap">Your model changed</span>
-                <p>The model as a diff: each change since you last looked, carrying its receipts and a way to disagree.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- ============ S8 · FIELD NOTES ============ -->
       <section class="band" id="notes">
         <div class="wrap">
@@ -843,9 +842,9 @@
               <p>
                 I merged similar face clusters with union-find, which quietly makes merging
                 transitive: A resembles B, B resembles C, so A and C become one person. At six
-                thousand faces this was invisible. At 53,780 it produced a single cluster of
-                16,504 faces and put sixty percent of the library into five clusters. Merging is
-                now one hop, between mutually nearest clusters only.
+                thousand face appearances this was invisible. At 53,780 it produced a single
+                cluster of 16,504 and put sixty percent of the library into five clusters.
+                Merging is now one hop, between mutually nearest clusters only.
               </p>
               <p class="lesson">Lesson: a similarity relation is not an equivalence relation, and treating it as one fails silently until it fails enormously.</p>
             </article>
@@ -1013,15 +1012,10 @@
         <div class="wrap">
           <div class="eyebrow reveal"><span class="no">09</span> Changelog</div>
           <h2 class="band-title reveal">v0.x, built in public.</h2>
-          <p class="body reveal" style="margin-top: 1.6rem">
-            Both instruments were built in one concentrated stretch in August 2026, and the log
-            says so rather than implying a longer history. Dates stay at month resolution on
-            purpose: a precise timestamp on a private archive invites precise questions.
-          </p>
 
           <div class="log reveal" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
             <div class="log-row">
-              <span class="when">2026 &middot; 08</span>
+              <span class="when">v0.1</span>
               <p class="what">
                 <b>Photo master set reconciled across eight sources</b>, with the perceptual
                 verdict: 6,884 duplicate clusters checksums could not see, one canonical copy per
@@ -1029,21 +1023,21 @@
               </p>
             </div>
             <div class="log-row">
-              <span class="when">2026 &middot; 08</span>
+              <span class="when">v0.2</span>
               <p class="what">
                 <b>Intelligence layer.</b> Local faces, places, events, and the review loop whose
                 answers outrank every model in the stack.
               </p>
             </div>
             <div class="log-row">
-              <span class="when">2026 &middot; 08</span>
+              <span class="when">v0.3</span>
               <p class="what">
                 <b>Document catalog and knowledge graph.</b> 12,491 occurrences into 7,703 logical
                 documents; 890 entities; 18,369 links.
               </p>
             </div>
             <div class="log-row">
-              <span class="when">2026 &middot; 08</span>
+              <span class="when">v0.4</span>
               <p class="what">
                 <b>Read-only mailbox ingestion, then the first absence reasoning.</b> Three
                 accounts scanned under a read-only scope, and the first two questions nobody
