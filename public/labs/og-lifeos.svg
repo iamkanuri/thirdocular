@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="LifeOS, an experiment from ThirdOcular Labs">
+  <!--
+    Abstract OG card. Every mark here is generated: five synthetic concept nodes
+    with evidence trails resolving into one structure, the same composition the
+    hero canvas ends on. No raster source, no photograph, no screenshot, and no
+    text drawn from the corpus.
+
+    Type is drawn as paths-free <text> with a system fallback stack, because an
+    OG renderer will not have the self-hosted faces available.
+  -->
+  <defs>
+    <radialGradient id="ground" cx="50%" cy="-8%" r="88%">
+      <stop offset="0%" stop-color="#232b3d" />
+      <stop offset="65%" stop-color="#1b2131" />
+    </radialGradient>
+    <radialGradient id="halo" cx="72%" cy="62%" r="42%">
+      <stop offset="0%" stop-color="#7cc5bc" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#7cc5bc" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ground)" />
+  <rect width="1200" height="630" fill="url(#halo)" />
+
+  <!-- drifting fragments, still unattached -->
+  <g fill="#cbd8e4" opacity="0.3">
+    <circle cx="712" cy="118" r="2.4" /><circle cx="1088" cy="176" r="2.4" />
+    <circle cx="796" cy="536" r="2.4" /><circle cx="1132" cy="452" r="2.4" />
+    <circle cx="668" cy="322" r="2.4" /><circle cx="944" cy="94" r="2.4" />
+    <circle cx="1056" cy="560" r="2.4" /><circle cx="880" cy="590" r="2.4" />
+  </g>
+
+  <!-- the resolved structure -->
+  <g stroke="#7cc5bc" stroke-width="1.2" fill="none" opacity="0.5">
+    <path d="M760 250 L900 176 L1064 268 L1010 424 L836 400 Z" />
+    <path d="M900 176 L836 400" />
+    <path d="M760 250 L1064 268" />
+  </g>
+  <g stroke="#7cc5bc" stroke-width="1" opacity="0.24">
+    <path d="M760 250 L712 118" /><path d="M900 176 L944 94" />
+    <path d="M1064 268 L1132 452" /><path d="M836 400 L796 536" />
+    <path d="M1010 424 L1056 560" />
+  </g>
+  <g fill="#7cc5bc">
+    <circle cx="760" cy="250" r="5" /><circle cx="900" cy="176" r="5" />
+    <circle cx="1064" cy="268" r="5" /><circle cx="1010" cy="424" r="5" />
+    <circle cx="836" cy="400" r="5" />
+  </g>
+
+  <g font-family="ui-monospace, 'Cascadia Mono', 'DejaVu Sans Mono', monospace" font-size="15" fill="#8a97ab" letter-spacing="1.6">
+    <text x="776" y="255">Person 01</text>
+    <text x="916" y="181">Home A</text>
+    <text x="1080" y="273">Trip</text>
+    <text x="1026" y="429">Tax Year</text>
+    <text x="852" y="405">Policy</text>
+  </g>
+
+  <!-- the eye glyph, matching the site mark -->
+  <g transform="translate(88, 84)" stroke="#cbd8e4" fill="none">
+    <circle cx="12" cy="12" r="8.5" stroke-width="1" opacity="0.9" />
+    <circle cx="12" cy="12" r="1.6" fill="#cbd8e4" stroke="none" />
+    <circle cx="18" cy="6" r="1" fill="#cbd8e4" stroke="none" opacity="0.9" />
+  </g>
+  <text x="124" y="101" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="19" fill="#8a97ab" letter-spacing="3.4">THIRDOCULAR LABS</text>
+
+  <text x="88" y="272" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="88" font-weight="200" fill="#cbd8e4" letter-spacing="-2">LifeOS</text>
+
+  <text x="88" y="342" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">A life leaves evidence.</text>
+  <text x="88" y="386" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">LifeOS builds the model.</text>
+
+  <line x1="88" y1="444" x2="560" y2="444" stroke="#4f6890" stroke-opacity="0.4" stroke-width="1" />
+
+  <g font-family="ui-monospace, 'Cascadia Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#8a97ab" letter-spacing="1.4">
+    <text x="88" y="484">89,569 fragments cataloged</text>
+    <text x="88" y="516">7,703 logical documents</text>
+    <text x="88" y="548">0 cloud calls</text>
+  </g>
+</svg>
