@@ -1,0 +1,1312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeOS · A local, evidence-backed model of a life · ThirdOcular Labs</title>
+    <meta
+      name="description"
+      content="LifeOS is a long-horizon experiment in reconciling one family's scattered digital records into a single, evidence-backed model of a life. Photographs, documents and mailboxes become people, places, events and obligations. Every model runs on one laptop."
+    />
+    <link rel="canonical" href="https://thirdocular.com/labs/lifeos/" />
+    <meta name="theme-color" content="#1B2131" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../icon-192.png" />
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+    <link rel="manifest" href="../../site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="ThirdOcular" />
+    <meta property="og:title" content="LifeOS · A local, evidence-backed model of a life" />
+    <meta
+      property="og:description"
+      content="Reconciling a family's scattered records into people, places, events and obligations. Local models, read-only sources, evidence attached to every assertion."
+    />
+    <meta property="og:url" content="https://thirdocular.com/labs/lifeos/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://thirdocular.com/labs/og-lifeos.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LifeOS, an experiment from ThirdOcular Labs" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LifeOS · A local, evidence-backed model of a life" />
+    <meta
+      name="twitter:description"
+      content="Reconciling a family's scattered records into people, places, events and obligations. Local models, read-only sources, evidence attached to every assertion."
+    />
+    <meta name="twitter:image" content="https://thirdocular.com/labs/og-lifeos.png" />
+    <meta name="twitter:image:alt" content="LifeOS, an experiment from ThirdOcular Labs" />
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="../../fonts/geist-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="../../fonts/instrumentserif-italic-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="../../fonts/geistmono-latin.woff2"
+      crossorigin
+    />
+    <style>
+      /* Same faces as the home page. URLs are relative to this document: public/
+         assets are served verbatim from the site root, so ../../ resolves under
+         both the custom domain and the project-page deployment. */
+      @font-face {
+        font-family: 'Geist';
+        font-style: normal;
+        font-weight: 200 500;
+        font-display: swap;
+        src: url(../../fonts/geist-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Geist Mono';
+        font-style: normal;
+        font-weight: 300 400;
+        font-display: swap;
+        src: url(../../fonts/geistmono-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(../../fonts/instrumentserif-italic-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/labs.css" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body class="labs">
+    <div class="lens-clarity" aria-hidden="true"></div>
+
+    <header class="site-head">
+      <a class="glyph-link" href="/" aria-label="ThirdOcular home">
+        <svg class="glyph" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
+          <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+          <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
+        </svg>
+      </a>
+      <nav class="head-nav" aria-label="Primary">
+        <a href="/">ThirdOcular</a>
+        <a href="/labs/">Labs</a>
+        <a href="#notes">Field notes</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ============ S1 · HERO ============ -->
+      <section class="os-hero">
+        <div class="wrap">
+          <span class="kicker reveal"><span class="dot"></span>ThirdOcular Labs · Experiment 001</span>
+
+          <h1 class="os-title reveal">A life leaves evidence. LifeOS builds <em>the model</em>.</h1>
+
+          <p class="os-sub reveal">
+            A private AI architecture experiment: what becomes possible when personal data is
+            reconciled across time, entities, relationships, and evidence.
+          </p>
+
+          <p class="os-strap reveal">
+            local multimodal AI &middot; entity resolution &middot; temporal reasoning &middot;
+            human validation &middot; knowledge graphs
+          </p>
+
+          <div class="os-cta reveal">
+            <a class="btn" href="#architecture">Explore the system <span class="arrow" aria-hidden="true">&#8594;</span></a>
+            <a class="btn btn-quiet" href="#notes">Field notes <span class="arrow" aria-hidden="true">&#8594;</span></a>
+          </div>
+
+          <!-- Interactive A: fragments become a model. -->
+          <div class="stage reveal" id="stage" aria-hidden="true">
+            <canvas id="fragments"></canvas>
+            <!--
+              The composed static state. This is what a visitor sees with
+              JavaScript off or prefers-reduced-motion set: not a placeholder,
+              the finished frame the animation resolves to. The metaphor has to
+              survive with the motion switched off.
+            -->
+            <svg class="stage-static" viewBox="0 0 800 400" role="img" aria-label="Scattered fragments resolving into five labelled concepts connected by evidence trails">
+              <g stroke="rgba(124,197,188,0.35)" stroke-width="1" fill="none">
+                <path d="M170 150 L330 110 L560 160 L640 260 L400 300 Z" />
+                <path d="M330 110 L400 300" />
+                <path d="M170 150 L560 160" />
+              </g>
+              <g fill="rgba(203,216,228,0.35)">
+                <circle cx="96" cy="82" r="1.6" /><circle cx="238" cy="60" r="1.6" />
+                <circle cx="700" cy="96" r="1.6" /><circle cx="742" cy="212" r="1.6" />
+                <circle cx="120" cy="300" r="1.6" /><circle cx="262" cy="352" r="1.6" />
+                <circle cx="520" cy="52" r="1.6" /><circle cx="640" cy="344" r="1.6" />
+              </g>
+              <g fill="#7cc5bc">
+                <circle cx="170" cy="150" r="3.4" /><circle cx="330" cy="110" r="3.4" />
+                <circle cx="560" cy="160" r="3.4" /><circle cx="640" cy="260" r="3.4" />
+                <circle cx="400" cy="300" r="3.4" />
+              </g>
+              <g fill="#cbd8e4" font-family="Geist Mono, monospace" font-size="11" letter-spacing="1.4">
+                <text x="182" y="154">Person 01</text>
+                <text x="342" y="114">Home A</text>
+                <text x="572" y="164">Trip 2019</text>
+                <text x="652" y="264">Tax Year</text>
+                <text x="412" y="304">Policy</text>
+              </g>
+            </svg>
+            <div class="stage-caption">
+              <span>Fragments &#8594; Model &middot; synthetic entities</span>
+              <span class="state" id="stage-state">drifting</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S2 · THESIS ============ -->
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">01</span> Thesis</div>
+
+          <div class="thesis-grid">
+            <div class="thesis-col reveal">
+              <span class="idx">i</span>
+              <h3>The records exist. The understanding does not.</h3>
+              <p>
+                A family's history is already written down. It is written down in three mailboxes,
+                several drives, two photo libraries, a laptop, and the dumps of the laptops before
+                it. Every one of those accounts is owned by a company that indexes it for its own
+                purposes, and none of them know the others exist. The information is not missing.
+                It is unreconciled.
+              </p>
+            </div>
+            <div class="thesis-col reveal">
+              <span class="idx">ii</span>
+              <h3>One model, held locally.</h3>
+              <p>
+                LifeOS reads those sources and builds a single model above them: people, places,
+                events, properties, institutions, documents, obligations, tax years. Twenty files
+                that are one document become one document with twenty pieces of provenance. The
+                model is cross referenced, versioned, and correctable by a human, and it lives on
+                hardware its subject owns.
+              </p>
+            </div>
+            <div class="thesis-col reveal">
+              <span class="idx">iii</span>
+              <h3>The honest scope.</h3>
+              <p>
+                This is a personal experiment on one family's archive, built slowly, over years,
+                in public. Two layers run today and are measured. The reasoning layer above them is
+                design work with prototypes behind it, and is labelled that way everywhere on this
+                page. Nothing here is a product, and there is nothing to sign up for.
+              </p>
+            </div>
+          </div>
+
+          <p class="principle reveal">
+            LifeOS does not organize files. It organizes reality inferred from evidence.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ S3 · ARCHITECTURE ============ -->
+      <section class="band" id="architecture">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">02</span> The architecture</div>
+          <h2 class="band-title reveal">Six layers. Each one throws away less than the last.</h2>
+          <p class="body reveal" style="margin-top: 1.6rem">
+            Every layer takes the layer below it as raw material and refuses to discard what it
+            cannot yet explain. Uncertainty travels upward with the data instead of being rounded
+            off at each step.
+          </p>
+
+          <!-- The chips carry state, so the state has to be legible. Without
+               this line a reader sees two chip treatments and has to guess. -->
+          <p class="chip-legend reveal">
+            <span class="chip chip-live">Running today</span>
+            <span class="chip">Being explored</span>
+          </p>
+
+          <div class="layers" style="margin-top: clamp(1.6rem, 4vh, 2.2rem)">
+            <div class="layer reveal" style="--depth: 0.12">
+              <div>
+                <span class="layer-no">Layer 01</span>
+                <span class="layer-name">Evidence</span>
+              </div>
+              <div>
+                <p class="layer-lede">
+                  Whatever the family already produced, in whatever state it was left in. Nothing is
+                  normalized before it is recorded, because the mess is data too.
+                </p>
+                <div class="chips">
+                  <span class="chip chip-live">Drives</span>
+                  <span class="chip chip-live">Mailboxes</span>
+                  <span class="chip chip-live">Photo libraries</span>
+                  <span class="chip chip-live">Local files</span>
+                  <span class="chip chip-live">Scans</span>
+                  <span class="chip chip-live">Metadata</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="layer reveal" style="--depth: 0.26">
+              <div>
+                <span class="layer-no">Layer 02</span>
+                <span class="layer-name">Understanding</span>
+              </div>
+              <div>
+                <p class="layer-lede">
+                  Turning bytes into something with meaning attached. Text out of scans, coordinates
+                  out of photographs, faces into vectors, images into semantic space. Failures are
+                  recorded as failures.
+                </p>
+                <div class="chips">
+                  <span class="chip chip-live">OCR</span>
+                  <span class="chip chip-live">EXIF and GPS recovery</span>
+                  <span class="chip chip-live">Entity extraction</span>
+                  <span class="chip chip-live">Face representation</span>
+                  <span class="chip chip-live">Semantic embeddings</span>
+                  <span class="chip chip-live">Noise filtering</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="layer reveal" style="--depth: 0.42">
+              <div>
+                <span class="layer-no">Layer 03</span>
+                <span class="layer-name">Reconciliation</span>
+              </div>
+              <div>
+                <p class="layer-lede">
+                  The hardest layer, and the one everything above depends on. Deciding when many
+                  things are one thing, which copy is the real one, when two records describe the
+                  same person, and what to do when the evidence disagrees with itself.
+                </p>
+                <div class="chips">
+                  <span class="chip chip-live">Exact duplicates</span>
+                  <span class="chip chip-live">Near duplicates</span>
+                  <span class="chip chip-live">Version chains</span>
+                  <span class="chip chip-live">Identity resolution</span>
+                  <span class="chip chip-live">Temporal normalization</span>
+                  <span class="chip chip-live">Provenance</span>
+                  <span class="chip">Conflicting evidence</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="layer reveal" style="--depth: 0.6">
+              <div>
+                <span class="layer-no">Layer 04</span>
+                <span class="layer-name">Life model</span>
+              </div>
+              <div>
+                <p class="layer-lede">
+                  The objects the system actually reasons about. Not folders and not filenames:
+                  entities with histories, connected to the evidence that supports them.
+                </p>
+                <div class="chips">
+                  <span class="chip chip-live">People</span>
+                  <span class="chip chip-live">Places</span>
+                  <span class="chip chip-live">Events</span>
+                  <span class="chip chip-live">Relationships</span>
+                  <span class="chip chip-live">Documents</span>
+                  <span class="chip chip-live">Institutions</span>
+                  <span class="chip">Properties</span>
+                  <span class="chip">Obligations</span>
+                  <span class="chip">Tax years</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="layer reveal" style="--depth: 0.78">
+              <div>
+                <span class="layer-no">Layer 05</span>
+                <span class="layer-name">Trust</span>
+              </div>
+              <div>
+                <p class="layer-lede">
+                  Every assertion carries a confidence and a trail back to what produced it. A human
+                  answer outranks anything inferred, permanently, and survives a full rebuild of the
+                  layers beneath it.
+                </p>
+                <div class="chips">
+                  <span class="chip chip-live">Confidence</span>
+                  <span class="chip chip-live">Evidence trails</span>
+                  <span class="chip chip-live">Human correction</span>
+                  <span class="chip chip-live">Persistent overrides</span>
+                  <span class="chip">Contradictions</span>
+                  <span class="chip">Declared unknowns</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="layer reveal" style="--depth: 1">
+              <div>
+                <span class="layer-no">Layer 06</span>
+                <span class="layer-name">Intelligence</span>
+              </div>
+              <div>
+                <p class="layer-lede">
+                  The layer this whole structure exists to make possible, and the one still being
+                  built. It is where the question a person asks their own archive changes shape.
+                </p>
+                <div class="chips">
+                  <span class="chip">Absence reasoning</span>
+                  <span class="chip">Continuity monitoring</span>
+                  <span class="chip">Contradiction detection</span>
+                  <span class="chip">Persistent missions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="turn reveal">
+            <p class="turn-from">Where is my document?</p>
+            <span class="turn-mark" aria-hidden="true">&#8594;</span>
+            <p class="turn-to">
+              What should exist? What changed? What is inconsistent? What deserves attention?
+            </p>
+          </div>
+
+          <p class="body reveal" style="margin-top: 2.2rem">
+            The first question is search, and search has been solved for thirty years. The second set
+            requires a system that holds a model of what a complete life record looks like, compares
+            it against what it has actually observed, and can say something useful about the
+            difference. That gap is the whole project.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ S4 · NUMBERS ============ -->
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">03</span> What has been processed</div>
+          <h2 class="band-title reveal">The hard problem is not storage. It is deciding when twenty files are one thing.</h2>
+
+          <div class="figure-run" style="margin-top: clamp(2.8rem, 7vh, 4.2rem)">
+            <div class="figure reveal">
+              <div class="figure-n">89,569<small>Fragments cataloged</small></div>
+              <p class="figure-t">
+                77,078 photo and file records across eight sources, plus 12,491 document occurrences
+                across seven more. Every one of them is a claim about something, and almost none of
+                them are unique.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">12,491 &#8594; 7,703<small>Occurrences into logical documents</small></div>
+              <p class="figure-t">
+                <strong>Twelve thousand scattered occurrences became seven thousand seven hundred
+                logical records.</strong> The same tax document arriving as an attachment, saved to a
+                drive, re-saved by a spouse, and scanned again years later is one document with four
+                pieces of provenance, not four documents.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">6,884<small>Clusters checksums could not see</small></div>
+              <p class="figure-t">
+                Visual duplicate groups whose members have different bytes and identical content: a
+                recompressed copy sitting beside its original. Collapsing them refined 56,943
+                checksum-unique files down to roughly <strong>45,325 photographs that actually
+                exist</strong>. The collection was smaller, and more precious, than the byte count
+                claimed.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">164.8 GB<small>Redundant, and still on disk</small></div>
+              <p class="figure-t">
+                Identified, marked, reported, and left exactly where it was. The analysis is
+                marks-only. <strong>Nothing in the pipeline has ever deleted an original</strong>,
+                and no part of it is permitted to.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">890 &middot; 18,369<small>Entities and document links</small></div>
+              <p class="figure-t">
+                The graph that makes the rest possible. Every link is a typed edge between a document
+                and something in the world, which is what allows a question about a person, a year or
+                an institution to be answered without a filename ever being involved.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">3,678<small>Documents recovered by OCR</small></div>
+              <p class="figure-t">
+                Records that existed only as photographs of paper. Alongside them,
+                <strong>11 extraction failures recorded as failures</strong>, because a document that
+                could not be read is a different thing from a document that is not there, and
+                collapsing the two would corrupt every conclusion about absence.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">9,275 &middot; 35,344<small>Messages scanned, attachments triaged</small></div>
+              <p class="figure-t">
+                Three mailboxes read with a read-only OAuth scope, from which 10,879 attachments were
+                worth fetching and the rest were cataloged and left alone. Knowing that a thing exists
+                is often the whole job.
+              </p>
+            </div>
+
+            <div class="figure reveal">
+              <div class="figure-n">23<small>Records that should exist and do not</small></div>
+              <p class="figure-t">
+                Across fifteen monitored record series, six show breaks in a pattern that had been
+                regular for years. <strong>Nobody asked for those records.</strong> The system worked
+                out what a complete series looks like and reported the holes, which is the first thing
+                on this page that search cannot do.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S5 · THE TWO INSTRUMENTS ============ -->
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">04</span> The two instruments</div>
+          <h2 class="band-title reveal">Both are running. Neither is a mock.</h2>
+
+          <div class="instruments reveal" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
+            <div class="instrument">
+              <div>
+                <h3>Lifegram</h3>
+                <span class="role">Photo intelligence layer</span>
+              </div>
+              <p class="purpose">
+                Reconciles every photo library the family owns into one master set, then learns the
+                people, places and events inside it, entirely on local hardware.
+              </p>
+              <ul class="caps">
+                <li>Multi-source dedup by checksum and by perceptual hash, with one canonical copy chosen per cluster</li>
+                <li>Face detection and clustering into people, with a human review loop that outranks the model</li>
+                <li>Offline reverse geocoding, home and trip detection, and semantic search over image embeddings</li>
+              </ul>
+              <div class="stat-row">
+                <div><span class="s">77,078</span><span class="k">Files, 8 sources</span></div>
+                <div><span class="s">~45,325</span><span class="k">Distinct photos</span></div>
+                <div><span class="s">53,780</span><span class="k">Faces detected</span></div>
+              </div>
+              <p class="pull">
+                Perceptual hashing found the collection was smaller, and more precious, than the byte
+                count claimed.
+              </p>
+            </div>
+
+            <div class="instrument">
+              <div>
+                <h3>Docugram</h3>
+                <span class="role">Document intelligence layer</span>
+              </div>
+              <p class="purpose">
+                Catalogs every document the family has, works out which ones are the same document,
+                extracts what they are about, and reasons about what is missing.
+              </p>
+              <ul class="caps">
+                <li>Exact and fuzzy dedup with version chains, so drafts of one document stay attached to it</li>
+                <li>OCR, entity extraction and a knowledge graph linking documents to people, years and institutions</li>
+                <li>Advisory retention, missing-record analysis, and recoverable-value leads that always end at a human</li>
+              </ul>
+              <div class="stat-row">
+                <div><span class="s">7,703</span><span class="k">Logical documents</span></div>
+                <div><span class="s">18,369</span><span class="k">Entity links</span></div>
+                <div><span class="s">4,145</span><span class="k">Version edges</span></div>
+              </div>
+              <p class="pull">
+                Extraction failures are recorded as failures. Absence is a conclusion, and it has to
+                be earned.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S6 · MISSIONS ============ -->
+      <section class="band" id="missions">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">05</span> Missions</div>
+          <h2 class="band-title reveal">Questions the system keeps, rather than answers it returns.</h2>
+
+          <div class="mission-note reveal">
+            A Mission is a continuing responsibility evaluated against changing evidence. Not a
+            prompt. Not a search. It has a state, it survives restarts, and its answer changes when
+            the world does rather than when someone asks again. Every example below uses synthetic
+            entities.
+          </div>
+
+          <!-- Interactive B: the mission state machine. -->
+          <div class="machine reveal" id="machine">
+            <div class="machine-pane">
+              <div class="machine-head">
+                <span class="title">Mission &middot; live state</span>
+                <span class="synth">Synthetic data</span>
+              </div>
+              <p class="q" id="m-question">Am I actually ready to file?</p>
+              <div class="readiness">
+                <span class="val" id="m-readiness">0%</span>
+                <span class="lab">Evidence completeness, not a checklist</span>
+              </div>
+              <div class="meter"><i id="m-meter"></i></div>
+              <p class="machine-foot" id="m-narration">Waiting for evidence.</p>
+            </div>
+            <div class="machine-pane">
+              <div class="ledger" id="m-ledger">
+                <div class="ledger-row" data-state="expected">
+                  <span class="name">Expected</span><span class="count" data-n="24">0</span>
+                </div>
+                <div class="ledger-row" data-state="observed">
+                  <span class="name">Observed</span><span class="count" data-n="19">0</span>
+                </div>
+                <div class="ledger-row" data-state="reconciled">
+                  <span class="name">Reconciled</span><span class="count" data-n="17">0</span>
+                </div>
+                <div class="ledger-row" data-state="verified">
+                  <span class="name">Verified</span><span class="count" data-n="14">0</span>
+                </div>
+                <!-- Synthetic, and internally consistent on purpose: expected
+                     minus observed equals missing, so the arithmetic holds for
+                     a reader who checks it. -->
+                <div class="ledger-row missing" data-state="missing">
+                  <span class="name">Missing</span><span class="count" data-n="5">0</span>
+                </div>
+              </div>
+              <p class="machine-legend">
+                The mission does not close when a search returns.<br />
+                It closes when the evidence is complete.
+              </p>
+            </div>
+          </div>
+
+          <div class="missions reveal" style="margin-top: clamp(2rem, 5vh, 3rem)">
+            <article class="mission">
+              <span class="m-no">M01</span>
+              <h3>Tax readiness</h3>
+              <p class="q">Am I actually ready to file?</p>
+              <p>
+                The graph knows what evidence a tax year is supposed to produce and compares it
+                against what has actually been observed. Readiness becomes an evidence-completeness
+                score with a list of specific holes behind it, rather than a checklist somebody
+                remembered to update.
+              </p>
+              <div class="states">
+                <span class="s on">Expected</span><span class="sep">&#8594;</span>
+                <span class="s on">Observed</span><span class="sep">&#8594;</span>
+                <span class="s on">Reconciled</span><span class="sep">&#8594;</span>
+                <span class="s">Verified</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M02</span>
+              <h3>Records continuity</h3>
+              <p class="q">What should still exist, but disappeared?</p>
+              <p>
+                Documentary patterns that recur on their own schedule get monitored for breaks. A
+                series that arrived every year for six years and then stopped is a finding, not an
+                absence of results. This is absence reasoning, and it is the opposite of search.
+              </p>
+              <div class="states">
+                <span class="s on">Expected</span><span class="sep">&#8594;</span>
+                <span class="s">Observed</span><span class="sep">&#8594;</span>
+                <span class="s on">Missing</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M03</span>
+              <h3>Dormant value</h3>
+              <p class="q">What might my history have left behind?</p>
+              <p>
+                Evidence chains run from a former employer to a plan administrator to the absence of
+                any rollover evidence, and produce a lead a human then verifies with the institution.
+                The system never says money is owed. It says here is a chain, and here is the gap in
+                it.
+              </p>
+              <div class="states">
+                <span class="s on">Observed</span><span class="sep">&#8594;</span>
+                <span class="s on">Reconciled</span><span class="sep">&#8594;</span>
+                <span class="s">Verified by a human</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M04</span>
+              <h3>Life contradictions</h3>
+              <p class="q">Where does my own history disagree with itself?</p>
+              <p>
+                Two policies that both look active. A date that appears twice with different values.
+                Three files each claiming to be the latest version. Each conflict resolves into
+                historical truth, current truth, or an honest unresolved contradiction that stays
+                visible. A personal truth-maintenance system.
+              </p>
+              <div class="states">
+                <span class="s on">Observed</span><span class="sep">&#8594;</span>
+                <span class="s on">Conflict</span><span class="sep">&#8594;</span>
+                <span class="s">Resolved or declared</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M05</span>
+              <h3>Family continuity</h3>
+              <p class="q">If my family suddenly needed to understand everything important, could they?</p>
+              <p>
+                A structured map of what exists, who it belongs to, who depends on it, and what is
+                missing, generated from evidence rather than assembled by hand from decades of
+                folders. The archive a family inherits should not be a password nobody wrote down.
+              </p>
+              <div class="states">
+                <span class="s on">Expected</span><span class="sep">&#8594;</span>
+                <span class="s on">Observed</span><span class="sep">&#8594;</span>
+                <span class="s">Verified</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M06</span>
+              <h3>Home as entity</h3>
+              <p class="q">What has this house actually cost, and what has no maintenance evidence?</p>
+              <p>
+                A property that accumulates its own history: purchase, insurance, taxes, repairs,
+                warranties, and the appliance whose warranty has an installation date and no service
+                record since. A place stops being an address and becomes an entity with a ledger.
+              </p>
+              <div class="states">
+                <span class="s on">Observed</span><span class="sep">&#8594;</span>
+                <span class="s on">Reconciled</span><span class="sep">&#8594;</span>
+                <span class="s">Missing</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M07</span>
+              <h3>Transition detection</h3>
+              <p class="q">Detect life's chapters instead of asking for them.</p>
+              <p>
+                An address change, a shift in photo geography, a closing document and an insurance
+                change all landing in the same season are one event seen from four angles. The system
+                proposes the chapter; one human confirmation mints it.
+              </p>
+              <div class="states">
+                <span class="s on">Converging evidence</span><span class="sep">&#8594;</span>
+                <span class="s">Confirmed by a human</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M08</span>
+              <h3>The unfinished things</h3>
+              <p class="q">What started but never concluded?</p>
+              <p>
+                Applications without outcomes. Claims without resolutions. Deposits without refunds.
+                Each is a pattern of initiated, then expected evidence, then nothing, and the useful
+                signal is the silence at the end rather than any document in the chain.
+              </p>
+              <div class="states">
+                <span class="s on">Initiated</span><span class="sep">&#8594;</span>
+                <span class="s on">Expected</span><span class="sep">&#8594;</span>
+                <span class="s on">Absent</span><span class="sep">&#8594;</span>
+                <span class="s">Unresolved</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M09</span>
+              <h3>Personal provenance</h3>
+              <p class="q">Why does LifeOS believe this?</p>
+              <p>
+                Every assertion is inspectable down to the evidence that produced it, including the
+                confidence and the human corrections applied along the way. The system does not state
+                truth. It shows its receipts and lets a person disagree with them.
+              </p>
+              <div class="states">
+                <span class="s on">Assertion</span><span class="sep">&#8594;</span>
+                <span class="s on">Evidence trail</span><span class="sep">&#8594;</span>
+                <span class="s on">Human override</span>
+              </div>
+            </article>
+
+            <article class="mission">
+              <span class="m-no">M10</span>
+              <h3>Memory reconstruction</h3>
+              <p class="q">Reconstruct the trip, do not just show the photos.</p>
+              <p>
+                Photographs, the people in them, the coordinates, the reservation confirmation and
+                the receipts collapse into one event object with a beginning, an end, a cast and a
+                cost. A gallery shows you files from a week. This returns the week.
+              </p>
+              <div class="states">
+                <span class="s on">Observed</span><span class="sep">&#8594;</span>
+                <span class="s on">Reconciled</span><span class="sep">&#8594;</span>
+                <span class="s">Event object</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S7 · WORKING / EXPLORED ============ -->
+      <section class="band">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">06</span> Status, stated plainly</div>
+
+          <div class="two-col reveal">
+            <div class="col col-working">
+              <div class="col-head"><span class="mark"></span>Working today</div>
+              <ul>
+                <li>Multi-source document catalog across seven sources</li>
+                <li>OCR over scanned and photographed records</li>
+                <li>Exact dedup, fuzzy dedup, and version detection</li>
+                <li>Semantic indexing of documents and photographs</li>
+                <li>Knowledge graph with typed document-to-entity edges</li>
+                <li>Entity extraction for people, institutions and years</li>
+                <li>Missing-record analysis over recurring series</li>
+                <li>Local face detection and clustering into people</li>
+                <li>Place, home and event learning from photo geography</li>
+                <li>Semantic photo search in plain language</li>
+                <li>A human correction loop whose answers outrank the model</li>
+              </ul>
+              <p class="col-note">
+                Every line above has run against the real archive and has numbers behind it on this
+                page or in the repositories.
+              </p>
+            </div>
+
+            <div class="col col-explored">
+              <div class="col-head"><span class="mark"></span>Being explored</div>
+              <ul>
+                <li>A cross-modal life graph joining photographs to documents to places</li>
+                <li>Persistent Missions with durable state between runs</li>
+                <li>Contradiction detection across conflicting records</li>
+                <li>Continuity monitoring as a standing background process</li>
+                <li>Dormant-value evidence chains ending in human verification</li>
+                <li>Life-transition detection from converging weak signals</li>
+                <li>Evidence-backed autonomous reasoning over the whole model</li>
+              </ul>
+              <p class="col-note">
+                These are prototypes and design work. They are not running against the archive on a
+                schedule, and several of them may turn out to be the wrong idea. They are listed here
+                because a page that only lists its successes is not worth reading.
+              </p>
+            </div>
+          </div>
+
+          <div class="fiction reveal">
+            <div class="fiction-head">
+              <span class="t">Direction, not product</span>
+              <span class="tag-concept">Concept frames &middot; synthetic data</span>
+            </div>
+            <div class="frames">
+              <div class="frame">
+                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: entities orbiting a person at distances set by relationship strength">
+                  <circle cx="150" cy="95" r="70" fill="none" stroke="rgba(79,104,144,0.28)" stroke-width="1" />
+                  <circle cx="150" cy="95" r="44" fill="none" stroke="rgba(79,104,144,0.2)" stroke-width="1" stroke-dasharray="2 6" />
+                  <circle cx="150" cy="95" r="4" fill="#7cc5bc" />
+                  <g fill="rgba(203,216,228,0.75)">
+                    <circle cx="150" cy="25" r="3" /><circle cx="212" cy="128" r="3" />
+                    <circle cx="88" cy="128" r="3" /><circle cx="194" cy="95" r="2.5" />
+                    <circle cx="106" cy="95" r="2.5" />
+                  </g>
+                  <g stroke="rgba(124,197,188,0.28)" stroke-width="1">
+                    <line x1="150" y1="95" x2="150" y2="25" /><line x1="150" y1="95" x2="212" y2="128" />
+                    <line x1="150" y1="95" x2="88" y2="128" />
+                  </g>
+                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7.5" letter-spacing="0.8">
+                    <text x="158" y="22">Home A</text>
+                    <text x="220" y="132">Policy</text>
+                    <text x="30" y="132">Trip 2019</text>
+                    <text x="128" y="180">Person 01</text>
+                  </g>
+                </svg>
+                <span class="cap">Life orbit</span>
+                <p>Entities held at a distance set by how strongly the evidence ties them to a person, rather than by folder depth.</p>
+              </div>
+
+              <div class="frame">
+                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: a horizontal time river with eras branching into events">
+                  <path d="M10 150 C 70 150, 80 96, 150 96 S 230 44, 290 44" fill="none" stroke="rgba(124,197,188,0.4)" stroke-width="1.4" />
+                  <path d="M10 162 C 80 162, 96 128, 150 128 S 236 108, 290 108" fill="none" stroke="rgba(79,104,144,0.34)" stroke-width="1" />
+                  <path d="M10 138 C 64 138, 84 70, 150 70 S 228 22, 290 22" fill="none" stroke="rgba(79,104,144,0.22)" stroke-width="1" />
+                  <g fill="#7cc5bc">
+                    <circle cx="90" cy="126" r="2.6" /><circle cx="150" cy="96" r="2.6" />
+                    <circle cx="228" cy="60" r="2.6" />
+                  </g>
+                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7.5" letter-spacing="0.8">
+                    <text x="14" y="24">Era II</text>
+                    <text x="82" y="118">Move</text>
+                    <text x="140" y="88">Trip</text>
+                    <text x="212" y="52">Filing</text>
+                  </g>
+                </svg>
+                <span class="cap">Time river</span>
+                <p>Eras that widen into years, years into events, events into the individual evidence underneath them.</p>
+              </div>
+
+              <div class="frame">
+                <svg viewBox="0 0 300 190" role="img" aria-label="Concept frame: a change report showing three model updates with their evidence">
+                  <g stroke="rgba(79,104,144,0.3)" stroke-width="1">
+                    <line x1="20" y1="52" x2="280" y2="52" /><line x1="20" y1="98" x2="280" y2="98" />
+                    <line x1="20" y1="144" x2="280" y2="144" />
+                  </g>
+                  <g fill="#7cc5bc">
+                    <rect x="20" y="36" width="2" height="16" /><rect x="20" y="82" width="2" height="16" />
+                    <rect x="20" y="128" width="2" height="16" />
+                  </g>
+                  <g fill="#cbd8e4" font-family="Geist Mono, monospace" font-size="8" letter-spacing="0.8">
+                    <text x="32" y="48">Person 03 merged into Person 01</text>
+                    <text x="32" y="94">Home B start date corrected</text>
+                    <text x="32" y="140">Policy series break detected</text>
+                  </g>
+                  <g fill="#8a97ab" font-family="Geist Mono, monospace" font-size="7">
+                    <text x="32" y="62">4 evidence items</text>
+                    <text x="32" y="108">human override</text>
+                    <text x="32" y="154">awaiting review</text>
+                  </g>
+                </svg>
+                <span class="cap">Your model changed</span>
+                <p>What the system learned since you last looked, with the evidence for each change and a way to disagree with it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S8 · FIELD NOTES ============ -->
+      <section class="band" id="notes">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">07</span> Field notes</div>
+          <h2 class="band-title reveal">Things that only became obvious after they broke.</h2>
+          <p class="body reveal" style="margin-top: 1.6rem">
+            Written while building, in the order the lessons arrived. Every number below is a real
+            measurement from this archive.
+          </p>
+
+          <div class="notes" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
+            <article class="note reveal">
+              <span class="n-no">N01</span>
+              <h3>The sixteen-thousand-face blob</h3>
+              <p>
+                I merged similar face clusters with union-find, which quietly makes merging
+                transitive: if A resembles B and B resembles C, A and C end up in one person even
+                when they look nothing alike. At six thousand faces this was invisible. At 53,780 it
+                produced a single cluster holding 16,504 faces, and five clusters between them held
+                sixty percent of every face in the library.
+              </p>
+              <p>
+                Merging is now one hop only, and only between clusters that are each other's nearest
+                neighbour. The bug was not the threshold. The bug was an operation that composed.
+              </p>
+              <p class="lesson">Lesson: a similarity relation is not an equivalence relation, and treating it as one fails silently until it fails enormously.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N02</span>
+              <h3>The age model that got deleted</h3>
+              <p>
+                The face toolkit ships an age estimator, so I used it. Then I measured it against four
+                people whose ages I knew exactly. It was wrong by 11 to 26 years in every case: a
+                three-year-old read as forty-five, a forty-year-old read as twenty-three. It was
+                squashing everything toward its training mean. Re-cropping to the exact framing the
+                model expected did not help.
+              </p>
+              <p>
+                It was not demoted to a hint or shown with a confidence badge. It was removed from the
+                pipeline. Age now comes from birth dates a human typed in, which also made the slowest
+                stage faster.
+              </p>
+              <p class="lesson">Lesson: a measured-wrong signal shown as a hint is still a wrong signal, and it will be believed.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N03</span>
+              <h3>Thresholds are measured, not chosen</h3>
+              <p>
+                Every constant in the clustering path was originally a number that felt right for the
+                library size I happened to have. Now the clustering threshold rises until no large
+                cluster is still internally loose, and the auto-link threshold was validated against
+                clusters I had labelled by hand, where it made zero errors.
+              </p>
+              <p>
+                Its ceiling is set by the hardest real case in the archive: two siblings photographed
+                as babies score 0.763 against each other, higher than any two unrelated people. The
+                hardest true case in your own data is the only honest place to put a limit.
+              </p>
+              <p class="lesson">Lesson: a constant nobody measured is a guess with a decimal point.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N04</span>
+              <h3>Over-splitting is the safe direction</h3>
+              <p>
+                A person split across three clusters costs the reviewer two merge questions, answered
+                in four seconds. Two people merged into one silently mis-attributes thousands of
+                photographs and is very hard to notice, because the gallery looks fine.
+              </p>
+              <p>
+                Those two failures are not symmetric, so the thresholds are not centred. Every one of
+                them is deliberately set to fail toward the cheap mistake.
+              </p>
+              <p class="lesson">Lesson: tune to the cost of being wrong, not to the rate of being wrong.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N05</span>
+              <h3>Show the whole cluster, not its best faces</h3>
+              <p>
+                The review card sampled the twelve sharpest crops from a cluster, which is exactly
+                what you would do if you wanted the reviewer to say yes. A cluster of 1,650 faces
+                containing several people looked like one child, and I confidently named it.
+              </p>
+              <p>
+                Cards now draw half their crops from across the whole cluster, including the ugly
+                ones. A review interface that shows you the model's best work is measuring the wrong
+                thing.
+              </p>
+              <p class="lesson">Lesson: if you are asking a human to catch errors, show them where errors would live.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N06</span>
+              <h3>Missing is not nonexistent</h3>
+              <p>
+                Eleven documents in the catalog failed text extraction. They are recorded as
+                extraction failures, not as documents with no text, and the missing-record analysis
+                refuses to reason over them.
+              </p>
+              <p>
+                This matters more than it sounds. The entire value of the absence reasoning depends on
+                the difference between "this record is not here" and "I could not read this record".
+                Collapse those two and every conclusion about a gap becomes noise.
+              </p>
+              <p class="lesson">Lesson: absence is a conclusion, and a conclusion needs evidence like any other.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N07</span>
+              <h3>Checksums lie about photographs</h3>
+              <p>
+                6,884 duplicate clusters merge files with different checksums and identical visual
+                content: a cloud-recompressed copy sitting next to the original it was made from. To
+                a checksum these are unrelated files. To a person they are the same photograph, twice.
+              </p>
+              <p>
+                The other direction was funnier. The most-copied image in the entire library, at 34
+                copies, turned out to be a user-interface icon from a code repository. Which is
+                precisely why project directories are no longer part of the photo library. Deciding
+                what is not in the corpus is as much of the work as processing what is.
+              </p>
+              <p class="lesson">Lesson: identity is a property of content, and content is not bytes.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N08</span>
+              <h3>Read-only at the driver, not at the discipline</h3>
+              <p>
+                The intelligence layer opens the source catalog with SQLite in read-only mode, so an
+                accidental write fails at the driver rather than depending on my remembering not to.
+                All derived state lives in a separate database keyed by the original identifiers.
+              </p>
+              <p>
+                Same principle in the mailboxes: the OAuth scope is read-only, so the code cannot send
+                or delete an email even if it were asked to. The guarantee lives in the structure and
+                not in an intention.
+              </p>
+              <p class="lesson">Lesson: make the dangerous thing impossible, not discouraged.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N09</span>
+              <h3>A folder date is not a date</h3>
+              <p>
+                Around 6,200 photographs have no usable capture metadata, and their date was recovered
+                from a folder name. Every one of those collapses to January 1 of its year.
+              </p>
+              <p>
+                Fed into event detection, that produces the largest New Year's party in recorded
+                history, every year, for a decade. They are grouped as an undated batch instead, and
+                marked as such, because a date whose precision you invented is worse than no date.
+              </p>
+              <p class="lesson">Lesson: carry the precision of a value alongside the value, or something downstream will assume it.</p>
+            </article>
+
+            <article class="note reveal">
+              <span class="n-no">N10</span>
+              <h3>The scripture false positive</h3>
+              <p>
+                A phrase matcher looking for uncashed cheques flagged a religious text with high
+                confidence. The phrase "void after" appears in cheque boilerplate and, it turns out,
+                in theology.
+              </p>
+              <p>
+                Nothing was harmed, because that analysis produces leads for a human rather than
+                conclusions. But it is a useful reminder about which class of system this is: a
+                pattern that fires on a phrase does not know what a document is about, and any
+                pipeline that treats a keyword hit as a finding will eventually embarrass itself.
+              </p>
+              <p class="lesson">Lesson: precision is a discipline, not a default, and lead generation must always end at a person.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S9 · TRUST MODEL ============ -->
+      <section class="band" id="trust">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">08</span> The trust model</div>
+          <h2 class="band-title reveal">A system that knows this much about a family has to be able to justify itself.</h2>
+
+          <div class="trust reveal" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Source before assertion</h3>
+                <p>Nothing is stated without a path back to the evidence that produced it.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Human truth outranks inference</h3>
+                <p>An answer a person gave wins permanently, and survives a full rebuild of everything derived.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Unknown is a valid state</h3>
+                <p>The model is allowed to hold a question open. A confident guess is more expensive than a gap.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Missing is not nonexistent</h3>
+                <p>A failure to read is recorded as a failure to read, and never counted as an absence.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Originals remain originals</h3>
+                <p>Duplicates are marked, reported, and left in place. No stage in either pipeline can delete a source file.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Nothing silently disappears</h3>
+                <p>Every rebuild carries forward human corrections, and every correction is keyed to something stable.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Local when practical</h3>
+                <p>Perception runs on this laptop at near-zero marginal cost, which is what makes running it over everything affordable.</p>
+              </div>
+            </div>
+            <div class="tenet">
+              <span class="mk" aria-hidden="true"></span>
+              <div>
+                <h3>Smallest sufficient intelligence</h3>
+                <p>Frontier reasoning is spent only where it earns its price. Most of this problem is not a reasoning problem.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="local-claim reveal">
+            <p class="big">An AI that knows everything about a family, and nothing leaves the laptop.</p>
+            <div class="proofs">
+              <div class="proof">
+                <span class="mk">01</span>
+                <p>
+                  The face, photo and document models are <strong>ONNX files on disk</strong>. There
+                  is no inference endpoint. Zero cloud calls are made to classify a photograph, embed
+                  a document, or recognise a face.
+                </p>
+              </div>
+              <div class="proof">
+                <span class="mk">02</span>
+                <p>
+                  The review application binds to <code>127.0.0.1</code>. It is not exposed to a
+                  network interface, so there is no deployment in which it is accidentally reachable.
+                </p>
+              </div>
+              <div class="proof">
+                <span class="mk">03</span>
+                <p>
+                  Mailbox access is <strong>read-only at the OAuth scope</strong>. The permission to
+                  send or delete was never granted, so the capability does not exist to misuse.
+                </p>
+              </div>
+              <div class="proof">
+                <span class="mk">04</span>
+                <p>
+                  The source catalog is opened <strong>read-only at the SQLite driver</strong>. A
+                  write fails at the driver rather than at somebody's discipline.
+                </p>
+              </div>
+            </div>
+            <p class="body" style="margin-top: 1.8rem; color: var(--text-faint)">
+              This is the one architectural claim that could not be copied by a cloud product, and it
+              is the reason the whole experiment is worth running. A system this personal is only
+              acceptable if the sovereignty is structural.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S10 · CHANGELOG ============ -->
+      <section class="band" id="changelog">
+        <div class="wrap">
+          <div class="eyebrow reveal"><span class="no">09</span> Changelog</div>
+          <h2 class="band-title reveal">v0.x, built in public.</h2>
+          <p class="body reveal" style="margin-top: 1.6rem">
+            Every entry below carries the same month, and that is not a formatting error. Both
+            instruments were built in one concentrated stretch in August 2026. The ambition is
+            measured in years; the work so far is measured in weeks, and saying otherwise would be
+            the first dishonest sentence on this page.
+          </p>
+          <p class="body reveal" style="margin-top: 1.2rem">
+            Dated at month resolution, because a build log with precise timestamps invites precise
+            questions about a private archive.
+          </p>
+
+          <div class="log reveal" style="margin-top: clamp(2.5rem, 6vh, 3.5rem)">
+            <div class="log-row">
+              <span class="when">2026 &middot; 08</span>
+              <p class="what">
+                <b>Photo master set reconciled across eight sources.</b> Three photo libraries, three
+                drives, a cloud library and a laptop cataloged into one set, with one canonical copy
+                elected per duplicate cluster and every member kept traceable.
+              </p>
+            </div>
+            <div class="log-row">
+              <span class="when">2026 &middot; 08</span>
+              <p class="what">
+                <b>Perceptual dedup verdict.</b> The near-duplicate pass found 6,884 clusters that
+                checksums could not see, refining the real collection size and settling a question
+                about which sources were worth keeping.
+              </p>
+            </div>
+            <div class="log-row">
+              <span class="when">2026 &middot; 08</span>
+              <p class="what">
+                <b>Document catalog and knowledge graph.</b> Twelve thousand occurrences resolved into
+                7,703 logical documents, with 890 entities and 18,369 typed links between documents
+                and the world.
+              </p>
+            </div>
+            <div class="log-row">
+              <span class="when">2026 &middot; 08</span>
+              <p class="what">
+                <b>Read-only mailbox ingestion across three accounts.</b> Messages scanned and
+                attachments triaged under a read-only scope, with everything not worth fetching still
+                cataloged so its existence is known.
+              </p>
+            </div>
+            <div class="log-row">
+              <span class="when">2026 &middot; 08</span>
+              <p class="what">
+                <b>Missing-record and dormant-value analysis.</b> The first two pieces of reasoning
+                that answer questions nobody asked: what should exist and does not, and what a
+                history might have left behind.
+              </p>
+            </div>
+            <div class="log-row">
+              <span class="when">2026 &middot; 08</span>
+              <p class="what">
+                <b>Intelligence layer: faces, places, events, review loop.</b> Local face detection
+                and clustering, offline reverse geocoding, event detection, and the human review
+                application whose answers outrank every model in the stack.
+              </p>
+            </div>
+            <div class="log-row">
+              <span class="when">Next</span>
+              <p class="what">
+                Cross-modal joins between the photo model and the document model, and the first
+                Mission that keeps its state between runs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ S11 · CLOSING ============ -->
+      <section class="os-closing">
+        <div class="wrap">
+          <p class="q reveal">
+            What becomes possible when an AI does not merely know what you asked it, but gradually
+            understands the structure, history, and unfinished business of your life?
+          </p>
+          <p class="by reveal">
+            LifeOS &middot; ThirdOcular Labs<br />
+            Built by Sandeep Kanuri
+          </p>
+          <div class="os-cta reveal" style="justify-content: center; margin-top: 2rem">
+            <a class="btn" href="https://www.linkedin.com/in/sandeepkanuri/" rel="me noopener">
+              Follow the build <span class="arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <div class="wrap" style="padding: 0">
+        <p class="tie" style="text-align: left; margin: 0 0 2.5rem">
+          ThirdOcular builds and evaluates agentic systems. Labs is where we practice on ourselves.
+          We measure before we trust.
+        </p>
+      </div>
+      <div class="foot-top">
+        <div class="foot-brand">
+          <svg class="glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
+            <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+            <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
+          </svg>
+          <span>ThirdOcular</span>
+        </div>
+        <nav class="foot-nav" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/labs/">Labs</a>
+          <a href="https://lens.thirdocular.com">AisleLens</a>
+          <a href="https://privi.thirdocular.com">PRIVI</a>
+          <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 ThirdOcular</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/labs-lifeos.js"></script>
+  </body>
+</html>
