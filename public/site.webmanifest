@@ -1,14 +1,27 @@
 {
   "name": "ThirdOcular",
   "short_name": "ThirdOcular",
-  "description": "A personal workshop for seeing things differently.",
+  "description": "Software, stories, and useful experiences from ThirdOcular.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#1B2131",
   "theme_color": "#1B2131",
   "icons": [
-    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" },
-    { "src": "icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
   ]
 }

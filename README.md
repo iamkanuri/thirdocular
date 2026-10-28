@@ -1,13 +1,13 @@
 # ThirdOcular — thirdocular.com
 
-Sandeep Kanuri's personal workshop for seeing things differently: useful products,
-personal archives, playful projects, and experiments. AisleLens remains the product;
-PRIVI is a retired Labs experiment. LifeOS, SeshuLegacy and Pocket Giggles each retain
-their own purpose and access model. Private archives must never be bundled here.
+ThirdOcular LLC is an independent product studio founded by Sandeep Kanuri.
+It develops its own software and original experiences: AisleLens and Pocket Giggles
+are commercial product work; LifeOS and SeshuLegacy are distinct studio projects.
+PRIVI is retired in Labs. No private archive content belongs in this repository.
 
-October 27 repositioning supersedes the earlier company/AI-studio voice guidance below.
-The AisleLens shared-copy contract remains enforced. See AISLELENS-REVIEW.md for the
-current product assessment. Pocket Giggles is a local review candidate, not deployed.
+The October 27 studio direction supersedes earlier personal-workshop/AI-lab voice
+guidance. Keep the AisleLens shared-copy gate unchanged unless both sites ship together.
+Pocket Giggles remains a local review candidate; no checkout or public release is implied.
 
 ## Palette
 

@@ -109,15 +109,15 @@
 
   <text x="88" y="272" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="88" font-weight="200" fill="#cbd8e4" letter-spacing="-2">LifeOS</text>
 
-  <text x="88" y="342" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">A life leaves evidence.</text>
-  <text x="88" y="386" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">LifeOS builds the model.</text>
+  <text x="88" y="342" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">A life is more</text>
+  <text x="88" y="386" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">than a folder.</text>
 
   <line x1="88" y1="444" x2="524" y2="444" stroke="#4f6890" stroke-opacity="0.4" stroke-width="1" />
 
   <g font-family="ui-monospace, 'Cascadia Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#8a97ab" letter-spacing="1.4">
-    <text x="88" y="484">89,569 fragments cataloged</text>
-    <text x="88" y="516">7,703 logical documents</text>
-    <text x="88" y="548">0 cloud calls</text>
+    <text x="88" y="484">Documents, photos, and films</text>
+    <text x="88" y="516">People, places, and time</text>
+    <text x="88" y="548">A private working prototype</text>
   </g>
 
   <!-- the key, because the line weights are load-bearing -->

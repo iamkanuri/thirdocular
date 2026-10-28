@@ -3,11 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "ThirdOcular — a personal workshop for seeing things differently.",
+  "description": "ThirdOcular — an independent product studio.",
   "scripts": {
     "dev": "vite",
     "check:copy": "node scripts/check-copy.mjs",
-    "build": "node scripts/check-copy.mjs && vite build",
+    "build": "node scripts/check-copy.mjs && vite build && node scripts/security-meta.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {
