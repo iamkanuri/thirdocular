@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "ThirdOcular — practical tools for decisions shaped by AI.",
+  "description": "ThirdOcular — a personal workshop for seeing things differently.",
   "scripts": {
     "dev": "vite",
     "check:copy": "node scripts/check-copy.mjs",

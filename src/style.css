@@ -233,7 +233,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 560px;
+  width: min(560px, 100vw);
   height: 560px;
   transform: translate(-50%, -50%);
   background: radial-gradient(closest-side, rgba(123, 155, 199, 0.12), transparent 72%);
@@ -427,9 +427,9 @@ section {
   transition: border-color 0.5s ease, background-color 0.5s ease;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 1000px) {
   .signal {
-    grid-template-columns: 4.5rem 1fr auto;
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto;
     gap: 2rem;
     align-items: baseline;
   }
@@ -537,7 +537,7 @@ section {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  white-space: nowrap;
+  white-space: normal;
   transition: color 0.4s ease;
 }
 

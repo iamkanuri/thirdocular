@@ -1,7 +1,13 @@
 # ThirdOcular — thirdocular.com
 
-The umbrella site for ThirdOcular — a product studio building practical software for
-decisions shaped by AI. One page. Deep navy. Quiet.
+Sandeep Kanuri's personal workshop for seeing things differently: useful products,
+personal archives, playful projects, and experiments. AisleLens remains the product;
+PRIVI is a retired Labs experiment. LifeOS, SeshuLegacy and Pocket Giggles each retain
+their own purpose and access model. Private archives must never be bundled here.
+
+October 27 repositioning supersedes the earlier company/AI-studio voice guidance below.
+The AisleLens shared-copy contract remains enforced. See AISLELENS-REVIEW.md for the
+current product assessment. Pocket Giggles is a local review candidate, not deployed.
 
 ## Palette
 

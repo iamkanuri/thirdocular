@@ -40,10 +40,10 @@
 
   <text x="88" y="290" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="96" font-weight="200" fill="#cbd8e4" letter-spacing="-2.5">Labs</text>
 
-  <text x="88" y="362" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">Instruments built for ourselves</text>
-  <text x="88" y="406" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">first, with the numbers showing.</text>
+  <text x="88" y="362" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">Ideas tried.</text>
+  <text x="88" y="406" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#7b9bc7">Lessons kept.</text>
 
   <line x1="88" y1="464" x2="520" y2="464" stroke="#4f6890" stroke-opacity="0.4" stroke-width="1" />
 
-  <text x="88" y="508" font-family="ui-monospace, 'Cascadia Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#8a97ab" letter-spacing="1.4">We measure before we trust.</text>
+  <text x="88" y="508" font-family="ui-monospace, 'Cascadia Mono', 'DejaVu Sans Mono', monospace" font-size="17" fill="#8a97ab" letter-spacing="1.4">A personal workshop.</text>
 </svg>

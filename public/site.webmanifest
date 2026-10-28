@@ -1,7 +1,7 @@
 {
   "name": "ThirdOcular",
   "short_name": "ThirdOcular",
-  "description": "Practical tools for decisions shaped by AI.",
+  "description": "A personal workshop for seeing things differently.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#1B2131",
