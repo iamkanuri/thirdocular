@@ -9,7 +9,7 @@ import { resolve } from 'node:path';
 // public assets at build time and warns about it — that's expected (they're
 // served verbatim from the site root), so we filter just that message to keep
 // the build log clean.
-// Three HTML entry points. index.html was implicit before /labs existed; naming
+// Maintained HTML entry points. index.html was implicit before /labs existed; naming
 // it here is required, because declaring rollupOptions.input REPLACES Vite's
 // default entry rather than adding to it — omitting it would silently stop
 // building the home page.
@@ -26,6 +26,10 @@ export default defineConfig({
         home: resolve(import.meta.dirname, 'index.html'),
         labs: resolve(import.meta.dirname, 'labs/index.html'),
         lifeos: resolve(import.meta.dirname, 'labs/lifeos/index.html'),
+        notes: resolve(import.meta.dirname, 'notes/index.html'),
+        replay: resolve(import.meta.dirname, 'notes/same-commit-two-answers/index.html'),
+        correction: resolve(import.meta.dirname, 'notes/correcting-my-error-bound/index.html'),
+        declarations: resolve(import.meta.dirname, 'notes/tools-that-say-what-they-change/index.html'),
       },
     },
   },

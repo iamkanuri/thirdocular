@@ -1,160 +1,17 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LifeOS · A more connected personal archive · ThirdOcular Labs</title>
-    <meta
-      name="description"
-      content="LifeOS brings documents, photographs, and videos into a private archive, connected through people, places, and time. A working project from ThirdOcular."
-    />
-    <link rel="canonical" href="https://thirdocular.com/labs/lifeos/" />
-    <meta name="theme-color" content="#1B2131" />
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
-    <link rel="icon" type="image/png" sizes="192x192" href="../../icon-192.png" />
-    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
-    <link rel="manifest" href="../../site.webmanifest" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="ThirdOcular" />
-    <meta property="og:title" content="LifeOS · A more connected personal archive" />
-    <meta
-      property="og:description"
-      content="Documents, photographs, and videos connected through people, places, and time. Source files on the owner’s laptop; protected remote access."
-    />
-    <meta property="og:url" content="https://thirdocular.com/labs/lifeos/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://thirdocular.com/labs/og-lifeos.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="LifeOS, an experiment from ThirdOcular Labs" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="LifeOS · A more connected personal archive" />
-    <meta
-      name="twitter:description"
-      content="Documents, photographs, and videos connected through people, places, and time. Source files on the owner’s laptop; protected remote access."
-    />
-    <meta name="twitter:image" content="https://thirdocular.com/labs/og-lifeos.png" />
-    <meta name="twitter:image:alt" content="LifeOS, an experiment from ThirdOcular Labs" />
-
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="../../fonts/geist-latin.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="../../fonts/instrumentserif-italic-latin.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="../../fonts/geistmono-latin.woff2"
-      crossorigin
-    />
-    <style>
-      /* Same faces as the home page. URLs are relative to this document: public/
-         assets are served verbatim from the site root, so ../../ resolves under
-         both the custom domain and the project-page deployment. */
-      @font-face {
-        font-family: 'Geist';
-        font-style: normal;
-        font-weight: 200 500;
-        font-display: swap;
-        src: url(../../fonts/geist-latin.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Geist Mono';
-        font-style: normal;
-        font-weight: 300 400;
-        font-display: swap;
-        src: url(../../fonts/geistmono-latin.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Instrument Serif';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(../../fonts/instrumentserif-italic-latin.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-          U+FEFF, U+FFFD;
-      }
-    </style>
-    <link rel="stylesheet" href="/src/style.css" />
-    <link rel="stylesheet" href="/src/labs.css" />
-    <script>
-      document.documentElement.classList.add('js');
-    </script>
-  </head>
-  <body class="labs">
-    <div class="lens-clarity" aria-hidden="true"></div>
-
-    <header class="site-head">
-      <a class="glyph-link" href="/" aria-label="ThirdOcular home">
-        <svg class="glyph" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
-          <circle cx="12" cy="12" r="1.6" fill="currentColor" />
-          <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
-        </svg>
-      </a>
-      <nav class="head-nav" aria-label="Primary">
-        <a href="/">ThirdOcular</a>
-        <a href="/labs/">Labs</a>
-        <a href="#notes">Field notes</a>
-      </nav>
-    </header>
-
-    <main>
-<section class="labs-hero"><div class="wrap"><span class="kicker"><span class="dot"></span>Studio project · private working prototype</span><h1>A life is more<br>than a folder.</h1><p class="lede-serif">LifeOS brings the things you keep closer to the reasons you kept them.</p><p class="studio-founder">A photograph has a person, a place, a moment. A document has a purpose, a date, a connection to something else. LifeOS explores a more useful way to move through those relationships.</p><div class="os-cta"><a class="btn" href="https://lifeos.thirdocular.com/">Owner sign-in →</a><a class="btn btn-quiet" href="#notes">Read the build notes ↓</a></div></div></section>
-<section class="band" id="notes"><div class="wrap"><div class="eyebrow"><span class="no">01</span> One archive, several ways in</div><div class="thesis-grid"><div class="thesis-col"><span class="idx">i</span><h3>Follow a person</h3><p>Start with someone who matters. Narrow the places and moments to the photographs they actually appear in. Combine people to find shared memories.</p></div><div class="thesis-col"><span class="idx">ii</span><h3>Move through time</h3><p>Browse a visual timeline, explore a place, or open a film. The same archive can answer different questions without being copied into more folders.</p></div><div class="thesis-col"><span class="idx">iii</span><h3>Find the detail</h3><p>Search extracted document text and narrow by year, source, format, or recognized context. See duplicate copies together and read a document without losing your place.</p></div></div></div></section>
-<section class="band"><div class="wrap-narrow"><div class="eyebrow"><span class="no">02</span> Built from two working projects</div><h2 class="band-title">Lifegram meets Docugram.</h2><p class="studio-founder">Lifegram catalogs photographs and videos, with existing metadata and locally inferred people, places, and events. Docugram indexes documents and extracted text. LifeOS provides a shared browsing experience over both catalogs.</p><p class="studio-founder">The current interface has connected filters, multiple selections, timelines, visual collections, document previews, and supported video playback. Photo search currently uses filenames and indexed sidecar text; it is not a general conversational search engine. Inferred labels can be wrong, and local review remains part of the workflow.</p></div></section>
-<section class="band"><div class="wrap-narrow"><div class="eyebrow"><span class="no">03</span> Private by design, explicit about the boundaries</div><h2 class="band-title">The source stays close.</h2><p class="studio-founder">The archive lives on the owner’s laptop. Remote access requires an approved owner identity and multifactor authentication through Cloudflare Access. A tunnel connects to a read-only gateway on the laptop. When the laptop or its services are off, the archive is unavailable.</p><p class="studio-founder">Cloudflare terminates HTTPS and proxies the requested content. This is not end-to-end encryption against Cloudflare. The public ThirdOcular website contains no archive files, and access to LifeOS does not grant access to SeshuLegacy. Original document downloads remain disabled until specific folders are allowed.</p></div></section>
-<section class="band"><div class="wrap-narrow"><div class="eyebrow"><span class="no">04</span> What comes next</div><h2 class="band-title">A useful prototype earns its next chapter.</h2><p class="studio-founder">The next work is better metadata review, more expressive ways to explore connections, and dependable laptop startup and recovery. A unified search across photo meaning and document meaning remains a research direction. LifeOS is currently a personal working prototype, not a public subscription or a promise of universal archive intelligence.</p></div></section>
-</main>
-
-    <footer class="site-foot">
-      <div class="wrap" style="padding: 0">
-        <p class="tie">A closer look at everyday life. A studio project from ThirdOcular.</p>
-      </div>
-      <div class="foot-top">
-        <div class="foot-brand">
-          <svg class="glyph" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-            <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.9" />
-            <circle cx="12" cy="12" r="1.6" fill="currentColor" />
-            <circle cx="18" cy="6" r="1" fill="currentColor" opacity="0.9" />
-          </svg>
-          <span>ThirdOcular</span>
-        </div>
-        <nav class="foot-nav" aria-label="Footer">
-          <a href="/">Home</a>
-          <a href="/labs/">Labs</a>
-          <a href="https://lens.thirdocular.com">AisleLens</a>
-          <a href="https://privi.thirdocular.com">PRIVI</a>
-          <a href="mailto:contact@thirdocular.com">contact@thirdocular.com</a>
-        </nav>
-      </div>
-      <div class="foot-bottom">
-        <span>&copy; 2026 ThirdOcular LLC</span>
-      </div>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
-
-  </body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Page retired | ThirdOcular</title><meta name="description" content="This project page has been retired."/>
+<link rel="canonical" href="https://thirdocular.com/labs/lifeos/"/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="theme-color" content="#1B2131"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/site.webmanifest"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="ThirdOcular"/><meta property="og:title" content="Page retired | ThirdOcular"/>
+<meta property="og:description" content="This project page has been retired."/><meta property="og:url" content="https://thirdocular.com/labs/lifeos/"/>
+<meta property="og:image" content="https://thirdocular.com/og.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="Sandeep Kanuri. AI in the real world. Stories with a silly side. ThirdOcular."/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Page retired | ThirdOcular"/><meta name="twitter:description" content="This project page has been retired."/><meta name="twitter:image" content="https://thirdocular.com/og.png"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/geist-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/src/style.css"/>
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head"><a class="brand" href="/" aria-label="ThirdOcular home"><svg class="glyph" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg><span>ThirdOcular</span></a><nav aria-label="Primary"><a href="/#work">Work</a><a href="/#made">Made</a><a href="/notes/">Notes</a><a href="/#hello">Hello</a></nav></header><main id="main" class="reading-page"><p class="eyebrow">ThirdOcular</p><h1>This page has retired.</h1><p class="page-dek">My public experiments and notes are in Labs.</p><a class="text-link" href="/labs/">Visit Labs →</a></main><footer class="site-foot"><a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg><span>ThirdOcular</span></a><span>One person. A few things worth making.</span><div><a href="/labs/">Labs</a><span>© 2026 Sandeep Kanuri</span></div></footer><script type="module" src="/src/main.js"></script></body></html>
