@@ -13,6 +13,11 @@ Node 22, Vite, vanilla HTML/CSS/JS; fonts are self-hosted. No runtime dependenci
     npm run build
     npm run preview -- --host 127.0.0.1
 
+Gate A's local preview uses Python's static server, so slashless directory URLs
+redirect as they do on GitHub Pages, without Vite's single-page fallback:
+
+    python -m http.server 4176 --bind 127.0.0.1 --directory dist
+
 The homepage no longer quotes AisleLens shared product copy. Its network-dependent
 shared-copy gate is retired in a separate commit. security-meta remains part of the
 build and covers the maintained pages, including every note.

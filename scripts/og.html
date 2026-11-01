@@ -1,101 +1,48 @@
-<!doctype html>
-<!--
-  Open Graph image source (1200x630).
-  Regenerate public/og.png with:
-    chrome --headless=new --window-size=1200,630 --hide-scrollbars
-           --virtual-time-budget=8000 --screenshot=public/og.png scripts/og.html
--->
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <style>
-      @font-face { font-family: 'Geist'; src: url('../public/fonts/geist-latin.woff2'); font-weight: 200 500; }
-      @font-face { font-family: 'Instrument Serif'; src: url('../public/fonts/instrumentserif-italic-latin.woff2'); font-style: italic; }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        width: 1200px;
-        height: 630px;
-        overflow: hidden;
-      }
-      body {
-        background-color: #1b2131;
-        background-image: radial-gradient(900px 540px at 50% -14%, #232b3d, transparent 65%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Geist', system-ui, sans-serif;
-        color: #cbd8e4;
-        position: relative;
-      }
-      .horizon {
-        position: absolute;
-        top: 232px;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(123, 155, 199, 0.18) 22%,
-          rgba(123, 155, 199, 0.18) 78%,
-          transparent 100%
-        );
-      }
-      svg {
-        display: block;
-        margin-bottom: 44px;
-      }
-      h1 {
-        font-size: 84px;
-        font-weight: 250;
-        letter-spacing: -0.015em;
-        line-height: 1;
-      }
-      p {
-        font-family: 'Instrument Serif', Georgia, serif;
-        font-style: italic;
-        font-size: 30px;
-        color: #7b9bc7;
-        margin-top: 22px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="horizon"></div>
-    <svg viewBox="0 0 320 320" width="200" height="200">
-      <g stroke="rgba(123,155,199,0.40)" stroke-width="1">
-        <line x1="160" y1="6" x2="160" y2="14" />
-        <line x1="160" y1="306" x2="160" y2="314" />
-        <line x1="6" y1="160" x2="14" y2="160" />
-        <line x1="306" y1="160" x2="314" y2="160" />
-      </g>
-      <circle cx="160" cy="160" r="140" fill="none" stroke="rgba(123,155,199,0.22)" stroke-width="1" />
-      <circle
-        cx="160"
-        cy="160"
-        r="104"
-        fill="none"
-        stroke="rgba(123,155,199,0.34)"
-        stroke-width="1"
-        stroke-linecap="round"
-        stroke-dasharray="480 173.4"
-        transform="rotate(-40 160 160)"
-      />
-      <circle cx="160" cy="160" r="68" fill="none" stroke="rgba(123,155,199,0.30)" stroke-width="1" stroke-dasharray="1 7" />
-      <circle cx="160" cy="160" r="14" fill="rgba(203,216,228,0.08)" />
-      <circle cx="160" cy="160" r="3.4" fill="#cbd8e4" />
-      <g transform="rotate(38 160 160)">
-        <circle cx="160" cy="20" r="6" fill="rgba(203,216,228,0.20)" />
-        <circle cx="160" cy="20" r="2.2" fill="#cbd8e4" />
-      </g>
-    </svg>
-    <h1>ThirdOcular</h1>
-    <p>Independent thinking. Purposeful products.</p>
-  </body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><title>ThirdOcular social card</title><style>
+@font-face{font-family:Geist;src:url('/fonts/geist-latin.woff2');font-weight:200 500}
+@font-face{font-family:'Instrument Serif';src:url('/fonts/instrumentserif-italic-latin.woff2');font-style:italic}
+*{box-sizing:border-box;margin:0}html,body{width:1200px;height:630px;overflow:hidden}body{background:#1b2131;color:#cbd8e4;font-family:Geist,system-ui,sans-serif;font-weight:300;padding:60px 70px;position:relative}
+.brand{font-size:22px;color:#a3b1c4;letter-spacing:-.03em}h1{font-weight:300;font-size:69px;letter-spacing:-.05em;line-height:1.12;margin:67px 0 28px;max-width:800px}p{font-size:36px;line-height:1.45;letter-spacing:-.025em;max-width:790px}em{font-family:'Instrument Serif',Georgia,serif;color:#7b9bc7;font-size:43px}.iris{position:absolute;width:220px;height:220px;right:45px;top:193px}.bottom{position:absolute;bottom:53px;left:70px;right:70px;border-top:1px solid #4f689055;padding-top:21px;font-size:14px;color:#8a97ab;display:flex;justify-content:space-between}
+</style></head><body><div class="brand">ThirdOcular</div><h1>I'm Sandeep Kanuri.</h1><p>AI that holds up in the real world.<br/>Stories that make <em>small kids laugh.</em></p><svg class="iris" viewBox="0 0 320 320" width="320" height="320">
+            <!-- instrument ticks -->
+            <g class="ticks" stroke="rgba(123,155,199,0.40)" stroke-width="1">
+              <line x1="160" y1="6" x2="160" y2="14" />
+              <line x1="160" y1="306" x2="160" y2="314" />
+              <line x1="6" y1="160" x2="14" y2="160" />
+              <line x1="306" y1="160" x2="314" y2="160" />
+            </g>
+            <!-- outer ring -->
+            <circle cx="160" cy="160" r="140" fill="none" stroke="rgba(123,155,199,0.20)" stroke-width="1" />
+            <!-- slow rotating arc -->
+            <circle
+              class="arc"
+              cx="160"
+              cy="160"
+              r="104"
+              fill="none"
+              stroke="rgba(123,155,199,0.32)"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-dasharray="480 173.4"
+            />
+            <!-- fine dashed inner ring, counter-rotating -->
+            <circle
+              class="ring-dashed"
+              cx="160"
+              cy="160"
+              r="68"
+              fill="none"
+              stroke="rgba(123,155,199,0.30)"
+              stroke-width="1"
+              stroke-dasharray="1 7"
+            />
+            <!-- pupil -->
+            <circle cx="160" cy="160" r="14" fill="rgba(203,216,228,0.08)" />
+            <circle cx="160" cy="160" r="2.8" fill="#CBD8E4" />
+            <!-- orbiting point of light -->
+            <g class="orbit" transform="translate(160 20)">
+              <circle r="5" fill="rgba(203,216,228,0.20)" />
+              <circle r="1.8" fill="#CBD8E4" />
+
+            </g>
+          </svg><div class="bottom"><span>My independent studio. One person: me.</span><span>thirdocular.com</span></div></body></html>
