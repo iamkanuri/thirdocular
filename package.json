@@ -3,11 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "ThirdOcular — an independent product studio.",
+  "description": "Independent projects and notes by Sandeep Kanuri.",
   "scripts": {
     "dev": "vite",
-    "check:copy": "node scripts/check-copy.mjs",
-    "build": "node scripts/check-copy.mjs && vite build && node scripts/security-meta.mjs",
+    "build": "vite build && node scripts/security-meta.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {
