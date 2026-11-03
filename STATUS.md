@@ -1,11 +1,12 @@
-# Gate A: awaiting Sandeep's edits or yes (2026-11-01)
+# Project lessons published
 
-- Preview: http://127.0.0.1:4176/ (static dist server kept running for review).
-- Branch: codex/thirdocular-personal-20261101, based on origin/main 2185f8c. No push or deployment.
-- First-person homepage, four honest project statuses, three dated notes (348/359/362 words), Labs, OG, sitemap and README updated. Old archive disclosures removed; dragon.mp4 unchanged.
-- Copy gate retired separately in d4607f9. security-meta retained and extended to all seven maintained pages. /ars and /consulting resolve and are unlinked; no services offered.
-- Passed: production build, diff check, 156 local links across 16 HTML pages, legacy routes, video hash, 1440/768/360 browser layouts, mobile notes, and homepage rendering with page scripts blocked by CSP.
-- Screenshots: .review/home-{1440,768,360}.jpg (full page), .review/preview-{1440,768,360}.jpg (viewport); OG source scripts/og.html. Review files are ignored and excluded from dist.
-- Not tested: research reruns, physical devices, assistive technology, live deployment or social-platform caches. Measurement timestamps are scoped in the notes; July records do not give exact run times.
-- Spend $0; disk 38.8 GB free. StoryStudio/AGENTS.md aligned to the owner brief; Part B not started. Original ThirdOcular worktrees and protected projects not edited.
-- Next: wait at Gate A. After explicit yes, push this reviewed result to origin/main, verify the live page, then begin Part B.
+Updated 3 November 2026. The owner approved the Privi and AisleLens rewrites in chat. The approved website revision is live at https://thirdocular.com/.
+
+- Published content commit: 2052a0a004f1a683ac12bea282206006c9929530.
+- Deployment: https://github.com/iamkanuri/thirdocular/actions/runs/41672596077, succeeded.
+- New project stories: https://thirdocular.com/retired/privi/ and https://thirdocular.com/retired/aislelens/.
+- Homepage and Labs lead to the project stories. The existing Privi note and all three note introductions explain practical consequences before measurements. Existing URLs remain intact.
+- Verified all eight updated pages return HTTP 200 and match the reviewed build, allowing only the Windows build's extra blank line before its module script. CSS and JavaScript return HTTP 200. Desktop, tablet and mobile layouts were checked before approval.
+- This release contains website copy, styling, build entries, sitemap and the associated documentation. AisleLens backend wind-down and the broader relaunch remain separate work. The accuracy demonstration has not been built or run.
+
+This status-only commit does not change the deployed website files. The isolated release worktree is ThirdOcular-lessons-publish-20261103. The broader working branch and detailed execution records remain in ThirdOcular-relaunch-20261101.
