@@ -30,6 +30,8 @@ export default defineConfig({
         replay: resolve(import.meta.dirname, 'notes/same-commit-two-answers/index.html'),
         correction: resolve(import.meta.dirname, 'notes/correcting-my-error-bound/index.html'),
         declarations: resolve(import.meta.dirname, 'notes/tools-that-say-what-they-change/index.html'),
+        priviLessons: resolve(import.meta.dirname, 'retired/privi/index.html'),
+        aislelensLessons: resolve(import.meta.dirname, 'retired/aislelens/index.html'),
       },
     },
   },

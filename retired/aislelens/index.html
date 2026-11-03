@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AisleLens: make every answer show its evidence | Sandeep Kanuri</title><meta name="description" content="What AisleLens taught me: check the exact claim, test the awkward cases, measure the checker, and talk to buyers earlier."/>
+<link rel="canonical" href="https://thirdocular.com/retired/aislelens/"/>
+
+<meta name="theme-color" content="#1B2131"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/site.webmanifest"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="ThirdOcular"/><meta property="og:title" content="AisleLens: make every answer show its evidence | Sandeep Kanuri"/>
+<meta property="og:description" content="What AisleLens taught me: check the exact claim, test the awkward cases, measure the checker, and talk to buyers earlier."/><meta property="og:url" content="https://thirdocular.com/retired/aislelens/"/>
+<meta property="og:image" content="https://thirdocular.com/og.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="Sandeep Kanuri. AI in the real world. Stories with a silly side. ThirdOcular."/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="AisleLens: make every answer show its evidence | Sandeep Kanuri"/><meta name="twitter:description" content="What AisleLens taught me: check the exact claim, test the awkward cases, measure the checker, and talk to buyers earlier."/><meta name="twitter:image" content="https://thirdocular.com/og.png"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/geist-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/src/style.css"/>
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head"><a class="brand" href="/" aria-label="ThirdOcular home"><svg class="glyph" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg><span>ThirdOcular</span></a><nav aria-label="Primary"><a href="/#work">Work</a><a href="/#made">Made</a><a href="/notes/">Notes</a><a href="/#hello">Hello</a></nav></header><main id="main" class="reading-page project-story">
+<a class="text-link" href="/#made">← Things I've made</a>
+<article>
+<header class="article-head">
+<p class="eyebrow">AisleLens · Being retired · November 2026</p>
+<h1>An answer is only useful<br/> <em>if its evidence fits.</em></h1>
+<p class="page-dek">A product page can contain the right-looking fact about the wrong item. AisleLens taught me to check the exact claim, expose the evidence, and test the checker itself.</p>
+</header>
+<aside class="lesson-takeaway" aria-labelledby="aislelens-takeaway"><h2 id="aislelens-takeaway">What I carry forward</h2><p>Make every verdict traceable to a source and a written rule. Then try to break that rule with cases that look plausible but should fail. More passing results are useful only if the passes mean what I promised.</p></aside>
+<div class="prose story-prose">
+<section><h2>What I was trying to solve</h2><p>Before an AI shopping assistant recommends a product, what can the product page actually prove? I built AisleLens to turn written buying standards into repeatable checks, with quoted evidence and saved reports a reader could inspect. Coffee was the first domain.</p>
+<p>The useful output was a reason someone could examine: which requirement was met, which source supported it, and what still needed information the public page could not provide.</p></section>
+<section><h2>Three lessons that changed how I build</h2>
+<ol class="lesson-list">
+<li><h3>A correct fact can still support the wrong answer.</h3><p>One change let the engine find barcodes inside product variants. It recovered answers in captured store pages, but the written rule asked for evidence at the product level. A barcode for one variant did not necessarily answer that question. I reverted the widening.</p><p><strong>What I apply now:</strong> match evidence to the exact item and conditions in the claim. In a future policy-answer test, that means a fee for one account type cannot prove the fee for another.</p></li>
+<li><h3>Test the awkward cases before calling a change better.</h3><p>A replay over 338 captured records lost no rows. On the same code change, 78 deliberately chosen cases found 11 regressions. In two cases the pass status stayed the same while the quoted evidence changed. Comparing pass counts alone would have missed the problem.</p><p><strong>What I apply now:</strong> keep representative examples and deliberately difficult cases. Compare the answer and its supporting evidence. Include a case that could show the change is wrong.</p></li>
+<li><h3>The checker needs its own check.</h3><p>An earlier review missed rows that treated a store's internal ID as a useful manufacturer identifier. Those rows showed no quote to question. Going back to the captured source exposed 18 false positives in the sample.</p><p><strong>What I apply now:</strong> preserve the underlying value and source. Check results through a second method, and publish corrections when that reveals a blind spot. A confidence number is only as useful as the method that could detect its errors.</p></li>
+</ol></section>
+<section><h2>Why I am retiring it</h2><p>The engineering produced useful lessons, but I had not established a dependable way to reach buyers or make the standard part of their decisions. I built ahead of those conversations. More checks would not, by themselves, solve adoption.</p>
+<p>Next time I will start with the person responsible when an answer is wrong: what decision do they need to make, what evidence would change it, and would they pay for that evidence? A working engine is one part of a business. It cannot answer those questions for me.</p></section>
+<section><h2>What survives AisleLens</h2><p>I am keeping the rule-based evidence engine, the difficult test cases, the practice of measuring checker errors, and reports that can be revisited. The code and methods give me a starting point for testing AI answers against an organization's approved facts.</p>
+<p>That reuse still needs to be built and tested outside commerce. A successful product-page check is not evidence that a future banking or insurance answer checker works.</p></section>
+</div>
+<aside class="source-note"><h2>The record behind this page</h2><p>The examples come from July 2026 work, not a fresh evaluation. The 338 records represent 334 distinct merchants. The linked notes explain the regression cases and the correction to the published error bound.</p><p><a href="/notes/same-commit-two-answers/">Why a promising change was reverted →</a></p><p><a href="/notes/correcting-my-error-bound/">How I found errors in my own checker →</a></p><p><a href="https://lens.thirdocular.com/">AisleLens project and historical material ↗</a></p><p>Product retirement is in progress. Preserving reports and completing the remaining uninstall and privacy work are part of the wind-down.</p></aside>
+</article><a class="text-link" href="/retired/privi/">What PRIVI taught me →</a>
+</main><footer class="site-foot"><a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg><span>ThirdOcular</span></a><span>One person. A few things worth making.</span><div><a href="/labs/">Labs</a><span>© 2026 Sandeep Kanuri</span></div></footer><script type="module" src="/src/main.js"></script></body></html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PRIVI: before letting an AI act | Sandeep Kanuri</title><meta name="description" content="What PRIVI taught me: define what an AI may do, test whether those limits hold, and keep evidence of the result."/>
+<link rel="canonical" href="https://thirdocular.com/retired/privi/"/>
+
+<meta name="theme-color" content="#1B2131"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><link rel="manifest" href="/site.webmanifest"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="ThirdOcular"/><meta property="og:title" content="PRIVI: before letting an AI act | Sandeep Kanuri"/>
+<meta property="og:description" content="What PRIVI taught me: define what an AI may do, test whether those limits hold, and keep evidence of the result."/><meta property="og:url" content="https://thirdocular.com/retired/privi/"/>
+<meta property="og:image" content="https://thirdocular.com/og.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="Sandeep Kanuri. AI in the real world. Stories with a silly side. ThirdOcular."/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="PRIVI: before letting an AI act | Sandeep Kanuri"/><meta name="twitter:description" content="What PRIVI taught me: define what an AI may do, test whether those limits hold, and keep evidence of the result."/><meta name="twitter:image" content="https://thirdocular.com/og.png"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/geist-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/src/style.css"/>
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head"><a class="brand" href="/" aria-label="ThirdOcular home"><svg class="glyph" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg><span>ThirdOcular</span></a><nav aria-label="Primary"><a href="/#work">Work</a><a href="/#made">Made</a><a href="/notes/">Notes</a><a href="/#hello">Hello</a></nav></header><main id="main" class="reading-page project-story">
+<a class="text-link" href="/#made">← Things I've made</a>
+<article>
+<header class="article-head">
+<p class="eyebrow">PRIVI · Product retired · November 2026</p>
+<h1>Before letting an AI act,<br/> <em>decide what it may do.</em></h1>
+<p class="page-dek">An AI that drafts a refund and an AI that sends the money need different permissions. PRIVI taught me to make that difference explicit, then check whether the system respects it.</p>
+</header>
+<aside class="lesson-takeaway" aria-labelledby="privi-takeaway"><h2 id="privi-takeaway">What I carry forward</h2><p>For every action, write down what is allowed, who must approve it, and what evidence would show that the limit held. A convincing answer from the AI cannot establish any of those things on its own.</p></aside>
+<div class="prose story-prose">
+<section><h2>What I was trying to solve</h2><p>When a team gives an AI access to its systems, someone has to decide whether it can be trusted with real work. I built PRIVI to compare what a team says its agent may do with what its code and operating evidence can establish. The work produced a published draft rubric with 41 checks, covering questions such as whose account the agent uses, what it can change, and who approves the change.</p></section>
+<section><h2>Why the missing descriptions mattered</h2><p>Imagine a customer service tool called “handle refund.” Can it look up a purchase, prepare a recommendation, or actually return money? That difference determines which credentials it needs and where a person should approve an action. This is an illustrative example, not an incident found by the study.</p>
+<p>In an August 2026 sample, only 103 of 4,445 observed tools stated whether they changed anything. The useful question was what a team should do with that gap: make the allowed actions explicit before trying to check them. Adding a description helps a reviewer understand the tool. It does not enforce a permission.</p>
+<p>The study read code from 199 public repositories; it did not run their tools. Missing descriptions did not establish that the tools were unsafe or that anyone had acted without permission.</p></section>
+<section><h2>Three things I would apply to a real system</h2>
+<ol class="lesson-list">
+<li><h3>Define the action before granting access.</h3><p>For the refund example, specify whether the agent may only draft a refund, which account it acts through, and which amounts require approval. Make those limits part of the system's access controls, so they do not depend on the model remembering an instruction.</p></li>
+<li><h3>Test the boundary in a controlled environment.</h3><p>Try an allowed refund, one above the limit, and one with approval missing. Inspect whether money could actually move. Reading source code can suggest what should happen; checking the running system answers a different question.</p></li>
+<li><h3>Leave a record someone else can check.</h3><p>Keep the request, approval, attempted action and result together. If a check cannot be completed, say what is unknown and what evidence is needed. An unanswered question should not quietly become a passing score.</p></li>
+</ol></section>
+<section><h2>Why I retired the product</h2><p>I originally wanted to use past failures to predict future ones. The research did not demonstrate that ability: no prediction was scored against an outcome, and no comparison established that failure history improved the review. I stopped treating that idea as a product claim.</p>
+<p>I also built ahead of buyer conversations. Publishing a thorough rubric did not establish who would adopt it, who would pay, or which decision it would change. The next time, those conversations come before more engineering.</p></section>
+<section><h2>What survives PRIVI</h2><p>I am keeping the distinction between what code can show and what needs a live check, along with the designs for checking permissions and approvals. I am also keeping the habit of publishing what the evidence could not establish.</p>
+<p>For my next work on customer-facing AI, this becomes two separate questions: was the agent allowed to act, and was its answer correct against the organization's approved facts? PRIVI informs how I would test the first. It does not prove the second. That accuracy work is still in development.</p></section>
+</div>
+<aside class="source-note"><h2>The record behind this page</h2><p>These are lessons from a retired project, not a claim that the proposed checks have been validated in customer deployments. The August measurement is historical and has not been rerun for this page.</p><p><a href="/notes/tools-that-say-what-they-change/">The finding, explained in plain language →</a></p><p><a href="https://privi.thirdocular.com/research/declarations/">Original research, method and limits ↗</a> · <a href="https://privi.thirdocular.com/ars/">Published draft rubric ↗</a></p></aside>
+</article><a class="text-link" href="/retired/aislelens/">What AisleLens taught me →</a>
+</main><footer class="site-foot"><a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg><span>ThirdOcular</span></a><span>One person. A few things worth making.</span><div><a href="/labs/">Labs</a><span>© 2026 Sandeep Kanuri</span></div></footer><script type="module" src="/src/main.js"></script></body></html>

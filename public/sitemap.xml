@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://thirdocular.com/</loc><lastmod>2026-11-01</lastmod></url>
-  <url><loc>https://thirdocular.com/notes/</loc><lastmod>2026-11-01</lastmod></url>
-  <url><loc>https://thirdocular.com/notes/same-commit-two-answers/</loc><lastmod>2026-11-01</lastmod></url>
-  <url><loc>https://thirdocular.com/notes/correcting-my-error-bound/</loc><lastmod>2026-11-01</lastmod></url>
-  <url><loc>https://thirdocular.com/notes/tools-that-say-what-they-change/</loc><lastmod>2026-11-01</lastmod></url>
-  <url><loc>https://thirdocular.com/labs/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>https://thirdocular.com/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/notes/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/notes/same-commit-two-answers/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/notes/correcting-my-error-bound/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/notes/tools-that-say-what-they-change/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/labs/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/retired/privi/</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://thirdocular.com/retired/aislelens/</loc><lastmod>2026-11-03</lastmod></url>
 </urlset>

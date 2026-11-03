@@ -27,6 +27,9 @@ build and covers the maintained pages, including every note.
 - index.html: first-person introduction, work, four projects, notes and contact.
 - notes/: three 300-500 word historical notes plus an index. Dates distinguish the
   measurement record from the writing date. No experiment was rerun for these notes.
+- retired/privi/ and retired/aislelens/: first-person project stories added at the
+  owner's request on 3 November. Lead with practical lessons, then evidence and
+  limitations. Keep product retirement separate from completion of backend wind-down.
 - labs/: paused and retired experiments. The former project detail URL is a minimal
   retirement notice with no archive details or access link.
 - /ars and /consulting still resolve as legacy addresses and remain unlinked.
