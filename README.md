@@ -24,7 +24,13 @@ build and covers the maintained pages, including every note.
 
 ## Content
 
-- index.html: first-person introduction, work, four projects, notes and contact.
+- index.html: first-person introduction, Proofspar in development, work, four
+  existing projects, notes and contact.
+- accuracy/: Proofspar, an accuracy pen test in development. Label proposed
+  capabilities as planned until implemented and validated. No sample section
+  appears before the demonstration is reviewed and approved.
+- lessons/, retired/ and about/: the common lessons, project index and short
+  first-person introduction. All historical URLs remain in place.
 - notes/: three 300-500 word historical notes plus an index. Dates distinguish the
   measurement record from the writing date. No experiment was rerun for these notes.
 - retired/privi/ and retired/aislelens/: first-person project stories added at the
@@ -45,7 +51,9 @@ dim #A3B1C4 and faint #8A97AB ramp. Slate is for structure, not small text.
 Keep content readable without JavaScript and respect reduced motion. No em dashes in
 public copy, company “we”, numbered products, invented process or unsupported success
 claims. No child details, archive locations, employer names or private-access links.
-Only describe the employer as “a large regulated utility”. Do not add paid services.
+Only describe the employer as “a large regulated utility”. The owner's 3 November
+request authorizes the Proofspar product-page preview and pilot-conversation CTA.
+Do not add pricing, purchase flows or unsupported availability claims.
 
 ## Release gate
 
@@ -55,4 +63,6 @@ screenshots and owner edits to the three notes. No push or deployment before his
 After approval, push to origin main and verify the live copy. GitHub Pages deploys
 from .github/workflows/deploy.yml on a push to main. Publishing is not implied by a build.
 Keep the concise current handoff in STATUS.md. Local review evidence is ignored.
+Proofspar also requires the owner's outside-activity clearance before production,
+under section 9.1 of the relaunch brief. See PROOFSPAR.md for scope and name rationale.
 

@@ -23,6 +23,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        accuracy: resolve(import.meta.dirname, 'accuracy/index.html'),
+        lessons: resolve(import.meta.dirname, 'lessons/index.html'),
+        retired: resolve(import.meta.dirname, 'retired/index.html'),
+        about: resolve(import.meta.dirname, 'about/index.html'),
         home: resolve(import.meta.dirname, 'index.html'),
         labs: resolve(import.meta.dirname, 'labs/index.html'),
         lifeos: resolve(import.meta.dirname, 'labs/lifeos/index.html'),

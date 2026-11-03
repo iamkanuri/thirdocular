@@ -5,7 +5,8 @@ import {createHash} from 'node:crypto';
 for(const file of ['dist/index.html','dist/labs/index.html','dist/labs/lifeos/index.html',
  'dist/notes/index.html','dist/notes/same-commit-two-answers/index.html',
  'dist/notes/correcting-my-error-bound/index.html','dist/notes/tools-that-say-what-they-change/index.html',
- 'dist/retired/privi/index.html','dist/retired/aislelens/index.html']){
+ 'dist/retired/privi/index.html','dist/retired/aislelens/index.html',
+ 'dist/accuracy/index.html','dist/lessons/index.html','dist/retired/index.html','dist/about/index.html']){
  let html=readFileSync(file,'utf8');
  const hashes=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)]
   .filter(m=>!m[1].includes('src='))
@@ -14,4 +15,4 @@ for(const file of ['dist/index.html','dist/labs/index.html','dist/labs/lifeos/in
  html=html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="'+policy+'"><meta name="referrer" content="strict-origin-when-cross-origin">');
  writeFileSync(file,html);
 }
-console.log('CSP added to all nine maintained pages; inline scripts use hashes.');
+console.log('CSP added to all thirteen maintained pages; inline scripts use hashes.');

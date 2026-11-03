@@ -19,14 +19,14 @@
 <meta name="twitter:description" content="A worked change-impact analysis on an agentic AI system: a new send capability, a widened scope, a new external destination and a weakened approval : with the controls each one touches, the evidence it invalidates, the evidence that survives by identity, and what would have to change to ship.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
-</head>
-<body class="ars-delta">
+<style>.retirement-banner{box-sizing:border-box;display:block!important;width:100%;padding:20px max(20px,calc((100% - 1050px)/2));background:#1B2131;color:#f5f6fa;border-bottom:1px solid #4F6890;font:15px/1.6 system-ui,sans-serif;text-align:left}.retirement-banner p{margin:0 0 6px}.retirement-banner a{color:#CBD8E4;text-decoration:underline}.retirement-banner small{display:block;font-size:12px}.retirement-banner a:focus-visible{outline:3px solid #CBD8E4;outline-offset:4px}.retired-tool{max-width:1000px;margin:30px auto;padding:20px;font:17px/1.7 system-ui,sans-serif;color:#f5f6fa}.retired-tool a{color:#CBD8E4}pre.recovered-report{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font:15px/1.7 ui-monospace,monospace}.retirement-banner *{box-sizing:border-box}@media(max-width:600px){.retirement-banner{padding:18px 20px}}</style></head>
+<body class="ars-delta"><aside class="retirement-banner" aria-label="Research archive"><p><strong>PRIVI research archive.</strong> The product is retired. <a href="/lessons/">What this work taught me</a></p><small>Display wording was revised on 3 November 2026. Findings and numbers are retained; edited excerpts are not exact quotations. The original structured research data is unchanged.</small></aside>
 <link rel="stylesheet" href="../ars-assets/report.css">
 <link rel="stylesheet" href="../ars-assets/delta.css">
 <main class="std-page">
-<header class="std-crumb no-print">ARS v1.0 &rsaquo; Assurance delta</header>
+<header class="std-crumb no-print">ARS v1.0 › Assurance delta</header>
 <div class="std-doc">
-<h1>acme-ticket-triage: 1.4.2 &rarr; 1.5.0</h1>
+<h1>acme-ticket-triage: 1.4.2 → 1.5.0</h1>
 <p class="std-subtitle">This agent changed. Here is which evidence, which tests and which approvals that change
 invalidated, and whether it can ship.</p>
 <section class="ad-banner">
@@ -48,17 +48,17 @@ invalidated, and whether it can ship.</p>
 <section class="ad-banner">
   <div class="ad-banner-k">A second worked example</div>
   <p>This page compares two declarations. The harder case is the one where the declaration did NOT change and the agent did : an agent whose tools exist only in TypeScript source, one of which sends record payloads to a partner endpoint, and a contract that still describes a read-only tool set. That comparison runs from the parser out, and it also returns BLOCK.</p>
-  <p><a href="./undeclared-capability/">Read the undeclared-capability example &rarr;</a></p>
+  <p><a href="./undeclared-capability/">Read the undeclared-capability example →</a></p>
 </section>
 <section class="ad-banner">
   <div class="ad-banner-k">Where the evidence on this page could come from</div>
   <p>
     Everything above reasons about an evidence ledger. This one was written by hand : plausible sentences about a
-    prior engagement, so that "retained by identity" has something to retain. The third example is the other half:
+    prior engagement, so that &quot;retained by identity&quot; has something to retain. The third example is the other half:
     a reference agent in two configurations, seven probes, and evidence items <b>produced</b> by observing a running
     system rather than typed by somebody describing one.
   </p>
-  <p><a href="./runtime/">Read the runtime-evidence example &rarr;</a></p>
+  <p><a href="./runtime/">Read the runtime-evidence example →</a></p>
 </section>
 <div class="ad-versions">
   <div class="ad-version">
@@ -306,8 +306,8 @@ outvotes one that fired.</p>
   <div class="ad-prov">tools[lookup-customer]/required_scopes</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> ARS-01 End-user identity propagates to every downstream call · ARS-02 Least-privilege tool credentials · ARS-11 Tool-call authorization is enforced server-side · ARS-13 Immutable audit plane · ARS-22 Rollback/compensation for committed actions · ARS-25 Injection resistance is tested, not assumed · ARS-27 Data exfiltration channels are enumerated and constrained · ARS-29 Tenant and context isolation · ARS-38 Data classification enforced at the retrieval layer · ARS-39 PII/sensitive data minimization in context assembly</p>
-  <p><b>Evidence it invalidates:</b> <code>ev-audit-plane-immutable</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-identity-propagation-trace</code>, <code>ev-injection-suite-run</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-server-side-authz-probe</code></p>
+  <p><b>Controls this touches:</b> ARS-01 End-user identity propagates to every downstream call · ARS-02 Least-privilege tool credentials · ARS-11 Tool-call authorization is enforced server-side · ARS-13 Immutable review plane · ARS-22 Rollback/compensation for committed actions · ARS-25 Injection resistance is tested, not assumed · ARS-27 Data exfiltration channels are enumerated and constrained · ARS-29 Tenant and context isolation · ARS-38 Data classification enforced at the retrieval layer · ARS-39 PII/sensitive data minimization in context assembly</p>
+  <p><b>Evidence it invalidates:</b> <code>ev-review-plane-immutable</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-identity-propagation-trace</code>, <code>ev-injection-suite-run</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-server-side-authz-probe</code></p>
 
   <div class="ad-prov">change_id <code>permission_expanded:lookup-customer</code> · claims tools[lookup-customer]/required_scopes</div>
 </article>
@@ -425,8 +425,8 @@ outvotes one that fired.</p>
     <ul class="ad-ev">
 <li class="ad-ev-retained">
     <span class="ad-ev-state">retained</span>
-    <span class="ad-ev-id">ev-audit-identity-separated</span>
-    <p>ARS-05 · manually verified : Audit records carry both the acting user and the agent principal in separate fields, so a record written by the agent on behalf of a person is distinguishable from one the person wrote.</p>
+    <span class="ad-ev-id">ev-review-identity-separated</span>
+    <p>ARS-05 · manually verified : Review records carry both the acting user and the agent principal in separate fields, so a record written by the agent on behalf of a person is distinguishable from one the person wrote.</p>
   </li>
 <li class="ad-ev-retained">
     <span class="ad-ev-state">retained</span>
@@ -467,8 +467,8 @@ outvotes one that fired.</p>
   </li>
 <li class="ad-ev-invalidated">
     <span class="ad-ev-state">invalidated</span>
-    <span class="ad-ev-id">ev-audit-plane-immutable</span>
-    <p>ARS-13 · manually verified : The audit store is append-only, written by a principal that cannot delete, and retention is set beyond the incident window.</p>
+    <span class="ad-ev-id">ev-review-plane-immutable</span>
+    <p>ARS-13 · manually verified : The review store is append-only, written by a principal that cannot delete, and retention is set beyond the incident window.</p>
   </li>
 <li class="ad-ev-invalidated">
     <span class="ad-ev-state">invalidated</span>
@@ -518,7 +518,7 @@ outvotes one that fired.</p>
 <li class="ad-ev-invalidated">
     <span class="ad-ev-state">invalidated</span>
     <span class="ad-ev-id">ev-identity-propagation-trace</span>
-    <p>ARS-01 · automatically verified : Ten sampled runs were traced end to end; every downstream call carried the originating user&#39;s identity rather than a service principal.</p>
+    <p>ARS-01 · automatically verified : Ten sampled runs were traced end to end; every downstream call carried the originating user&#x27;s identity rather than a service principal.</p>
   </li>
 <li class="ad-ev-invalidated">
     <span class="ad-ev-state">invalidated</span>
@@ -553,7 +553,7 @@ outvotes one that fired.</p>
 <li class="ad-ev-invalidated">
     <span class="ad-ev-state">invalidated</span>
     <span class="ad-ev-id">ev-server-side-authz-probe</span>
-    <p>ARS-11 · automatically verified : A tool call was replayed with the authorization header stripped and with a second user&#39;s token; both were refused at the service, not at the agent.</p>
+    <p>ARS-11 · automatically verified : A tool call was replayed with the authorization header stripped and with a second user&#x27;s token; both were refused at the service, not at the agent.</p>
   </li>
 <li class="ad-ev-invalidated">
     <span class="ad-ev-state">invalidated</span>
@@ -587,218 +587,218 @@ outvotes one that fired.</p>
   <td>ARS-1.0-01</td>
   <td>End-user identity propagates to every downstream call</td>
   <td>2 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-02</td>
   <td>Least-privilege tool credentials</td>
   <td>3 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-04</td>
   <td>Session and credential lifetime bounds</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-06</td>
   <td>Closed tool registry</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-07</td>
   <td>Tool schemas are maximally constrained</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-08</td>
   <td>Destructive actions are enumerated and gated</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-09</td>
   <td>Human approval gate on irreversible or high-impact actions</td>
   <td>4 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-10</td>
   <td>Approval fatigue is designed against</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-11</td>
   <td>Tool-call authorization is enforced server-side</td>
   <td>2 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-12</td>
   <td>Cross-tool data flow policy</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-13</td>
-  <td>Immutable audit plane</td>
+  <td>Immutable review plane</td>
   <td>1 change(s)</td>
-  <td>ev-audit-plane-immutable, ev-exfiltration-channels-enumerated, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>ev-review-plane-immutable, ev-exfiltration-channels-enumerated, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-14</td>
   <td>End-to-end correlation IDs</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-15</td>
   <td>Reasoning trace retention with access controls</td>
   <td>2 change(s)</td>
   <td>ev-cost-attribution, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-supply-chain-pinned, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-16</td>
   <td>Full replayability of any agent run</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-18</td>
   <td>Kill switch with defined blast radius</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-19</td>
   <td>Idempotency on side-effecting operations</td>
   <td>4 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-21</td>
   <td>Graceful degradation path</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-22</td>
   <td>Rollback/compensation for committed actions</td>
   <td>6 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-23</td>
   <td>Timeout discipline at every boundary</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-24</td>
   <td>Untrusted content is segregated and labeled</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-25</td>
   <td>Injection resistance is tested, not assumed</td>
   <td>6 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-26</td>
   <td>Output handling prevents downstream injection</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-27</td>
   <td>Data exfiltration channels are enumerated and constrained</td>
   <td>6 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-28</td>
   <td>Model and dependency supply chain is pinned</td>
   <td>1 change(s)</td>
   <td>ev-cost-attribution, ev-injection-suite-run, ev-supply-chain-pinned, ev-trace-retention-acl</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-29</td>
   <td>Tenant and context isolation</td>
   <td>3 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-31</td>
   <td>Cost attribution to business unit of work</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-32</td>
   <td>Resource quotas on downstream systems</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-33</td>
   <td>A versioned eval suite exists and gates deployment</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-34</td>
   <td>Eval coverage maps to destructive-action inventory</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-35</td>
   <td>Production behavior monitoring with drift detection</td>
   <td>4 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-36</td>
   <td>Human feedback loop is instrumented</td>
   <td>3 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-37</td>
@@ -811,29 +811,29 @@ outvotes one that fired.</p>
   <td>ARS-1.0-38</td>
   <td>Data classification enforced at the retrieval layer</td>
   <td>3 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-39</td>
   <td>PII/sensitive data minimization in context assembly</td>
   <td>3 change(s)</td>
-  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-review-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-40</td>
   <td>Retention, deletion, and data-subject request handling covers agent artifacts</td>
   <td>3 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-trace-retention-acl, ev-untrusted-segregation</td>
-  <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
+  <td>automatically verified, manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 <tr>
   <td>ARS-1.0-41</td>
   <td>Regulatory and review-board traceability package</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-idempotency-keys, ev-incident-taxonomy, ev-review-board-package</td>
-  <td>manually verified, attested (attestation alone cannot settle it)</td>
+  <td>manually verified, attested (formal statement alone cannot settle it)</td>
 </tr>
 </tbody></table></div>
 <p><b>Newly applicable:</b> ARS-29. There is no prior evidence for these at all, which is a different problem from evidence that went stale.</p>
@@ -896,8 +896,8 @@ passed, which is the difference between an assessment that is short and one that
   <tbody>
   <tr><td><code>ev-approval-gate-enforced</code></td><td>ARS-09</td><td>automatically verified</td><td>invalidated</td></tr>
   <tr><td><code>ev-approval-volume-measured</code></td><td>ARS-10</td><td>attested</td><td>invalidated</td></tr>
-  <tr><td><code>ev-audit-identity-separated</code></td><td>ARS-05</td><td>manually verified</td><td>retained</td></tr>
-  <tr><td><code>ev-audit-plane-immutable</code></td><td>ARS-13</td><td>manually verified</td><td>invalidated</td></tr>
+  <tr><td><code>ev-review-identity-separated</code></td><td>ARS-05</td><td>manually verified</td><td>retained</td></tr>
+  <tr><td><code>ev-review-plane-immutable</code></td><td>ARS-13</td><td>manually verified</td><td>invalidated</td></tr>
   <tr><td><code>ev-budget-ceilings</code></td><td>ARS-30</td><td>automatically verified</td><td>retained</td></tr>
   <tr><td><code>ev-correlation-ids</code></td><td>ARS-14</td><td>automatically verified</td><td>invalidated</td></tr>
   <tr><td><code>ev-cost-attribution</code></td><td>ARS-31</td><td>attested</td><td>invalidated</td></tr>
@@ -968,7 +968,7 @@ passed, which is the difference between an assessment that is short and one that
 </ul>
 <h3>Human reviews : 8</h3>
 <ul class="ad-work">
-  <li><span class="ad-work-k">Security review board</span>Confirm the remaining gate is proportionate to the action&#39;s blast radius.</li>
+  <li><span class="ad-work-k">Security review board</span>Confirm the remaining gate is proportionate to the action&#x27;s blast radius.</li>
   <li><span class="ad-work-k">Head of Customer Operations Engineering</span>Accept, in writing, that draft-reply may now act with less human involvement than the previous release required.</li>
   <li><span class="ad-work-k">Security review board</span>Approve the expanded authority on lookup-customer, or narrow it.</li>
   <li><span class="ad-work-k">Data protection reviewer</span>Approve the path by which data may now reach mail-relay.internal.acme.example/transactional, and record what may travel it.</li>
@@ -1145,7 +1145,7 @@ not be: a number is arguable and a named fact is not.</p>
   <p>The machine-readable artifact ships beside this page as <a href="./ars-delta.json">ars-delta.json</a>, with the
   two contracts and the evidence ledger it was computed from. Every conclusion above names the id it carries there.
   Nothing on this page certifies anything.</p>
-  <p class="no-print">ARS v1.0 &middot; Assessment &middot; <a href="./undeclared-capability/">Read the undeclared-capability example</a> &middot; <a href="./runtime/">Runtime evidence</a> &middot;
+  <p class="no-print">ARS v1.0 · Assessment · <a href="./undeclared-capability/">Read the undeclared-capability example</a> · <a href="./runtime/">Runtime evidence</a> ·
   <a href="https://lens.thirdocular.com">AisleLens</a></p>
 </footer>
 </div>

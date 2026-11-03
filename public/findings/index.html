@@ -19,8 +19,8 @@
 <meta name="twitter:description" content="Of 4,445 tools observed across 200 public agent repositories, 103 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
-</head>
-<body class="findings">
+<style>.retirement-banner{box-sizing:border-box;display:block!important;width:100%;padding:20px max(20px,calc((100% - 1050px)/2));background:#1B2131;color:#f5f6fa;border-bottom:1px solid #4F6890;font:15px/1.6 system-ui,sans-serif;text-align:left}.retirement-banner p{margin:0 0 6px}.retirement-banner a{color:#CBD8E4;text-decoration:underline}.retirement-banner small{display:block;font-size:12px}.retirement-banner a:focus-visible{outline:3px solid #CBD8E4;outline-offset:4px}.retired-tool{max-width:1000px;margin:30px auto;padding:20px;font:17px/1.7 system-ui,sans-serif;color:#f5f6fa}.retired-tool a{color:#CBD8E4}pre.recovered-report{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font:15px/1.7 ui-monospace,monospace}.retirement-banner *{box-sizing:border-box}@media(max-width:600px){.retirement-banner{padding:18px 20px}}</style></head>
+<body class="findings"><aside class="retirement-banner" aria-label="Research archive"><p><strong>PRIVI research archive.</strong> The product is retired. <a href="/lessons/">What this work taught me</a></p><small>Display wording was revised on 3 November 2026. Findings and numbers are retained; edited excerpts are not exact quotations. The original structured research data is unchanged.</small></aside>
 <main class="std-page findings-page">
 <nav class="std-crumb">ARS v1.0 · <a href="../assurance-delta/">Assurance delta</a> · Consulting</nav>
 
@@ -70,7 +70,7 @@ that comparison is mostly absent.</p>
     <div class="std-count finding-noobs"><span class="std-count-v">3</span><span class="std-count-k">not observable</span></div>
   </div>
   <p class="std-note"><b>The denominator excludes the 3 not-observable cases.</b>
-    The tool asserts read-only and its body could not be read: the implementation is in a language this does not parse, the function could not be bounded without risking a neighbour&#39;s code, or the source line was not resolvable</p>
+    The tool asserts read-only and its body could not be read: the implementation is in a language this does not parse, the function could not be bounded without risking a neighbour&#x27;s code, or the source line was not resolvable</p>
 
   <p class="std-note finding-zero"><b>A zero here is a measurement, not a reassurance.</b>
     It says that of the 100 tools that made a checkable
@@ -107,7 +107,7 @@ findings cannot be re-checked by anybody who disputes them.</p>
 <p><b>Nothing was executed and nothing was re-hosted.</b> Clones were shallow, at the pinned commit,
 with hooks and both gitconfigs pointed at an empty directory, symlinks materialised as inert files,
 and <code>.git</code> removed after checkout. This work references public repositories and extracts
-facts about them; it does not redistribute anyone's source.</p>
+facts about them; it does not redistribute anyone&#x27;s source.</p>
 <p><b>What the sample is biased toward, stated rather than discovered later.</b> Popularity : every
 entry cleared a star floor, so this describes agent code people found. Topic labels : a repository
 that applies none of the fifteen topics is invisible to the frame. And a clear licence, which
@@ -115,21 +115,21 @@ correlates with organisational maturity. All three bias the sample toward <em>mo
 which is the conservative direction for a finding of this shape.</p>
 </section>
 <section class="std-doc" id="intent">
-<h2>Where "undeclared" comes from, when nobody wrote a declaration</h2>
+<h2>Where &quot;undeclared&quot; comes from, when nobody wrote a declaration</h2>
 <p>Not one repository in this corpus has ever written an Agent Contract. So the finding cannot come
-from comparing code against an owner's declaration : there is none. It comes from the artifact
+from comparing code against an owner&#x27;s declaration : there is none. It comes from the artifact
 contradicting itself.</p>
-<p><b>Primary, and the only source the headline uses.</b> A tool's own self-description against its
+<p><b>Primary, and the only source the headline uses.</b> A tool&#x27;s own self-description against its
 own body. Either a machine-readable classification in the declaration : an MCP
 <code>readOnlyHint</code>, a <code>read_only</code> keyword, a declared read side-effect : or the
 description string that gets shipped to the model, saying in words that the tool changes nothing. A
 tool description is not documentation in the usual sense: it is the operative text the agent plans
 against, at the moment of the decision.</p>
-<p><b>Excluded from the headline:</b> the tool's <em>name</em>. <code>fetch_</code> in HTTP code
-frequently means "make a request", and a <code>get_</code> on a search client can legitimately POST.
+<p><b>Excluded from the headline:</b> the tool&#x27;s <em>name</em>. <code>fetch_</code> in HTTP code
+frequently means &quot;make a request&quot;, and a <code>get_</code> on a search client can legitimately POST.
 That reading is computed and published below, separately, so a reader can see what the looser
 interpretation would have produced : it is not folded in.</p>
-<p><b>Also excluded:</b> the repository's README. A README describes a project; a contradiction has
+<p><b>Also excluded:</b> the repository&#x27;s README. A README describes a project; a contradiction has
 to be about a tool.</p>
 <h3>⚠️ POST is not a write, and that decision is why this number is small</h3>
 <p>The tempting implementation counts any outbound HTTP call from a read-named tool as a
@@ -142,7 +142,7 @@ reading: local file writes and deletes, subprocess execution, runtime code evalu
 DELETE, mail and message dispatch, state-changing SQL, and payment. Losing volume to keep the claim
 true is the trade this page makes.</p>
 <p>Two further choices, both of which shrink the number: a write whose target names a cache, a temp
-path or a log is not counted; and the detector reads each tool's own body and <b>follows no
+path or a log is not counted; and the detector reads each tool&#x27;s own body and <b>follows no
 calls</b>, so a tool that delegates to a helper that deletes is not reported. The figure
 understates.</p>
 <p>Every rule is a published regular expression. Nothing was judged by a model, so a maintainer who
@@ -362,7 +362,7 @@ percentage whose unreadable share is hidden is a statement about the instrument.
 
 <section class="std-doc" id="examples">
 <h2>What the contradiction looks like</h2>
-<p>No instance of the primary contradiction survived the detector's rules on this corpus, so there is
+<p>No instance of the primary contradiction survived the detector&#x27;s rules on this corpus, so there is
 no pattern to show. That is the measurement, not an omission.</p>
 </section>
 <section class="std-doc" id="disclosure">
@@ -386,13 +386,13 @@ message, open an issue, or file an advisory, and none of it has network access.<
 <h2>What this does not establish</h2>
 <ul class="finding-limits">
   <li>Static analysis only. Nothing in this corpus was executed, so every finding is about what the code says and what it contains, never about what it does at run time.</li>
-  <li>The detector reads each tool&#39;s own body and follows no calls. A tool that delegates to a helper that changes state is NOT counted. The primary figure therefore understates.</li>
+  <li>The detector reads each tool&#x27;s own body and follows no calls. A tool that delegates to a helper that changes state is NOT counted. The primary figure therefore understates.</li>
   <li>HTTP POST and PUT are deliberately not treated as writes. Search, GraphQL, embedding and inference calls are POSTs that change nothing, and counting them would inflate the figure with false positives. Some genuine writes performed by POST are consequently missed.</li>
   <li>The three adapters read a documented pattern set. A repository that defines its tools some other way contributes a not_observable, and the coverage figures are published so this can be read against the headline.</li>
   <li>The corpus is popularity-weighted (every entry cleared 80 stars) and licence-gated. Both bias the sample toward more careful code, which is the conservative direction for a finding of this shape.</li>
   <li>Repository documentation was NOT used as a source of declared intent for the headline. A README describes a project; a contradiction has to be about a tool.</li>
   <li>A tool description asserting read-only is treated as a claim about that tool. It is not a contract, and no maintainer has agreed to be held to it.</li>
-  <li>The scan is not bit-identical between runs. Re-running it moved one repository&#39;s Python adapter between `unavailable` and `partial` : a subprocess resource limit on a very large tree under concurrent scanning : which moved the tool count by ten. The state is visible rather than silent (see adapter_outcomes below), and an unavailable adapter contributes not_observable rather than zero tools, but figures at this precision can shift slightly on a re-run.</li>
+  <li>The scan is not bit-identical between runs. Re-running it moved one repository&#x27;s Python adapter between `unavailable` and `partial` : a subprocess resource limit on a very large tree under concurrent scanning : which moved the tool count by ten. The state is visible rather than silent (see adapter_outcomes below), and an unavailable adapter contributes not_observable rather than zero tools, but figures at this precision can shift slightly on a re-run.</li>
 </ul>
 <h3>What the instrument could not see</h3>
 <ul class="finding-limits">
@@ -402,14 +402,14 @@ message, open an issue, or file an advisory, and none of it has network access.<
   <li><code>tool.self_description</code> : A tool whose description is assembled at runtime, loaded from a file, or translated, has no static string to compare against its body.</li>
 </ul>
 <p class="std-note">This is a measurement of public code by one party, using one instrument, on one
-day. It is not a certification of anything, it confers no status on any repository named or unnamed,
-and it is not an audit. The standard it was measured against is itself a draft that no second party
+day. It is not a formal third-party recognition of anything, it confers no status on any repository named or unnamed,
+and it is not an review. The standard it was measured against is itself a draft that no second party
 has applied.</p>
 </section>
 
 <footer class="std-foot">
   <p>Computed from a frozen aggregate. This page runs no scan and recomputes nothing; the artifact it
-  renders ships beside it as <a href="./aggregate.json">aggregate.json</a>, with every figure's
+  renders ships beside it as <a href="./aggregate.json">aggregate.json</a>, with every figure&#x27;s
   provenance in it.</p>
   <p class="std-hash">aggregate 0aa06e40b6339f7010e324f8021c7c05f06faa577c0bb3c251a7a1822e0e483c</p>
   <p class="std-hash">ARS v1.0 12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>

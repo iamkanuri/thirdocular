@@ -19,11 +19,11 @@
 <meta name="twitter:description" content="Seven controls probed against two configurations of one reference agent. The hardened run produced 7 runtime_verified evidence items; the unsafe run produced 7 not_observed. 34 of 41 controls have no probe at all.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../../ars-assets/ars.css">
-</head>
-<body class="ars-delta">
+<style>.retirement-banner{box-sizing:border-box;display:block!important;width:100%;padding:20px max(20px,calc((100% - 1050px)/2));background:#1B2131;color:#f5f6fa;border-bottom:1px solid #4F6890;font:15px/1.6 system-ui,sans-serif;text-align:left}.retirement-banner p{margin:0 0 6px}.retirement-banner a{color:#CBD8E4;text-decoration:underline}.retirement-banner small{display:block;font-size:12px}.retirement-banner a:focus-visible{outline:3px solid #CBD8E4;outline-offset:4px}.retired-tool{max-width:1000px;margin:30px auto;padding:20px;font:17px/1.7 system-ui,sans-serif;color:#f5f6fa}.retired-tool a{color:#CBD8E4}pre.recovered-report{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font:15px/1.7 ui-monospace,monospace}.retirement-banner *{box-sizing:border-box}@media(max-width:600px){.retirement-banner{padding:18px 20px}}</style></head>
+<body class="ars-delta"><aside class="retirement-banner" aria-label="Research archive"><p><strong>PRIVI research archive.</strong> The product is retired. <a href="/lessons/">What this work taught me</a></p><small>Display wording was revised on 3 November 2026. Findings and numbers are retained; edited excerpts are not exact quotations. The original structured research data is unchanged.</small></aside>
 <link rel="stylesheet" href="../../ars-assets/delta.css">
 <main class="std-page">
-<header class="std-crumb no-print">ARS v1.0 &rsaquo; <a href="../">Assurance delta</a> &rsaquo; Runtime evidence</header>
+<header class="std-crumb no-print">ARS v1.0 › <a href="../">Assurance delta</a> › Runtime evidence</header>
 <div class="std-doc">
 <h1>Runtime evidence</h1>
 <p class="std-subtitle">7 probes, two configurations of one agent, and the difference between
@@ -77,8 +77,8 @@ evidence that a control holds and evidence that it does not.</p>
 <tr id="ARS-05">
   <th scope="row">
     ARS-1.0-05
-    <span class="std-note">Separation of agent identity from human identity in audit records</span>
-    <span class="std-note"><code>probe-ars-05-dual-identity-audit</code></span>
+    <span class="std-note">Separation of agent identity from human identity in review records</span>
+    <span class="std-note"><code>probe-ars-05-dual-identity-review</code></span>
   </th>
   <td class="rt-pass">
   <b>observed working</b>
@@ -88,7 +88,7 @@ evidence that a control holds and evidence that it does not.</p>
   <td class="rt-fail">
   <b>observed failing</b>
   <span class="std-note">not_observed : the mechanism was looked for on a running system and was not there</span>
-  <span class="std-note"><code>single-identity-audit</code></span>
+  <span class="std-note"><code>single-identity-review</code></span>
 </td>
 </tr>
 <tr id="ARS-11">
@@ -185,7 +185,7 @@ evidence that a control holds and evidence that it does not.</p>
   <b>7</b> recorded as <code>not_observed</code>. A watched failure is a real
   observation and it is not evidence that the control holds, which is why the two words are different.
 </p>
-<h2 id="defects">The unsafe configuration's defects, one at a time</h2>
+<h2 id="defects">The unsafe configuration&#x27;s defects, one at a time</h2>
 <p>
   Each is a switch in the shared codebase, and each exists to be caught by one named probe. A defect with no probe
   would make the unsafe configuration look worse for reasons nothing measured; a probe with no defect would pass on
@@ -202,10 +202,10 @@ evidence that a control holds and evidence that it does not.</p>
   <td><a href="#ARS-01">ARS-01</a><span class="std-note"><code>probe-ars-01-identity-propagation</code></span></td>
 </tr>
 <tr>
-  <td><code>audit-single-identity</code><span class="std-note">switch <code>audit_dual_identity</code></span></td>
-  <td>Audit records name the agent and not the user on whose behalf it acted.</td>
+  <td><code>review-single-identity</code><span class="std-note">switch <code>audit_dual_identity</code></span></td>
+  <td>Review records name the agent and not the user on whose behalf it acted.</td>
   <td>After an incident, &quot;the agent deleted it&quot; is the whole record. Nothing distinguishes an action a user asked for from one the agent decided on, which is the first question anybody asks.</td>
-  <td><a href="#ARS-05">ARS-05</a><span class="std-note"><code>probe-ars-05-dual-identity-audit</code></span></td>
+  <td><a href="#ARS-05">ARS-05</a><span class="std-note"><code>probe-ars-05-dual-identity-review</code></span></td>
 </tr>
 <tr>
   <td><code>authorization-client-side-only</code><span class="std-note">switch <code>server_side_authorization</code></span></td>
@@ -228,13 +228,13 @@ evidence that a control holds and evidence that it does not.</p>
 <tr>
   <td><code>untrusted-content-concatenated</code><span class="std-note">switch <code>untrusted_content_isolated</code></span></td>
   <td>Untrusted content is concatenated into the instruction the model runs under.</td>
-  <td>Text an outsider controls arrives in the position where instructions live. Whatever it says, the agent does : with the agent&#39;s authority, not the outsider&#39;s.</td>
+  <td>Text an outsider controls arrives in the position where instructions live. Whatever it says, the agent does : with the agent&#x27;s authority, not the outsider&#x27;s.</td>
   <td><a href="#ARS-25">ARS-25</a><span class="std-note"><code>probe-ars-25-injection-resistance</code></span></td>
 </tr>
 <tr>
   <td><code>tenant-isolation-absent</code><span class="std-note">switch <code>tenant_isolation_enforced</code></span></td>
-  <td>A record lookup ignores the session&#39;s tenant and returns whatever id it is given.</td>
-  <td>One tenant reads another tenant&#39;s records by guessing an id, through the ordinary tool path.</td>
+  <td>A record lookup ignores the session&#x27;s tenant and returns whatever id it is given.</td>
+  <td>One tenant reads another tenant&#x27;s records by guessing an id, through the ordinary tool path.</td>
   <td><a href="#ARS-29">ARS-29</a><span class="std-note"><code>probe-ars-29-tenant-isolation</code></span></td>
 </tr>
 <tr>
@@ -252,7 +252,7 @@ evidence that a control holds and evidence that it does not.</p>
   produced it. Every one of these travels with the evidence item too, into any ledger that carries it.
 </p>
 <details class="std-static" id="limits-ARS-01">
-  <summary>ARS-1.0-01 &middot; End-user identity propagates to every downstream call</summary>
+  <summary>ARS-1.0-01 · End-user identity propagates to every downstream call</summary>
   <ul>
     <li>That the downstream system enforces anything on the principal it receives. This observes what the agent sends, not what the receiver does with it.</li>
     <li>That every call path propagates identity. One message plans one call; a path this scenario does not reach is unobserved, not clean.</li>
@@ -260,15 +260,15 @@ evidence that a control holds and evidence that it does not.</p>
   </ul>
 </details>
 <details class="std-static" id="limits-ARS-05">
-  <summary>ARS-1.0-05 &middot; Separation of agent identity from human identity in audit records</summary>
+  <summary>ARS-1.0-05 · Separation of agent identity from human identity in review records</summary>
   <ul>
-    <li>That the audit record is durable, tamper-evident, or retained. This reads it through the target&#39;s own API moments after the run.</li>
+    <li>That the review record is durable, tamper-evident, or retained. This reads it through the target&#x27;s own API moments after the run.</li>
     <li>That the identities recorded are correct : only that two distinct identities are recorded. A record naming the wrong user would pass this probe.</li>
     <li>That every event type carries both identities. It checks the five this scenario produces.</li>
   </ul>
 </details>
 <details class="std-static" id="limits-ARS-11">
-  <summary>ARS-1.0-11 &middot; Tool-call authorization is enforced server-side</summary>
+  <summary>ARS-1.0-11 · Tool-call authorization is enforced server-side</summary>
   <ul>
     <li>That the authorization policy itself is correct. This observes THAT a decision was made server-side, not that the decision was right.</li>
     <li>That every tool is protected. It exercises one tool the user lacks; a tool this scenario does not name is unobserved.</li>
@@ -276,15 +276,15 @@ evidence that a control holds and evidence that it does not.</p>
   </ul>
 </details>
 <details class="std-static" id="limits-ARS-16">
-  <summary>ARS-1.0-16 &middot; Full replayability of any agent run</summary>
+  <summary>ARS-1.0-16 · Full replayability of any agent run</summary>
   <ul>
-    <li>That a real run is reproducible. The target&#39;s model is deterministic by construction; a system with a real model reproduces the RECORD, never the reasoning.</li>
-    <li>That the record survives the process. Everything here is read from memory through the target&#39;s own API.</li>
+    <li>That a real run is reproducible. The target&#x27;s model is deterministic by construction; a system with a real model reproduces the RECORD, never the reasoning.</li>
+    <li>That the record survives the process. Everything here is read from memory through the target&#x27;s own API.</li>
     <li>That the record is complete for an incident. It checks the five events this scenario produces and the idempotency behaviour of one tool.</li>
   </ul>
 </details>
 <details class="std-static" id="limits-ARS-18">
-  <summary>ARS-1.0-18 &middot; Kill switch with defined blast radius</summary>
+  <summary>ARS-1.0-18 · Kill switch with defined blast radius</summary>
   <ul>
     <li>That the switch is reachable during an incident. This calls an endpoint on a healthy target; the case that matters is the one where the target is not healthy.</li>
     <li>That anybody knows how to pull it. Operability of a control is a governance question and no probe reads it.</li>
@@ -292,7 +292,7 @@ evidence that a control holds and evidence that it does not.</p>
   </ul>
 </details>
 <details class="std-static" id="limits-ARS-25">
-  <summary>ARS-1.0-25 &middot; Injection resistance is tested, not assumed</summary>
+  <summary>ARS-1.0-25 · Injection resistance is tested, not assumed</summary>
   <ul>
     <li>That the target resists injection in general. It resists THIS directive, in THIS channel. A second ingestion path : a tool result, a retrieved document, a file name : is a separate channel and is unobserved.</li>
     <li>That a persuasive natural-language injection would fail. The planted directive is deliberately mechanical, so the result is about context assembly rather than about how gullible a model is.</li>
@@ -300,10 +300,10 @@ evidence that a control holds and evidence that it does not.</p>
   </ul>
 </details>
 <details class="std-static" id="limits-ARS-29">
-  <summary>ARS-1.0-29 &middot; Tenant and context isolation</summary>
+  <summary>ARS-1.0-29 · Tenant and context isolation</summary>
   <ul>
     <li>That isolation holds anywhere but this one read path. A write, a search, a cache, an export and a log line are five more paths and none of them is observed here.</li>
-    <li>That the boundary is enforced in storage. The fixture holds one in-memory array; a real system&#39;s isolation is usually a property of a query, a row policy or a connection, none of which exists here.</li>
+    <li>That the boundary is enforced in storage. The fixture holds one in-memory array; a real system&#x27;s isolation is usually a property of a query, a row policy or a connection, none of which exists here.</li>
     <li>That tenant identity itself is trustworthy. The session declares its tenant; a system where a caller can choose its own tenant would pass this probe and fail the control.</li>
   </ul>
 </details>
@@ -312,33 +312,33 @@ evidence that a control holds and evidence that it does not.</p>
   Every file this page was rendered from ships beside it. The <b>summary</b> is a pure function of what the probes
   concluded and regenerates to an identical canonical hash; the <b>individual probe results</b> do not, and that is
   deliberate : each carries the correlation id of one particular run, which is what lets a reader find that run in
-  the target's own audit record. A delta artifact is a pure function of two contracts. An observation is not, and
+  the target&#x27;s own review record. A delta artifact is a pure function of two contracts. An observation is not, and
   giving them the same guarantee would mean weakening the one that has it.
 </p>
 <ul>
   <li><a href="./runtime-summary.json">runtime-summary.json</a> : canonical hash <code>41471f7e254a7c2acb6de4c499739c2cd6362568b3bd7550a05667b65ee98d3d</code></li>
   <li><a href="./hardened/runtime-evidence.json">hardened/runtime-evidence.json</a> : 7 produced evidence item(s)</li>
   <li><a href="./unsafe/runtime-evidence.json">unsafe/runtime-evidence.json</a> : 7 produced evidence item(s)</li>
-  <li><a href="./hardened/probe-ars-01-identity-propagation.json">hardened/probe-ars-01-identity-propagation.json</a> &middot; <a href="./unsafe/probe-ars-01-identity-propagation.json">unsafe</a></li>
-  <li><a href="./hardened/probe-ars-05-dual-identity-audit.json">hardened/probe-ars-05-dual-identity-audit.json</a> &middot; <a href="./unsafe/probe-ars-05-dual-identity-audit.json">unsafe</a></li>
-  <li><a href="./hardened/probe-ars-11-server-side-authorization.json">hardened/probe-ars-11-server-side-authorization.json</a> &middot; <a href="./unsafe/probe-ars-11-server-side-authorization.json">unsafe</a></li>
-  <li><a href="./hardened/probe-ars-16-replay-record.json">hardened/probe-ars-16-replay-record.json</a> &middot; <a href="./unsafe/probe-ars-16-replay-record.json">unsafe</a></li>
-  <li><a href="./hardened/probe-ars-18-kill-switch.json">hardened/probe-ars-18-kill-switch.json</a> &middot; <a href="./unsafe/probe-ars-18-kill-switch.json">unsafe</a></li>
-  <li><a href="./hardened/probe-ars-25-injection-resistance.json">hardened/probe-ars-25-injection-resistance.json</a> &middot; <a href="./unsafe/probe-ars-25-injection-resistance.json">unsafe</a></li>
-  <li><a href="./hardened/probe-ars-29-tenant-isolation.json">hardened/probe-ars-29-tenant-isolation.json</a> &middot; <a href="./unsafe/probe-ars-29-tenant-isolation.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-01-identity-propagation.json">hardened/probe-ars-01-identity-propagation.json</a> · <a href="./unsafe/probe-ars-01-identity-propagation.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-05-dual-identity-review.json">hardened/probe-ars-05-dual-identity-review.json</a> · <a href="./unsafe/probe-ars-05-dual-identity-review.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-11-server-side-authorization.json">hardened/probe-ars-11-server-side-authorization.json</a> · <a href="./unsafe/probe-ars-11-server-side-authorization.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-16-replay-record.json">hardened/probe-ars-16-replay-record.json</a> · <a href="./unsafe/probe-ars-16-replay-record.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-18-kill-switch.json">hardened/probe-ars-18-kill-switch.json</a> · <a href="./unsafe/probe-ars-18-kill-switch.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-25-injection-resistance.json">hardened/probe-ars-25-injection-resistance.json</a> · <a href="./unsafe/probe-ars-25-injection-resistance.json">unsafe</a></li>
+  <li><a href="./hardened/probe-ars-29-tenant-isolation.json">hardened/probe-ars-29-tenant-isolation.json</a> · <a href="./unsafe/probe-ars-29-tenant-isolation.json">unsafe</a></li>
 </ul>
 <p>
   Each produced evidence item names the probe run that generated it: the probe id, the target, the correlation id and
-  the probe result's own hash. An item claiming a runtime verification that named no run would be an authored item
-  wearing a produced item's status, and the ledger grammar refuses it.
+  the probe result&#x27;s own hash. An item claiming a runtime verification that named no run would be an authored item
+  wearing a produced item&#x27;s status, and the ledger grammar refuses it.
 </p>
 <footer class="std-foot">
   <p>Summary artifact <code>runtime-evidence-summary</code> v0.1, canonical hash
   <code>41471f7e254a7c2acb6de4c499739c2cd6362568b3bd7550a05667b65ee98d3d</code>.</p>
   <p>Judged against ARS ARS v1.0, content hash
   <code>12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</code>.</p>
-  <p class="no-print">ARS v1.0 &middot;
-  <a href="../">Assurance delta</a> &middot; Assessment &middot;
+  <p class="no-print">ARS v1.0 ·
+  <a href="../">Assurance delta</a> · Assessment ·
   <a href="https://lens.thirdocular.com">AisleLens</a></p>
 </footer>
 </div>
