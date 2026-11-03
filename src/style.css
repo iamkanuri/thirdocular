@@ -109,10 +109,10 @@ h3{font-weight:400;font-size:23px;letter-spacing:-.025em;line-height:1.4}
 .building-feature .section-body>.lede{margin-bottom:20px}
 .building-origin{margin-left:24px}
 .product-page{max-width:1336px;padding:0 var(--pad)}
-.proofspar-hero{padding:66px 0 76px}
+.truvli-hero{padding:66px 0 76px}
 .product-kicker{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:35px}
 .product-name{font-size:clamp(60px,8vw,100px);font-weight:400;letter-spacing:-.06em;line-height:1.05;margin-bottom:36px}
-.proofspar-hero h1{font-size:clamp(38px,4.5vw,64px);line-height:1.14;font-weight:300;letter-spacing:-.045em;margin-bottom:25px}
+.truvli-hero h1{font-size:clamp(38px,4.5vw,64px);line-height:1.14;font-weight:300;letter-spacing:-.045em;margin-bottom:25px}
 .product-dek{font-size:clamp(20px,2vw,25px);line-height:1.6;letter-spacing:-.015em;max-width:830px;color:var(--text-dim)}
 .product-actions{display:flex;gap:30px;align-items:center;flex-wrap:wrap;margin:32px 0 20px}
 .product-status-note{font-size:13px;line-height:1.8;max-width:700px;color:var(--text-faint)}
@@ -143,8 +143,8 @@ h3{font-weight:400;font-size:23px;letter-spacing:-.025em;line-height:1.4}
 .product-contact h2{font-size:clamp(32px,4vw,48px);font-weight:300;letter-spacing:-.03em;line-height:1.25;margin:20px 0}
 .product-contact>p:not(.eyebrow){color:var(--text-dim)}
 .product-contact>.button-link{margin-top:27px}
-@media(max-width:780px){.proofspar-hero{padding-top:36px;padding-bottom:46px}.product-section{padding:40px 0 45px}.pressure-examples{grid-template-columns:1fr;gap:24px}.pressure-examples h3{margin-bottom:8px}.product-split{grid-template-columns:1fr;gap:30px}.product-kicker{gap:14px;margin-bottom:27px}.product-kicker .eyebrow{font-size:10px}.product-contact{padding:44px 0 54px}}
-@media(max-width:480px){.product-name{font-size:64px;margin-bottom:27px}.proofspar-hero h1{font-size:38px}.product-actions{gap:22px;align-items:flex-start;flex-direction:column}.product-dek,.section-dek{font-size:20px}.test-process li{grid-template-columns:24px 1fr;gap:14px}.test-process h3{font-size:21px}.test-process p{font-size:16px}.deliverable-list{padding:22px}.building-heading{gap:12px}.building-heading h3{font-size:36px}.building-origin{display:block;width:max-content;margin:20px 0 0}.product-body{font-size:16px}}
+@media(max-width:780px){.truvli-hero{padding-top:36px;padding-bottom:46px}.product-section{padding:40px 0 45px}.pressure-examples{grid-template-columns:1fr;gap:24px}.pressure-examples h3{margin-bottom:8px}.product-split{grid-template-columns:1fr;gap:30px}.product-kicker{gap:14px;margin-bottom:27px}.product-kicker .eyebrow{font-size:10px}.product-contact{padding:44px 0 54px}}
+@media(max-width:480px){.product-name{font-size:64px;margin-bottom:27px}.truvli-hero h1{font-size:38px}.product-actions{gap:22px;align-items:flex-start;flex-direction:column}.product-dek,.section-dek{font-size:20px}.test-process li{grid-template-columns:24px 1fr;gap:14px}.test-process h3{font-size:21px}.test-process p{font-size:16px}.deliverable-list{padding:22px}.building-heading{gap:12px}.building-heading h3{font-size:36px}.building-origin{display:block;width:max-content;margin:20px 0 0}.product-body{font-size:16px}}
 @media(max-width:480px){.lesson-takeaway{padding:20px;margin:28px 0 36px}.lesson-takeaway p{font-size:18px}.story-prose h2{font-size:25px}.lesson-list li{padding-left:32px}.lesson-list h3{font-size:21px}.project-story h1 br{display:none}}
 @media(max-width:1100px){.hero{grid-template-columns:minmax(0,1fr) 215px;gap:24px;padding-top:75px;padding-bottom:78px}.wide-break{display:none}.section-grid{grid-template-columns:160px minmax(0,1fr);gap:34px}.project-heading{gap:10px}.project-heading .status{margin-left:0}.project-heading .arrow{margin-left:auto}}
 @media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:45px;padding-bottom:55px;gap:32px}.hero-copy{max-width:650px}.hero h1{font-size:clamp(39px,7vw,55px)}.hero-line{font-size:30px;max-width:600px}.iris-wrap{position:absolute;width:160px;right:var(--pad);bottom:40px;opacity:.65;pointer-events:none}.iris-caption{display:none}.hero-aside,.hero .text-link{max-width:calc(100% - 170px)}.section-grid{grid-template-columns:1fr;gap:26px;padding:43px 0 48px}.section-label{padding:0}.section-body{max-width:none}.site-foot>span{display:none}}
