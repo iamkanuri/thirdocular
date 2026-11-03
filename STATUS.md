@@ -1,4 +1,4 @@
-# Truvli publication approved
+# Truvli published
 
 Updated 3 November 2026. Branch: `proofspar-launch-20261103`, based on published main at `2631b6f`. The owner asked for the new accuracy pen test to be named and advanced. The owner rejected Proofspar as not catchy. The replacement proposal is **Truvli by ThirdOcular** (TROOV-lee), with the line **Put your AI's answers under pressure.** See `PRODUCT.md` for the reasoning and scope.
 
@@ -22,6 +22,6 @@ Updated 3 November 2026. Branch: `proofspar-launch-20261103`, based on published
 
 ## Release approval and next phase
 
-On 3 November 2026, after reviewing the Truvli preview, the owner confirmed the outside-activity prerequisite and instructed continuation. This clears the Phase 2 publication stop point and section 9.1. The approved release is being deployed through the existing GitHub Pages workflow. Live verification is recorded after deployment.
+On 3 November 2026, after reviewing the Truvli preview, the owner confirmed the outside-activity prerequisite and instructed continuation. This clears the Phase 2 publication stop point and section 9.1. Published commit `8a488f6a068ace5ce79304ae33df2e654a10e344` through the existing GitHub Pages workflow. Run `41696334438` completed successfully: https://github.com/iamkanuri/thirdocular/actions/runs/41696334438. The homepage, product, lessons, retired index, about, both project stories and sharing image return 200 and match the approved build byte for byte. The sitemap returns 200 and matches parsed XML content; local Windows line endings differ. The live product page was checked in the browser and a screenshot is retained in `.review/truvli-live.jpg`.
 
-The accuracy engine and demonstration remain unbuilt. After the Phase 2 stop point, Phase 3 requires frozen probes before model runs and blind owner labels before measuring the checker. Phase 4 remains locked behind the owner's buyer-conversation decision file. No paid model calls, third-party probes, backend shutdown or new infrastructure occurred here.
+The separate local `thirdocular-accuracy` package now contains the initial evidence and statistics foundation, with 42 unit tests passing and a strict TypeScript check passing. This is not yet a working policy-answer test or completed demonstration. The policy evaluator, actual frozen probes, two model runs and blind owner labels remain. No sample report has been added to the site. Phase 4 remains locked behind the owner's buyer-conversation decision file. No paid model calls, third-party probes, backend shutdown or new infrastructure occurred here.
