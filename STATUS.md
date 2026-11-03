@@ -1,4 +1,4 @@
-# Truvli preview ready
+# Truvli publication approved
 
 Updated 3 November 2026. Branch: `proofspar-launch-20261103`, based on published main at `2631b6f`. The owner asked for the new accuracy pen test to be named and advanced. The owner rejected Proofspar as not catchy. The replacement proposal is **Truvli by ThirdOcular** (TROOV-lee), with the line **Put your AI's answers under pressure.** See `PRODUCT.md` for the reasoning and scope.
 
@@ -20,8 +20,8 @@ Updated 3 November 2026. Branch: `proofspar-launch-20261103`, based on published
 - Lighthouse 13.6.0 on a compatible temporary Node 22.19 runtime: Home 100 performance / 100 accessibility / 100 SEO; Accuracy page under the previous name 100 / 100 / 100; Lessons 100 / 100 / 100. Font preloads resolved the initial layout shift. These are local mobile lab results, not production field measurements. Project dependencies were not changed.
 - Review evidence is under ignored `.review/`. The full self-contained review starts at `.review/accuracy-preview.html`, with home and lessons links. Images and private historical-link records are excluded from the production build. The temporary HTTP preview was served at `http://127.0.0.1:4178/` during this task and is stopped at teardown.
 
-## Remaining gate
+## Release approval and next phase
 
-No production push or deployment has occurred. The owner asked for a plain-language explanation of clearance. This was explained as employer permission to run a side business, if their policy requires it. Clearance and approval of the revised preview are still unconfirmed. Section 9.1 of the owner brief requires outside-activity clearance before the product page goes live; section 3.9 requires approval of this completed preview. Prior approval covered only the already-published project stories.
+On 3 November 2026, after reviewing the Truvli preview, the owner confirmed the outside-activity prerequisite and instructed continuation. This clears the Phase 2 publication stop point and section 9.1. The approved release is being deployed through the existing GitHub Pages workflow. Live verification is recorded after deployment.
 
 The accuracy engine and demonstration remain unbuilt. After the Phase 2 stop point, Phase 3 requires frozen probes before model runs and blind owner labels before measuring the checker. Phase 4 remains locked behind the owner's buyer-conversation decision file. No paid model calls, third-party probes, backend shutdown or new infrastructure occurred here.

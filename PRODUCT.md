@@ -8,7 +8,7 @@ The owner asked for a unique, powerful, appropriate name for the new accuracy pe
 
 The owner rejected Proofspar as not catchy. The replacement preview uses **Truvli**, pronounced **TROOV-lee**. It is a short coined name that echoes "truly". The descriptor explains the function: accuracy pen testing for customer-facing AI. The name is not a promise that every answer is true. The product keeps ThirdOcular's existing iris, colors and typefaces.
 
-An initial exact-name web check on 3 November found no obvious same-name AI product. Results were unrelated text, name and word-list matches. This is a preliminary collision check, not worldwide exclusivity or trademark clearance. No domain was bought and no registration claim is made. Truvli is a new proposal in the local preview; the owner has not approved it yet.
+An initial exact-name web check on 3 November found no obvious same-name AI product. Results were unrelated text, name and word-list matches. This is a preliminary collision check, not worldwide exclusivity or trademark clearance. No domain was bought and no registration claim is made. The owner authorized continuation after the Truvli preview on 3 November 2026.
 
 ## What exists
 
@@ -30,7 +30,7 @@ The testing engine, fictional-agent demonstration, measured checker error and sa
 
 ## Release and next phase
 
-The owner brief requires approval of the completed preview before production (section 3.9) and owner confirmation of outside-activity clearance before the product page goes live (section 9.1). The owner asked what outside-activity clearance means. It was explained as employer permission to operate a side business alongside the job, if required by the employer. The requirement comes from the supplied brief, not verified knowledge of employer policy. The owner has not confirmed clearance or approved this revised preview.
+The owner confirmed the outside-activity prerequisite and authorized continuation on 3 November 2026 after receiving the completed Truvli preview. Publication approval under section 3.9 and the prerequisite under section 9.1 are satisfied.
 
 After the Phase 2 stop point, the next engineering deliverable is the Phase 3 demonstration: an extracted evidence/statistics core, a checked fictional organization name and source documents, frozen probes before any model run, two agent configurations, and blind human labels to measure the checker. The target in the brief is 22 November 2026. Any model spending needs an authorized budget before paid runs.
 
